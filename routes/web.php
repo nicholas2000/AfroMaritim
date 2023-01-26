@@ -20,7 +20,7 @@ Route::get('/', function () {
 
 Route::get('/dashboard', function () {
     return view('sidebar.dashboard');
-}); 
+});
 
 
 // ROUTE BARUU
@@ -31,12 +31,29 @@ Route::get('/masterPegawai', function () {
 Route::get('/masterCustomer', function () {
     return view('admin.mCustomer');
 });
-Route::get('/masterSupplier', function () {
-    return view('admin.mSupplier');
+Route::get('/masterKompetitor', function () {
+    return view('admin.mKompetitor');
 });
-Route::get('/masterStock', function () {
-    return view('admin.mStock');
+Route::get('/masterCabang', function () {
+    return view('admin.mCabang');
 });
+
+Route::get('/masterTransaksi', function () {
+    return view('admin.mTransaksi');
+});
+
+Route::get('/masterHistory', function () {
+    return view('admin.mHistory');
+});
+
+Route::get('/masterStatus', function () {
+    return view('admin.mStatus');
+});
+
+Route::get('/masterPiutang', function () {
+    return view('admin.mPiutang');
+});
+
 
 // Route::get('/masterPo', [Controller::class, "vmpo"]);
 // Route::post('/doketambahpo', [Controller::class, "ketambahvmpo"]);

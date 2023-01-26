@@ -26,7 +26,7 @@
             <header><a href="#!" class="menu-toggle">
                 <i class="fas fa-bars"></i></a><a href="#"
                     class="brand-logo"><i class="fa fa-line-chart"><img style="width: 50px;border-radius: 50%;"
-                            src="paperusLogo.jpg" alt="" srcset=""></i> <span>PAPERUS.ID</span></a>
+                            src="logo.png" alt="" srcset=""></i> <span>Afro Maritim</span></a>
 
             </header>
 
@@ -36,35 +36,25 @@
                     class="dashboard-nav-item dashboard-nav-dropdown-toggle"><i class="fa fa-user-circle"></i>
                     Master </a>
                 <div class='dashboard-nav-dropdown-menu'>
-                    <a href="/masterPegawai"class="dashboard-nav-dropdown-item">Master Pegawai</a>
+                    <a href="/masterCabang"class="dashboard-nav-dropdown-item">Master Cabang</a>
                     <a href="/masterCustomer"class="dashboard-nav-dropdown-item">Master Customer</a>
-                    <a href="/masterSupplier"class="dashboard-nav-dropdown-item">Master Supplier</a>
-                    <a href="/masterBox"class="dashboard-nav-dropdown-item">Master Box</a>
+                    <a href="/masterKompetitor"class="dashboard-nav-dropdown-item">Master Kompetitor</a>
+                    <a href="/masterPegawai"class="dashboard-nav-dropdown-item">Master Pegawai</a>
 
                 </div>
                 <div class='dashboard-nav-dropdown'>
-                    <a href="#!"class="dashboard-nav-item dashboard-nav-dropdown-toggle"><i class="fa fa-briefcase"></i> Item</a>
+                    <a href="#!"class="dashboard-nav-item dashboard-nav-dropdown-toggle"><i class="fa fa-briefcase"></i> Transaksi</a>
                     <div class='dashboard-nav-dropdown-menu'>
-                        <a href="/masterStock"class="dashboard-nav-dropdown-item">Kartu Stock</a>
+                        <a href="/masterTransaksi"class="dashboard-nav-dropdown-item">Transaksi</a>
+                        <a href="/masterHistory"class="dashboard-nav-dropdown-item">History Transaksi</a>
+                        <a href="/masterStatus"class="dashboard-nav-dropdown-item">Status Barang</a>
                     </div>
                 </div>
                 <div class='dashboard-nav-dropdown'>
-                    <a href="#!"class="dashboard-nav-item dashboard-nav-dropdown-toggle"><i class="fa fa-share"></i>Processing </a>
+                    <a href="#!"class="dashboard-nav-item dashboard-nav-dropdown-toggle"><i class="fa fa-share"></i>Keuangan </a>
                     <div class='dashboard-nav-dropdown-menu'>
-                        <a href="/masterPenawaran"class="dashboard-nav-dropdown-item">Form Penawaran</a>
-                        <a href="/historypenawaran"class="dashboard-nav-dropdown-item">History Penawaran</a>
-                        <a href="/masterPo"class="dashboard-nav-dropdown-item"> Form PO</a>
-                        <a href="/masterPenerimaanbarang"class="dashboard-nav-dropdown-item"> Form Penerimaan Barang</a>
-                        <a href=""class="dashboard-nav-dropdown-item"> SPK</a>
-                        <a href=""class="dashboard-nav-dropdown-item"> Form Processing 1</a>
-                        <a href=""class="dashboard-nav-dropdown-item"> Form Processing 2</a>
-                        <a href=""class="dashboard-nav-dropdown-item"> Form Processing 3</a>
-                        <a href=""class="dashboard-nav-dropdown-item"> Form Processing 4</a>
-                        <a href=""class="dashboard-nav-dropdown-item"> Form Processing 5</a>
-                        <a href=""class="dashboard-nav-dropdown-item"> Form Processing 6</a>
-                        <a href=""class="dashboard-nav-dropdown-item"> Form Processing 7</a>
-                        <a href="/tambahsuratjalan"class="dashboard-nav-dropdown-item"> Form Pengiriman Barang</a>
-                        <a href=""class="dashboard-nav-dropdown-item"> Invoice</a>
+
+                        <a href="/masterPiutang"class="dashboard-nav-dropdown-item">Master Piutang</a>
                     </div>
                 </div>
                 <div class="nav-item-divider"></div>
