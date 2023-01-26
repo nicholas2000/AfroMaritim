@@ -18,174 +18,60 @@
 }
 </style>
 <section class="order-form m-4">
-    <div class="container pt-4">
-        <div class="row">
-            <div class="col-12 ">
-                <h1>Purchase Order</h1>
-
-                <hr class="mt" />
-            </div>
-
-            <div class="row">
-                <div class="col-sm-12 col-md-4 form-group">
-                    <div class="p">
-                        <div class="col-sm-4" >Nomor PO</div>
-                        <div>:</div>
-                        <div class="col-sm-3"><input style="width: 180px;"type='text' placeholder="Masukan Nomor PO " ></div>
-                    </div>
-                    <br>
-                    <div class="p">
-                        <div class="col-sm-4">Kode</div>
-                        <div>:</div>
-                        <div class="col-sm-3"><input style="width: 180px;"type='text' placeholder="Masukan Kode " ></div>
-                    </div>
-                    <br>
-                    <div class="p">
-                        <div class="col-sm-4">Supplier </div>
-                        <div>:</div>
-                        <div class="col-sm-3">
-                            <select style="width: 180px;" class="form-control selectpicker">
-                                <option value="">Pilih Supplier</option>
-                                <option>Andi</option>
-                                <option>Doni</option>
-                                <option>Tono</option>
-                                <option>Sisil</option>
-                            </select>
-                        </div>
-                    </div>
-                    <br>
-                    <div class="p">
-                        <div class="col-sm-4">Alamat </div>
-                        <div>:</div>
-                        <div class="col-sm-3"><input style="width: 180px;"type='text' disabled></div>
-                    </div>
-                    <br>
-                    <div class="p">
-                        <div class="col-sm-4">Telp/Fax </div>
-                        <div>:</div>
-                        <div class="col-sm-3"><input style="width: 180px;"type='text' disabled></div>
-                    </div>
-                    <br>
-                    <div class="p">
-                        <div class="col-sm-4">Item </div>
-                        <div>:</div>
-                        <div class="col-sm-3">
-                            <select style="width: 180px;"class="form-control selectpicker">
-                                <option value="">Pilih Item</option>
-                                <option>Item1</option>
-                                <option>Item2</option>
-                                <option>Item3</option>
-                                <option>Item4</option>
-                            </select>
-                        </div>
-                    </div>
-                    <br>
-                </div>
-                <div class="col-sm-12 col-md-4 form-group">
-                    <div class="p pk">
-                        <div class="col-sm-4">Sales</div>
-                        <div>:</div>
-                        <div class="col-sm-3">Admin</div>
-                    </div>
-                    <br>
-                    <div class="p pk">
-                        <div class="col-sm-4">Date</div>
-                        <div>:</div>
-                        <div class="col-sm-3">1/19/2023</div>
-                    </div>
-                    <br>
-                    <div class="p pk">
-                        <div class=" col-sm-4">Subtotal</div>
-                        <div>:</div>
-                        <div class="col-sm-3">0</div>
-                    </div>
-                    <br>
-                    <div class="p pk">
-                        <div class=" col-sm-4">Pajak</div>
-                        <div>:</div>
-                        <div class="col-sm-3">0</div>
-                    </div>
-                    <br>
-                    <div class="p pk">
-                        <div class=" col-sm-4">Total</div>
-                        <div>:</div>
-                        <div class="col-sm-3">0</div>
-                    </div>
-                    <br>
-                    <div class="p pk">
-                        <div class=" col-sm-4">TOP</div>
-                        <div class="col-sm-3"><button class="btn btn-primary" type="submit">SUBMIT</button></div>
-                    </div>
-                    <br>
-                </div>
-                <br>
-
-            <div class="col-12">
-                <table class="table table-bordered">
-                    <tr style="background-color:  #ec1d24;color: white;">
-                        <th scope="col">No</th>
-                        <th scope="col"> <center>Kode</center> </th>
-                        <th scope="col"> <center>Item Name</center> </th>
-                        <th scope="col"> <center>Satuan</center> </th>
-                        <th scope="col"> <center>Quantity</center> </th>
-                        <th scope="col"> <center>Selling Price</center> </th>
-                        <th scope="col"> <center>Disc</center> </th>
-                        <th scope="col"> <center>Subtotal</center> </th>
-                    </tr>
-
-                    <tr>
-                        <th scope="row">1</th>
-                        <td><center>K1</center> </td>
-                        <td><center>Kardus 1</center></td>
-                        <td><center>lembar</center></td>
-                        <td><center>1000</center></td>
-                        <td><center>10000</center></td>
-                        <td><center>10%</center></td>
-                        <td><center>9000000</center></td>
-                    </tr>
-
-                    <tr>
-                        <th scope="row">2</th>
-                        <td><center>K2</center> </td>
-                        <td><center>Kardus 2</center></td>
-                        <td><center>lembar</center></td>
-                        <td><center>1500</center></td>
-                        <td><center>10000</center></td>
-                        <td><center>11%</center></td>
-                        <td><center>13350000</center></td>
-                    </tr>
-
-                    <tr>
-                        <th scope="row">3</th>
-                        <td><center>K3</center> </td>
-                        <td><center>Kardus 3</center></td>
-                        <td><center>lembar</center></td>
-                        <td><center>2000</center></td>
-                        <td><center>10000</center></td>
-                        <td><center>13%</center></td>
-                        <td><center>17400000</center></td>
-                    </tr>
-
-                </table>
-                <div class="row">
-                    <div class="col">
-                        <br>
-                        Note : <br>
-                        ~Harga sewaktu - waktu dapat berubah
-                    </div>
-                    <div class="col"></div>
-                    <div class="col"></div>
-                    <div class="col"></div>
-
-                    <div class="col">
-                        <br>
-                        <button type="button" style="float: right;" name="btnresetform" class="btn btn-outline-danger">Reset</button>
-                    </div>
-                  </div>
-                </div>
-
-            </div>
-
+    <div class="col-md-3 inputGroupContainer">
+        <div class="input-group">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-barcode"></i></span>
+            <input name="" placeholder="Cari Transaksi" class="form-control"  type="text" >
         </div>
+        <br>
+        <div class="">Nama Karyawan</div>
     </div>
+    <br>
+    <div class="col-12">
+        <table class="table table-bordered">
+
+            <tr style="background-color:  #ec1d24;color: white;">
+
+                <th scope="col"> <center>History Transaksi</center></th>
+
+            </tr>
+
+            <tr>
+
+
+               <td> <div class="input-group">
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-barcode"></i></span>
+                    <input name="" placeholder="Cari Transaksi" class="form-control"  type="text" >
+                </div>
+            </td>
+            <td><div class="">Data Live Search</div>
+                <div class="col-sm-4"><input style="width: 120px;"type='text' enabled></div>
+            </td>
+            <td><div class="">Nomor Kapal</div>
+                    <div class="col-sm-4"><input style="width: 120px;"type='text' enabled></div>
+            </td>
+            </tr>
+            <tr>
+                <td>
+            </td>
+                <td><div class="">Nama Customer</div>
+                    <div class="col-sm-4"><input style="width: 120px;"type='text' disabled></div>
+            </td>
+            <td><div class="">Nomor Container</div>
+                <div class="col-sm-4"><input style="width: 120px;"type='text' enabled></div>
+        </td>
+            </tr>
+
+            <tr>
+
+            <td></td>
+                <td><div class="">Tanggal Pengiriman</div>
+                    <div class="col-sm-4"><input style="width: 120px;"type='text' disabled></div>
+            </td>
+            </tr>
+
+
+        </table>
+    </div>
+    <button type="button" style="float: right;" name="" class="btn btn-outline-danger">Update</button>
 </section>

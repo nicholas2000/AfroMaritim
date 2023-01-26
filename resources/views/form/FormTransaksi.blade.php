@@ -6,38 +6,20 @@
 <section class="order-form m-4">
     <div class="container pt-4">
         <div class="container">
-            <div class="col-12 ">
-                <h1> Form Penerimaan Barang</h1>
-                <hr class="mt" />
+            <div class="form-group">
+                <div class="col-md-3 inputGroupContainer">
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-barcode"></i></span>
+                        <input name="" placeholder="Cari Halaman" class="form-control"  type="text" >
+                    </div>
+                </div>
             </div>
             <br>
             <div class="col-12 ">
-                <button type="submit" class="btn btn-primary">Tambah</button>
+                <h2> Penjualan</h2>
                 <br>
             </div>
             <br>
-
-            <div class="col-3">
-                <div class="row">
-                    <div class="col-md-8">Nomor PO </div>
-                    <div>:</div>
-                    <div class="col-md-3"><input type='text' placeholder="Masukan Nomor PO " ></div>
-                    <br><br>
-                </div>
-
-                <div class="row">
-                    <div class="col-md-8">Nama Supplier </div>
-                    <div>:</div>
-                    <div class="col-md-3"><input type='text'></div>
-                    <br><br>
-                </div>
-
-                <div class="row">
-                    <div class="col-md-8">ID Supplier </div>
-                    <div>:</div>
-                    <div class="col-md-3"><input type='text'></div>
-                    <br><br>
-                </div>
 
                 {{-- ----- --}}
 
@@ -47,40 +29,120 @@
                 <table class="table table-bordered">
 
                     <tr style="background-color:  #ec1d24;color: white;">
-                        <th scope="col">No</th>
-                        <th scope="col"> <center>Jenis Barang</center></th>
-                        <th scope="col"> <center>Tanggal Barang Datang</center> </th>
-                        <th scope="col"> <center>Retur</center></th>
-                        <th scope="col"> <center>Terima</center></th>
+
+                        <th scope="col"> <center>Customer</center></th>
+
                     </tr>
 
                     <tr>
-                        <th scope="row">1</th>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+
+
+                        <td><div class="col-sm-4">Kode Transaksi</div>
+                        <div class="col-sm-4"><input style="width: 120px;"type='text' enabled></div>
+                    </td>
+                    <td><div class="col-sm-4">Tanggal</div>
+                        <div class="col-sm-4"><input style="width: 120px;"type='text' enabled></div>
                     </tr>
 
                     <tr>
-                        <th scope="row">2</th>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+
+
+                        <td><div class="col-sm-4">Admin</div>
+                            <div class="col-sm-4"><input style="width: 120px;"type='text' enabled></div>
+                            <td><div class="col-sm-4">Waktu</div>
+                                <div class="col-sm-4"><input style="width: 120px;"type='text' enabled></div>
                     </tr>
 
                     <tr>
-                        <th scope="row">3</th>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+
+
+                        <td><div class="col-sm-4">Subtotal</div>
+                            <div class="col-sm-4"><input style="width: 120px;"type='text' enabled></div>
+                        <td>Rp.</td>
+
+                    </tr>
+
+                    <tr>
+
+
+                        <td><div class="col-sm-4">Diskon</div>
+                            <div class="col-sm-4"><input style="width: 120px;"type='text' enabled></div>
+                        <td>Rp.</td>
+
                     </tr>
 
                 </table>
             </div>
+            <button type="button" style="float: right;" name="" class="btn btn-outline-danger">ADD</button>
 
+            <div class="col-12">
+                <table class="table table-bordered">
+
+                    <tr style="background-color:  #ec1d24;color: white;">
+
+                        <th scope="col"> <center>Keranjang</center></th>
+
+                    </tr>
+
+                    <tr>
+
+
+                        <td><div class="col-sm-4">Ukuran</div>
+                        <div class="col-sm-4"><input style="width: 120px;"type='text' enabled></div>
+                    </td>
+                        <td><div class="col-sm-4">Volume</div>
+                        <div class="col-sm-4"><input style="width: 120px;"type='text' enabled></div>
+                    </td>
+                    <td><div class="col-sm-4">Berat</div>
+                        <div class="col-sm-4"><input style="width: 120px;"type='text' enabled></div>
+                    </td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="col-12">
+                <table class="table table-bordered">
+
+                    <tr style="background-color:  #ec1d24;color: white;">
+
+                        <th scope="col"> <center>Transaksi</center></th>
+
+                    </tr>
+
+                    <tr style="background-color:  white;color: #ec1d24;">
+
+                        <th scope="col"> <center>Nama Customer</center></th>
+                        <th scope="col"> <center>Rute</center></th>
+                        <th scope="col"> <center>Harga</center></th>
+                        <th scope="col"> <center>Jenis Harga</center></th>
+                        <th scope="col"> <center>Tonase</center></th>
+                        <th scope="col"> <center>Harga Tambahan</center></th>
+                        <th scope="col"> <center>Discount</center></th>
+                        <th scope="col"> <center>Total</center></th>
+
+
+                    </tr>
+
+                    <tr>
+
+
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    </tr>
+                </table>
+            </div>
         </div>
     </div>
 </section>
