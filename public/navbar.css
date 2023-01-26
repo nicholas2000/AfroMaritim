@@ -1,0 +1,21 @@
+.c-offcanvas {
+    left: 0;
+    padding: 1rem;
+    overflow-y: scroll;
+  }
+
+  .js-offcanvas a {
+     color: #337ab7;
+     outline: 0;
+  }
+
+  .navbar {
+     margin-bottom:0px;
+  }
+  /* remove background colors  */
+  .navbar-default, .navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:focus, .navbar-default .navbar-nav>.active>a:hover, .navbar-default .navbar-nav>li>a, .navbar-default .navbar-brand, .navbar-default .navbar-brand:focus, .navbar-default .navbar-brand:hover {
+      background-color: transparent;
+      border-color: transparent;
+     color:black;
+     outline: 0;
+  }
