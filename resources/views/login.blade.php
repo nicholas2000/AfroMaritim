@@ -15,11 +15,11 @@
     <link rel="stylesheet" href="style.css">
 <div class="container">
   <div class="info">
-    <h1>CV Tri Putra Diharja</h1>
+    <h1>PT. AFRO TRANS MARITIM</h1>
   </div>
 </div>
 <div class="form">
-  <div class=><img style="margin-top: -15px" src="paperusLogo.jpg"/></div>
+  <div class=><img style="margin-top: -15px" src="logo.png"/></div>
   <form class="login-form" action="/dashboard">
     <input type="text" placeholder="Username"/>
     <input type="password" placeholder="Password"/>
