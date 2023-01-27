@@ -22,7 +22,9 @@ Route::get('/dashboard', function () {
     return view('sidebar.dashboard');
 });
 
-
+Route::get('/hutang', function () {
+    return view('form.formHutang');
+});
 // ROUTE BARUU
 
 Route::get('/masterPegawai', function () {
