@@ -70,7 +70,7 @@
                         Welcome Admin
                     </div>
                     <div class='card-body'>
-                        @include('form.formPiutang')
+                        @include('form.formHutang')
                     </div>
                 </div>
             </div>

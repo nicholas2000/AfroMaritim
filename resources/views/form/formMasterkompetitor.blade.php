@@ -216,10 +216,10 @@
 
     <!-- Button -->
     <div class="form-group">
-      <label class="col-md-4 control-label"></label>
-      <div class="col-md-4"><br>
-        &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<button type="submit" class="btn" style="background-color: #ec1d24;color:white" >&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspTambah&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</button>
-      </div>
+        <label class="col-md-4 control-label"></label>
+        <div class="col-md-4"><br>
+            <center><button type="button" class="btn btn-primary">Tambah</button></center>
+        </div>
     </div>
 
     </fieldset>
