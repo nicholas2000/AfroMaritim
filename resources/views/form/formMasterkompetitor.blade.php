@@ -20,7 +20,7 @@
     <fieldset>
 
     <!-- Form Add Supply -->
-    <legend><h2><b>Tambah Supply</b></h2></legend><br>
+    <legend><h2><b>Tambah Kompetitor</b></h2></legend><br>
 
     <!--input code-->
     <div class="form-group">
@@ -57,14 +57,14 @@
         </div>
     </div>
 
-    <!-- input street-->
+    <!-- input Alamat-->
 
     <div class="form-group">
-        <label class="col-md-1 control-label">Jalan</label>
+        <label class="col-md-1 control-label">Alamat</label>
         <div class="col-md-10 inputGroupContainer">
             <div class="input-group">
                 <span style="background-color: #ec1d24" class="input-group-addon"><i style="color: white" class="glyphicon glyphicon-road"></i></span>
-                <input name="jalan" placeholder="Masukkan Jalan" class="form-control"  type="text">
+                <input name="jalan" placeholder="Masukkan Alamat" class="form-control"  type="text">
             </div>
         </div>
     </div>
@@ -181,13 +181,13 @@
         </div>
     </div>
 
-        <!--input item-->
+        <!--input rute-->
         <div class="form-group">
-            <label class="col-md-1 control-label">Item</label>
+            <label class="col-md-1 control-label">Rute</label>
                 <div class="col-md-10 inputGroupContainer">
                 <div class="input-group">
                     <span style="background-color: #ec1d24" class="input-group-addon"><i style="color: white" class="fa fa-briefcase"></i></span>
-                    <input name="item" placeholder="Masukkan Item" class="form-control"  type="text">
+                    <input name="item" placeholder="Masukkan Rute" class="form-control"  type="text">
                 </div>
             </div>
         </div>
