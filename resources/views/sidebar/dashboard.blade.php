@@ -3,7 +3,7 @@
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <link rel="stylesheet" href="sidebar.css">
 <script src="sidebar.js"></script>
-
+<link rel="stylesheet" href="time.css">
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -70,40 +70,9 @@
         </div>
         <div class='dashboard-app'>
             <header class='dashboard-toolbar'><a href="#!" class="menu-toggle"><i class="fas fa-bars"></i></a>
-                
-<ul class="notificationsbtn nav navbar-nav navbar-right right">
-    <li id="notificationsli">
-        <a id="notifications" style="color:white" href="#" id="drop3" role="button" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bell"></i>
-      <span class="noty-manager-bubble" style="margin-left: -2px; top: 10px; opacity: 1;">3</span></a>
-
-        <div id="notification-container" class="dropdown-menu" role="menu" aria-labelledby="drop3">
-
-            <section class="panel">
-                <header class="panel-heading">
-                    <strong>Notifications</strong>
-                </header>
-                <div id="notification-list" class="list-group list-group-alt">
+                <div style="color: white" id="myDiv"></div>
                   
-                  <div style=""><div class="noty-manager-list-item noty-manager-list-item-error"><div class="activity-item"> <i class="fa fa-shopping-cart text-success"></i> <div class="activity"> <a href="#">Eugene</a> ordered 2 copies of <a href="#">OEM license</a> <span>14 minutes ago</span> </div> </div></div></div>
                   
-                  <div style=""><div class="noty-manager-list-item noty-manager-list-item-error"><div class="activity-item"> <i class="fa fa-shopping-cart text-success"></i> <div class="activity"> <a href="#">Eugene</a> ordered 2 copies of <a href="#">OEM license</a> <span>14 minutes ago</span> </div> </div></div></div>
-                  
-                  <div style=""><div class="noty-manager-list-item noty-manager-list-item-error"><div class="activity-item"> <i class="fa fa-shopping-cart text-success"></i> <div class="activity"> <a href="#">Eugene</a> ordered 2 copies of <a href="#">OEM license</a> <span>14 minutes ago</span> </div> </div></div></div>
-                  
-                  <div style=""><div class="noty-manager-list-item noty-manager-list-item-error"><div class="activity-item"> <i class="fa fa-shopping-cart text-success"></i> <div class="activity"> <a href="#">Eugene</a> ordered 2 copies of <a href="#">OEM license</a> <span>14 minutes ago</span> </div> </div></div></div>
-                  
-                  <div style=""><div class="noty-manager-list-item noty-manager-list-item-error"><div class="activity-item"> <i class="fa fa-shopping-cart text-success"></i> <div class="activity"> <a href="#">Eugene</a> ordered 2 copies of <a href="#">OEM license</a> <span>14 minutes ago</span> </div> </div></div></div>
-                  
-                </div>
-                <footer class="panel-footer">
-                    <a href="#" class="pull-right"><i class="fa fa-cog"></i></a>
-                    <a href="#notes" data-toggle="class:show animated fadeInRight">See all the notifications</a>
-                </footer>
-            </section>
-
-        </div>
-    </li>
-</ul>
             </header>
             <div class='dashboard-content'>
                 <div class='container'>
@@ -126,4 +95,40 @@
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
     </script>
 
+<script>
+
+function showDateTime() {
+  var myDiv = document.getElementById("myDiv");
+
+  var date = new Date();
+  var dayList = ["Minggu", "Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu"];
+  var monthNames = [
+    "Januari",
+    "Februari",
+    "Maret",
+    "April",
+    "Mei",
+    "Juni",
+    "Juli",
+    "Augustus",
+    "September",
+    "Oktober",
+    "November",
+    "Desember"
+  ];
+  var dayName = dayList[date.getDay()];
+  var monthName = monthNames[date.getMonth()];
+  var today = `${dayName}, ${monthName} ${date.getDate()}, ${date.getFullYear()}`;
+
+  var hour = date.getHours();
+  var min = date.getMinutes();
+  var sec = date.getSeconds();
+
+  var time = hour + ":" + min + ":" + sec;
+  myDiv.innerText = `Hari ini  ${today}. Jam ${time}`;
+}
+setInterval(showDateTime, 1000);
+
+
+</script>
     @yield('content')
