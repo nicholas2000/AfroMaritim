@@ -20,12 +20,14 @@
                   </div>
             </div>
             <br>
-            <div class="col-12">
-                <h2> Penjualan</h2>
-                <br>
+            <div class="container">
+              <div class="row">
+                <div class="col-12">
+                  <h3>Transaksi</h3>
+                </div>
+              </div>
             </div>
-            </div>
-
+            <br>
             <div class="container">
                 <div class="row">
                   <div class="col-12">
@@ -53,6 +55,7 @@
                   </div>
                 </div>
               </div>
+              <br>
               <div class="container">
                 <div class="row">
                     <div class="col-sm-1">
@@ -62,7 +65,7 @@
                      Admin :
                   </div>
                   <div class="col-sm-3">
-
+                    <input  name="kode" class="form-control" type="text" enabled>
                   </div>
                   <div class="col-sm">
                     Waktu :
@@ -78,25 +81,34 @@
                     <div class="col-sm-1">
 
                     </div>
-                  <div class="col-sm-3">
-                     Subtotal :
-                  </div>
-                  <div class="col-sm-3">
-
-                  </div>
+                    <div class="col-sm-3">
+                      Subtotal :
+                   </div>
+                   <div class="col-sm-3">
+                     <input  name="kode" class="form-control" type="text" enabled>
+                   </div>
+                   <div class="col-sm-3" style="background-color: greenyellow">
+                    <h2>Rp.</h2>
+                 </div>
                 </div>
               </div>
+              </div>
+              <br>
+
               <br>
               <div class="container">
                 <div class="row">
                     <div class="col-sm-1">
 
                     </div>
-                  <div class="col-sm-6">
+                  <div class="col-sm-3">
                      Pilih Diskon :
                   </div>
                   <div class="col-sm-3">
-                    <button type="button" style="float: right;" name="" class="btn btn-outline-danger">Bayar</button>
+                    <input  name="kode" class="form-control" type="text" enabled>
+                  </div>
+                  <div class="col-sm-3">
+                    <button type="button" style="float: right; background-color:aqua" name="" class="btn btn-outline-danger">Bayar</button>
                   </div>
                 </div>
               </div>
@@ -106,17 +118,29 @@
 
               <div class="container">
                 <div class="row">
-                  <div class="col-sm-4">
+                  <div class="col-sm">
                      Daftar Pesanan :
                   </div>
-                  <div class="col-sm-3">
+                  <div class="col-sm">
+                    <input  name="kode" class="form-control" type="text" enabled>
+                  </div>
+                  <div class="col-sm">
                     Ukuran :
                   </div>
-                  <div class="col-sm-3">
+                  <div class="col-sm">
+                    <input  name="kode" class="form-control" type="text" enabled>
+                  </div>
+                  <div class="col-sm">
                     Volume :
                   </div>
-                  <div class="col-sm-2">
+                  <div class="col-sm">
+                    <input  name="kode" class="form-control" type="text" enabled>
+                  </div>
+                  <div class="col-sm">
                     Berat :
+                  </div>
+                  <div class="col-sm">
+                    <input  name="kode" class="form-control" type="text" enabled>
                   </div>
                 </div>
               </div>
@@ -126,43 +150,81 @@
               <div class="container">
                 <div class="row">
                   <div class="col-sm-4">
-                     Transaksi :
+                     <h3>Transaksi</h3>
                   </div>
                 </div>
               </div>
               <br>
-              <div class="container">
-                <div class="row">
-                  <div class="col-sm">
-                     Nama Customer
-                  </div>
-                  <div class="col">
-                    Rute
-                  </div>
-                  <div class="col">
-                    Harga
-                  </div>
-                  <div class="col">
-                    Jenis Harga
-                  </div>
-                  <div class="col">
-                    Tonase
-                  </div>
-                  <div class="col">
-                    Harga Tambahan
-                  </div>
-                  <div class="col-sm">
-                    Discount
-                  </div>
-                  <div class="col-sm">
-                    Total
-                  </div>
-                </div>
-              </div>
+              <div class="col-12">
+                <table id="datatables" class="table table-bordered">
 
-            <div class="col-12">
+                    <tr style="background-color:  #ec1d24;color: white;">
+                        <th scope="col">No.</th>
+                        <th scope="col">
+                            <center>Nama Customer</center>
+                        </th>
+                        <th scope="col">
+                            <center>Rute</center>
+                        </th>
+                        <th scope="col">
+                            <center>Harga</center>
+                        </th>
+                        <th scope="col">
+                            <center>Jenis Harga</center>
+                        </th>
+                        <th scope="col">
+                            <center>Tonase</center>
+                        </th>
+                        <th scope="col">
+                            <center>Harga Tambahan</center>
+                        </th>
+                        <th scope="col">
+                            <center>Discount</center>
+                        </th>
+                        <th scope="col">
+                            <center>Total</center>
+                        </th>
+                    </tr>
 
+                    <tr>
+                        <th scope="row">1</th>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+
+                    <tr>
+                        <th scope="row">2</th>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+
+                    <tr>
+                        <th scope="row">3</th>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+
+                </table>
             </div>
+
         </div>
     </div>
 </section>
