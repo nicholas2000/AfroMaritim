@@ -1,6 +1,5 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
-<link rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/css/bootstrap-datetimepicker.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/css/bootstrap-datetimepicker.css">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -11,8 +10,9 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/js/bootstrap-datepicker.min.js"></script>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css">
 
+<script src="https://cdn.jsdelivr.net/npm/table2excel@1.0.4/dist/table2excel.min.js"></script>
 <style>
     .p {
         display: flex;
@@ -32,14 +32,22 @@
 <section class="order-form m-4">
     <div class="container pt-4">
         <div class="container">
+            <h1> Barang </h1>
             <div class="row ">
-                <div class="col-sm-12 col-md-6 form-group">
-                    <h1> Barang </h1>
+                <div class="col-sm-12 col-md-4 form-group">
                     <div class="p ">
-                        <div class="col-sm-4">Cari</div>
+                        <div class="input-group">
+                            <input type="search" class="form-control rounded" placeholder=" Search"
+                                aria-label="Search" aria-describedby="search-addon" />
+                            <button type="button" class="btn btn-outline-primary"
+                                style="margin-left: 2px">Search</button>
+                        </div>
                     </div>
+                </div>
+                <div class="col-sm-12 col-md-6 form-group">
                     <div class="p ">
-                        <div class="col-sm-3">
+                        <div class="col-sm-2" >Cari</div>
+                        <div class="col-sm-3" style="margin-right: 10px;">
                             <select style="width: 100px;height: 35px;" class="form-control selectpicker">
                                 <option value="">Semua</option>
                                 <option>Andi</option>
@@ -51,12 +59,17 @@
                         <div class="form-group p ">
                             <div style="display: flex;">
                                 <input id="dp1" type="text"
-                                    class=" fa fa-calendar form-control clickable input" style="margin-right: 10px;"
+                                    class=" fa fa-calendar form-control clickable " style="margin-right: 10px;"
                                     id="DtChkIn" placeholder="&#xf133;  Tanggal Awal">
                                 <input id="dp2" type="text"
-                                    class=" fa fa-calendar form-control clickable input" id="DtChkOut"
+                                    class=" fa fa-calendar form-control clickable" id="DtChkOut" style="margin-right: 10px;"
                                     placeholder="&#xf133;  Tanggal Akhir">
                             </div>
+                        </div>
+                            <a href="" class="btn btn-primary" style="color: white;height: 37px;">Import</a>
+                        </div>
+                        </div>
+                            <a href="" id="btn-excel" class="btn btn-success" style="color: white;height: 37px;">Export</a>
                         </div>
                     </div>
                 </div>
@@ -118,7 +131,7 @@
                 </div>
 
                 <div class="col-12">
-                    <table class="table table-bordered">
+                    <table id="datatables" class="table table-bordered">
 
                         <tr style="background-color:  #ec1d24;color: white;">
                             <th scope="col">No Transaksi</th>
@@ -214,4 +227,10 @@
         autoclose: true
 
     }).on('changeDate', function(ev) {});
+
+    document.getElementById("btn-excel").addEventListener("click", () => {
+  let table2excel = new Table2Excel();
+  table2excel.export(document.querySelector("#datatables"));
+});
+
 </script>
