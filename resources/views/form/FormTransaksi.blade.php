@@ -10,12 +10,9 @@
                     <div class="row">
                       <div class="col-sm>
                         <span class="input-group-addon"><i class="glyphicon glyphicon-barcode"></i></span>
-                        <input name="" placeholder="Cari Halaman" class="form-control"  type="text" >
+
                       </div>
                       <div class="col-5"></div>
-                      <div class="" style="">
-                        Nama Admin :
-                      </div>
                     </div>
                   </div>
             </div>
@@ -38,195 +35,164 @@
 
               <div class="container">
                 <div class="row">
-                    <div class="col-sm-1">
-
-                    </div>
                   <div class="col-sm-3">
-                     Kode Transaksi :
-                  </div>
-                  <div class="col-sm-3">
-                    <input  name="kode" class="form-control" type="text" disabled>
-                  </div>
-                  <div class="col-sm">
-                    Tanggal :
-                  </div>
-                  <div class="col-sm-3">
-
-                  </div>
-                </div>
-              </div>
-              <br>
-              <div class="container">
-                <div class="row">
-                    <div class="col-sm-1">
-
-                    </div>
-                  <div class="col-sm-3">
-                     Admin :
+                     Nama Customer :
                   </div>
                   <div class="col-sm-3">
                     <input  name="kode" class="form-control" type="text" enabled>
                   </div>
-                  <div class="col-sm">
-                    Waktu :
-                  </div>
                   <div class="col-sm-3">
-
-                  </div>
-                </div>
-              </div>
-              <br>
-              <div class="container">
-                <div class="row">
-                    <div class="col-sm-1">
-
-                    </div>
-                    <div class="col-sm-3">
-                      Subtotal :
-                   </div>
-                   <div class="col-sm-3">
-                     <input  name="kode" class="form-control" type="text" enabled>
-                   </div>
-                   <div class="col-sm-3" style="background-color: greenyellow">
-                    <h2>Rp.</h2>
+                    Nomor transaksi :
+                 </div>
+                 <div class="col-sm-3">
+                   <input  name="kode" class="form-control" type="text" disabled>
                  </div>
                 </div>
               </div>
-              </div>
-              <br>
-
               <br>
               <div class="container">
                 <div class="row">
-                    <div class="col-sm-1">
-
-                    </div>
                   <div class="col-sm-3">
-                     Pilih Diskon :
+                     Nama Barang :
                   </div>
                   <div class="col-sm-3">
                     <input  name="kode" class="form-control" type="text" enabled>
                   </div>
                   <div class="col-sm-3">
-                    <button type="button" style="float: right; background-color:aqua" name="" class="btn btn-outline-danger">Bayar</button>
-                  </div>
+                    Admin :
+                 </div>
+                 <div class="col-sm-3">
+                   <input  name="kode" class="form-control" type="text" disabled>
+                 </div>
                 </div>
               </div>
               <br>
-              <br>
-              <br>
-
               <div class="container">
                 <div class="row">
-                  <div class="col-sm">
-                     Daftar Pesanan :
+                  <div class="col-sm-3">
+                     Ukuran :
                   </div>
-                  <div class="col-sm">
+                  <div class="col-sm-3">
                     <input  name="kode" class="form-control" type="text" enabled>
                   </div>
-                  <div class="col-sm">
-                    Ukuran :
-                  </div>
-                  <div class="col-sm">
-                    <input  name="kode" class="form-control" type="text" enabled>
-                  </div>
-                  <div class="col-sm">
+                  <div class="col-sm-3">
                     Volume :
-                  </div>
-                  <div class="col-sm">
-                    <input  name="kode" class="form-control" type="text" enabled>
-                  </div>
-                  <div class="col-sm">
-                    Berat :
-                  </div>
-                  <div class="col-sm">
-                    <input  name="kode" class="form-control" type="text" enabled>
-                  </div>
+                 </div>
+                 <div class="col-sm-3">
+                   <input  name="kode" class="form-control" type="text" enabled>
+                 </div>
                 </div>
               </div>
-              <br>
-              <br>
               <br>
               <div class="container">
                 <div class="row">
-                  <div class="col-sm-4">
-                     <h3>Transaksi</h3>
+                  <div class="col-sm-3">
+                     Berat :
                   </div>
+                  <div class="col-sm-3">
+                    <input  name="kode" class="form-control" type="text" enabled>
+                  </div>
+                  <div class="col-sm-3">
+                    Rute :
+                 </div>
+                 <div class="col-sm-3">
+                   <input  name="kode" class="form-control" type="text" enabled>
+                 </div>
                 </div>
               </div>
               <br>
-              <div class="col-12">
-                <table id="datatables" class="table table-bordered">
+              <div class="container">
+                <div class="row">
+                  <div class="col-sm-3">
+                     Harga :
+                  </div>
+                  <div class="col-sm-3">
+                    <input  name="kode" class="form-control" type="text" enabled>
+                  </div>
+                  <div class="col-sm-3">
+                    Jenis Harga :
+                 </div>
+                 <div class="col-sm-3">
+                    <div class="col-auto">
+                        <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
+                          <option selected>Pilih</option>
+                          <option value="1">One</option>
+                          <option value="2">Two</option>
+                          <option value="3">Three</option>
+                        </select>
 
-                    <tr style="background-color:  #ec1d24;color: white;">
-                        <th scope="col">No.</th>
-                        <th scope="col">
-                            <center>Nama Customer</center>
-                        </th>
-                        <th scope="col">
-                            <center>Rute</center>
-                        </th>
-                        <th scope="col">
-                            <center>Harga</center>
-                        </th>
-                        <th scope="col">
-                            <center>Jenis Harga</center>
-                        </th>
-                        <th scope="col">
-                            <center>Tonase</center>
-                        </th>
-                        <th scope="col">
-                            <center>Harga Tambahan</center>
-                        </th>
-                        <th scope="col">
-                            <center>Discount</center>
-                        </th>
-                        <th scope="col">
-                            <center>Total</center>
-                        </th>
-                    </tr>
-
-                    <tr>
-                        <th scope="row">1</th>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-
-                    <tr>
-                        <th scope="row">2</th>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-
-                    <tr>
-                        <th scope="row">3</th>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-
-                </table>
+                 </div>
+                </div>
+              </div>
             </div>
+              <br>
+              <div class="container">
+                <div class="row">
+                  <div class="col-sm-3">
+                     Tonase :
+                  </div>
+                  <div class="col-sm-3">
+                    <input  name="kode" class="form-control" type="text" enabled>
+                  </div>
+                  <div class="col-sm-3">
+                    Harga Tambahan :
+                 </div>
+                 <div class="col-sm-3">
+                   <input  name="kode" class="form-control" type="text" enabled>
+                 </div>
+                </div>
+              </div>
+              <br>
+              <div class="container">
+                <div class="row">
+                  <div class="col-sm-3">
+                     Persentase :
+                  </div>
+                  <div class="col-sm-3">
+                    <input  name="kode" class="form-control" type="text" enabled>
+                  </div>
+                  <div class="col-sm-3">
+                    Total Harga :
+                 </div>
+                 <div class="col-sm-3">
+                   <input  name="kode" class="form-control" type="text" disabled>
+                 </div>
+                </div>
+              </div>
+              <br>
+              <div class="container">
+                <div class="row">
+                  <div class="col-sm-3">
+                     Nama Kapal :
+                  </div>
+                  <div class="col-sm-3">
+                    <input  name="kode" class="form-control" type="text" enabled>
+                  </div>
+                  <div class="col-sm-3">
+                    Nomor Container :
+                 </div>
+                 <div class="col-sm-3">
+                   <input  name="kode" class="form-control" type="text" enabled>
+                 </div>
+                </div>
+              </div>
+              <br>
+              <div class="container">
+                <div class="row">
+                  <div class="col-sm-3">
+                     Tanggal Berangkat :
+                  </div>
+                  <div class="col-sm-3">
+                    <input  name="kode" class="form-control" type="text" enabled>
+                  </div>
+                  <div class="col-sm-3">
+                    <button type="button" style=" background-color:aqua" name="" class="btn btn-outline-danger">Submit</button>
+                 </div>
+                </div>
+              </div>
 
-        </div>
     </div>
+</div>
 </section>
 <script>
     function onlyNumberKey(evt) {

@@ -57,13 +57,7 @@
               <div class="col-sm-3">
                 <input  name="kode" class="form-control" type="text" enabled>
               </div>
-              <div class="col-sm-1">
-                No Kapal
-              </div>
-              <div class="col-sm-3">
-                <input  name="kode" class="form-control" type="text" enabled>
 
-              </div>
             </div>
           </div>
           <br>
@@ -75,13 +69,7 @@
               <div class="col-sm-3">
                 <input  name="kode" class="form-control" type="text" disabled>
               </div>
-              <div class="col-sm-1">
-                No Container
-              </div>
-              <div class="col-sm-3">
-                <input  name="kode" class="form-control" type="text" enabled>
 
-              </div>
             </div>
           </div>
           <br>
@@ -123,10 +111,7 @@
                 <center>Tanggal Pengiriman</center>
             </th>
             <th scope="col">
-                <center>No Kapal</center>
-            </th>
-            <th scope="col">
-                <center>No Container</center>
+                <center>Keterangan</center>
             </th>
         </tr>
 
@@ -136,8 +121,8 @@
             <td></td>
             <td></td>
             <td></td>
-            <td></td>
-            <td></td>
+            <td> <button type="button" style=" background-color:aqua" name="" class="btn btn-outline-danger">Edit</button></td>
+
 
         </tr>
 
@@ -147,8 +132,8 @@
             <td></td>
             <td></td>
             <td></td>
-            <td></td>
-            <td></td>
+            <td> <button type="button" style=" background-color:aqua" name="" class="btn btn-outline-danger">Edit</button></td>
+
 
         </tr>
 
@@ -158,8 +143,8 @@
             <td></td>
             <td></td>
             <td></td>
-            <td></td>
-            <td></td>
+            <td> <button type="button" style=" background-color:aqua" name="" class="btn btn-outline-danger">Edit</button></td>
+
 
         </tr>
 
