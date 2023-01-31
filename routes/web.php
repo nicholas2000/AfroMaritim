@@ -25,6 +25,9 @@ Route::get('/dashboard', function () {
 Route::get('/hutang', function () {
     return view('form.formHutang');
 });
+Route::get('/tcabang', function () {
+    return view('form.formtcabang');
+});
 // ROUTE BARUU
 
 Route::get('/masterPegawai', function () {
