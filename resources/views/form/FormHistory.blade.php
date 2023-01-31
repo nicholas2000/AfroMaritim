@@ -31,25 +31,31 @@
               </div>
             </div>
           </div>
-    </div>
-
           <br>
           <div class="container">
             <div class="row">
-              <div class="col">
+              <div class="col-sm">
                 History Transaksi
+              </div>
+              <div class="col-5"></div>
+              <div class="" style="">
+                <button type="button" style="background-color:aqua" name="" class="btn btn-outline-danger">Import</button>
+                <button type="button" style="background-color:chartreuse" name="" class="btn btn-outline-danger">Export</button>
               </div>
 
             </div>
           </div>
+    </div>
+
+
           <br>
           <div class="container">
             <div class="row">
-              <div class="col-sm-1">
+              <div class="col-sm-3">
                 No Transaksi
               </div>
-              <div class="col-sm-5">
-
+              <div class="col-sm-3">
+                <input  name="kode" class="form-control" type="text" enabled>
               </div>
               <div class="col-sm-1">
                 No Kapal
@@ -67,7 +73,7 @@
                 Nama Customer
               </div>
               <div class="col-sm-3">
-
+                <input  name="kode" class="form-control" type="text" disabled>
               </div>
               <div class="col-sm-1">
                 No Container
@@ -85,7 +91,7 @@
                 Tanggal Pengiriman
               </div>
               <div class="col-sm-3">
-
+                <input  name="kode" class="form-control" type="text" disabled>
               </div>
             </div>
           </div>
@@ -93,30 +99,70 @@
 
     <br>
 
-    <button type="button" style="float: right;" name="" class="btn btn-outline-danger">Update</button>
+    <button type="button" style="float: right; background-color:aqua" name="" class="btn btn-outline-danger">Update</button>
 </section>
 <br>
 <br>
 <br>
-<div class="container">
-    <div class="row">
-      <div class="col-sm">
-         No Transaksi
-      </div>
-      <div class="col">
-        Nama Customer
-      </div>
-      <div class="col">
-        Harga
-      </div>
-      <div class="col">
-        Tanggal Pengiriman
-      </div>
-      <div class="col">
-        No Kapal
-      </div>
-      <div class="col">
-        No Container
-      </div>
-    </div>
-  </div>
+
+<div class="col-12">
+    <table id="datatables" class="table table-bordered">
+
+        <tr style="background-color:  #ec1d24;color: white;">
+            <th scope="col">No.</th>
+            <th scope="col">
+                <center>No Transaksi</center>
+            </th>
+            <th scope="col">
+                <center>Nama Customer</center>
+            </th>
+            <th scope="col">
+                <center>Harga</center>
+            </th>
+            <th scope="col">
+                <center>Tanggal Pengiriman</center>
+            </th>
+            <th scope="col">
+                <center>No Kapal</center>
+            </th>
+            <th scope="col">
+                <center>No Container</center>
+            </th>
+        </tr>
+
+        <tr>
+            <th scope="row">1</th>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+
+        </tr>
+
+        <tr>
+            <th scope="row">2</th>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+
+        </tr>
+
+        <tr>
+            <th scope="row">3</th>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+
+        </tr>
+
+    </table>
+</div>
+
