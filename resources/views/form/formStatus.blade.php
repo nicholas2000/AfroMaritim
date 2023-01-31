@@ -80,7 +80,7 @@
                     <div class="p">
                         <div class="col-md-4">ID Kapal</div>
                         <div>:</div>
-                        <div class="col-md-3"><input type='text' style="width: 180px;" placeholder=""></div>
+                        <div class="col-md-3"><input type='text' style="width: 180px;" placeholder="Masukkan ID Kapal"></div>
                     </div>
                     <br>
                     <div class="p">
@@ -119,14 +119,24 @@
                     <div class="p ">
                         <div class="col-sm-5">Status Barang</div>
                         <div>:</div>
-                        <div class="col-sm-3"><input style="width: 180px;"type='text'></div>
+                        <div class="col-sm-3">
+                            <select style="width: 180px;height: 35px;" class="form-control selectpicker">
+                                <option value="">Pilih Status Barang</option>
+                                <option>Andi</option>
+                                <option>Doni</option>
+                                <option>Tono</option>
+                                <option>Sisil</option>
+                            </select>
+                        </div>
                     </div>
                     <br>
-                    <div class="p ">
+                    <div class="p">
                         <div class="col-sm-5">Sisa Barang Terkirim</div>
                         <div>:</div>
                         <div class="col-sm-3"><input style="width: 180px;"type='text' disabled></div>
                     </div>
+                    <br>
+                        <a href=""class="btn btn-primary" style="float: right">Update</a>
                     <br>
                 </div>
 
