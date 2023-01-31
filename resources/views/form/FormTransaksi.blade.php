@@ -8,7 +8,7 @@
             <div class="form-group">
                 <div class="container">
                     <div class="row">
-                      <div class="col-sm>
+                      <div class="col-sm">
                         <span class="input-group-addon"><i class="glyphicon glyphicon-barcode"></i></span>
 
                       </div>

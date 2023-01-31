@@ -231,7 +231,7 @@
             <div class="form-group">
                 <label class="col-md-4 control-label"></label>
                 <div class="col-md-4"><br>
-                    <center><button type="button" class="btn btn-primary">Tambah</button></center>
+                    <a href="/masterKompetitor"><center><button type="button" class="btn btn-primary">Tambah</button></center></a>
                 </div>
             </div>
         </fieldset>

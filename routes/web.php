@@ -26,16 +26,16 @@ Route::get('/hutang', function () {
     return view('form.formHutang');
 });
 Route::get('/tcabang', function () {
-    return view('form.formtcabang');
+    return view('admin.mTcabang');
 });
 Route::get('/tpegawai', function () {
-    return view('form.formtpegawai');
+    return view('admin.mTpegawai');
 });
 Route::get('/tkompetitor', function () {
-    return view('form.formtkompetitor');
+    return view('admin.mTkompetitor');
 });
 Route::get('/tcustomer', function () {
-    return view('form.formtcustomer');
+    return view('admin.mTcustomer');
 });
 // ROUTE BARUU
 
