@@ -18,60 +18,105 @@
 }
 </style>
 <section class="order-form m-4">
-    <div class="col-md-3 inputGroupContainer">
-        <div class="input-group">
-            <span class="input-group-addon"><i class="glyphicon glyphicon-barcode"></i></span>
-            <input name="" placeholder="Cari Transaksi" class="form-control"  type="text" >
-        </div>
-        <br>
-        <div class="">Nama Karyawan</div>
+    <div class="form-group">
+        <div class="container">
+            <div class="row">
+              <div class="col-sm>
+                <span class="input-group-addon"><i class="glyphicon glyphicon-barcode"></i></span>
+                <input name="" placeholder="Transaksi" class="form-control"  type="text" >
+              </div>
+              <div class="col-5"></div>
+              <div class="" style="">
+                Nama Pegawai :
+              </div>
+            </div>
+          </div>
     </div>
+
+          <br>
+          <div class="container">
+            <div class="row">
+              <div class="col">
+                History Transaksi
+              </div>
+
+            </div>
+          </div>
+          <br>
+          <div class="container">
+            <div class="row">
+              <div class="col-sm-1">
+                No Transaksi
+              </div>
+              <div class="col-sm-5">
+
+              </div>
+              <div class="col-sm-1">
+                No Kapal
+              </div>
+              <div class="col-sm-3">
+                <input  name="kode" class="form-control" type="text" enabled>
+
+              </div>
+            </div>
+          </div>
+          <br>
+          <div class="container">
+            <div class="row">
+              <div class="col-sm-3">
+                Nama Customer
+              </div>
+              <div class="col-sm-3">
+
+              </div>
+              <div class="col-sm-1">
+                No Container
+              </div>
+              <div class="col-sm-3">
+                <input  name="kode" class="form-control" type="text" enabled>
+
+              </div>
+            </div>
+          </div>
+          <br>
+          <div class="container">
+            <div class="row">
+              <div class="col-sm-3">
+                Tanggal Pengiriman
+              </div>
+              <div class="col-sm-3">
+
+              </div>
+            </div>
+          </div>
+
+
     <br>
-    <div class="col-12">
-        <table class="table table-bordered">
 
-            <tr style="background-color:  #ec1d24;color: white;">
-
-                <th scope="col"> <center>History Transaksi</center></th>
-
-            </tr>
-
-            <tr>
-
-
-               <td> <div class="input-group">
-                    <span class="input-group-addon"><i class="glyphicon glyphicon-barcode"></i></span>
-                    <input name="" placeholder="Cari Transaksi" class="form-control"  type="text" >
-                </div>
-            </td>
-            <td><div class="">Data Live Search</div>
-                <div class="col-sm-4"><input style="width: 120px;"type='text' enabled></div>
-            </td>
-            <td><div class="">Nomor Kapal</div>
-                    <div class="col-sm-4"><input style="width: 120px;"type='text' enabled></div>
-            </td>
-            </tr>
-            <tr>
-                <td>
-            </td>
-                <td><div class="">Nama Customer</div>
-                    <div class="col-sm-4"><input style="width: 120px;"type='text' disabled></div>
-            </td>
-            <td><div class="">Nomor Container</div>
-                <div class="col-sm-4"><input style="width: 120px;"type='text' enabled></div>
-        </td>
-            </tr>
-
-            <tr>
-
-            <td></td>
-                <td><div class="">Tanggal Pengiriman</div>
-                    <div class="col-sm-4"><input style="width: 120px;"type='text' disabled></div>
-            </td>
-            </tr>
-
-
-        </table>
-    </div>
     <button type="button" style="float: right;" name="" class="btn btn-outline-danger">Update</button>
 </section>
+<br>
+<br>
+<br>
+<div class="container">
+    <div class="row">
+      <div class="col-sm">
+         No Transaksi
+      </div>
+      <div class="col">
+        Nama Customer
+      </div>
+      <div class="col">
+        Harga
+      </div>
+      <div class="col">
+        Tanggal Pengiriman
+      </div>
+      <div class="col">
+        No Kapal
+      </div>
+      <div class="col">
+        No Container
+      </div>
+    </div>
+  </div>
