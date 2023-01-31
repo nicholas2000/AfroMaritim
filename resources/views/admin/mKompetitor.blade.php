@@ -7,7 +7,7 @@
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
+<link rel="stylesheet" href="notif.css">
 
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -63,6 +63,40 @@
         </div>
         <div class='dashboard-app'>
             <header class='dashboard-toolbar'><a href="#!" class="menu-toggle"><i class="fas fa-bars"></i></a>
+                <ul class="notificationsbtn nav navbar-nav navbar-right right">
+                    <li id="notificationsli">
+                        <a id="notifications" style="color:white" href="#" id="drop3" role="button" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bell"></i>
+                      <span class="noty-manager-bubble" style="margin-left: -2px; top: 10px; opacity: 1;">3</span></a>
+                
+                        <div id="notification-container" class="dropdown-menu" role="menu" aria-labelledby="drop3">
+                
+                            <section class="panel">
+                                <header class="panel-heading">
+                                    <strong>Notifications</strong>
+                                </header>
+                                <div id="notification-list" class="list-group list-group-alt">
+                                  
+                                  <div style=""><div class="noty-manager-list-item noty-manager-list-item-error"><div class="activity-item"> <i class="fa fa-shopping-cart text-success"></i> <div class="activity"> <a href="#">Eugene</a> ordered 2 copies of <a href="#">OEM license</a> <span>14 minutes ago</span> </div> </div></div></div>
+                                  
+                                  <div style=""><div class="noty-manager-list-item noty-manager-list-item-error"><div class="activity-item"> <i class="fa fa-shopping-cart text-success"></i> <div class="activity"> <a href="#">Eugene</a> ordered 2 copies of <a href="#">OEM license</a> <span>14 minutes ago</span> </div> </div></div></div>
+                                  
+                                  <div style=""><div class="noty-manager-list-item noty-manager-list-item-error"><div class="activity-item"> <i class="fa fa-shopping-cart text-success"></i> <div class="activity"> <a href="#">Eugene</a> ordered 2 copies of <a href="#">OEM license</a> <span>14 minutes ago</span> </div> </div></div></div>
+                                  
+                                  <div style=""><div class="noty-manager-list-item noty-manager-list-item-error"><div class="activity-item"> <i class="fa fa-shopping-cart text-success"></i> <div class="activity"> <a href="#">Eugene</a> ordered 2 copies of <a href="#">OEM license</a> <span>14 minutes ago</span> </div> </div></div></div>
+                                  
+                                  <div style=""><div class="noty-manager-list-item noty-manager-list-item-error"><div class="activity-item"> <i class="fa fa-shopping-cart text-success"></i> <div class="activity"> <a href="#">Eugene</a> ordered 2 copies of <a href="#">OEM license</a> <span>14 minutes ago</span> </div> </div></div></div>
+                                  
+                                </div>
+                                <footer class="panel-footer">
+                                    <a href="#" class="pull-right"><i class="fa fa-cog"></i></a>
+                                    <a href="#notes" data-toggle="class:show animated fadeInRight">See all the notifications</a>
+                                </footer>
+                            </section>
+                
+                        </div>
+                    </li>
+                </ul>
+                            </header>
             </header>
             <div class='dashboard-content'>
                 <div class='container'>
