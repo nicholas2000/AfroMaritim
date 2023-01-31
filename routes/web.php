@@ -31,6 +31,12 @@ Route::get('/tcabang', function () {
 Route::get('/tpegawai', function () {
     return view('form.formtpegawai');
 });
+Route::get('/tkompetitor', function () {
+    return view('form.formtkompetitor');
+});
+Route::get('/tcustomer', function () {
+    return view('form.formtcustomer');
+});
 // ROUTE BARUU
 
 Route::get('/masterPegawai', function () {
