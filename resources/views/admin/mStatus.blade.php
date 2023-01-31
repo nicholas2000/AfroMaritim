@@ -72,6 +72,7 @@
         </div>
         <div class='dashboard-app'>
             <header class='dashboard-toolbar'><a href="#!" class="menu-toggle"><i class="fas fa-bars"></i></a>
+                <div style="color: white" id="myDiv"></div>
                 <ul class="notification-drop right">
                     <li class="item">
                         <i class="fa fa-bell notification-bell" aria-hidden="true"></i> <span
@@ -110,6 +111,38 @@
                 $(this).find('ul').toggle();
             });
         });
+        function showDateTime() {
+  var myDiv = document.getElementById("myDiv");
+
+  var date = new Date();
+  var dayList = ["Minggu", "Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu"];
+  var monthNames = [
+    "Januari",
+    "Februari",
+    "Maret",
+    "April",
+    "Mei",
+    "Juni",
+    "Juli",
+    "Agustus",
+    "September",
+    "Oktober",
+    "November",
+    "Desember"
+  ];
+  var dayName = dayList[date.getDay()];
+  var monthName = monthNames[date.getMonth()];
+  var today = `${dayName}, ${monthName} ${date.getDate()}, ${date.getFullYear()}`;
+
+  var hour = date.getHours();
+  var min = date.getMinutes();
+  var sec = date.getSeconds();
+
+  var time = hour + ":" + min + ":" + sec;
+  myDiv.innerText = `Hari  ${today}. Jam ${time}`;
+}
+setInterval(showDateTime, 1000);
+
     </script>
 
     @yield('content')
