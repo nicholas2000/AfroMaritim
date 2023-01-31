@@ -1,0 +1,20 @@
+/* Adjusting the shadow of the modal content - also removing border radius */
+.modal-content{
+    box-shadow: 0 0 5px rgba(0, 0, 0, .5);
+    border-radius: 0;
+  }
+  
+  /* Removing the border radius on btns just in modal */
+  .modal-content .btn{
+    border-radius: 0;
+  }
+  
+  /* Adjusting  the close button */
+  .close{
+    font-size: 30px;
+    font-weight: 300;
+  }
+  
+  .modal-header .close{
+    margin-top: -10px;
+  }
