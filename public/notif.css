@@ -1,138 +1,111 @@
-body {
-	padding-top: 50px;
-  padding-right:100px;
-}
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
 
-* {
-	font-family: 'Open Sans', Helvetica Neue, Helvetica, Arial;
-}
+  .notification-drop {
+    font-family: 'Ubuntu', sans-serif;
+    color: #444;
+  }
+  .notification-drop .item {
+    padding: 10px;
+    font-size: 18px;
+    position: relative;
+    border-bottom: 1px solid #ddd;
+  }
+  .notification-drop .item:hover {
+    cursor: pointer;
+  }
+  .notification-drop .item i {
+    margin-left: 10px;
+  }
+  .notification-drop .item ul {
+    display: none;
+    position: absolute;
+    top: 100%;
+    background: #fff;
+    left: -200px;
+    right: 0;
+    z-index: 1;
+    border-top: 1px solid #ddd;
+    border: 1px solid black;
+  }
+  .notification-drop .item ul li {
+    font-size: 16px;
+    padding: 15px 0 15px 25px;
+  }
+  .notification-drop .item ul li:hover {
+    background: #ddd;
+    color: rgba(0, 0, 0, 0.8);
 
-.starter-template {
-	padding: 40px 15px;
-	text-align: center;
-}
+  }
 
-a {
-	color: white;
-}
+  @media screen and (min-width: 500px) {
+    .notification-drop {
+      display: flex;
+      justify-content: flex-end;
+    }
+    .notification-drop .item {
+      border: none;
+    }
+  }
 
-a:hover {
-	color: black;
-	text-decoration: none;
-}
+  .notification-bell{
+    font-size: 20px;
+    padding-top: 20px;
+    color: white;
+  }
 
-#notification-list {
-	width: 300px;
-	max-height: 400px;
-	overflow-y: scroll;
-}
+  .btn__badge {
+    background: #FF5D5D;
+    color: white;
+    font-size: 12px;
+    position: absolute;
+    top: 0;
+    right: 0px;
+    padding:  3px 8px;
+    border-radius: 50%;
+    margin-top: 15px;
+  }
 
-.dropdown-menu > .panel {
-	border: none;
-	margin: -5px 0;
-}
+  .pulse-button {
+    box-shadow: 0 0 0 0 rgba(255, 0, 0, 0.5);
+    -webkit-animation: pulse 1.5s infinite;
+  }
 
-.panel-heading {
-	background-color: #f1f1f1;
-	border-bottom: 1px solid #dedede;
-}
+  .pulse-button:hover {
+    -webkit-animation: none;
+  }
 
-.activity-item i {
-	float: left;
-	margin-top: 3px;
-	font-size: 16px;
-}
+  @-webkit-keyframes pulse {
+    0% {
+      -moz-transform: scale(0.9);
+      -ms-transform: scale(0.9);
+      -webkit-transform: scale(0.9);
+      transform: scale(0.9);
+    }
+    70% {
+      -moz-transform: scale(1);
+      -ms-transform: scale(1);
+      -webkit-transform: scale(1);
+      transform: scale(1);
+      box-shadow: 0 0 0 50px rgba(255, 0, 0, 0);
+    }
+    100% {
+      -moz-transform: scale(0.9);
+      -ms-transform: scale(0.9);
+      -webkit-transform: scale(0.9);
+      transform: scale(0.9);
+      box-shadow: 0 0 0 0 rgba(255, 0, 0, 0);
+    }
+  }
 
-div.activity {
-	margin-left: 28px;
-}
+  .notification-text{
+    font-size: 14px;
+    font-weight: bold;
+  }
 
-div.activity-item {
-	padding: 7px 12px;
-}
-
-#notification-list div.activity-item {
-	border-top: 1px solid #f5f5f5;
-}
-
-#notification-list div.activity-item a {
-	font-weight: 600;
-}
-
-div.activity span {
-	display: block;
-	color: black;
-	font-size: 11px;
-	line-height: 16px;
-}
-
-#notifications i.fa {
-	font-size: 17px;
-}
-
-.noty_type_error * {
-	font-weight: normal !important;
-}
-
-.noty_type_error a {
-	font-weight: bold !important;
-}
-
-.noty_bar.noty_type_error a, .noty_bar.noty_type_error i {
-	color: #fff
-}
-
-.noty_bar.noty_type_information a {
-	color: #fff;
-	font-weight: bold;
-}
-
-.noty_type_error div.activity span
-{
-	color: #fff
-}
-
-.noty_type_information div.activity span
-{
-	color: #fefefe
-}
-
-.no-notification {
-	padding: 10px 5px;
-	text-align: center;
-}
-
-
-
-
-
-
-
-
-.noty-manager-wrapper {
-	position: relative;
-	display: inline-block !important;
-}
-
-.noty-manager-bubble
-{
-	position: absolute;
-	top: -8px;
-	background-color: #fb6b5b;
-	color: #fff;
-	padding: 2px 5px !important;
-	font-size: 9px;
-	line-height: 12px;
-	text-align: center;
-	white-space: nowrap;
-	vertical-align: baseline;
-	cursor: pointer;
-	height: 15px;
-	font-weight: bold;
-
-	border-radius: 2px;
-	-moz-border-radius: 2px;
-	-webkit-border-radius: 2px;
-	box-shadow:1px 1px 1px rgba(0,0,0,.1);
-	opacity: 0;
-}
+  .notification-text span{
+    float: right;
+  }
