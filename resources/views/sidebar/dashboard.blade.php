@@ -1,18 +1,19 @@
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <link rel="stylesheet" href="sidebar.css">
 <script src="sidebar.js"></script>
-<link rel="stylesheet" href="time.css">
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 <style>
     .right {
     position: absolute;
     right: 0px;
     width: 300px;
-    padding: 10px;
+    padding: 40px;
 }
 </style>
 <link rel="stylesheet" href="notif.css">
@@ -32,7 +33,7 @@
         <div class="dashboard-nav">
             <header><a href="#!" class="menu-toggle">
                 <i class="fas fa-bars"></i></a><a href="#"
-                    class="brand-logo"><i class="fa fa-line-chart"><img style="width: 50px;border-radius: 50%;"
+                    class="brand-logo"><i class=""><img style="width: 50px;border-radius: 50%;"
                             src="logo.png" alt="" srcset=""></i> <span>Afro Maritim</span></a>
 
             </header>
@@ -70,9 +71,17 @@
         </div>
         <div class='dashboard-app'>
             <header class='dashboard-toolbar'><a href="#!" class="menu-toggle"><i class="fas fa-bars"></i></a>
-                <div style="color: white" id="myDiv"></div>
-                  
-                  
+
+                <ul class="notification-drop right">
+                    <li class="item">
+                      <i class="fa fa-bell notification-bell" aria-hidden="true"></i> <span class="btn__badge pulse-button ">4</span>
+                      <ul>
+                        <li>First Item</li>
+                        <li>Second Item</li>
+                        <li>Third Item</li>
+                      </ul>
+                    </li>
+                  </ul>
             </header>
             <div class='dashboard-content'>
                 <div class='container'>
@@ -96,39 +105,10 @@
     </script>
 
 <script>
-
-function showDateTime() {
-  var myDiv = document.getElementById("myDiv");
-
-  var date = new Date();
-  var dayList = ["Minggu", "Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu"];
-  var monthNames = [
-    "Januari",
-    "Februari",
-    "Maret",
-    "April",
-    "Mei",
-    "Juni",
-    "Juli",
-    "Augustus",
-    "September",
-    "Oktober",
-    "November",
-    "Desember"
-  ];
-  var dayName = dayList[date.getDay()];
-  var monthName = monthNames[date.getMonth()];
-  var today = `${dayName}, ${monthName} ${date.getDate()}, ${date.getFullYear()}`;
-
-  var hour = date.getHours();
-  var min = date.getMinutes();
-  var sec = date.getSeconds();
-
-  var time = hour + ":" + min + ":" + sec;
-  myDiv.innerText = `Hari ini  ${today}. Jam ${time}`;
-}
-setInterval(showDateTime, 1000);
-
-
+    $(document).ready(function() {
+  $(".notification-drop .item").on('click',function() {
+    $(this).find('ul').toggle();
+  });
+});
 </script>
     @yield('content')
