@@ -28,6 +28,9 @@ Route::get('/hutang', function () {
 Route::get('/tcabang', function () {
     return view('form.formtcabang');
 });
+Route::get('/tpegawai', function () {
+    return view('form.formtpegawai');
+});
 // ROUTE BARUU
 
 Route::get('/masterPegawai', function () {
