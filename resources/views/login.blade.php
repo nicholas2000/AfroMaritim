@@ -21,11 +21,11 @@
 </div>
 <div class="form">
   <div class=><img style="margin-top: -15px" src="logo.png"/></div>
-  <form class="login-form" action="/dashboard">
+  <form class="login-form" action="{{ url('/dashboard') }}">
     <input type="text" placeholder="Username"/>
     <input type="password" placeholder="Password"/>
    <input type="submit" style="color:white;background-color:#ec1d24" value="Login">
-    <p class="message"> <a href="/dashboard">Forgot Password</a></p>
+    <p class="message"> <a href="">Forgot Password</a></p>
   </form>
 </div>
 
