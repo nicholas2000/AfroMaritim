@@ -26,6 +26,7 @@
 </head>
 
 <body>
+
     <div class='dashboard'>
         <div class="dashboard-nav">
             <header><a href="#!" class="menu-toggle">
@@ -93,7 +94,7 @@
                         Welcome Admin
                     </div>
                     <div class='card-body'>
-                        @include('form.FormHistory')
+                        @include('form.formtcabang')
                     </div>
                 </div>
             </div>
