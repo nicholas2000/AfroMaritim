@@ -35,7 +35,7 @@
 
 
                 <div class="col-12">
-                   <a href="/tcustomer"><button style="float: right;" type="button" class="btn btn-primary">Tambah</button></a>
+                   <a href="{{ url('/tcustomer') }}"><button style="float: right;" type="button" class="btn btn-primary">Tambah</button></a>
                 </div>
                 <br><br>
                 <div class="col-12">

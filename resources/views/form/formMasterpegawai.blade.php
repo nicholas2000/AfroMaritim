@@ -27,7 +27,7 @@
 
 
                 <div class="col-12">
-                   <a href="/tpegawai"><button style="float: right;" type="button" class="btn btn-primary">Tambah</button></a>
+                   <a href="{{ url('/tpegawai') }}"><button style="float: right;" type="button" class="btn btn-primary">Tambah</button></a>
                 </div>
                 <br><br>
                 <div class="col-12">
