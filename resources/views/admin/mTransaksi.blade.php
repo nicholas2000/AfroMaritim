@@ -99,7 +99,7 @@
                         Welcome Admin
                     </div>
                     <div class='card-body'>
-                        @include('form.formTransaksi')
+                        @include('form.FormTransaksi')
                     </div>
                 </div>
             </div>
