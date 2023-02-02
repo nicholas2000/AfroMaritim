@@ -29,7 +29,8 @@
 
 
                 <div class="col-12">
-                   <a href="{{ url('/tcabang') }}"><button style="float: right;" type="button" class="btn btn-primary">Tambah</button></a>
+                    <a href="{{ url('/tcabang') }}"><button style="float: right;" type="button"
+                            class="btn btn-primary">Tambah</button></a>
                 </div>
                 <br><br>
 
@@ -37,26 +38,35 @@
                     <table class="table table-bordered">
                         <tr style="background-color:  #023e94;color: white;">
                             <th scope="col">No</th>
-                            <th scope="col"> <center>ID Cabang</center> </th>
-                            <th scope="col"> <center>Nama Cabang</center> </th>
-                            <th scope="col"> <center>Alamat Cabang</center> </th>
+                            <th scope="col">
+                                <center>ID Cabang</center>
+                            </th>
+                            <th scope="col">
+                                <center>Nama Cabang</center>
+                            </th>
+                            <th scope="col">
+                                <center>Alamat Cabang</center>
+                            </th>
                         </tr>
-                        <?php $ctr = 1;?>
+                        <?php $ctr = 1; ?>
 
                         @foreach ($arrCabang as $prm)
-                        <tr>
+                            <tr>
 
-                            <th scope="row">{{$ctr}}</th>
-                            <th scope="col"> <center>{{$prm->id_cabang}}</center> </th>
-                            <th scope="col"> <center>{{$prm->nama_cabang}}</center> </th>
-                            <th scope="col"> <center>{{$prm->alamat_cabang}}</center> </th>
-                        </tr>
-                        <?php $ctr++; ?>
-
-
-
-                            @endforeach
-                        </table>
+                                <th scope="row">{{ $ctr }}</th>
+                                <th scope="col">
+                                    <center>{{ $prm->id_cabang }}</center>
+                                </th>
+                                <th scope="col">
+                                    <center>{{ $prm->nama_cabang }}</center>
+                                </th>
+                                <th scope="col">
+                                    <center>{{ $prm->alamat_cabang }}</center>
+                                </th>
+                            </tr>
+                            <?php $ctr++; ?>
+                        @endforeach
+                    </table>
                 </div>
 
             </div>

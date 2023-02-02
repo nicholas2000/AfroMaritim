@@ -26,53 +26,60 @@
                         <hr class="mt" />
                     </div>
                     <br>
-    
-    
+
+
                     <div class="col-12">
-                        <button style="float: right;" name="btnketpegawai" type="submit" class="btn btn-primary">Tambah</button>
+                        <button style="float: right;" name="btnketpegawai" type="submit"
+                            class="btn btn-primary">Tambah</button>
                     </div>
                     <br><br>
                     <div class="col-12">
                         <table class="table table-bordered">
                             <tr style="background-color:  #023e94;color: white;">
-                                    <th scope="col">No</th>
-                                    <th scope="col"> <center>ID Pegawai</center> </th>
-                                    <th scope="col"> <center>Nama Pegawai</center> </th>
-                                    <th scope="col"> <center>Alamat Pegawai</center> </th>
-                                    <th scope="col"> <center>Role Pegawai</center> </th>    
-                                </tr>
-        
+                                <th scope="col">No</th>
+                                <th scope="col">
+                                    <center>ID Pegawai</center>
+                                </th>
+                                <th scope="col">
+                                    <center>Nama Pegawai</center>
+                                </th>
+                                <th scope="col">
+                                    <center>Alamat Pegawai</center>
+                                </th>
+                                <th scope="col">
+                                    <center>Role Pegawai</center>
+                                </th>
+                            </tr>
+                            <?php $ctr = 1; ?>
+
+                            @foreach ($arrPegawai as $prm)
                                 <tr>
-                                    <th scope="row">1</th>
-                                    <th scope="col"> <center>SG01</center> </th>
-                                    <th scope="col"> <center>Samuel Gunawan</center> </th>
-                                    <th scope="col"> <center>Pondok Tjandra Mangga 23</center> </th>    
-                                    <th scope="col"> <center>Kasir</center> </th>    
-                                </tr>
-        
-                                <tr>
-                                    <th scope="row">2</th>
-                                    <th scope="col"> <center>NM01</center> </th>
-                                    <th scope="col"> <center>Nerisa Moleda</center> </th>
-                                    <th scope="col"> <center>Kebraon Timur XI/77</center> </th>    
-                                    <th scope="col"> <center>Waiters</center> </th>    
-                                </tr>
-        
-                                <tr>
-                                    <th scope="row">3</th>
-                                    <th scope="col"> <center>NH01</center> </th>
-                                    <th scope="col"> <center>Nico Hadi</center> </th>
-                                    <th scope="col"> <center>Tumapel 23</center> </th>    
-                                    <th scope="col"> <center>Manager</center> </th>    
-                                </tr>
-        
-                            </table>
-                    </div>
     
+                                    <th scope="row">{{ $ctr }}</th>
+                                    <th scope="col">
+                                        <center>{{ $prm->id_pegawai }}</center>
+                                    </th>
+                                    <th scope="col">
+                                        <center>{{ $prm->nama_pegawai }}</center>
+                                    </th>
+                                    <th scope="col">
+                                        <center>{{ $prm->alamat_pegawai }}</center>
+                                    </th>
+                                    <th scope="col">
+                                        <center>{{ $prm->role_pegawai }}</center>
+                                    </th>
+                                </tr>
+                                <?php $ctr++; ?>
+                            @endforeach
+
+
+                        </table>
+                    </div>
+
                 </div>
         </section>
     </form>
-    
+
 </body>
 
 </html>
