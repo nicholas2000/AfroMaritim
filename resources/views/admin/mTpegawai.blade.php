@@ -14,11 +14,12 @@
         right: 10%;
         display: flex;
     }
+
     @media screen and (max-width:600px) {
-    .p{
-        right: -20%;
+        .p {
+            right: -20%;
+        }
     }
-}
 </style>
 <link rel="stylesheet" href="notif.css">
 <meta charset="utf-8">
@@ -95,8 +96,14 @@
                 </ul>
             </header>
             <div class='dashboard-content'>
+                @if ($errors->any())
+                    @foreach ($errors->all() as $err)
+                        <div class="alert alert-danger">{{ $err }}</div>
+                    @endforeach
+                @endif
                 <div class='container'>
                     <div class='card-header'>
+
                         Welcome Admin
                     </div>
                     <div class='card-body'>

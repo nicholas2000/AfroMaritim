@@ -7,7 +7,8 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 <div class="container">
-    <form class="form-horizontal" action=" " method="post"  id="contact_form">
+    <form class="form-horizontal" action="{{ url('/domastertpegawai') }} " method="post"  id="contact_form">
+        @csrf
 <fieldset>
 <!-- Form Add Pegawai -->
 <legend><h2><b>Form Master Tambah Pegawai</b></h2></legend><br>
@@ -193,7 +194,7 @@
 <div class="form-group">
 <label class="col-md-4 control-label"></label>
 <div class="col-md-4"><br>
-   <a href="{{ url('/masterPegawai') }}"> <center><button type="button" class="btn btn-primary">Tambah</button></center></a>
+    <center><button type="submit" class="btn btn-primary">Tambah</button></center>
 </div>
 <script>
     function onlyNumberKey(evt) {

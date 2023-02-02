@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\controllerpegawai;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -28,9 +29,7 @@ Route::get('/hutang', function () {
 Route::get('/tcabang', function () {
     return view('admin.mTcabang');
 });
-Route::get('/tpegawai', function () {
-    return view('admin.mTpegawai');
-});
+
 Route::get('/tkompetitor', function () {
     return view('admin.mTkompetitor');
 });
@@ -39,9 +38,9 @@ Route::get('/tcustomer', function () {
 });
 // ROUTE BARUU
 
-Route::get('/masterPegawai', function () {
-    return view('admin.mPegawai');
-});
+
+Route::post('/masterpegawai','Admin\BaseController@docekout');
+
 Route::get('/masterCustomer', function () {
     return view('admin.mCustomer');
 });
@@ -68,8 +67,17 @@ Route::get('/masterPiutang', function () {
     return view('admin.mPiutang');
 });
 
+// Route::get('/masterPegawai', function () {
+//     return view('admin.mPegawai');
+// });
+Route::get('/masterPegawai', [controllerpegawai::class, "vmpegawai"]);
+Route::post('/dotmpegawai', [controllerpegawai::class, "dotmpegawai"]);
 
-// Route::get('/masterPo', [Controller::class, "vmpo"]);
+// Route::get('/tpegawai', function () {
+//     return view('admin.mTpegawai');
+// });
+Route::get('/mastertpegawai', [controllerpegawai::class, "vmtpegawai"]);
+Route::post('/domastertpegawai', [controllerpegawai::class, "dovmtpegawai"]);
 // Route::post('/doketambahpo', [Controller::class, "ketambahvmpo"]);
 
 // Route::get('/tambahpo', [Controller::class, "tambahvmpo"]);
