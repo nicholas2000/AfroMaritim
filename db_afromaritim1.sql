@@ -47,12 +47,12 @@ CREATE TABLE `master_tcabang` (
   `email_cabang` varchar(255) NOT NULL,
   `status_cabang` varchar(2) NOT NULL,
   `kode_customer` varchar(5) NOT NULL,
-  `kode pegawai` varchar(5) NOT NULL,
+  `kode_pegawai` varchar(5) NOT NULL,
   PRIMARY KEY (`id_cabang`),
   KEY `kode_customer` (`kode_customer`),
-  KEY `kode pegawai` (`kode pegawai`),
+  KEY `kode_pegawai` (`kode_pegawai`),
   CONSTRAINT `master_tcabang_ibfk_1` FOREIGN KEY (`kode_customer`) REFERENCES `master_tcustomer` (`id_customer`),
-  CONSTRAINT `master_tcabang_ibfk_2` FOREIGN KEY (`kode pegawai`) REFERENCES `master_tpegawai` (`id_pegawai`)
+  CONSTRAINT `master_tcabang_ibfk_2` FOREIGN KEY (`kode_pegawai`) REFERENCES `master_tpegawai` (`id_pegawai`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 /*Data for the table `master_tcabang` */
