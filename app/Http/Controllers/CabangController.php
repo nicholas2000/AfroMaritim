@@ -9,8 +9,7 @@ class CabangController extends Controller
 {
     public function show()
     {
-        // $param = Cabang::select('*')->get();
-        $param['arrCabang']=Cabang::all();
+        $param['arrCabang']=Cabang::get();
         return view('admin.mCabang',$param);
     }
 
@@ -38,7 +37,7 @@ class CabangController extends Controller
             ]
         );
         Cabang::create([
-            'id'=>$kode,
+            'id_cabang'=>$kode,
             'nama_cabang'=>$req->nama,
             'jum_cabang'=>$req->jum,
             'alamat_cabang'=>$req->alamat,
@@ -51,6 +50,6 @@ class CabangController extends Controller
             'email_cabang'=>$req->email,
             'status_cabang'=>$status
         ]);
-        return view("admin.mCabang");
+        return redirect("/masterCabang");
     }
 }

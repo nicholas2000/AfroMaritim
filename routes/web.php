@@ -3,6 +3,7 @@
 use App\Http\Controllers\CabangController;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\controllerpegawai;
+use App\Http\Controllers\KompetitorController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -45,16 +46,12 @@ Route::post('/masterpegawai','Admin\BaseController@docekout');
 Route::get('/masterCustomer', function () {
     return view('admin.mCustomer');
 });
-Route::get('/masterKompetitor', function () {
-    return view('admin.mKompetitor');
-});
-// Route::get('/masterCabang', function () {
-//     return view('admin.mCabang');
-// });
 
-
-Route::post('/doAdd', [CabangController::class, "doAdd"]);
+Route::post('/doAddcabang', [CabangController::class, "doAdd"]);
 Route::get('/masterCabang', [CabangController::class, "show"]);
+
+Route::post('/doAddkompetitor', [KompetitorController::class, "doAdd"]);
+Route::get('/masterKompetitor', [KompetitorController::class, "show"]);
 
 Route::get('/masterTeam', function () {
     return view('admin.mTeampengiriman');

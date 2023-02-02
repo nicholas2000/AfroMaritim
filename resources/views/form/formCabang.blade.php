@@ -41,14 +41,13 @@
                             <th scope="col"> <center>Nama Cabang</center> </th>
                             <th scope="col"> <center>Alamat Cabang</center> </th>
                         </tr>
-                        <?php $ctr = 1;
-                        ?>
+                        <?php $ctr = 1;?>
 
                         @foreach ($arrCabang as $prm)
                         <tr>
 
                             <th scope="row">{{$ctr}}</th>
-                            <th scope="col"> <center>{{$prm->id}}</center> </th>
+                            <th scope="col"> <center>{{$prm->id_cabang}}</center> </th>
                             <th scope="col"> <center>{{$prm->nama_cabang}}</center> </th>
                             <th scope="col"> <center>{{$prm->alamat_cabang}}</center> </th>
                         </tr>

@@ -14,7 +14,7 @@
                 <div class="alert alert-danger">{{ $err }}</div>
             @endforeach
         @endif
-        <form class="form-horizontal" action="{{url('/doAdd')}}" method="post" id="contact_form">
+        <form class="form-horizontal" action="{{url('/doAddcabang')}}" method="post" id="contact_form">
             @csrf
             <fieldset>
                 <!-- Form Add Box Model -->
@@ -222,3 +222,11 @@
         </form>
     </div>
 </section>
+<script>
+    function onlyNumberKey(evt) {
+        var ASCIICode = (evt.which) ? evt.which : evt.keyCode
+        if (ASCIICode > 31 && (ASCIICode < 48 || ASCIICode > 57))
+            return false;
+        return true;
+    }
+</script>

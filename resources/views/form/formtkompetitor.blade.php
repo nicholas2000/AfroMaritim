@@ -7,10 +7,16 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 <div class="container">
-    <form class="form-horizontal" action=""id="contact_form">
+    @if ($errors->any())
+            @foreach ($errors->all() as $err)
+                <div class="alert alert-danger">{{ $err }}</div>
+            @endforeach
+        @endif
+    <form class="form-horizontal" action="{{url('/doAddkompetitor')}}"id="contact_form" method="post">
+        @csrf
         <fieldset>
 
-            <!-- Form Add Supply -->
+            <!-- Form Add Kompetitor -->
             <legend>
                 <h2><b>Form Master Tambah Kompetitor</b></h2>
             </legend><br>
@@ -62,7 +68,7 @@
                     <div class="input-group">
                         <span style="background-color: #023e94" class="input-group-addon"><i style="color: white"
                                 class="glyphicon glyphicon-road"></i></span>
-                        <input name="jalan" placeholder="Masukkan Alamat" class="form-control" type="text">
+                        <input name="alamat" placeholder="Masukkan Alamat" class="form-control" type="text">
                     </div>
                 </div>
             </div>
@@ -197,7 +203,7 @@
                     <div class="input-group">
                         <span style="background-color: #023e94" class="input-group-addon"><i style="color: white"
                                 class="fa fa-briefcase"></i></span>
-                        <input name="item" placeholder="Masukkan Rute" class="form-control" type="text">
+                        <input name="rute" placeholder="Masukkan Rute" class="form-control" type="text">
                     </div>
                 </div>
             </div>
@@ -231,7 +237,7 @@
             <div class="form-group">
                 <label class="col-md-4 control-label"></label>
                 <div class="col-md-4"><br>
-                    <a href="{{ url('/masterKompetitor') }}"><center><button type="button" class="btn btn-primary">Tambah</button></center></a>
+                    <center><button type="submit" class="btn btn-primary">Tambah</button></center>
                 </div>
             </div>
         </fieldset>

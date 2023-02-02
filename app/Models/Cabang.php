@@ -9,10 +9,10 @@ class Cabang extends Model
 {
     use HasFactory;
     protected $table = "master_tcabang";
-    protected $primaryKey = "id";
+    protected $primaryKey = "id_cabang";
     public $timestamps = false;
     protected $fillable = [
-        'id',
+        'id_cabang',
         'nama_cabang',
         'jum_cabang',
         'alamat_cabang',
