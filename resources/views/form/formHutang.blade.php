@@ -133,7 +133,7 @@
     <div class="col-12">
         <table id="datatables" class="table table-bordered">
 
-            <tr style="background-color:  #ec1d24;color: white;">
+            <tr style="background-color:  #023e94;color: white;">
                 <th scope="col">No Transaksi</th>
                 <th scope="col">
                     <center>Nama Customer</center>

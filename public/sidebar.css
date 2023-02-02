@@ -180,7 +180,7 @@ h1, .h1 {
 }
 
 .dashboard-nav {
-    background-color: #ec1d24;
+    background-color: #023e94;
 }
 
 .dashboard-nav a {
@@ -362,7 +362,7 @@ h1, .h1 {
 
 .dashboard-toolbar {
     min-height: 84px;
-    background-color: #ec1d24;
+    background-color: #023e94;
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;

@@ -32,7 +32,7 @@
                 <br><br>
                 <div class="col-12">
                     <table class="table table-bordered">
-                        <tr style="background-color:  #ec1d24;color: white;">
+                        <tr style="background-color:  #023e94;color: white;">
                                 <th scope="col">No</th>
                                 <th scope="col"> <center>ID Pegawai</center> </th>
                                 <th scope="col"> <center>Nama Pegawai</center> </th>
