@@ -75,7 +75,6 @@
                                 <th scope="col"> <center>7.000.000</center> </th>
                                 <th scope="col"> <center>31/2/2023</center> </th>
                             </tr>
-    
                         </table>
                 </div>
 

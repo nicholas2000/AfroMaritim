@@ -1,5 +1,6 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/css/bootstrap-datetimepicker.css">
+<link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/css/bootstrap-datetimepicker.css">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -16,12 +17,16 @@
 <style>
     .p {
         display: flex;
-        width: 100%;
+        width: 80%;
     }
 
     @media screen and (max-width:600px) {
         .p {
             width: 75%;
+        }
+
+        .pk{
+            margin-right: 5%;
         }
     }
 
@@ -34,20 +39,17 @@
         <div class="container">
             <h1> Barang </h1>
             <div class="row ">
-                <div class="col-sm-12 col-md-4 form-group">
-                    <div class="p ">
-                        <div class="input-group">
-                            <input type="search" class="form-control rounded" placeholder=" Search"
-                                aria-label="Search" aria-describedby="search-addon" />
-                            <button type="button" class="btn btn-outline-primary"
-                                style="margin-left: 2px">Search</button>
-                        </div>
+                <div class="col-sm-8 col-md-6 form-group">
+                    <div class="input-group">
+                        <input type="search"  class="form-control rounded p" placeholder=" Search"
+                            aria-label="Search" aria-describedby="search-addon" />
+                        <button type="button" class="btn btn-outline-primary" style="margin-left: 2px">Search</button>
                     </div>
                 </div>
-                <div class="col-sm-12 col-md-6 form-group">
-                    <div class="p ">
-                        <div class="col-sm-2" >Cari</div>
-                        <div class="col-sm-3" style="margin-right: 10px;">
+                <div class="col-sm-10 col-md-12 form-group">
+                    <div class="p">
+                        <div class="col-sm-1">Cari</div>
+                        <div class="col-sm-2 pk" style="margin-right: 10%;">
                             <select style="width: 100px;height: 35px;" class="form-control selectpicker">
                                 <option value="">Semua</option>
                                 <option>Andi</option>
@@ -56,20 +58,20 @@
                                 <option>Sisil</option>
                             </select>
                         </div>
-                        <div class="form-group p ">
+                        <div class="form-group">
                             <div style="display: flex;">
-                                <input id="dp1" type="text"
-                                    class=" fa fa-calendar form-control clickable " style="margin-right: 10px;"
-                                    id="DtChkIn" placeholder="&#xf133;  Tanggal Awal">
-                                <input id="dp2" type="text"
-                                    class=" fa fa-calendar form-control clickable" id="DtChkOut" style="margin-right: 10px;"
-                                    placeholder="&#xf133;  Tanggal Akhir">
+                                <input id="dp1" type="text" class=" fa fa-calendar form-control clickable "
+                                    style="margin-right: 10px;width: 110px;" id="DtChkIn"
+                                    placeholder="&#xf133;  Tgl Awal">
+                                <input id="dp2" type="text" class=" fa fa-calendar form-control clickable"
+                                    id="DtChkOut" style="margin-right: 10px;width: 110px;"
+                                    placeholder="&#xf133;  Tgl Akhir">
                             </div>
                         </div>
-                            <a href="" class="btn btn-primary" style="color: white;height: 37px;">Import</a>
-                        </div>
-                        </div>
-                            <a href="" id="btn-excel" class="btn btn-success" style="color: white;height: 37px;">Export</a>
+                        <div style="display: flex;">
+                            <a href="" class="btn btn-primary" style="color: white;height: 37px;margin-right: 5%;" class="p">Import</a>
+                            <a href="" id="btn-excel" class="btn btn-success"
+                                style="color: white;height: 37px;">Export</a>
                         </div>
                     </div>
                 </div>
@@ -80,7 +82,9 @@
                     <div class="p">
                         <div class="col-md-4">ID Kapal</div>
                         <div>:</div>
-                        <div class="col-md-3"><input type='text' style="width: 180px;" placeholder="Masukkan ID Kapal"></div>
+                        <div class="col-md-3"><input type='text' style="width: 180px;"
+                                placeholder="Masukkan ID Kapal">
+                        </div>
                     </div>
                     <br>
                     <div class="p">
@@ -136,7 +140,7 @@
                         <div class="col-sm-3"><input style="width: 180px;"type='text' disabled></div>
                     </div>
                     <br>
-                        <a href=""class="btn btn-primary" style="float: right">Update</a>
+                    <a href=""class="btn btn-primary" style="float: right">Update</a>
                     <br>
                 </div>
 
@@ -194,6 +198,7 @@
 
             </div>
         </div>
+    </div>
 </section>
 <script>
     function onlyNumberKey(evt) {
@@ -239,8 +244,7 @@
     }).on('changeDate', function(ev) {});
 
     document.getElementById("btn-excel").addEventListener("click", () => {
-  let table2excel = new Table2Excel();
-  table2excel.export(document.querySelector("#datatables"));
-});
-
+        let table2excel = new Table2Excel();
+        table2excel.export(document.querySelector("#datatables"));
+    });
 </script>

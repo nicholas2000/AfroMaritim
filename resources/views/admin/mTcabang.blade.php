@@ -10,11 +10,17 @@
 <style>
     .right {
         position: absolute;
-        right: 0px;
-        width: 300px;
-        padding: 40px;
+        width: 40%;
+        right: 10%;
+        display: flex;
     }
+    @media screen and (max-width:600px) {
+    .p{
+        right: -20%;
+    }
+}
 </style>
+<link rel="stylesheet" href="notif.css">
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -75,10 +81,10 @@
         </div>
         <div class='dashboard-app'>
             <header class='dashboard-toolbar'><a href="#!" class="menu-toggle"><i class="fas fa-bars"></i></a>
-                <div style="color: white" id="myDiv"></div>
-                <ul class="notification-drop right">
+                <div style="color: white;font-size: 80%" id="myDiv"></div>
+                <ul class="notification-drop right p">
                     <li class="item">
-                        <i class="fa fa-bell notification-bell" aria-hidden="true"></i> <span
+                        <i class="fa fa-bell notification-bell" style="font-size: 100%;"aria-hidden="true"></i> <span
                             class="btn__badge pulse-button ">4</span>
                         <ul>
                             <li>First Item</li>
