@@ -54,7 +54,7 @@
               <div class="col-sm-3">
                 No Transaksi
               </div>
-              <div class="col-sm-3">
+              <div class="col-sm">
                 <input  name="kode" class="form-control" type="text" enabled>
               </div>
 
@@ -66,7 +66,7 @@
               <div class="col-sm-3">
                 Nama Customer
               </div>
-              <div class="col-sm-3">
+              <div class="col-sm">
                 <input  name="kode" class="form-control" type="text" disabled>
               </div>
 
@@ -78,7 +78,7 @@
               <div class="col-sm-3">
                 Tanggal Pengiriman
               </div>
-              <div class="col-sm-3">
+              <div class="col-sm">
                 <input  name="kode" class="form-control" type="text" disabled>
               </div>
             </div>
@@ -122,9 +122,9 @@
             <td></td>
             <td></td>
             <td>
-                <button type="button" name=""  class="btn btn"><i class="fa fa-pencil-alt"></i></button>
-                <button style="margin-left: 2%" name="" type="button" class="btn btn-danger"><i class="fa fa-trash"></i></button>
-                <button style="margin-left: 2%" name="" type="button" class="btn btn-success"><i class="far fa-money-bill-alt"></i></button>
+                    <button type="button" name=""  class="btn btn"><i class="fa fa-pencil-alt"></i></button>
+                    <button style="margin-left: 2%" name="" type="button" class="btn btn-danger"><i class="fa fa-trash"></i></button>
+                    <button style="margin-left: 2%" name="" type="button" class="btn btn-success"><i class="far fa-money-bill-alt"></i></button>
             </td>
 
         </tr>
@@ -137,8 +137,8 @@
             <td></td>
             <td>
                 <button type="button" name=""  class="btn btn"><i class="fa fa-pencil-alt"></i></button>
-                <button style="margin-left: 2%" name="" type="button" class="btn btn-danger"><i class="fa fa-trash"></i></button>
-                <button style="margin-left: 2%" name="" type="button" class="btn btn-success"><i class="far fa-money-bill-alt"></i></button>
+                <button style="margin-left: 2%;" name="" type="button" class="btn btn-danger"><i class="fa fa-trash"></i></button>
+                <button style="margin-left: 2%;" name="" type="button" class="btn btn-success"><i class="far fa-money-bill-alt"></i></button>
             </td>
 
 

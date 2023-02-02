@@ -38,13 +38,13 @@
                   <div class="col-sm-3">
                      Nama Customer :
                   </div>
-                  <div class="col-sm-3">
+                  <div class="col-sm">
                     <input  name="kode" class="form-control" type="text" enabled>
                   </div>
                   <div class="col-sm-3">
                     Nomor transaksi :
                  </div>
-                 <div class="col-sm-3">
+                 <div class="col-sm">
                    <input  name="kode" class="form-control" type="text" disabled>
                  </div>
                 </div>
@@ -55,13 +55,13 @@
                   <div class="col-sm-3">
                      Nama Barang :
                   </div>
-                  <div class="col-sm-3">
+                  <div class="col-sm">
                     <input  name="kode" class="form-control" type="text" enabled>
                   </div>
                   <div class="col-sm-3">
                     Admin :
                  </div>
-                 <div class="col-sm-3">
+                 <div class="col-sm">
                    <input  name="kode" class="form-control" type="text" disabled>
                  </div>
                 </div>
@@ -72,13 +72,13 @@
                   <div class="col-sm-3">
                      Ukuran :
                   </div>
-                  <div class="col-sm-3">
+                  <div class="col-sm">
                     <input  name="kode" class="form-control" type="text" enabled>
                   </div>
                   <div class="col-sm-3">
                     Volume :
                  </div>
-                 <div class="col-sm-3">
+                 <div class="col-sm">
                    <input  name="kode" class="form-control" type="text" enabled>
                  </div>
                 </div>
@@ -89,13 +89,13 @@
                   <div class="col-sm-3">
                      Berat :
                   </div>
-                  <div class="col-sm-3">
+                  <div class="col-sm">
                     <input  name="kode" class="form-control" type="text" enabled>
                   </div>
                   <div class="col-sm-3">
                     Rute :
                  </div>
-                 <div class="col-sm-3">
+                 <div class="col-sm">
                    <input  name="kode" class="form-control" type="text" enabled>
                  </div>
                 </div>
@@ -106,7 +106,7 @@
                   <div class="col-sm-3">
                      Harga :
                   </div>
-                  <div class="col-sm-3">
+                  <div class="col-sm">
                     <input  name="kode" class="form-control" type="text" enabled>
                   </div>
                   <div class="col-sm-3">
@@ -131,13 +131,13 @@
                   <div class="col-sm-3">
                      Tonase :
                   </div>
-                  <div class="col-sm-3">
+                  <div class="col-sm">
                     <input  name="kode" class="form-control" type="text" enabled>
                   </div>
                   <div class="col-sm-3">
                     Harga Tambahan :
                  </div>
-                 <div class="col-sm-3">
+                 <div class="col-sm">
                    <input  name="kode" class="form-control" type="text" enabled>
                  </div>
                 </div>
@@ -148,13 +148,13 @@
                   <div class="col-sm-3">
                      Persentase :
                   </div>
-                  <div class="col-sm-3">
+                  <div class="col-sm">
                     <input  name="kode" class="form-control" type="text" enabled>
                   </div>
                   <div class="col-sm-3">
                     Total Harga :
                  </div>
-                 <div class="col-sm-3">
+                 <div class="col-sm">
                    <input  name="kode" class="form-control" type="text" disabled>
                  </div>
                 </div>
@@ -165,13 +165,13 @@
                   <div class="col-sm-3">
                      Nama Kapal :
                   </div>
-                  <div class="col-sm-3">
+                  <div class="col-sm">
                     <input  name="kode" class="form-control" type="text" enabled>
                   </div>
                   <div class="col-sm-3">
                     Nomor Container :
                  </div>
-                 <div class="col-sm-3">
+                 <div class="col-sm">
                    <input  name="kode" class="form-control" type="text" enabled>
                  </div>
                 </div>
@@ -182,7 +182,7 @@
                   <div class="col-sm-3">
                      Tanggal Berangkat :
                   </div>
-                  <div class="col-sm-3">
+                  <div class="col-sm">
                     <input  name="kode" class="form-control" type="text" enabled>
                   </div>
                   <div class="col-sm-3">
