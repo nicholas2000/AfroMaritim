@@ -9,9 +9,14 @@
 
 <section class="order-form m-4">
     <div class="container">
-        <form class="form-horizontal" action=" " method="post" id="contact_form">
+        @if ($errors->any())
+            @foreach ($errors->all() as $err)
+                <div class="alert alert-danger">{{ $err }}</div>
+            @endforeach
+        @endif
+        <form class="form-horizontal" action="{{url('/doAdd')}}" method="post" id="contact_form">
+            @csrf
             <fieldset>
-
                 <!-- Form Add Box Model -->
                 <legend>
                     <h2><b>Tambah Cabang</b></h2>
@@ -50,7 +55,7 @@
                         <div class="input-group">
                             <span style="background-color: #023e94" class="input-group-addon"><i style="color: white"
                                     class="fa fa-id-card"></i></span>
-                            <input onkeypress="return onlyNumberKey(event)" name="npwp"
+                            <input onkeypress="return onlyNumberKey(event)" name="jum"
                                 placeholder="Masukkan Jumlah Pegawai" class="form-control" type="text">
                         </div>
                     </div>
@@ -64,7 +69,7 @@
                         <div class="input-group">
                             <span style="background-color: #023e94" class="input-group-addon"><i style="color: white"
                                     class="glyphicon glyphicon-road"></i></span>
-                            <input name="jalan" placeholder="Masukkan Alamat" class="form-control" type="text">
+                            <input name="alamat" placeholder="Masukkan Alamat" class="form-control" type="text">
                         </div>
                     </div>
                 </div>
@@ -149,7 +154,7 @@
                             <span style="background-color: #023e94" class="input-group-addon"><i style="color: white"
                                     class="glyphicon glyphicon-envelope"></i></span>
                             <input onkeypress="return onlyNumberKey(event)" name="kodepos"
-                                placeholder="Masukkan Kode Pos" class="form-control" type="telp">
+                                placeholder="Masukkan Kode Pos" class="form-control" type="text">
                         </div>
                     </div>
                 </div>
@@ -174,7 +179,7 @@
                         <div class="input-group">
                             <span style="background-color: #023e94" class="input-group-addon"><i style="color: white"
                                     class="fa fa-map"></i></span>
-                            <input name="email" placeholder="Masukkan Link" class="form-control" type="email">
+                            <input name="gmaps" placeholder="Masukkan Link" class="form-control" type="text">
                         </div>
                     </div>
                 </div>
@@ -191,7 +196,7 @@
                     </div>
                 </div>
 
-                <!-- input village-->
+                <!-- input status-->
                 <div class="form-group">
                     <label class="col-md-1 control-label">Status</label>
                     <div class="col-md-10 selectContainer">
@@ -210,7 +215,7 @@
                 <div class="form-group">
                     <label class="col-md-4 control-label"></label>
                     <div class="col-md-4"><br>
-                       <a href="{{ url('/masterCabang') }}"><center><button type="button" class="btn btn-primary">Tambah</button></center></a> 
+                        <center><button type="submit" class="btn btn-primary">Tambah</button></center>
                     </div>
                 </div>
             </fieldset>

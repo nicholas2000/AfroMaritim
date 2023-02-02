@@ -32,36 +32,31 @@
                    <a href="{{ url('/tcabang') }}"><button style="float: right;" type="button" class="btn btn-primary">Tambah</button></a>
                 </div>
                 <br><br>
+
                 <div class="col-12">
                     <table class="table table-bordered">
                         <tr style="background-color:  #023e94;color: white;">
-                                <th scope="col">No</th>
-                                <th scope="col"> <center>ID Cabang</center> </th>
-                                <th scope="col"> <center>Nama Cabang</center> </th>
-                                <th scope="col"> <center>Alamat Cabang</center> </th>    
-                            </tr>
-    
-                            <tr>
-                                <th scope="row">1</th>
-                                <th scope="col"> <center>PTGM</center> </th>
-                                <th scope="col"> <center>Graha Mulia</center> </th>
-                                <th scope="col"> <center>Pondok Tjandra jeruk 31</center> </th>    
-                            </tr>
-    
-                            <tr>
-                                <th scope="row">2</th>
-                                <th scope="col"> <center>NJSA</center> </th>
-                                <th scope="col"> <center>Surabaya Abadi</center> </th>
-                                <th scope="col"> <center>Ngagel Jaya Tengah 31</center> </th>    
-                            </tr>
-    
-                            <tr>
-                                <th scope="row">3</th>
-                                <th scope="col"> <center>KIIT</center> </th>
-                                <th scope="col"> <center>Indo Teknik</center> </th>
-                                <th scope="col"> <center>Kelampis Indah Utara no22</center> </th>    
-                            </tr>
-    
+                            <th scope="col">No</th>
+                            <th scope="col"> <center>ID Cabang</center> </th>
+                            <th scope="col"> <center>Nama Cabang</center> </th>
+                            <th scope="col"> <center>Alamat Cabang</center> </th>
+                        </tr>
+                        <?php $ctr = 1;
+                        ?>
+
+                        @foreach ($arrCabang as $prm)
+                        <tr>
+
+                            <th scope="row">{{$ctr}}</th>
+                            <th scope="col"> <center>{{$prm->id}}</center> </th>
+                            <th scope="col"> <center>{{$prm->nama_cabang}}</center> </th>
+                            <th scope="col"> <center>{{$prm->alamat_cabang}}</center> </th>
+                        </tr>
+                        <?php $ctr++; ?>
+
+
+
+                            @endforeach
                         </table>
                 </div>
 

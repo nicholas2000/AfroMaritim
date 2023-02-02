@@ -34,52 +34,51 @@
 
 <body>
 
-    <div class='dashboard'>
-        <div class="dashboard-nav">
-            <header><a href="#!" class="menu-toggle">
-                    <i class="fas fa-bars"></i></a><a href="#" class="brand-logo"><i class=""><img
-                            style="width: 50px;border-radius: 50%;" src="logo.png" alt="" srcset=""></i>
-                    <span>Afro Maritim</span></a>
+    <div class="dashboard-nav">
+        <header><a href="#!" class="menu-toggle">
+                <i class="fas fa-bars"></i></a><a href="#" class="brand-logo"><i class=""><img
+                        style="width: 50px;border-radius: 50%;" src="logo.png" alt="" srcset=""></i>
+                <span>Afro Maritim</span></a>
 
-            </header>
+        </header>
 
-            <nav class="dashboard-nav-list"><a href="{{ url('/dashboard') }}" class="dashboard-nav-item"><i
-                        class="fas fa-home"></i>Home </a>
-                <div class='dashboard-nav-dropdown' style="background-color:#023e94"><a href="#!"
-                        class="dashboard-nav-item dashboard-nav-dropdown-toggle"><i class="fa fa-user-circle"></i>
-                        Master </a>
-                    <div class='dashboard-nav-dropdown-menu'>
-                        <a href="{{ url('/masterCabang') }}"class="dashboard-nav-dropdown-item">Master Cabang</a>
-                        <a href="{{ url('/masterCustomer') }}"class="dashboard-nav-dropdown-item">Master Customer</a>
-                        <a href="{{ url('/masterKompetitor') }}"class="dashboard-nav-dropdown-item">Master
-                            Kompetitor</a>
-                        <a href="{{ url('/masterPegawai') }}"class="dashboard-nav-dropdown-item">Master Pegawai</a>
+        <nav class="dashboard-nav-list"><a href="{{ url('/dashboard') }}" class="dashboard-nav-item"><i class="fas fa-home"></i>Home </a>
+            <div class='dashboard-nav-dropdown' style="background-color:#023e94"><a href="#!"
+                    class="dashboard-nav-item dashboard-nav-dropdown-toggle"><i class="fa fa-user-circle"></i>
+                    Master </a>
+                <div class='dashboard-nav-dropdown-menu'>
+                    <a href="{{ url('/masterCabang') }}"class="dashboard-nav-dropdown-item">Master Cabang</a>
+                    <a href="{{ url('/masterCustomer') }}"class="dashboard-nav-dropdown-item">Master Customer</a>
+                    <a href="{{ url('/masterKompetitor') }}"class="dashboard-nav-dropdown-item">Master
+                        Kompetitor</a>
+                    <a href="{{ url('/masterPegawai') }}"class="dashboard-nav-dropdown-item">Master Pegawai</a>
+                    <a href="{{ url('/masterTeam') }}"class="dashboard-nav-dropdown-item">Master Team Pengiriman</a>
 
-                    </div>
-                    <div class='dashboard-nav-dropdown'>
-                        <a href="#!"class="dashboard-nav-item dashboard-nav-dropdown-toggle"><i
-                                class="fa fa-briefcase"></i> Transaksi</a>
-                        <div class='dashboard-nav-dropdown-menu'>
-                            <a href="{{ url('/masterTransaksi') }}"class="dashboard-nav-dropdown-item">Transaksi</a>
-                            <a href="{{ url('/masterHistory') }}"class="dashboard-nav-dropdown-item">History
-                                Transaksi</a>
-                            <a href="{{ url('/masterStatus') }}"class="dashboard-nav-dropdown-item">Status Barang</a>
-                        </div>
-                    </div>
-                    <div class='dashboard-nav-dropdown'>
-                        <a href="#!"class="dashboard-nav-item dashboard-nav-dropdown-toggle"><i
-                                class="fa fa-share"></i>Keuangan </a>
-                        <div class='dashboard-nav-dropdown-menu'>
-
-                            <a href="{{ url('/masterPiutang') }}"class="dashboard-nav-dropdown-item">Master Piutang</a>
-                        </div>
-                    </div>
-                    <div class="nav-item-divider"></div>
-                    <a href="{{ url('/') }}" class="dashboard-nav-item"><i class="fas fa-sign-out-alt"></i> Logout
-                    </a>
                 </div>
-            </nav>
-        </div>
+                <div class='dashboard-nav-dropdown'>
+                    <a href="#!"class="dashboard-nav-item dashboard-nav-dropdown-toggle"><i
+                            class="fa fa-briefcase"></i> Transaksi</a>
+                    <div class='dashboard-nav-dropdown-menu'>
+                        <a href="{{ url('/masterTransaksi') }}"class="dashboard-nav-dropdown-item">Transaksi</a>
+                        <a href="{{ url('/masterHistory') }}"class="dashboard-nav-dropdown-item">History
+                            Transaksi</a>
+                        <a href="{{ url('/masterStatus') }}"class="dashboard-nav-dropdown-item">Status Barang</a>
+                    </div>
+                </div>
+                <div class='dashboard-nav-dropdown'>
+                    <a href="#!"class="dashboard-nav-item dashboard-nav-dropdown-toggle"><i
+                            class="fa fa-share"></i>Keuangan </a>
+                    <div class='dashboard-nav-dropdown-menu'>
+
+                        <a href="{{ url('/masterPiutang') }}"class="dashboard-nav-dropdown-item">Master Piutang</a>
+                    </div>
+                </div>
+                <div class="nav-item-divider"></div>
+                <a href="{{ url('/') }}" class="dashboard-nav-item"><i class="fas fa-sign-out-alt"></i> Logout
+                </a>
+            </div>
+        </nav>
+    </div>
         <div class='dashboard-app'>
             <header class='dashboard-toolbar'><a href="#!" class="menu-toggle"><i class="fas fa-bars"></i></a>
                 <div style="color: white;font-size: 80%" id="myDiv"></div>

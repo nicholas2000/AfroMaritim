@@ -5,7 +5,6 @@
 <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
 <link rel="stylesheet" href="notif.css">
 <style>
     .right {
@@ -99,7 +98,7 @@
                         Welcome Admin
                     </div>
                     <div class='card-body'>
-                        @include('form.formtkompetitor')
+                        @include('form.formMasterteampengiriman')
                     </div>
                 </div>
             </div>
@@ -153,5 +152,4 @@
     }
     setInterval(showDateTime, 1000);
 </script>
-
 @yield('content')

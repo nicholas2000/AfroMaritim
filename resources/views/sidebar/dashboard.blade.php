@@ -55,6 +55,7 @@
                         <a href="{{ url('/masterKompetitor') }}"class="dashboard-nav-dropdown-item">Master
                             Kompetitor</a>
                         <a href="{{ url('/masterPegawai') }}"class="dashboard-nav-dropdown-item">Master Pegawai</a>
+                        <a href="{{ url('/masterTeam') }}"class="dashboard-nav-dropdown-item">Master Team Pengiriman</a>
 
                     </div>
                     <div class='dashboard-nav-dropdown'>

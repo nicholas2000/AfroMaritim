@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CabangController;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\controllerpegawai;
 use Illuminate\Support\Facades\Route;
@@ -47,8 +48,16 @@ Route::get('/masterCustomer', function () {
 Route::get('/masterKompetitor', function () {
     return view('admin.mKompetitor');
 });
-Route::get('/masterCabang', function () {
-    return view('admin.mCabang');
+// Route::get('/masterCabang', function () {
+//     return view('admin.mCabang');
+// });
+
+
+Route::post('/doAdd', [CabangController::class, "doAdd"]);
+Route::get('/masterCabang', [CabangController::class, "show"]);
+
+Route::get('/masterTeam', function () {
+    return view('admin.mTeampengiriman');
 });
 
 Route::get('/masterTransaksi', function () {
