@@ -186,7 +186,7 @@
                     <input  name="kode" class="form-control" type="text" enabled>
                   </div>
                   <div class="col-sm-3">
-                    <button type="button" style=" background-color:aqua" name="" class="btn btn-outline-danger">Submit</button>
+                    <button type="button" style="" name="" class="btn btn-primary">Submit</button>
                  </div>
                 </div>
               </div>
