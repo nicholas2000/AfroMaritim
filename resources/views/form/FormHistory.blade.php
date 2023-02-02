@@ -39,8 +39,8 @@
               </div>
               <div class="col-5"></div>
               <div class="" style="">
-                <button type="button" style="background-color:aqua" name="" class="btn btn-outline-danger">Import</button>
-                <button type="button" style="background-color:chartreuse" name="" class="btn btn-outline-danger">Export</button>
+                <button type="button" style="" name="" class="btn btn-success">Import</button>
+                <button type="button" style="" name="" class="btn btn-danger">Export</button>
               </div>
 
             </div>
@@ -87,7 +87,7 @@
 
     <br>
 
-    <button type="button" style="float: right; background-color:aqua" name="" class="btn btn-outline-danger">Update</button>
+    <button style="float: right;" type="button" class="btn btn-primary">Tambah</button>
 </section>
 <br>
 <br>
@@ -121,8 +121,11 @@
             <td></td>
             <td></td>
             <td></td>
-            <td> <button type="button" style=" background-color:aqua" name="" class="btn btn-outline-danger">Edit</button></td>
-
+            <td>
+                <button type="button" name=""  class="btn btn"><i class="fa fa-pencil-alt"></i></button>
+                <button style="margin-left: 2%" name="" type="button" class="btn btn-danger"><i class="fa fa-trash"></i></button>
+                <button style="margin-left: 2%" name="" type="button" class="btn btn-success"><i class="far fa-money-bill-alt"></i></button>
+            </td>
 
         </tr>
 
@@ -132,7 +135,11 @@
             <td></td>
             <td></td>
             <td></td>
-            <td> <button type="button" style=" background-color:aqua" name="" class="btn btn-outline-danger">Edit</button></td>
+            <td>
+                <button type="button" name=""  class="btn btn"><i class="fa fa-pencil-alt"></i></button>
+                <button style="margin-left: 2%" name="" type="button" class="btn btn-danger"><i class="fa fa-trash"></i></button>
+                <button style="margin-left: 2%" name="" type="button" class="btn btn-success"><i class="far fa-money-bill-alt"></i></button>
+            </td>
 
 
         </tr>
@@ -143,7 +150,11 @@
             <td></td>
             <td></td>
             <td></td>
-            <td> <button type="button" style=" background-color:aqua" name="" class="btn btn-outline-danger">Edit</button></td>
+            <td>
+                <button type="button" name=""  class="btn btn"><i class="fa fa-pencil-alt"></i></button>
+                <button style="margin-left: 2%" name="" type="button" class="btn btn-danger"><i class="fa fa-trash"></i></button>
+                <button style="margin-left: 2%" name="" type="button" class="btn btn-success"><i class="far fa-money-bill-alt"></i></button>
+            </td>
 
 
         </tr>
