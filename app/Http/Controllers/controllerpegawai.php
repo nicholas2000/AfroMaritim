@@ -31,9 +31,9 @@ class controllerpegawai extends Controller
             $ctr++;
         }
         if ($ctr < 10) {
-            $kode = "C00{$ctr}";
+            $kode = "P00{$ctr}";
         } else {
-            $kode = "C0{$ctr}";
+            $kode = "P0{$ctr}";
         }
 
         $request->validate(
@@ -50,7 +50,7 @@ class controllerpegawai extends Controller
                 "nama.required" => "nama harus di isi",
                 "npwp.required" => "npwp harus di isi",
                 "jalan.required" => "jalan harus di isi",
-                "kodepos.required" => "kodepos harus di isi",
+                "kodepos.required" => "kode pos harus di isi",
                 "hp.required" => "hp harus di isi",
                 "telpon.required" => "telpon harus di isi",
                 "email.required" => "email harus di isi"
