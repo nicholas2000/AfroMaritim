@@ -77,13 +77,6 @@ Route::get('/masterPiutang', function () {
     return view('admin.mPiutang');
 });
 
-
-// Route::post('/doketambahpo', [Controller::class, "ketambahvmpo"]);
-
-// Route::get('/tambahpo', [Controller::class, "tambahvmpo"]);
-// Route::post('/dotambavmpo', [Controller::class, "ketambahvmpo"]);
-
-
 Route::get('/masterPenerimaanbarang', function () {
     return view('admin.mPenerimaanbarang');
 });

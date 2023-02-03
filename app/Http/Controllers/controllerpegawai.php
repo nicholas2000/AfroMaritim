@@ -33,18 +33,29 @@ class controllerpegawai extends Controller
                 "npwp" => 'required',
                 "jalan" => 'required',
                 "kodepos" => 'required',
+                "provinsi"=>'required',
+                "kota"=>'required',
+                "kecamatan"=>'required',
+                "kelurahan"=>'required',
+                "kodepos"=>'required',
                 "hp" => 'required',
                 "telpon" => 'required',
                 "email" => 'required',
+                "role" => 'required'
             ],
             [
                 "nama.required" => "nama harus di isi",
                 "npwp.required" => "npwp harus di isi",
                 "jalan.required" => "jalan harus di isi",
+                "provinsi.required" => "Provinsi harus di pilih",
+                "kota.required" => "Kota harus di pilih",
+                "kecamatan.required" => "Kecamatan harus di pilih",
+                "kelurahan.required" => "Kelurahan harus di pilih",
                 "kodepos.required" => "kode pos harus di isi",
                 "hp.required" => "hp harus di isi",
                 "telpon.required" => "telpon harus di isi",
-                "email.required" => "email harus di isi"
+                "email.required" => "email harus di isi",
+                "role.required" => "Role harus di pilih",
             ]
         );
         modelpegawai::create([
