@@ -77,11 +77,11 @@ Route::get('/masterPiutang', function () {
 //     return view('admin.mPegawai');
 // });
 Route::get('/masterPegawai', [controllerpegawai::class, "vmpegawai"]);
-Route::post('/dotmpegawai', [controllerpegawai::class, "dotmpegawai"]);
+// Route::post('/dotmpegawai', [controllerpegawai::class, "dotmpegawai"]);
 
-// Route::get('/tpegawai', function () {
-//     return view('admin.mTpegawai');
-// });
+Route::get('/tpegawai', function () {
+    return view('admin.mTpegawai');
+});
 Route::get('/mastertpegawai', [controllerpegawai::class, "vmtpegawai"]);
 Route::post('/domastertpegawai', [controllerpegawai::class, "dovmtpegawai"]);
 // Route::post('/doketambahpo', [Controller::class, "ketambahvmpo"]);
