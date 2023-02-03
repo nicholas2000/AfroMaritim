@@ -16,8 +16,7 @@
 
 <body>
 
-    <form action="{{ url('/dotmpegawai') }}" method="post">
-        @csrf
+
         <section class="order-form m-4">
             <div class="container pt-4">
                 <div class="container">
@@ -29,8 +28,8 @@
 
 
                     <div class="col-12">
-                        <button style="float: right;" name="btnketpegawai" type="submit"
-                            class="btn btn-primary">Tambah</button>
+                        <a href="{{ url('/tpegawai') }}"><button style="float: right;" type="button"
+                            class="btn btn-primary">Tambah</button></a>
                     </div>
                     <br><br>
                     <div class="col-12">
@@ -54,7 +53,7 @@
 
                             @foreach ($arrPegawai as $prm)
                                 <tr>
-    
+
                                     <th scope="row">{{ $ctr }}</th>
                                     <th scope="col">
                                         <center>{{ $prm->id_pegawai }}</center>
@@ -78,7 +77,6 @@
 
                 </div>
         </section>
-    </form>
 
 </body>
 

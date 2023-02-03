@@ -14,15 +14,6 @@ class controllerpegawai extends Controller
         return view('admin.mPegawai',$param);
     }
 
-    public function dotmpegawai(Request $request)
-    {
-
-        return view("admin.mTpegawai");
-    }
-    public function vmtpegawai()
-    {
-        return view("admin.mTpegawai");
-    }
     public function dovmtpegawai(Request $request)
     {
         $temp = modelpegawai::count();
