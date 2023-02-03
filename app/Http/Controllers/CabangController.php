@@ -33,7 +33,32 @@ class CabangController extends Controller
         }
         $req->validate(
             [
-                'nama'=>'required',
+                "nama" => 'required',
+                "jum" => 'required',
+                "alamat" => 'required',
+                "provinsi" => 'required',
+                "kota" => 'required',
+                "kecamatan" => 'required',
+                "kelurahan" => 'required',
+                "kodepos" => 'required',
+                "hp" => 'required',
+                "gmaps" => 'required',
+                "email" => 'required',
+                "status" => 'required',
+            ],
+            [
+                "nama.required" => "nama harus di isi",
+                "jum.required" => "jumlah harus di isi",
+                "alamat.required" => "alamat harus di isi",
+                "provinsi.required" => "provinsi harus di isi",
+                "kota.required" => "kota harus di isi",
+                "kecamatan.required" => "kecamatan harus di isi",
+                "kelurahan.required" => "kelurahan harus di isi",
+                "kodepos.required" => "kode pos harus di isi",
+                "hp.required" => "hp harus di isi",
+                "gmaps.required" => "gmaps harus di isi",
+                "email.required" => "email harus di isi",
+                "status.required" => "status harus di isi",
             ]
         );
         Cabang::create([

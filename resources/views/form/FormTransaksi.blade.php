@@ -183,7 +183,7 @@
                      Tanggal Berangkat :
                   </div>
                   <div class="col-sm">
-                    <input  name="kode" class="form-control" type="text" enabled>
+                    <input  name="kode" class="form-control" type="date" enabled>
                   </div>
                   <div class="col-sm-3">
                     <button type="button" style="" name="" class="btn btn-primary">Submit</button>
