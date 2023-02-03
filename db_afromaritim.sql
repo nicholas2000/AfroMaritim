@@ -51,7 +51,7 @@ CREATE TABLE `master_tcabang` (
   PRIMARY KEY (`id_cabang`),
   KEY `kode_customer` (`kode_customer`),
   KEY `kode pegawai` (`kode pegawai`),
-  CONSTRAINT `master_tcabang_ibfk_1` FOREIGN KEY (`kode_customer`) REFERENCES `master_tcustomer` (`id_customer`),
+  CONSTRAINT `master_tcabang_ibfk_1` FOREIGN KEY (`kode_customer`) REFERENCES `master_tcustomer` (`kode`),
   CONSTRAINT `master_tcabang_ibfk_2` FOREIGN KEY (`kode pegawai`) REFERENCES `master_tpegawai` (`id_pegawai`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -62,12 +62,24 @@ CREATE TABLE `master_tcabang` (
 DROP TABLE IF EXISTS `master_tcustomer`;
 
 CREATE TABLE `master_tcustomer` (
-  `id_customer` varchar(255) NOT NULL,
+  `kode` varchar(255) NOT NULL,
   `nama_customer` varchar(255) NOT NULL,
-  `alamat_customer` varchar(255) NOT NULL,
+  `npwp` varchar(255) NOT NULL,
+  `jalan` varchar(255) NOT NULL,
+  `provinsi` varchar(255) NOT NULL,
+  `kota` varchar(255) NOT NULL,
+  `kecamatan` varchar(255) NOT NULL,
+  `kelurahan` varchar(255) NOT NULL,
+  `kode_pos` varchar(255) NOT NULL,
+  `HP` varchar(255) NOT NULL,
+  `telpon` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `status_hutang` varchar(255) NOT NULL,
   `total_hutang` varchar(255) NOT NULL,
-  `batas_pembayaran` varchar(255) NOT NULL,
-  PRIMARY KEY (`id_customer`)
+  `batang_pembayaran` varchar(255) NOT NULL,
+  `no_rekening` varchar(255) NOT NULL,
+  `metode pembayaran` varchar(255) NOT NULL,
+  PRIMARY KEY (`kode`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 /*Data for the table `master_tcustomer` */
