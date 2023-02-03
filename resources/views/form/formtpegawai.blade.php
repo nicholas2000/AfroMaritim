@@ -7,7 +7,7 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 <div class="container">
-    <form class="form-horizontal" action="{{ url('/domastertpegawai') }} " method="post"  id="contact_form">
+    <form class="form-horizontal" action="{{ url('/dotmpegawai') }} " method="post"  id="contact_form">
         @csrf
 <fieldset>
 <!-- Form Add Pegawai -->

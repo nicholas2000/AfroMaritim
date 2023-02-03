@@ -31,6 +31,9 @@ Route::get('/hutang', function () {
 Route::get('/tcabang', function () {
     return view('admin.mTcabang');
 });
+Route::get('/tpegawai', function () {
+    return view('admin.mTpegawai');
+});
 
 Route::get('/tkompetitor', function () {
     return view('admin.mTkompetitor');
@@ -41,8 +44,6 @@ Route::get('/tcustomer', function () {
 // ROUTE BARUU
 
 
-Route::post('/masterpegawai','Admin\BaseController@docekout');
-
 Route::get('/masterCustomer', function () {
     return view('admin.mCustomer');
 });
@@ -52,6 +53,9 @@ Route::get('/masterCabang', [CabangController::class, "show"]);
 
 Route::post('/doAddkompetitor', [KompetitorController::class, "doAdd"]);
 Route::get('/masterKompetitor', [KompetitorController::class, "show"]);
+
+Route::post('/dotmpegawai', [controllerpegawai::class, "dovmtpegawai"]);
+Route::get('/masterPegawai', [controllerpegawai::class, "vmpegawai"]);
 
 Route::get('/masterTeam', function () {
     return view('admin.mTeampengiriman');
@@ -73,17 +77,8 @@ Route::get('/masterPiutang', function () {
     return view('admin.mPiutang');
 });
 
-// Route::get('/masterPegawai', function () {
-//     return view('admin.mPegawai');
-// });
-Route::get('/masterPegawai', [controllerpegawai::class, "vmpegawai"]);
-Route::post('/dotmpegawai', [controllerpegawai::class, "dotmpegawai"]);
 
-// Route::get('/tpegawai', function () {
-//     return view('admin.mTpegawai');
-// });
-Route::get('/mastertpegawai', [controllerpegawai::class, "vmtpegawai"]);
-Route::post('/domastertpegawai', [controllerpegawai::class, "dovmtpegawai"]);
+
 // Route::post('/doketambahpo', [Controller::class, "ketambahvmpo"]);
 
 // Route::get('/tambahpo', [Controller::class, "tambahvmpo"]);
