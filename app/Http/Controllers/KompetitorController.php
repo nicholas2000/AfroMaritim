@@ -28,7 +28,36 @@ class KompetitorController extends Controller
 
         $req->validate(
             [
-                'nama'=>'required',
+                "nama" => 'required',
+                "npwp" => 'required',
+                "alamat" => 'required',
+                "provinsi" => 'required',
+                "kota" => 'required',
+                "kecamatan" => 'required',
+                "kelurahan" => 'required',
+                "kodepos" => 'required',
+                "hp" => 'required',
+                "telpon" => 'required',
+                "email" => 'required',
+                "rute" => 'required',
+                "namaBank" => 'required',
+                "noRekening" => 'required',
+            ],
+            [
+                "nama.required" => "nama harus di isi",
+                "npwp.required" => "npwp harus di isi",
+                "alamat.required" => "alamat harus di isi",
+                "provinsi.required" => "provinsi harus di isi",
+                "kota.required" => "kota harus di isi",
+                "kecamatan.required" => "kecamatan harus di isi",
+                "kelurahan.required" => "kelurahan harus di isi",
+                "kodepos.required" => "kode pos harus di isi",
+                "hp.required" => "hp harus di isi",
+                "telpon.required" => "telpon harus di isi",
+                "email.required" => "email harus di isi",
+                "rute.required" => "rute harus di isi",
+                "namaBank.required" => "nama bank harus di isi",
+                "noRekening.required" => "no rekening harus di isi",
             ]
         );
         Kompetitor::create([
