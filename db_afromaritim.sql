@@ -12,7 +12,7 @@ MySQL - 10.4.27-MariaDB : Database - db_afromaritim
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
-CREATE DATABASE /*!32312 IF NOT EXISTS*/`db_afromaritim` /*!40100 DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci */;
+CREATE DATABASE /*!32312 IF NOT EXISTS*/`db_afromaritim` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci */;
 
 USE `db_afromaritim`;
 
@@ -43,6 +43,7 @@ CREATE TABLE `master_tcabang` (
   `kecamatan_cabang` varchar(255) NOT NULL,
   `kelurahan_cabang` varchar(255) NOT NULL,
   `kodepos_cabang` varchar(255) NOT NULL,
+  `telpon_cabang` varchar(255) NOT NULL,
   `gmaps_cabang` varchar(255) NOT NULL,
   `email_cabang` varchar(255) NOT NULL,
   `status_cabang` varchar(2) NOT NULL,
@@ -50,6 +51,10 @@ CREATE TABLE `master_tcabang` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 /*Data for the table `master_tcabang` */
+
+insert  into `master_tcabang`(`id_cabang`,`nama_cabang`,`jum_cabang`,`alamat_cabang`,`provinsi_cabang`,`kota_cabang`,`kecamatan_cabang`,`kelurahan_cabang`,`kodepos_cabang`,`telpon_cabang`,`gmaps_cabang`,`email_cabang`,`status_cabang`) values 
+('C001','Andi','4','Ngagel Jaya no 3','Jawa Timur','Surabaya','Sidoarjo','Kediri','34234','34534534534','https://afrotransmaritim.co.id/','admi5n@gmail.com','1'),
+('C002','Sudi','2','Lontar Raya 2','Jawa Barat','Surabaya','Sidoarjo','Batu','34234','43534534534','https://afrotransmaritim.co.id/','admi5n@gmail.com','1');
 
 /*Table structure for table `master_tcustomer` */
 
@@ -106,6 +111,9 @@ CREATE TABLE `master_tkompetitor` (
 
 /*Data for the table `master_tkompetitor` */
 
+insert  into `master_tkompetitor`(`id_kompetitor`,`nama_kompetitor`,`npwp_kompetitor`,`alamat_kompetitor`,`provinsi_kompetitor`,`kota_kompetitor`,`kecamatan_kompetitor`,`kelurahan_kompetitor`,`kodepos_kompetitor`,`nohp_kompetitor`,`telp_kompetitor`,`email_kompetitor`,`rute_kompetitor`,`namabank_kompetitor`,`norek_kompetitor`) values 
+('K001','Dono','12312312','Candi tempel no 5','Jawa Timur','Bandung','Sidoarjo','Blitar','3334534','234234','3434545','admi5n@gmail.com','Jalan Tengah','BCA','2234234234');
+
 /*Table structure for table `master_tpegawai` */
 
 DROP TABLE IF EXISTS `master_tpegawai`;
@@ -123,7 +131,7 @@ CREATE TABLE `master_tpegawai` (
   `kodepos_pegawai` varchar(255) NOT NULL,
   `nohp_pegawai` varchar(255) NOT NULL,
   `telp_pegawai` varchar(255) NOT NULL,
-  `emaill_pegawai` varchar(255) NOT NULL,
+  `email_pegawai` varchar(255) NOT NULL,
   `role_pegawai` varchar(255) NOT NULL,
   PRIMARY KEY (`id_pegawai`),
   KEY `fk_pegawai` (`id_cabang`),
@@ -131,6 +139,9 @@ CREATE TABLE `master_tpegawai` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 /*Data for the table `master_tpegawai` */
+
+insert  into `master_tpegawai`(`id_pegawai`,`id_cabang`,`nama_pegawai`,`npwp_pegawai`,`alamat_pegawai`,`provinsi_pegawai`,`kota_pegawai`,`kecamatan_pegawai`,`kelurahan_pegawai`,`kodepos_pegawai`,`nohp_pegawai`,`telp_pegawai`,`email_pegawai`,`role_pegawai`) values 
+('P001','C001','Jojo','23423','sad','Jawa Timur','Surabaya','Sidoarjo','Blitar','3423423','324234','3434545','admi5n@gmail.com','Super Admin');
 
 /*Table structure for table `transaksi` */
 
