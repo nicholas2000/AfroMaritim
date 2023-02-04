@@ -11,7 +11,9 @@ class loginController extends Controller
         $password = $req->password;
 
         if($login == "admin"&&$password == "admin"){
-            return View ("/dashboard");
+            return View ("/sidebar/dashboard");
+        }else{
+            return redirect("/");
         }
 
     }
