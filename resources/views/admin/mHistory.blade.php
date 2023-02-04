@@ -103,7 +103,7 @@
                         Welcome Admin
                     </div>
                     <div class='card-body'>
-                        @include("form.formMastercustomer")
+                        @include("form.FormHistory")
                     </div>
                 </div>
             </div>

@@ -20,78 +20,18 @@
 <section class="order-form m-4">
     <div class="form-group">
         <div class="container">
-            <div class="row">
-              <div class="col-sm">
-                <span class="input-group-addon"><i class="glyphicon glyphicon-barcode"></i></span>
-                <input name="" placeholder="Transaksi" class="form-control"  type="text" >
-              </div>
-              <div class="col-5"></div>
-              <div class="" style="">
-                Nama Pegawai :
-              </div>
-            </div>
           </div>
-          <br>
           <div class="container">
             <div class="row">
               <div class="col-sm">
                 History Transaksi
-              </div>
-              <div class="col-5"></div>
-              <div class="" style="">
-                <button type="button" style="" name="" class="btn btn-success">Import</button>
-                <button type="button" style="" name="" class="btn btn-danger">Export</button>
               </div>
 
             </div>
           </div>
     </div>
 
-
-          <br>
-          <div class="container">
-            <div class="row">
-              <div class="col-sm-3">
-                No Transaksi
-              </div>
-              <div class="col-sm">
-                <div class="search-box">
-
-                    <input  name="kode" autocomplete="off" class="form-control" type="text" enabled>
-                    <div class="result"></div>
-                </div>
-              </div>
-
-            </div>
-          </div>
-          <br>
-          <div class="container">
-            <div class="row">
-              <div class="col-sm-3">
-                Nama Customer
-              </div>
-              <div class="col-sm">
-                <input  name="kode" class="form-control" type="text" disabled>
-              </div>
-
-            </div>
-          </div>
-          <br>
-          <div class="container">
-            <div class="row">
-              <div class="col-sm-3">
-                Tanggal Pengiriman
-              </div>
-              <div class="col-sm">
-                <input  name="kode" class="form-control" type="text" disabled>
-              </div>
-            </div>
-          </div>
-
-
-    <br>
-
-    <button style="float: right;" type="button" class="btn btn-primary">Tambah</button>
+    <button style="float: right;" type="button" class="btn btn-primary">Back</button>
 </section>
 <br>
 <br>
@@ -103,19 +43,16 @@
         <tr style="background-color:  #023e94;color: white;">
             <th scope="col">No.</th>
             <th scope="col">
-                <center>No Transaksi</center>
-            </th>
-            <th scope="col">
                 <center>Nama Customer</center>
             </th>
             <th scope="col">
-                <center>Harga</center>
+                <center>Total Item</center>
             </th>
             <th scope="col">
-                <center>Tanggal Pengiriman</center>
+                <center>Total Nominal</center>
             </th>
             <th scope="col">
-                <center>Keterangan</center>
+                <center>Acc</center>
             </th>
         </tr>
 
@@ -124,12 +61,10 @@
             <td></td>
             <td></td>
             <td></td>
-            <td></td>
             <td>
-                    <button type="button" name=""  class="btn btn"><i class="fa fa-pencil-alt"></i></button>
-                    <button style="margin-left: 2%" name="" type="button" class="btn btn-danger"><i class="fa fa-trash"></i></button>
-                    <button style="margin-left: 2%" name="" type="button" class="btn btn-success"><i class="far fa-money-bill-alt"></i></button>
-            </td>
+                <button style="margin-left: 2%" name="" type="button" class="btn btn-success">Accept</button>
+                <button style="margin-left: 2%" name="" type="button" class="btn btn-danger">Decline</button>
+               </td>
 
         </tr>
 
@@ -138,12 +73,10 @@
             <td></td>
             <td></td>
             <td></td>
-            <td></td>
             <td>
-                <button type="button" name=""  class="btn btn"><i class="fa fa-pencil-alt"></i></button>
-                <button style="margin-left: 2%;" name="" type="button" class="btn btn-danger"><i class="fa fa-trash"></i></button>
-                <button style="margin-left: 2%;" name="" type="button" class="btn btn-success"><i class="far fa-money-bill-alt"></i></button>
-            </td>
+                <button style="margin-left: 2%" name="" type="button" class="btn btn-success">Accept</button>
+                <button style="margin-left: 2%" name="" type="button" class="btn btn-danger">Decline</button>
+               </td>
 
 
         </tr>
@@ -153,12 +86,10 @@
             <td></td>
             <td></td>
             <td></td>
-            <td></td>
             <td>
-                <button type="button" name=""  class="btn btn"><i class="fa fa-pencil-alt"></i></button>
-                <button style="margin-left: 2%" name="" type="button" class="btn btn-danger"><i class="fa fa-trash"></i></button>
-                <button style="margin-left: 2%" name="" type="button" class="btn btn-success"><i class="far fa-money-bill-alt"></i></button>
-            </td>
+                <button style="margin-left: 2%" name="" type="button" class="btn btn-success">Accept</button>
+                <button style="margin-left: 2%" name="" type="button" class="btn btn-danger">Decline</button>
+                </td>
 
 
         </tr>
