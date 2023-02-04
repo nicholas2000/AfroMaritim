@@ -5,6 +5,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Controllers\controllerpegawai;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\KompetitorController;
+use App\Http\Controllers\loginController;
 use App\Http\Controllers\TransaksiController;
 use Illuminate\Support\Facades\Route;
 
@@ -37,9 +38,9 @@ Route::get('/tcabang', function () {
 Route::get('/tkompetitor', function () {
     return view('admin.mTkompetitor');
 });
-Route::get('/tcustomer', function () {
-    return view('admin.mTcustomer');
-});
+// Route::get('/tcustomer', function () {
+//     return view('admin.mTcustomer');
+// });
 // ROUTE BARUU
 
 
@@ -47,8 +48,12 @@ Route::get('/tcustomer', function () {
 //     return view('admin.mCustomer');
 // });
 
+
+Route::get('/login', [loginController::class, "login"]);
+
 Route::post('/doAddcustomer', [CustomerController::class, "doAdd"]);
 Route::get('/masterCustomer', [CustomerController::class, "show"]);
+Route::get('/tcustomer',  [CustomerController::class, "vfmcustomer"]);
 
 Route::post('/doAddcabang', [CabangController::class, "doAdd"]);
 Route::get('/masterCabang', [CabangController::class, "show"]);

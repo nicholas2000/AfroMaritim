@@ -13,7 +13,7 @@ class Customer extends Model
     public $timestamps = false;
     protected $fillable = [
         'id_customer',
-        'id_cabang ',
+        'id_cabang',
         'nama_customer',
         'npwp',
         'jalan',
@@ -22,7 +22,6 @@ class Customer extends Model
         'kecamatan',
         'kelurahan',
         'kode_pos',
-        'HP',
         'telpon',
         'email',
         'status_hutang',
@@ -32,5 +31,5 @@ class Customer extends Model
         'metode_pembayaran'
     ];
     protected $keyType = 'string';
-    
+
 }
