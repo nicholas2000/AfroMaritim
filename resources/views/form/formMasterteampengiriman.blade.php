@@ -80,6 +80,18 @@
                     </div>
                 </div>
 
+                <!--input link Drive-->
+                <div class="form-group">
+                    <label class="col-md-1 control-label">Link Drive</label>
+                    <div class="col-md-10 inputGroupContainer">
+                        <div class="input-group">
+                            <span style="background-color: #023e94" class="input-group-addon"><i style="color: white" class="fa fa-archive"></i></span>
+                            <input name="nocontainer"
+                                placeholder="Masukkan Link" class="form-control" type="text">
+                        </div>
+                    </div>
+                </div>
+
 
                 <!-- Button -->
                 <div class="form-group">

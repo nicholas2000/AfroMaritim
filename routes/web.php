@@ -47,6 +47,9 @@ Route::get('/tkompetitor', function () {
 //     return view('admin.mCustomer');
 // });
 
+
+Route::get('/login', [loginController::class, "login"]);
+
 Route::post('/doAddcustomer', [CustomerController::class, "doAdd"]);
 Route::get('/masterCustomer', [CustomerController::class, "show"]);
 Route::get('/tcustomer',  [CustomerController::class, "vfmcustomer"]);

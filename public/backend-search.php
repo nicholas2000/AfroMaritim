@@ -9,7 +9,7 @@ if($link === false){
 
 
     if($_REQUEST["ctr"]=="FormTransaksi"){
-        $sql = "SELECT * FROM master_tcabang WHERE nama_cabang LIKE ?";
+        $sql = "SELECT * FROM master_tcustomer WHERE nama_customer LIKE ?";
 
         if($stmt = mysqli_prepare($link, $sql)){
 
@@ -26,7 +26,7 @@ if($link === false){
                 if(mysqli_num_rows($result) > 0){
 
                     while($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
-                        echo "<option style='height:20px;'>" . $row["nama_cabang"] . "</option>";
+                        echo "<option style='height:20px;'>" . $row["nama_customer"] . "</option>";
                     }
                 } else{
                     echo "<div style='height:20px;'>No matches found</div>";
