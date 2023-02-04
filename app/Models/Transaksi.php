@@ -27,7 +27,7 @@ class Transaksi extends Model
         'persentase',
         'total_harga',
         'nama_kapal',
-        'nama_container',
+        'nomor_container',
         'tanggal_berangkat'
     ];
     protected $keyType = 'string';
