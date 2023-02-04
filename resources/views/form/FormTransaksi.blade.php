@@ -9,16 +9,17 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
     integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
 </script>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 @if ($errors->any())
                 @foreach ($errors->all() as $err)
                     <div class="alert alert-danger">{{ $err }}</div>
                 @endforeach
             @endif
 <section class="order-form m-4">
-    
+
     <div class="container pt-4">
         <div class="container">
-            
+
             <div class="container">
                 <div class="row">
                     <div class="col-12 ">
@@ -30,14 +31,17 @@
             <br>
             <form action="{{ url('/doMasterTransaksi') }} " method="post">
                 @csrf
-                
+
                 <div class="container">
                     <div class="row">
                         <div class="col-sm-3">
                             Nama Customer :
                         </div>
                         <div class="col-sm">
-                            <input name="namacust" class="form-control" type="text" style="width: 210px;"enabled>
+                            <div class="search-box">
+                                <input name="namacust" autocomplete="off" class="form-control" type="text" style="width: 210px;"enabled>
+                                <div class="result"></div>
+                            </div>
                         </div>
                         <div class="col-sm-3">
                             Nomor Transaksi :
@@ -207,4 +211,26 @@
             return false;
         return true;
     }
+
+    $(document).ready(function(){
+    $('.search-box input[type="text"]').on("keyup input", function(){
+        /* Get input value on change */
+        var inputVal = $(this).val();
+        var resultDropdown = $(this).siblings(".result");
+        if(inputVal.length){
+            $.get("backend-search.php", {term: inputVal}).done(function(data){
+                // Display the returned data in browser
+                resultDropdown.html(data);
+            });
+        } else{
+            resultDropdown.empty();
+        }
+    });
+
+    // Set search input value on click of result item
+    $(document).on("click", ".result p", function(){
+        $(this).parents(".search-box").find('input[type="text"]').val($(this).text());
+        $(this).parent(".result").empty();
+    });
+});
 </script>

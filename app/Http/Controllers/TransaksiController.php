@@ -60,7 +60,7 @@ class TransaksiController extends Controller
         }
         $tothargapalsu=1000;
         $idadmpalsu="albert";
-        
+
         Transaksi::create([
             'nomor_transaksi' => $kode,
             'id_customer' =>"CU001",
