@@ -9,41 +9,28 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
     integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
 </script>
-
+@if ($errors->any())
+                @foreach ($errors->all() as $err)
+                    <div class="alert alert-danger">{{ $err }}</div>
+                @endforeach
+            @endif
 <section class="order-form m-4">
+    
     <div class="container pt-4">
         <div class="container">
-            <div class="form-group">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-sm">
-                            <span class="input-group-addon"><i class="glyphicon glyphicon-barcode"></i></span>
-
-                        </div>
-                        <div class="col-5"></div>
-                    </div>
-                </div>
-            </div>
-            <br>
+            
             <div class="container">
                 <div class="row">
-                    <div class="col-12">
-                        <h1>Transaksi</h1>
+                    <div class="col-12 ">
+                        <h1> Master Transaksi</h1>
+                        <hr class="mt" />
                     </div>
                 </div>
             </div>
             <br>
             <form action="{{ url('/doMasterTransaksi') }} " method="post">
                 @csrf
-                <div class="container">
-                    <div class="row">
-                        <div class="col-12">
-                            <h3> Customer</h3>
-                            <br><br>
-                        </div>
-                    </div>
-                </div>
-
+                
                 <div class="container">
                     <div class="row">
                         <div class="col-sm-3">

@@ -13,7 +13,40 @@ class TransaksiController extends Controller
 
     public function doAdd(Request $req)
     {
-        
+        $req->validate(
+            [
+                "namacust" => 'required',
+                "namabarang" => 'required',
+                "ukuran" => 'required',
+                "volume"=>'required',
+                "berat"=>'required',
+                "rute"=>'required',
+                "tonase"=>'required',
+                "harga"=>'required',
+                "jenisharga" => 'required',
+                "hargatambahan" => 'required',
+                "persentase" => 'required',
+                "namakapal" => 'required',
+                "nocontainer" => 'required',
+                "tglberangkat" => 'required',
+            ],
+            [
+                "namacust.required" => 'Nama Customer Harus di isi',
+                "namabarang.required" => 'Nama Barang Harus di isi',
+                "ukuran.required" => 'Ukuran Harus di isi',
+                "volume.required"=>'Volume Harus di isi',
+                "berat.required"=>'Rute Harus di isi',
+                "rute.required"=>'Rute Harus di isi',
+                "tonase.required"=>'Tonase Harus di isi',
+                "harga.required"=>'Harga Harus di isi',
+                "jenisharga.required" => 'Jenis Harga Harus dipilih',
+                "hargatambahan.required" => 'Harga Tambahan Harus di isi',
+                "persentase.required" => 'Persentase Harus di isi',
+                "namakapal.required" => 'Nama Kapal Harus di isi',
+                "nocontainer.required" => 'Nomor Container Harus di isi',
+                "tglberangkat.required" => 'Tanggal Berangkat Harus Terisi',
+            ]
+        );
 
         $temp = Transaksi::count();
         $ctr = 1;
