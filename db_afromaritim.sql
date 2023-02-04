@@ -12,7 +12,7 @@ MySQL - 10.4.27-MariaDB : Database - db_afromaritim
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
-CREATE DATABASE /*!32312 IF NOT EXISTS*/`db_afromaritim` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci */;
+CREATE DATABASE /*!32312 IF NOT EXISTS*/`db_afromaritim` /*!40100 DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci */;
 
 USE `db_afromaritim`;
 
@@ -46,13 +46,7 @@ CREATE TABLE `master_tcabang` (
   `gmaps_cabang` varchar(255) NOT NULL,
   `email_cabang` varchar(255) NOT NULL,
   `status_cabang` varchar(2) NOT NULL,
-  `kode_customer` varchar(5) NOT NULL,
-  `kode pegawai` varchar(5) NOT NULL,
-  PRIMARY KEY (`id_cabang`),
-  KEY `kode_customer` (`kode_customer`),
-  KEY `kode pegawai` (`kode pegawai`),
-  CONSTRAINT `master_tcabang_ibfk_1` FOREIGN KEY (`kode_customer`) REFERENCES `master_tcustomer` (`kode`),
-  CONSTRAINT `master_tcabang_ibfk_2` FOREIGN KEY (`kode pegawai`) REFERENCES `master_tpegawai` (`id_pegawai`)
+  PRIMARY KEY (`id_cabang`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 /*Data for the table `master_tcabang` */
@@ -62,7 +56,8 @@ CREATE TABLE `master_tcabang` (
 DROP TABLE IF EXISTS `master_tcustomer`;
 
 CREATE TABLE `master_tcustomer` (
-  `kode` varchar(255) NOT NULL,
+  `id_customer` varchar(255) NOT NULL,
+  `id_cabang` varchar(255) NOT NULL,
   `nama_customer` varchar(255) NOT NULL,
   `npwp` varchar(255) NOT NULL,
   `jalan` varchar(255) NOT NULL,
@@ -79,7 +74,9 @@ CREATE TABLE `master_tcustomer` (
   `batang_pembayaran` varchar(255) NOT NULL,
   `no_rekening` varchar(255) NOT NULL,
   `metode pembayaran` varchar(255) NOT NULL,
-  PRIMARY KEY (`kode`)
+  PRIMARY KEY (`id_customer`),
+  KEY `fk_customer` (`id_cabang`),
+  CONSTRAINT `fk_customer` FOREIGN KEY (`id_cabang`) REFERENCES `master_tcabang` (`id_cabang`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 /*Data for the table `master_tcustomer` */
@@ -115,6 +112,7 @@ DROP TABLE IF EXISTS `master_tpegawai`;
 
 CREATE TABLE `master_tpegawai` (
   `id_pegawai` varchar(255) NOT NULL,
+  `id_cabang` varchar(255) NOT NULL,
   `nama_pegawai` varchar(255) NOT NULL,
   `npwp_pegawai` varchar(255) NOT NULL,
   `alamat_pegawai` varchar(255) NOT NULL,
@@ -127,7 +125,9 @@ CREATE TABLE `master_tpegawai` (
   `telp_pegawai` varchar(255) NOT NULL,
   `emaill_pegawai` varchar(255) NOT NULL,
   `role_pegawai` varchar(255) NOT NULL,
-  PRIMARY KEY (`id_pegawai`)
+  PRIMARY KEY (`id_pegawai`),
+  KEY `fk_pegawai` (`id_cabang`),
+  CONSTRAINT `fk_pegawai` FOREIGN KEY (`id_cabang`) REFERENCES `master_tcabang` (`id_cabang`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 /*Data for the table `master_tpegawai` */
