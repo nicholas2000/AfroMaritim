@@ -4,6 +4,7 @@ use App\Http\Controllers\CabangController;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\controllerpegawai;
 use App\Http\Controllers\KompetitorController;
+use App\Http\Controllers\TransaksiController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -57,13 +58,19 @@ Route::post('/dotmpegawai', [controllerpegawai::class, "dovmtpegawai"]);
 Route::get('/masterPegawai', [controllerpegawai::class, "vmpegawai"]);
 Route::get('/tpegawai',  [controllerpegawai::class, "vfmpegawai"]);
 
+
+// <-------------->
+Route::post('/doMasterTransaksi', [TransaksiController::class, "doAdd"]);
+Route::get('/masterTransaksi', [TransaksiController::class, "showtransaksi"]);
+
+
 Route::get('/masterTeam', function () {
     return view('admin.mTeampengiriman');
 });
 
-Route::get('/masterTransaksi', function () {
-    return view('admin.mTransaksi');
-});
+// Route::get('/masterTransaksi', function () {
+//     return view('admin.mTransaksi');
+// });
 
 Route::get('/masterHistory', function () {
     return view('admin.mHistory');

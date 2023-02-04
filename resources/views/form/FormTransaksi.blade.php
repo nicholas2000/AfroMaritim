@@ -9,6 +9,7 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
     integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
 </script>
+
 <section class="order-form m-4">
     <div class="container pt-4">
         <div class="container">
@@ -27,185 +28,188 @@
             <div class="container">
                 <div class="row">
                     <div class="col-12">
-                        <h2>Transaksi</h2>
+                        <h1>Transaksi</h1>
                     </div>
                 </div>
             </div>
             <br>
-            <div class="container">
-                <div class="row">
-                    <div class="col-12">
-                        <h3> Customer</h3>
-                    </div>
-                </div>
-            </div>
-
-            <div class="container">
-                <div class="row">
-                    <div class="col-sm-3">
-                        Nama Customer :
-                    </div>
-                    <div class="col-auto">
-                        <select class="custom-select" style="width: 210px;" id="inlineFormCustomSelect">
-                            <option selected>Pilih</option>
-                            <option value="1">One</option>
-                            <option value="2">Two</option>
-                            <option value="3">Three</option>
-                        </select>
-
-                    </div>
-                    <div class="col-sm-3">
-                        Nomor Transaksi :
-                    </div>
-                    <div class="col-sm">
-                        <input name="kode" class="form-control" type="text" style="width: 210px;" disabled>
-                    </div>
-                </div>
-            </div>
-            <br>
-            <div class="container">
-                <div class="row">
-                    <div class="col-sm-3">
-                        Nama Barang :
-                    </div>
-                    <div class="col-sm">
-                        <input name="kode" class="form-control" type="text"style="width: 210px;" enabled>
-                    </div>
-                    <div class="col-sm-3">
-                        Admin :
-                    </div>
-                    <div class="col-sm">
-                        <input name="kode" class="form-control" type="text"style="width: 210px;" disabled>
-                    </div>
-                </div>
-            </div>
-            <br>
-            <div class="container">
-                <div class="row">
-                    <div class="col-sm-3">
-                        Ukuran :
-                    </div>
-                    <div class="col-sm">
-                        <input name="kode" class="form-control" type="text"style="width: 210px;" enabled>
-                    </div>
-                    <div class="col-sm-3">
-                        Volume :
-                    </div>
-                    <div class="col-sm">
-                        <input name="kode" class="form-control" type="text"style="width: 210px;" enabled>
-                    </div>
-                </div>
-            </div>
-            <br>
-            <div class="container">
-                <div class="row">
-                    <div class="col-sm-3">
-                        Berat :
-                    </div>
-                    <div class="col-sm">
-                        <input name="kode" class="form-control" type="text"style="width: 210px;" enabled>
-                    </div>
-                    <div class="col-sm-3">
-                        Rute :
-                    </div>
-                    <div class="col-sm">
-                        <input name="kode" class="form-control" type="text"style="width: 210px;" enabled>
-                    </div>
-                </div>
-            </div>
-            <br>
-            <div class="container">
-                <div class="row">
-                    <div class="col-sm-3">
-                        Harga :
-                    </div>
-                    <div class="col-sm">
-                        <input name="kode" class="form-control" type="text"style="width: 210px;" enabled>
-                    </div>
-                    <div class="col-sm-3">
-                        Jenis Harga :
-                    </div>
-                    <div class="col-sm-3">
-                        <div class="col-auto">
-                            <select class="custom-select" style="width: 210px;margin-left:-15px;"
-                                id="inlineFormCustomSelect">
-                                <option selected>Pilih</option>
-                                <option value="1">One</option>
-                                <option value="2">Two</option>
-                                <option value="3">Three</option>
-                            </select>
-
+            <form action="{{ url('/doMasterTransaksi') }} " method="post">
+                @csrf
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12">
+                            <h3> Customer</h3>
+                            <br><br>
                         </div>
                     </div>
                 </div>
-            </div>
-            <br>
-            <div class="container">
-                <div class="row">
-                    <div class="col-sm-3">
-                        Tonase :
-                    </div>
-                    <div class="col-sm">
-                        <input name="kode" class="form-control" type="text"style="width: 210px;" enabled>
-                    </div>
-                    <div class="col-sm-3">
-                        Harga Tambahan :
-                    </div>
-                    <div class="col-sm">
-                        <input name="kode" class="form-control" type="text"style="width: 210px;" enabled>
-                    </div>
-                </div>
-            </div>
-            <br>
-            <div class="container">
-                <div class="row">
-                    <div class="col-sm-3">
-                        Persentase :
-                    </div>
-                    <div class="col-sm">
-                        <input name="kode" class="form-control" type="text"style="width: 210px;" enabled>
-                    </div>
-                    <div class="col-sm-3">
-                        Total Harga :
-                    </div>
-                    <div class="col-sm">
-                        <input name="kode" class="form-control" type="text"style="width: 210px;" disabled>
-                    </div>
-                </div>
-            </div>
-            <br>
-            <div class="container">
-                <div class="row">
-                    <div class="col-sm-3">
-                        Nama Kapal :
-                    </div>
-                    <div class="col-sm">
-                        <input name="kode" class="form-control" type="text"style="width: 210px;" enabled>
-                    </div>
-                    <div class="col-sm-3">
-                        Nomor Container :
-                    </div>
-                    <div class="col-sm">
-                        <input name="kode" class="form-control" type="text"style="width: 210px;" enabled>
-                    </div>
-                </div>
-            </div>
-            <br>
-            <div class="container">
-                <div class="row">
-                    <div class="col-sm-3">
-                        Tanggal Berangkat :
-                    </div>
-                    <div class="col-sm">
-                        <input name="kode" class="form-control" type="date"style="width: 210px;" enabled>
-                    </div>
-                    <div class="col-sm-3">
-                        <br>
-                        <button type="button" style="" name="" class="btn btn-primary">Submit</button>
-                    </div>
-                </div>
-            </div>
 
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-3">
+                            Nama Customer :
+                        </div>
+                        <div class="col-sm">
+                            <input name="namacust" class="form-control" type="text" style="width: 210px;"enabled>
+                        </div>
+                        <div class="col-sm-3">
+                            Nomor Transaksi :
+                        </div>
+                        <div class="col-sm">
+                            <input name="kode" class="form-control" type="text" style="width: 210px;" disabled>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-3">
+                            Nama Barang :
+                        </div>
+                        <div class="col-sm">
+                            <input name="namabarang" class="form-control" type="text"style="width: 210px;" enabled>
+                        </div>
+                        <div class="col-sm-3">
+                            Admin :
+                        </div>
+                        <div class="col-sm">
+                            <input name="kode" class="form-control" type="text"style="width: 210px;" disabled>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-3">
+                            Ukuran :
+                        </div>
+                        <div class="col-sm">
+                            <input name="ukuran" class="form-control" type="text"style="width: 210px;" enabled>
+                        </div>
+                        <div class="col-sm-3">
+                            Volume :
+                        </div>
+                        <div class="col-sm">
+                            <input name="volume" class="form-control" type="text"style="width: 210px;" enabled>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-3">
+                            Berat :
+                        </div>
+                        <div class="col-sm">
+                            <input name="berat" class="form-control" type="text"style="width: 210px;" enabled>
+                        </div>
+                        <div class="col-sm-3">
+                            Rute :
+                        </div>
+                        <div class="col-sm">
+                            <input name="rute" class="form-control" type="text"style="width: 210px;" enabled>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-3">
+                            Harga :
+                        </div>
+                        <div class="col-sm">
+                            <input name="harga" class="form-control" type="text"style="width: 210px;" enabled>
+                        </div>
+                        <div class="col-sm-3">
+                            Jenis Harga :
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="col-auto">
+                                <select name="jenisharga" class="custom-select" style="width: 210px;margin-left:-15px;"
+                                    id="inlineFormCustomSelect">
+                                    <option selected>Pilih</option>
+                                    <option value="1">One</option>
+                                    <option value="2">Two</option>
+                                    <option value="3">Three</option>
+                                </select>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-3">
+                            Tonase :
+                        </div>
+                        <div class="col-sm">
+                            <input name="tonase" class="form-control" type="text"style="width: 210px;" enabled>
+                        </div>
+                        <div class="col-sm-3">
+                            Harga Tambahan :
+                        </div>
+                        <div class="col-sm">
+                            <input name="hargatambahan" class="form-control" type="text"style="width: 210px;"
+                                enabled>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-3">
+                            Persentase :
+                        </div>
+                        <div class="col-sm">
+                            <input name="persentase" class="form-control" type="text"style="width: 210px;"
+                                enabled>
+                        </div>
+                        <div class="col-sm-3">
+                            Total Harga :
+                        </div>
+                        <div class="col-sm">
+                            <input name="totalharga" class="form-control" type="text"style="width: 210px;"
+                                disabled>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-3">
+                            Nama Kapal :
+                        </div>
+                        <div class="col-sm">
+                            <input name="namakapal" class="form-control" type="text"style="width: 210px;"
+                                enabled>
+                        </div>
+                        <div class="col-sm-3">
+                            Nomor Container :
+                        </div>
+                        <div class="col-sm">
+                            <input name="nocontainer" class="form-control" type="text"style="width: 210px;"
+                                enabled>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-3">
+                            Tanggal Berangkat :
+                        </div>
+                        <div class="col-sm">
+                            <input name="tglberangkat" class="form-control" type="date"style="width: 210px;"
+                                enabled>
+                        </div>
+                        <div class="col-sm-3">
+                            <br>
+                            <button type="submit" name="btnsubmit" class="btn btn-primary">Submit</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
         </div>
     </div>
 </section>
