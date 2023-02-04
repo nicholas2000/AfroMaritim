@@ -37,9 +37,9 @@ Route::get('/tcabang', function () {
 Route::get('/tkompetitor', function () {
     return view('admin.mTkompetitor');
 });
-Route::get('/tcustomer', function () {
-    return view('admin.mTcustomer');
-});
+// Route::get('/tcustomer', function () {
+//     return view('admin.mTcustomer');
+// });
 // ROUTE BARUU
 
 
@@ -49,6 +49,7 @@ Route::get('/tcustomer', function () {
 
 Route::post('/doAddcustomer', [CustomerController::class, "doAdd"]);
 Route::get('/masterCustomer', [CustomerController::class, "show"]);
+Route::get('/tcustomer',  [CustomerController::class, "vfmcustomer"]);
 
 Route::post('/doAddcabang', [CabangController::class, "doAdd"]);
 Route::get('/masterCabang', [CabangController::class, "show"]);

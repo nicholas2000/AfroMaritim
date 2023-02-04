@@ -52,6 +52,21 @@
                     </div>
                 </div>
 
+                <div class="form-group">
+                    <label class="col-md-1 control-label">Cabang</label>
+                      <div class="col-md-10 selectContainer">
+                          <div class="input-group">
+                              <span style="background-color: #023e94" class="input-group-addon"><i style="color: white"  class="glyphicon glyphicon-map-marker"></i></span>
+                              <select name="cabang" style="height:35px" class="form-control selectpicker">
+                                  <option value="">Pilih Cabang</option>
+                                  @foreach ($cabang as $prm)
+                                        <option value="{{$prm->id_cabang}}">{{$prm->nama_cabang}}</option>
+                                  @endforeach
+                              </select>
+                          </div>
+                      </div>
+                  </div>
+
                 <!-- input name-->
 
                 <div class="form-group ">
@@ -177,19 +192,6 @@
                     </div>
                 </div>
 
-                <!--input phone-->
-                <div class="form-group">
-                    <label class="col-md-1 control-label">HP</label>
-                    <div class="col-md-10 inputGroupContainer">
-                        <div class="input-group">
-                            <span style="background-color: #023e94" class="input-group-addon"><i style="color: white"
-                                    class="glyphicon glyphicon-phone"></i></span>
-                            <input onkeypress="return onlyNumberKey(event)" name="hp"
-                                placeholder="Masukkan Nomer HP" class="form-control" type="telp">
-                        </div>
-                    </div>
-                </div>
-
                 <!--input fax-->
                 <div class="form-group">
                     <label class="col-md-1 control-label">Telpon</label>
@@ -218,9 +220,9 @@
                     <label class="col-md-1 control-label">Status Hutang</label>
                     <div class="col-md-10 inputGroupContainer">
                         <div name="status" class="input-group" style="margin-top: 12px;" >
-                            <input type="radio" name="tab" onclick="show1();" checked/>
+                            <input type="radio" name="tab" value="On" onclick="show1();"/>
                             Aktif
-                            <input type="radio" name="tab" onclick="show2();" />
+                            <input type="radio" name="tab" value = "Off"onclick="show2();" />
                             Tidak
                         </div>
                     </div>
