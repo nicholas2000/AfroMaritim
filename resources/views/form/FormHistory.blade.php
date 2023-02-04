@@ -1,123 +1,231 @@
 
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
+<link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/css/bootstrap-datetimepicker.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/js/bootstrap-datepicker.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css">
+
+<script src="https://cdn.jsdelivr.net/npm/table2excel@1.0.4/dist/table2excel.min.js"></script>
 <style>
-    .p{
-        display: flex;
-        width: 100%
-    }
-    @media screen and (max-width: 600px) {
     .p {
-        width: 60%;
+        display: flex;
+        width: 80%;
     }
-    .pk{
-        width: 47%;
+
+    @media screen and (max-width:600px) {
+        .p {
+            width: 75%;
+        }
+
+        .pk{
+            margin-right: 5%;
+        }
     }
-}
+
+    .clickable {
+        cursor: pointer;
+    }
 </style>
 <section class="order-form m-4">
-    <div class="form-group">
+    <div class="container pt-4">
         <div class="container">
-          </div>
-          <div class="container">
-            <div class="row">
-              <div class="col-sm">
-                History Transaksi
-              </div>
+            <div class="row ">
+                <div class="col-sm-5 form-group">
+                    <div class="input-group">
+                        <input type="search"  class="form-control rounded p" placeholder=" Transaksi"
+                            aria-label="Search" aria-describedby="search-addon" />
+                     </div>
+
+                </div>
+                <div class="col-sm">
+                    </div>
+                <div class="col-sm-3">
+                    </div>
+                <div class="col-sm-3">
+                    <div>Nama Pegawai :</div>
+                    </div>
 
             </div>
-          </div>
+            <div class="row ">
+                <div class="col-sm-5">
+                <div><h3> History Transaksi</h3></div>
+                </div>
+                <div class="col-sm-3">
+                    <input type='text' style="width: 180px;" placeholder="Search">
+                    </div>
+                <div class="col-sm">
+
+                <div style="">
+                    <a href="" class="btn btn-primary" style="color: white;height: 37px;margin-right: 5%;" class="p">Import</a>
+                    <a href="" id="btn-excel" class="btn btn-success"
+                        style="color: white;height: 37px;">Export</a>
+                </div>
+            </div>
+        </div>
+
+
+
+            <br>
+            <div class="row">
+                <div class="col-sm-12 col-md-6 form-group">
+                    <div class="p">
+                        <div class="col-md-6">No Transaksi</div>
+                        <div>:</div>
+                        <div class="col-md-3"><input type='text' style="width: 180px;"
+                                >
+                        </div>
+                    </div>
+                    <br>
+                    <div class="p">
+                        <div class="col-md-6">Nama Customer</div>
+                        <div>:</div>
+                        <div class="col-md-3"><input type='text' style="width: 180px;"
+                            disabled  >
+                        </div>
+                    </div>
+                    <br>
+                    <div class="p">
+                        <div class="col-md-6">Tanggal Pengiriman</div>
+                        <div>:</div>
+                        <div class="col-md-3"><input type='text' style="width: 180px;"
+                               disabled >
+                        </div>
+                    </div>
+                    <br>
+
+                    {{-- ----- --}}
+                </div>
+                <div class="col-sm-12 col-md-6 form-group">
+
+                    <div class="p ">
+                        <div class="col-sm-5">No Kapal</div>
+                        <div>:</div>
+                        <div class="col-md-3"><input type='text' style="width: 180px;"
+                             >
+                     </div>
+                    </div>
+                    <br>
+                    <div class="p ">
+                        <div class="col-sm-5">No Container</div>
+                        <div>:</div>
+                        <div class="col-md-3"><input type='text' style="width: 180px;"
+                             >
+                     </div>
+                    </div>
+                    <br>
+                    <a href=""class="btn btn-primary" style="float: right">Update</a>
+                    <br>
+                </div>
+
+                <div class="col-12">
+                    <table id="datatables" class="table table-bordered">
+
+                        <tr style="background-color:  #023e94;color: white;">
+                            <th scope="col">No Transaksi</th>
+                            <th scope="col">
+                                <center>Nama Customer</center>
+                            </th>
+                            <th scope="col">
+                                <center>Harga</center>
+                            </th>
+                            <th scope="col">
+                                <center>Tanggal Pengiriman</center>
+                            </th>
+                            <th scope="col">
+                                <center>No Kapal</center>
+                            </th>
+                            <th scope="col">
+                                <center>No Container</center>
+                            </th>
+                        </tr>
+
+                        <tr>
+                            <th scope="row">1</th>
+                            <td></td>
+                            <td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+
+                        <tr>
+                            <th scope="row">2</th>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+
+                        <tr>
+                            <th scope="row">3</th>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+
+                    </table>
+                </div>
+
+            </div>
+        </div>
     </div>
-
-    <button style="float: right;" type="button" class="btn btn-primary">Back</button>
 </section>
-<br>
-<br>
-<br>
-
-<div class="col-12">
-    <table id="datatables" class="table table-bordered">
-
-        <tr style="background-color:  #023e94;color: white;">
-            <th scope="col">No.</th>
-            <th scope="col">
-                <center>Nama Customer</center>
-            </th>
-            <th scope="col">
-                <center>Total Item</center>
-            </th>
-            <th scope="col">
-                <center>Total Nominal</center>
-            </th>
-            <th scope="col">
-                <center>Acc</center>
-            </th>
-        </tr>
-
-        <tr>
-            <th scope="row">1</th>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td>
-                <button style="margin-left: 2%" name="" type="button" class="btn btn-success">Accept</button>
-                <button style="margin-left: 2%" name="" type="button" class="btn btn-danger">Decline</button>
-               </td>
-
-        </tr>
-
-        <tr>
-            <th scope="row">2</th>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td>
-                <button style="margin-left: 2%" name="" type="button" class="btn btn-success">Accept</button>
-                <button style="margin-left: 2%" name="" type="button" class="btn btn-danger">Decline</button>
-               </td>
-
-
-        </tr>
-
-        <tr>
-            <th scope="row">3</th>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td>
-                <button style="margin-left: 2%" name="" type="button" class="btn btn-success">Accept</button>
-                <button style="margin-left: 2%" name="" type="button" class="btn btn-danger">Decline</button>
-                </td>
-
-
-        </tr>
-
-    </table>
-</div>
 <script>
-    $(document).ready(function() {
-        $('.search-box input[type="text"]').on("keyup input", function() {
+    function onlyNumberKey(evt) {
+        var ASCIICode = (evt.which) ? evt.which : evt.keyCode
+        if (ASCIICode > 31 && (ASCIICode < 48 || ASCIICode > 57))
+            return false;
+        return true;
+    }
 
-            var inputVal = $(this).val();
-            var resultDropdown = $(this).siblings(".result");
-            if (inputVal.length) {
-                $.get("backend-search.php", {
-                    term: inputVal,
-                    ctr: "FormHistory"
-                }).done(function(data) {
+    var nowTemp = new Date();
+    var now = new Date(nowTemp.getFullYear(), nowTemp.getMonth(), nowTemp.getDate(), 0, 0, 0, 0);
 
-                    resultDropdown.html(data);
-                });
+    var checkin = $('#dp1').datepicker({
+
+        beforeShowDay: function(date) {
+            return date.valueOf() >= now.valueOf();
+        },
+        autoclose: true
+
+    }).on('changeDate', function(ev) {
+        if (ev.date.valueOf() > checkout.datepicker("getDate").valueOf() || !checkout.datepicker("getDate")
+            .valueOf()) {
+
+            var newDate = new Date(ev.date);
+            newDate.setDate(newDate.getDate() + 1);
+            checkout.datepicker("update", newDate);
+
+        }
+        $('#dp2')[0].focus();
+    });
+
+
+    var checkout = $('#dp2').datepicker({
+        beforeShowDay: function(date) {
+            if (!checkin.datepicker("getDate").valueOf()) {
+                return date.valueOf() >= new Date().valueOf();
             } else {
-                resultDropdown.empty();
+                return date.valueOf() > checkin.datepicker("getDate").valueOf();
             }
-        });
+        },
+        autoclose: true
 
-        $(document).on("click", ".result", function() {
-            $(this).parents(".search-box").find('input[type="text"]').val($(this).text());
-            $(this).parent(".result").empty();
-        });
+    }).on('changeDate', function(ev) {});
+
+    document.getElementById("btn-excel").addEventListener("click", () => {
+        let table2excel = new Table2Excel();
+        table2excel.export(document.querySelector("#datatables"));
     });
 </script>
