@@ -10,11 +10,19 @@
     integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
 </script>
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.6.3/css/bootstrap-select.min.css" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.6.3/js/bootstrap-select.min.js"></script>
+
+</html>
 @if ($errors->any())
-                @foreach ($errors->all() as $err)
-                    <div class="alert alert-danger">{{ $err }}</div>
-                @endforeach
-            @endif
+    @foreach ($errors->all() as $err)
+        <div class="alert alert-danger">{{ $err }}</div>
+    @endforeach
+@endif
 <section class="order-form m-4">
 
     <div class="container pt-4">
@@ -38,17 +46,28 @@
                             Nama Customer :
                         </div>
                         <div class="col-sm">
-                            <div class="search-box">
-                                <input name="namacust" autocomplete="off" class="form-control" type="text" style="width: 210px;"enabled>
-                                <div class="result"></div>
-                            </div>
+                            {{-- <div class="search-box"> --}}
+                                    <div class="row-fluid">
+                                        <select class="selectpicker" data-show-subtext="true" data-live-search="true">
+                                          <option data-subtext="Rep California">Tom Foolery</option>
+                                          <option data-subtext="Sen California">Bill Gordon</option>
+                                          <option data-subtext="Sen Massacusetts">Elizabeth Warren</option>
+                                          <option data-subtext="Rep Alabama">Mario Flores</option>
+                                          <option data-subtext="Rep Alaska">Don Young</option>
+                                          <option data-subtext="Rep California" disabled="disabled">Marvin Martinez</option>
+                                        </select>
+                                </div>
+                                {{-- <input name="namacust" autocomplete="off" class="form-control" type="text"
+                                    style="width: 210px;"enabled> --}}
+                                {{-- <div class="result"></div> --}}
+                            {{-- </div> --}}
                         </div>
-                        <div class="col-sm-3">
+                        {{-- <div class="col-sm-3">
                             Nomor Transaksi :
                         </div>
                         <div class="col-sm">
                             <input name="kode" class="form-control" type="text" style="width: 210px;" disabled>
-                        </div>
+                        </div> --}}
                     </div>
                 </div>
                 <br>
@@ -212,25 +231,26 @@
         return true;
     }
 
-    $(document).ready(function(){
-    $('.search-box input[type="text"]').on("keyup input", function(){
-        /* Get input value on change */
-        var inputVal = $(this).val();
-        var resultDropdown = $(this).siblings(".result");
-        if(inputVal.length){
-            $.get("backend-search.php", {term: inputVal}).done(function(data){
-                // Display the returned data in browser
-                resultDropdown.html(data);
-            });
-        } else{
-            resultDropdown.empty();
-        }
-    });
+    $(document).ready(function() {
+        $('.search-box input[type="text"]').on("keyup input", function() {
 
-    // Set search input value on click of result item
-    $(document).on("click", ".result p", function(){
-        $(this).parents(".search-box").find('input[type="text"]').val($(this).text());
-        $(this).parent(".result").empty();
+            var inputVal = $(this).val();
+            var resultDropdown = $(this).siblings(".result");
+            if (inputVal.length) {
+                $.get("backend-search.php", {
+                    term: inputVal,
+                    ctr: "FormTransaksi"
+                }).done(function(data) {
+                    resultDropdown.html(data);
+                });
+            } else {
+                resultDropdown.empty();
+            }
+        });
+
+        $(document).on("click", ".result", function() {
+            $(this).parents(".search-box").find('input[type="text"]').val($(this).text());
+            $(this).parent(".result").empty();
+        });
     });
-});
 </script>

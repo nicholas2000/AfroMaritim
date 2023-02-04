@@ -3,6 +3,7 @@
 use App\Http\Controllers\CabangController;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\controllerpegawai;
+use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\KompetitorController;
 use App\Http\Controllers\TransaksiController;
 use Illuminate\Support\Facades\Route;
@@ -32,7 +33,6 @@ Route::get('/hutang', function () {
 Route::get('/tcabang', function () {
     return view('admin.mTcabang');
 });
-
 
 Route::get('/tkompetitor', function () {
     return view('admin.mTkompetitor');

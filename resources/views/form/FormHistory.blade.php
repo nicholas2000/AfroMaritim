@@ -55,7 +55,11 @@
                 No Transaksi
               </div>
               <div class="col-sm">
-                <input  name="kode" class="form-control" type="text" enabled>
+                <div class="search-box">
+
+                    <input  name="kode" autocomplete="off" class="form-control" type="text" enabled>
+                    <div class="result"></div>
+                </div>
               </div>
 
             </div>
@@ -161,4 +165,28 @@
 
     </table>
 </div>
+<script>
+    $(document).ready(function() {
+        $('.search-box input[type="text"]').on("keyup input", function() {
 
+            var inputVal = $(this).val();
+            var resultDropdown = $(this).siblings(".result");
+            if (inputVal.length) {
+                $.get("backend-search.php", {
+                    term: inputVal,
+                    ctr: "FormHistory"
+                }).done(function(data) {
+
+                    resultDropdown.html(data);
+                });
+            } else {
+                resultDropdown.empty();
+            }
+        });
+
+        $(document).on("click", ".result", function() {
+            $(this).parents(".search-box").find('input[type="text"]').val($(this).text());
+            $(this).parent(".result").empty();
+        });
+    });
+</script>

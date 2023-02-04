@@ -26,14 +26,20 @@
 
 <body>
     <div class="container">
-        <form class="form-horizontal" action=" " method="post" id="contact_form">
-            <fieldset>
+        @if ($errors->any())
+        @foreach ($errors->all() as $err)
+            <div class="alert alert-danger">{{ $err }}</div>
+        @endforeach
+    @endif
+        <fieldset>
 
-                <!-- Form Add Customer -->
-                <legend>
-                    <h2><b>Tambah Customer</b></h2>
-                </legend><br>
+            <!-- Form Add Customer -->
+            <legend>
+                <h2><b>Tambah Customer</b></h2>
+            </legend><br>
 
+            <form class="form-horizontal" action="{{url('/doAddcustomer')}}" method="post" id="contact_form">
+                @csrf
                 <!--input code-->
                 <div class="form-group">
                     <label class="col-md-1 control-label">Kode</label>
@@ -280,12 +286,12 @@
                 <div class="form-group">
                     <label class="col-md-4 control-label"></label>
                     <div class="col-md-4"><br>
-                       <a href="{{ url('/masterCustomer') }}"> <center><button type="button" class="btn btn-primary">Tambah</button></center></a>
+                      <center><button type="submit" class="btn btn-primary">Tambah</button></center>
                     </div>
                 </div>
+            </form>
 
             </fieldset>
-        </form>
     </div>
     </div><!-- /.container -->
 </body>
