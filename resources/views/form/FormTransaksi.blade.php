@@ -6,9 +6,7 @@
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js"
     integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
 </script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
-    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
-</script>
+
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 
 <link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
@@ -46,28 +44,30 @@
                             Nama Customer :
                         </div>
                         <div class="col-sm">
-                            {{-- <div class="search-box"> --}}
-                                    <div class="row-fluid">
-                                        <select class="selectpicker" data-show-subtext="true" data-live-search="true">
-                                          <option data-subtext="Rep California">Tom Foolery</option>
+                            <div class="search-box">
+                                {{-- <div class="row-fluid">
+                                    <select class="selectpicker result" data-show-subtext="true"
+                                        data-live-search="true"> --}}
+                                <!-- <div class="result"></div> -->
+                                {{-- <option data-subtext="Rep California">Tom Foolery</option>
                                           <option data-subtext="Sen California">Bill Gordon</option>
                                           <option data-subtext="Sen Massacusetts">Elizabeth Warren</option>
                                           <option data-subtext="Rep Alabama">Mario Flores</option>
                                           <option data-subtext="Rep Alaska">Don Young</option>
-                                          <option data-subtext="Rep California" disabled="disabled">Marvin Martinez</option>
-                                        </select>
-                                </div>
-                                {{-- <input name="namacust" autocomplete="off" class="form-control" type="text"
-                                    style="width: 210px;"enabled> --}}
-                                {{-- <div class="result"></div> --}}
-                            {{-- </div> --}}
+                                          <option data-subtext="Rep California" disabled="disabled">Marvin Martinez</option> --}}
+                                {{-- </select>
+                                </div> --}}
+                                <input name="namacust" autocomplete="off" class="form-control" type="text"
+                                    style="width: 210px;">
+                                <div class="result"></div>
+                            </div>
                         </div>
-                        {{-- <div class="col-sm-3">
+                        <div class="col-sm-3">
                             Nomor Transaksi :
                         </div>
                         <div class="col-sm">
                             <input name="kode" class="form-control" type="text" style="width: 210px;" disabled>
-                        </div> --}}
+                        </div>
                     </div>
                 </div>
                 <br>
@@ -77,7 +77,7 @@
                             Nama Barang :
                         </div>
                         <div class="col-sm">
-                            <input name="namabarang" class="form-control" type="text"style="width: 210px;" enabled>
+                            <input name="namabarang" class="form-control" type="text"style="width: 210px;" >
                         </div>
                         <div class="col-sm-3">
                             Admin :
@@ -94,13 +94,13 @@
                             Ukuran :
                         </div>
                         <div class="col-sm">
-                            <input name="ukuran" class="form-control" type="text"style="width: 210px;" enabled>
+                            <input name="ukuran" class="form-control" type="text"style="width: 210px;" >
                         </div>
                         <div class="col-sm-3">
                             Volume :
                         </div>
                         <div class="col-sm">
-                            <input name="volume" class="form-control" type="text"style="width: 210px;" enabled>
+                            <input name="volume" class="form-control" type="text"style="width: 210px;" >
                         </div>
                     </div>
                 </div>
@@ -111,13 +111,13 @@
                             Berat :
                         </div>
                         <div class="col-sm">
-                            <input name="berat" class="form-control" type="text"style="width: 210px;" enabled>
+                            <input name="berat" class="form-control" type="text"style="width: 210px;" >
                         </div>
                         <div class="col-sm-3">
                             Rute :
                         </div>
                         <div class="col-sm">
-                            <input name="rute" class="form-control" type="text"style="width: 210px;" enabled>
+                            <input name="rute" class="form-control" type="text"style="width: 210px;" >
                         </div>
                     </div>
                 </div>
@@ -128,7 +128,7 @@
                             Harga :
                         </div>
                         <div class="col-sm">
-                            <input name="harga" class="form-control" type="text"style="width: 210px;" enabled>
+                            <input name="harga" class="form-control" type="text"style="width: 210px;" >
                         </div>
                         <div class="col-sm-3">
                             Jenis Harga :
@@ -154,14 +154,14 @@
                             Tonase :
                         </div>
                         <div class="col-sm">
-                            <input name="tonase" class="form-control" type="text"style="width: 210px;" enabled>
+                            <input name="tonase" class="form-control" type="text"style="width: 210px;" >
                         </div>
                         <div class="col-sm-3">
                             Harga Tambahan :
                         </div>
                         <div class="col-sm">
                             <input name="hargatambahan" class="form-control" type="text"style="width: 210px;"
-                                enabled>
+                                >
                         </div>
                     </div>
                 </div>
@@ -173,7 +173,7 @@
                         </div>
                         <div class="col-sm">
                             <input name="persentase" class="form-control" type="text"style="width: 210px;"
-                                enabled>
+                                >
                         </div>
                         <div class="col-sm-3">
                             Total Harga :
@@ -192,14 +192,14 @@
                         </div>
                         <div class="col-sm">
                             <input name="namakapal" class="form-control" type="text"style="width: 210px;"
-                                enabled>
+                                >
                         </div>
                         <div class="col-sm-3">
                             Nomor Container :
                         </div>
                         <div class="col-sm">
                             <input name="nocontainer" class="form-control" type="text"style="width: 210px;"
-                                enabled>
+                                >
                         </div>
                     </div>
                 </div>
@@ -211,7 +211,7 @@
                         </div>
                         <div class="col-sm">
                             <input name="tglberangkat" class="form-control" type="date"style="width: 210px;"
-                                enabled>
+                                >
                         </div>
                         <div class="col-sm-3">
                             <br>
