@@ -137,8 +137,8 @@ CREATE TABLE `master_tpegawai` (
 DROP TABLE IF EXISTS `transaksi`;
 
 CREATE TABLE `transaksi` (
-  `nama_customer` varchar(255) NOT NULL,
   `nomor_transaksi` varchar(255) NOT NULL,
+  `id_customer` varchar(255) NOT NULL,
   `nama_barang` varchar(255) NOT NULL,
   `id_admin` varchar(255) NOT NULL,
   `ukuran` varchar(255) NOT NULL,
@@ -154,7 +154,9 @@ CREATE TABLE `transaksi` (
   `nama_kapal` varchar(255) NOT NULL,
   `nomor_container` varchar(255) NOT NULL,
   `tanggal_berangkat` date NOT NULL,
-  PRIMARY KEY (`nomor_transaksi`)
+  PRIMARY KEY (`nomor_transaksi`),
+  KEY `id_customer` (`id_customer`),
+  CONSTRAINT `transaksi_ibfk_1` FOREIGN KEY (`id_customer`) REFERENCES `master_tcustomer` (`id_customer`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 /*Data for the table `transaksi` */
