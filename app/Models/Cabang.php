@@ -21,6 +21,7 @@ class Cabang extends Model
         'kecamatan_cabang',
         'kelurahan_cabang',
         'kodepos_cabang',
+        'telpon_cabang',
         'gmaps_cabang',
         'email_cabang',
         'status_cabang'

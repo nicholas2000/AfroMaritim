@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Cabang;
 use App\Models\modelpegawai;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\DB;
 
 class controllerpegawai extends Controller
 {
@@ -12,6 +13,12 @@ class controllerpegawai extends Controller
     {
         $param['arrPegawai']=modelpegawai::get();
         return view('admin.mPegawai',$param);
+    }
+
+    public function vfmpegawai()
+    {
+        $cabang = Cabang::all();
+        return view('admin.mTpegawai',compact('cabang'));
     }
 
     public function dovmtpegawai(Request $request)
@@ -29,6 +36,7 @@ class controllerpegawai extends Controller
 
         $request->validate(
             [
+                "cabang" => 'required',
                 "nama" => 'required',
                 "npwp" => 'required',
                 "jalan" => 'required',
@@ -44,6 +52,7 @@ class controllerpegawai extends Controller
                 "role" => 'required'
             ],
             [
+                "cabang.required" => "cabang harus di isi",
                 "nama.required" => "nama harus di isi",
                 "npwp.required" => "npwp harus di isi",
                 "jalan.required" => "jalan harus di isi",
@@ -60,6 +69,7 @@ class controllerpegawai extends Controller
         );
         modelpegawai::create([
             'id_pegawai' => $kode,
+            'id_cabang' => $request->cabang,
             'nama_pegawai' => $request->nama,
             'npwp_pegawai' => $request->npwp,
             'alamat_pegawai' => $request->jalan,

@@ -31,9 +31,7 @@ Route::get('/hutang', function () {
 Route::get('/tcabang', function () {
     return view('admin.mTcabang');
 });
-Route::get('/tpegawai', function () {
-    return view('admin.mTpegawai');
-});
+
 
 Route::get('/tkompetitor', function () {
     return view('admin.mTkompetitor');
@@ -50,12 +48,14 @@ Route::get('/masterCustomer', function () {
 
 Route::post('/doAddcabang', [CabangController::class, "doAdd"]);
 Route::get('/masterCabang', [CabangController::class, "show"]);
+Route::get('/editCabang/{id}',[CabangController::class, "edit"]);
 
 Route::post('/doAddkompetitor', [KompetitorController::class, "doAdd"]);
 Route::get('/masterKompetitor', [KompetitorController::class, "show"]);
 
 Route::post('/dotmpegawai', [controllerpegawai::class, "dovmtpegawai"]);
 Route::get('/masterPegawai', [controllerpegawai::class, "vmpegawai"]);
+Route::get('/tpegawai',  [controllerpegawai::class, "vfmpegawai"]);
 
 Route::get('/masterTeam', function () {
     return view('admin.mTeampengiriman');

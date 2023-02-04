@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Cabang;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class CabangController extends Controller
 {
@@ -41,7 +42,7 @@ class CabangController extends Controller
                 "kecamatan" => 'required',
                 "kelurahan" => 'required',
                 "kodepos" => 'required',
-                "hp" => 'required',
+                "telpon" => 'required',
                 "gmaps" => 'required',
                 "email" => 'required',
                 "status" => 'required',
@@ -55,7 +56,7 @@ class CabangController extends Controller
                 "kecamatan.required" => "kecamatan harus di isi",
                 "kelurahan.required" => "kelurahan harus di isi",
                 "kodepos.required" => "kode pos harus di isi",
-                "hp.required" => "hp harus di isi",
+                "telpon.required" => "no telpon harus di isi",
                 "gmaps.required" => "gmaps harus di isi",
                 "email.required" => "email harus di isi",
                 "status.required" => "status harus di isi",
@@ -71,10 +72,18 @@ class CabangController extends Controller
             'kecamatan_cabang'=>$req->kecamatan,
             'kelurahan_cabang'=>$req->kelurahan,
             'kodepos_cabang'=>$req->kodepos,
+            'telpon_cabang'=>$req->telpon,
             'gmaps_cabang'=>$req->gmaps,
             'email_cabang'=>$req->email,
             'status_cabang'=>$status
         ]);
         return redirect("/masterCabang");
+    }
+
+    public function edit(Request $req)
+    {
+        // $id = $req->id;
+        // $cabang = DB::table('master_tcabang')->where("id_cabang","=",$id)->first();
+        //  return view('/editCabang',['id' => $id, 'cabang' => $cabang]);
     }
 }

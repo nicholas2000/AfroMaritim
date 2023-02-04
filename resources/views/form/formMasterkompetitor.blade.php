@@ -34,6 +34,9 @@
                                 <th scope="col"> <center>ID Kompetitor</center> </th>
                                 <th scope="col"> <center>Nama Kompetitor</center> </th>
                                 <th scope="col"> <center>Alamat Kompetitor</center> </th>
+                                <th scope="col"> <center>Email </center> </th>
+                                <th scope="col"> <center>No HP</center> </th>
+                                <th scope="col"> <center>Action</center> </th>
                             </tr>
                             <?php $ctr = 1;?>
                             @foreach ($arrKompetitor as $prm)
@@ -43,6 +46,14 @@
                                 <th scope="col"> <center>{{$prm->id_kompetitor}}</center> </th>
                                 <th scope="col"> <center>{{$prm->nama_kompetitor}}</center> </th>
                                 <th scope="col"> <center>{{$prm->alamat_kompetitor}}</center> </th>
+                                <th scope="col"> <center>{{$prm->email_kompetitor}}</center> </th>
+                                <th scope="col"> <center>{{$prm->nohp_kompetitor}}</center> </th>
+                                <th scope="col">
+                                    <center>
+                                        <button type="button" name=""  class="btn btn"><i class="fa fa-pencil-alt"></i></button>
+                                        <button style="margin-left: 2%" name="" type="button" class="btn btn-danger"><i class="fa fa-trash"></i></button>
+                                    </center>
+                                </th>
                             </tr>
                             <?php $ctr++; ?>
                             @endforeach

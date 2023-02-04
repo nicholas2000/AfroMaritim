@@ -166,7 +166,7 @@
                         <div class="input-group">
                             <span style="background-color: #023e94" class="input-group-addon"><i style="color: white"
                                     class="glyphicon glyphicon-phone"></i></span>
-                            <input onkeypress="return onlyNumberKey(event)" name="hp"
+                            <input onkeypress="return onlyNumberKey(event)" name="telpon"
                                 placeholder="Masukkan Nomer Telpon" class="form-control" type="telp">
                         </div>
                     </div>

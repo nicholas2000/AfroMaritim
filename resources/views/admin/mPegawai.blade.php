@@ -63,7 +63,7 @@
                 </div>
                 <div class='dashboard-nav-dropdown'>
                     <a href="#!"class="dashboard-nav-item dashboard-nav-dropdown-toggle"><i
-                            class="fa fa-briefcase"></i> Transaksi</a>
+                            class="fas fa-exchange-alt"></i> Transaksi</a>
                     <div class='dashboard-nav-dropdown-menu'>
                         <a href="{{ url('/masterTransaksi') }}"class="dashboard-nav-dropdown-item">Transaksi</a>
                         <a href="{{ url('/masterHistory') }}"class="dashboard-nav-dropdown-item">History
@@ -73,7 +73,7 @@
                 </div>
                 <div class='dashboard-nav-dropdown'>
                     <a href="#!"class="dashboard-nav-item dashboard-nav-dropdown-toggle"><i
-                            class="fa fa-share"></i>Keuangan </a>
+                            class="	far fa-money-bill-alt"></i>Keuangan </a>
                     <div class='dashboard-nav-dropdown-menu'>
 
                         <a href="{{ url('/masterPiutang') }}"class="dashboard-nav-dropdown-item">Master Piutang</a>

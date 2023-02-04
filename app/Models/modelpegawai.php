@@ -13,6 +13,7 @@ class modelpegawai extends Model
     public $timestamps = false;
     protected $fillable = [
         'id_pegawai',
+        'id_cabang',
         'nama_pegawai',
         'npwp_pegawai',
         'alamat_pegawai',

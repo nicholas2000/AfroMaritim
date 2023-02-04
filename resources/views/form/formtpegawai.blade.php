@@ -24,6 +24,22 @@
     </div>
 </div>
 
+<!-- input cabang-->
+<div class="form-group">
+    <label class="col-md-1 control-label">Cabang</label>
+      <div class="col-md-10 selectContainer">
+          <div class="input-group">
+              <span style="background-color: #023e94" class="input-group-addon"><i style="color: white"  class="glyphicon glyphicon-map-marker"></i></span>
+              <select name="cabang" style="height:35px" class="form-control selectpicker">
+                  <option value="">Pilih Cabang</option>
+                  @foreach ($cabang as $prm)
+                        <option value="{{$prm->id_cabang}}">{{$prm->nama_cabang}}</option>
+                  @endforeach
+              </select>
+          </div>
+      </div>
+  </div>
+
 <!-- input name-->
 
 <div class="form-group ">

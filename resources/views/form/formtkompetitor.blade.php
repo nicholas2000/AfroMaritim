@@ -202,7 +202,7 @@
                 <div class="col-md-10 inputGroupContainer">
                     <div class="input-group">
                         <span style="background-color: #023e94" class="input-group-addon"><i style="color: white"
-                                class="fa fa-briefcase"></i></span>
+                                class="fa fa-map"></i></span>
                         <input name="rute" placeholder="Masukkan Rute" class="form-control" type="text">
                     </div>
                 </div>

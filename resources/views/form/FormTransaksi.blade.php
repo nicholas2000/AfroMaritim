@@ -20,7 +20,7 @@
             <div class="container">
               <div class="row">
                 <div class="col-12">
-                  <h3>Transaksi</h3>
+                  <h2>Transaksi</h2>
                 </div>
               </div>
             </div>
@@ -39,13 +39,13 @@
                      Nama Customer :
                   </div>
                   <div class="col-sm">
-                    <input  name="kode" class="form-control" type="text" enabled>
+                    <input  name="kode" class="form-control" type="text"  style="width: 210px;"enabled>
                   </div>
                   <div class="col-sm-3">
-                    Nomor transaksi :
+                    Nomor Transaksi :
                  </div>
                  <div class="col-sm">
-                   <input  name="kode" class="form-control" type="text" disabled>
+                   <input  name="kode" class="form-control" type="text" style="width: 210px;" disabled>
                  </div>
                 </div>
               </div>
@@ -56,13 +56,13 @@
                      Nama Barang :
                   </div>
                   <div class="col-sm">
-                    <input  name="kode" class="form-control" type="text" enabled>
+                    <input  name="kode" class="form-control" type="text"style="width: 210px;" enabled>
                   </div>
                   <div class="col-sm-3">
                     Admin :
                  </div>
                  <div class="col-sm">
-                   <input  name="kode" class="form-control" type="text" disabled>
+                   <input  name="kode" class="form-control" type="text"style="width: 210px;" disabled>
                  </div>
                 </div>
               </div>
@@ -73,13 +73,13 @@
                      Ukuran :
                   </div>
                   <div class="col-sm">
-                    <input  name="kode" class="form-control" type="text" enabled>
+                    <input  name="kode" class="form-control" type="text"style="width: 210px;" enabled>
                   </div>
                   <div class="col-sm-3">
                     Volume :
                  </div>
                  <div class="col-sm">
-                   <input  name="kode" class="form-control" type="text" enabled>
+                   <input  name="kode" class="form-control" type="text"style="width: 210px;" enabled>
                  </div>
                 </div>
               </div>
@@ -90,13 +90,13 @@
                      Berat :
                   </div>
                   <div class="col-sm">
-                    <input  name="kode" class="form-control" type="text" enabled>
+                    <input  name="kode" class="form-control" type="text"style="width: 210px;" enabled>
                   </div>
                   <div class="col-sm-3">
                     Rute :
                  </div>
                  <div class="col-sm">
-                   <input  name="kode" class="form-control" type="text" enabled>
+                   <input  name="kode" class="form-control" type="text"style="width: 210px;" enabled>
                  </div>
                 </div>
               </div>
@@ -107,14 +107,14 @@
                      Harga :
                   </div>
                   <div class="col-sm">
-                    <input  name="kode" class="form-control" type="text" enabled>
+                    <input  name="kode" class="form-control" type="text"style="width: 210px;" enabled>
                   </div>
                   <div class="col-sm-3">
                     Jenis Harga :
                  </div>
                  <div class="col-sm-3">
                     <div class="col-auto">
-                        <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
+                        <select class="custom-select" style="width: 210px;margin-left:-15px;" id="inlineFormCustomSelect">
                           <option selected>Pilih</option>
                           <option value="1">One</option>
                           <option value="2">Two</option>
@@ -132,13 +132,13 @@
                      Tonase :
                   </div>
                   <div class="col-sm">
-                    <input  name="kode" class="form-control" type="text" enabled>
+                    <input  name="kode" class="form-control" type="text"style="width: 210px;" enabled>
                   </div>
                   <div class="col-sm-3">
                     Harga Tambahan :
                  </div>
                  <div class="col-sm">
-                   <input  name="kode" class="form-control" type="text" enabled>
+                   <input  name="kode" class="form-control" type="text"style="width: 210px;" enabled>
                  </div>
                 </div>
               </div>
@@ -149,13 +149,13 @@
                      Persentase :
                   </div>
                   <div class="col-sm">
-                    <input  name="kode" class="form-control" type="text" enabled>
+                    <input  name="kode" class="form-control" type="text"style="width: 210px;" enabled>
                   </div>
                   <div class="col-sm-3">
                     Total Harga :
                  </div>
                  <div class="col-sm">
-                   <input  name="kode" class="form-control" type="text" disabled>
+                   <input  name="kode" class="form-control" type="text"style="width: 210px;" disabled>
                  </div>
                 </div>
               </div>
@@ -166,13 +166,13 @@
                      Nama Kapal :
                   </div>
                   <div class="col-sm">
-                    <input  name="kode" class="form-control" type="text" enabled>
+                    <input  name="kode" class="form-control" type="text"style="width: 210px;" enabled>
                   </div>
                   <div class="col-sm-3">
                     Nomor Container :
                  </div>
                  <div class="col-sm">
-                   <input  name="kode" class="form-control" type="text" enabled>
+                   <input  name="kode" class="form-control" type="text"style="width: 210px;" enabled>
                  </div>
                 </div>
               </div>
@@ -183,9 +183,10 @@
                      Tanggal Berangkat :
                   </div>
                   <div class="col-sm">
-                    <input  name="kode" class="form-control" type="date" enabled>
+                    <input  name="kode" class="form-control" type="date"style="width: 210px;" enabled>
                   </div>
                   <div class="col-sm-3">
+                    <br>
                     <button type="button" style="" name="" class="btn btn-primary">Submit</button>
                  </div>
                 </div>
