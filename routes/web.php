@@ -43,9 +43,12 @@ Route::get('/tcustomer', function () {
 // ROUTE BARUU
 
 
-Route::get('/masterCustomer', function () {
-    return view('admin.mCustomer');
-});
+// Route::get('/masterCustomer', function () {
+//     return view('admin.mCustomer');
+// });
+
+Route::post('/doAddcustomer', [CustomerController::class, "doAdd"]);
+Route::get('/masterCustomer', [CustomerController::class, "show"]);
 
 Route::post('/doAddcabang', [CabangController::class, "doAdd"]);
 Route::get('/masterCabang', [CabangController::class, "show"]);

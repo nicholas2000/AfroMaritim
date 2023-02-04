@@ -211,8 +211,8 @@
                 <div class="form-group">
                     <label class="col-md-1 control-label">Status Hutang</label>
                     <div class="col-md-10 inputGroupContainer">
-                        <div class="input-group" style="margin-top: 12px;">
-                            <input type="radio" name="tab" onclick="show1();" />
+                        <div name="status" class="input-group" style="margin-top: 12px;" >
+                            <input type="radio" name="tab" onclick="show1();" checked/>
                             Aktif
                             <input type="radio" name="tab" onclick="show2();" />
                             Tidak
