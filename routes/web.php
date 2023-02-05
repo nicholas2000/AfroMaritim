@@ -4,6 +4,7 @@ use App\Http\Controllers\CabangController;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\controllerpegawai;
 use App\Http\Controllers\CustomerController;
+use App\Http\Controllers\HistoryController;
 use App\Http\Controllers\KompetitorController;
 use App\Http\Controllers\loginController;
 use App\Http\Controllers\TransaksiController;
@@ -38,15 +39,8 @@ Route::get('/tcabang', function () {
 Route::get('/tkompetitor', function () {
     return view('admin.mTkompetitor');
 });
-// Route::get('/tcustomer', function () {
-//     return view('admin.mTcustomer');
-// });
+
 // ROUTE BARUU
-
-
-// Route::get('/masterCustomer', function () {
-//     return view('admin.mCustomer');
-// });
 
 
 Route::get('/login', [loginController::class, "login"]);
@@ -78,13 +72,11 @@ Route::get('/masterTeam', function () {
     return view('admin.mTeampengiriman');
 });
 
-// Route::get('/masterTransaksi', function () {
-//     return view('admin.mTransaksi');
+// Route::post('/doMasterTransaksi', [TransaksiController::class, "doAdd"]);
+Route::get('/masterHistory', [TransaksiController::class, "showHistory"]);
+// Route::get('/masterHistory', function () {
+//     return view('admin.mHistory');
 // });
-
-Route::get('/masterHistory', function () {
-    return view('admin.mHistory');
-});
 
 Route::get('/masterStatus', function () {
     return view('admin.mStatus');
