@@ -86,19 +86,25 @@
 
             <br>
             <div class="row">
-                <div class="col-sm-12 col-md-6 form-group">
+                <form method="post" action="masterHistory/update">
+                    @csrf
+                    <div class="row">
+                    <div class="col-sm-12 col-md-6 form-group">
+
                     <div class="p">
                         <div class="col-md-6">No Transaksi</div>
                         <div>:</div>
-                        <input style="width: 210px;" type="text" name="namacust" id="user" class="form-control" placeholder="Masukkan Nama" />
+                        <div class="col-md-3">
+                        <input style="width: 180px;" type="text" name="namacust" id="user" class="form-control" placeholder="Masukkan Transaksi" />
                         <div class="userList"  id="userList" style="width: 210px;"></div>
+                    </div>
                     </div>
 
                     <br>
                     <div class="p">
                         <div class="col-md-6">Nama Customer</div>
                         <div>:</div>
-                        <div class="col-md-3"><input type='text' style="width: 180px;"
+                        <div class="col-md-3"><input name="ncustomer" type='text' style="width: 180px;"
                             disabled  >
                         </div>
                     </div>
@@ -106,7 +112,7 @@
                     <div class="p">
                         <div class="col-md-6">Tanggal Pengiriman</div>
                         <div>:</div>
-                        <div class="col-md-3"><input type='text' style="width: 180px;"
+                        <div class="col-md-3"><input name="ntanggal" type='text' style="width: 180px;"
                                disabled >
                         </div>
                     </div>
@@ -117,9 +123,9 @@
                 <div class="col-sm-12 col-md-6 form-group">
 
                     <div class="p ">
-                        <div class="col-sm-5">No Kapal</div>
+                        <div class="col-sm-5">Nama Kapal</div>
                         <div>:</div>
-                        <div class="col-md-3"><input type='text' style="width: 180px;"
+                        <div class="col-md-3"><input name="nkapal" type='text' style="width: 180px;"
                              >
                      </div>
                     </div>
@@ -127,14 +133,16 @@
                     <div class="p ">
                         <div class="col-sm-5">No Container</div>
                         <div>:</div>
-                        <div class="col-md-3"><input type='text' style="width: 180px;"
+                        <div class="col-md-3"><input name="ncontainer" type='text' style="width: 180px;"
                              >
                      </div>
                     </div>
                     <br>
-                    <a href=""class="btn btn-primary" style="float: right">Update</a>
+                    <button style="float: right" type="submit" class="btn btn-success">Update</button>
                     <br>
                 </div>
+                        </div>
+                    </form>
 
                 <div class="col-12">
                     <table class="table table-bordered">
@@ -144,7 +152,7 @@
                                 <center>No Transaksi</center>
                             </th>
                             <th scope="col">
-                                <center>Nama Customer</center>
+                                <center>Id Customer</center>
                             </th>
                             <th scope="col">
                                 <center>Harga</center>
@@ -185,6 +193,13 @@
                                 </th>
                                 <th scope="col">
                                     <center>{{ $prm->nomor_container }}</center>
+                                </th>
+                                <th scope="col">
+                                    {{-- <a href="./delete/{{$prm->nomor_transaksi}}" class="btn btn-danger" style="">Delete</a> --}}
+                                    <form method="post" action="masterHistory/delete/{{$prm->nomor_transaksi}}">
+                                        @csrf
+                                            <button type="submit" class="btn btn-danger">Delete</button>
+                                        </form>
                                 </th>
 
                             </tr>
@@ -256,9 +271,9 @@
             if(query != '')
             {
                 $.ajax({
-                    url:"backend-search.php",
+                    url:"autocomplete.php",
                     method:"POST",
-                    data:{query:query},
+                    data:{query:query,ctr:"Fhistory"},
                     success:function(data)
                     {
                         $('#userList').fadeIn();
@@ -270,6 +285,43 @@
         $(document).on('click', 'li', function(){
             $('#user').val($(this).text());
             $('#userList').fadeOut();
+            $.ajax({
+                url:"autocomplete.php",
+                method:"POST",
+                data:{query:$(this).text(),ctr:"Fhistorynama"},
+                success:function(data)
+                {
+                    $("[name='ncustomer']").val(data);
+                }
+
+            });
+            $.ajax({
+                url:"autocomplete.php",
+                method:"POST",
+                data:{query:$(this).text(),ctr:"Fhistorytanggal"},
+                success:function(data)
+                {
+                    $("[name='ntanggal']").val(data);
+                }
+            });
+            $.ajax({
+                url:"autocomplete.php",
+                method:"POST",
+                data:{query:$(this).text(),ctr:"Fhistorynamakapal"},
+                success:function(data)
+                {
+                    $("[name='nkapal']").val(data);
+                }
+            });
+            $.ajax({
+                url:"autocomplete.php",
+                method:"POST",
+                data:{query:$(this).text(),ctr:"Fhistorynocontainer"},
+                success:function(data)
+                {
+                    $("[name='ncontainer']").val(data);
+                }
+            });
         });
     });
 </script>

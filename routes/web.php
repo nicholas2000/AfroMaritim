@@ -117,6 +117,8 @@ Route::get('/tambahformnopo', function () {
 Route::get('/tambahsuratjalan', function () {
     return view('admin.mSuratJalan');
 });
+Route::post('/masterHistory/delete/{id}', [HistoryController::class, "deletehistory"]);
+Route::post('/masterHistory/update', [HistoryController::class, "updatehistory"]);
 
 //ROUTE BARU
 

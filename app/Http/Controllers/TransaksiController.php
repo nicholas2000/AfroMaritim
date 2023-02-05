@@ -1,6 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
+
+use App\Models\Customer;
 use App\Models\Transaksi;
 use Illuminate\Http\Request;
 
@@ -65,9 +67,12 @@ class TransaksiController extends Controller
         }
         $idadmpalsu="admin";
 
+        $Customer=Customer::where('nama_customer', 'like', '%' . $req->namacust . '%')->get();
+
+
         Transaksi::create([
             'nomor_transaksi' => $kode,
-            'id_customer' =>"CU001",
+            'id_customer' =>$Customer[0]->id_customer,
             "id_admin"=> $idadmpalsu,
             'nama_barang' =>$req->namabarang,
             'ukuran' =>$req->ukuran,
