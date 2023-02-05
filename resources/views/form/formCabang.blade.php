@@ -80,11 +80,11 @@
                                 </th>
                                 <th scope="col">
                                     <center style="display: flex;">
-                                        <form action="" method="post">
+                                        <form action="" method="">
                                             @csrf
                                             <button name=""type="submit" class="btn btn"><i class="fa fa-pencil-alt"></i></button>
                                         </form>
-                                        <form action="" method="post">
+                                        <form action="" method="">
                                             @csrf
                                             <button style="margin-left: 2%" type="submit" name="" class="btn btn-danger"><i class="fa fa-trash"></i></button>
                                         </form>
