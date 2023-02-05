@@ -87,28 +87,11 @@
             <br>
             <div class="row">
                 <div class="col-sm-12 col-md-6 form-group">
-                    <div class="col-sm-3">
-                        Nama Customer :
-                    </div>
-                    <div class="col-sm">
-                        <div class="search-box">
-                            {{-- <div class="row-fluid">
-                                <select class="selectpicker result" data-show-subtext="true"
-                                    data-live-search="true"> --}}
-                            <!-- <div class="result"></div> -->
-                            {{-- <option data-subtext="Rep California">Tom Foolery</option>
-                                      <option data-subtext="Sen California">Bill Gordon</option>
-                                      <option data-subtext="Sen Massacusetts">Elizabeth Warren</option>
-                                      <option data-subtext="Rep Alabama">Mario Flores</option>
-                                      <option data-subtext="Rep Alaska">Don Young</option>
-                                      <option data-subtext="Rep California" disabled="disabled">Marvin Martinez</option> --}}
-                            {{-- </select>
-                            </div> --}}
-                            <input style="width: 210px;" type="text" name="namacust" id="user" class="form-control" placeholder="Masukkan Nama" />
-                            <br>
-                            <div class="userList"  id="userList" style="width: 210px;"></div>
-                        </div>
-
+                    <div class="p">
+                        <div class="col-md-6">No Transaksi</div>
+                        <div>:</div>
+                        <input style="width: 210px;" type="text" name="namacust" id="user" class="form-control" placeholder="Masukkan Nama" />
+                        <div class="userList"  id="userList" style="width: 210px;"></div>
                     </div>
 
                     <br>
@@ -153,89 +136,56 @@
                     <br>
                 </div>
 
-                <!DOCTYPE html>
-<html lang="en">
+                <div class="col-12">
+                    <table id="datatables" class="table table-bordered">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-</head>
+                        <tr style="background-color:  #023e94;color: white;">
+                            <th scope="col">No Transaksi</th>
+                            <th scope="col">
+                                <center>Nama Customer</center>
+                            </th>
+                            <th scope="col">
+                                <center>Harga</center>
+                            </th>
+                            <th scope="col">
+                                <center>Tanggal Pengiriman</center>
+                            </th>
+                            <th scope="col">
+                                <center>No Kapal</center>
+                            </th>
+                            <th scope="col">
+                                <center>No Container</center>
+                            </th>
+                        </tr>
 
-<body>
+                        <tr>
+                            <th scope="row">1</th>
+                            <td></td>
+                            <td>
+                            <td></td>
+                            <td></td>
+                        </tr>
 
+                        <tr>
+                            <th scope="row">2</th>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
 
-        <section class="order-form m-4">
-            <div class="container pt-4">
-                <div class="container">
-                    <div class="col-12 ">
-                        <h1> Form Master Pegawai</h1>
-                        <hr class="mt" />
-                    </div>
-                    <br>
+                        <tr>
+                            <th scope="row">3</th>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
 
-
-                    <div class="col-12">
-                        <a href="{{ url('/tpegawai') }}"><button style="float: right;" type="button"
-                            class="btn btn-primary">Tambah</button></a>
-                    </div>
-                    <br><br>
-                    <div class="col-12">
-                        <table class="table table-bordered">
-                            <tr style="background-color:  #023e94;color: white;">
-                                <th scope="col">No</th>
-                                <th scope="col">
-                                    <center>ID Pegawai</center>
-                                </th>
-                                <th scope="col">
-                                    <center>Nama Pegawai</center>
-                                </th>
-                                <th scope="col">
-                                    <center>Alamat Pegawai</center>
-                                </th>
-                                <th scope="col">
-                                    <center>Role Pegawai</center>
-                                </th>
-                            </tr>
-                            <?php $ctr = 1; ?>
-
-                            @foreach ($arrHistory as $prm)
-                                <tr>
-
-                                    <th scope="row">{{ $ctr }}</th>
-                                    <th scope="col">
-                                        <center>{{ $prm->id_pegawai }}</center>
-                                    </th>
-                                    <th scope="col">
-                                        <center>{{ $prm->nama_pegawai }}</center>
-                                    </th>
-                                    <th scope="col">
-                                        <center>{{ $prm->alamat_pegawai }}</center>
-                                    </th>
-                                    <th scope="col">
-                                        <center>{{ $prm->role_pegawai }}</center>
-                                    </th>
-                                </tr>
-                                <?php $ctr++; ?>
-                            @endforeach
-
-
-                        </table>
-                    </div>
-
+                    </table>
                 </div>
-        </section>
-
-</body>
-
-</html>
 
             </div>
         </div>
