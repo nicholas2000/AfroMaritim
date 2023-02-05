@@ -12,7 +12,7 @@ MySQL - 10.4.27-MariaDB : Database - db_afromaritim
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
-CREATE DATABASE /*!32312 IF NOT EXISTS*/`db_afromaritim` /*!40100 DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci */;
+CREATE DATABASE /*!32312 IF NOT EXISTS*/`db_afromaritim` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci */;
 
 USE `db_afromaritim`;
 
@@ -88,7 +88,9 @@ CREATE TABLE `master_tcustomer` (
 insert  into `master_tcustomer`(`id_customer`,`id_cabang`,`nama_customer`,`npwp`,`jalan`,`provinsi`,`kota`,`kecamatan`,`kelurahan`,`kode_pos`,`telpon`,`email`,`status_hutang`,`total_hutang`,`batas_pembayaran`,`no_rekening`,`metode_pembayaran`) values 
 ('CU001','C001','Nicho','219116815','sur','Jawa Timur','Batu','Sidoarjo','Batu','61213','08113190080','lala@gmail.com',NULL,NULL,NULL,NULL,NULL),
 ('CU002','C002','Andi','219117914','Surabaya','Jawa Timur','Surabaya','Batu','Batu','61213','123','lala@gmail.com',NULL,NULL,NULL,NULL,NULL),
-('CU003','C001','Negro','123','A','Jawa Barat','Surabaya','Batu','Blitar','61213','08113190080','lala@gmail.com',NULL,NULL,NULL,NULL,NULL);
+('CU003','C001','Negro','123','A','Jawa Barat','Surabaya','Batu','Blitar','61213','08113190080','lala@gmail.com',NULL,NULL,NULL,NULL,NULL),
+('CU004','C001','Gradi','1234','Ngagel Jaya TImur','Jawa Timur','Bandung','Sidoarjo','Batu','601','08951111','teje@gmail.com',NULL,NULL,NULL,NULL,NULL),
+('CU005','C001','Godamte','1111','Ngagel Jaya TImur','Jawa Timur','Surabaya','Sidoarjo','Blitar','602','08951112','godamte1@gmail.com',NULL,NULL,NULL,NULL,NULL);
 
 /*Table structure for table `master_tkompetitor` */
 
@@ -177,8 +179,8 @@ CREATE TABLE `transaksi` (
 /*Data for the table `transaksi` */
 
 insert  into `transaksi`(`nomor_transaksi`,`id_customer`,`nama_barang`,`id_admin`,`ukuran`,`volume`,`berat`,`rute`,`harga`,`jenis_harga`,`tonase`,`harga_tambahan`,`persentase`,`total_harga`,`nama_kapal`,`nomor_container`,`tanggal_berangkat`) values 
-('TC001','CU001','Gula','albert','5 Meter','100m3','2 ton','Jakarta','15000','2','3','1000','200%','1000','Titanic','1','2023-02-28'),
-('TC002','CU001','Gula','admin','1','2','2','Jakarta','3','2','45','1000','5','15000','Olympus','dot','2023-02-23');
+('TC002','CU004','Ayam','admin','2','10','1','Surabaya-Malang','20000','2','1','10000','10','20000','Hwe Ship','4','2023-02-03'),
+('TC005','CU005','Ikan','admin','1','10','1','Surabaya-Malang','10000','1','1','10000','10','20000','Godamte Ship','5','2023-02-03');
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
