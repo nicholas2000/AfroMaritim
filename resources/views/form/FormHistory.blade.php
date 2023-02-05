@@ -137,10 +137,12 @@
                 </div>
 
                 <div class="col-12">
-                    <table id="datatables" class="table table-bordered">
-
+                    <table class="table table-bordered">
                         <tr style="background-color:  #023e94;color: white;">
-                            <th scope="col">No Transaksi</th>
+                            <th scope="col">No</th>
+                            <th scope="col">
+                                <center>No Transaksi</center>
+                            </th>
                             <th scope="col">
                                 <center>Nama Customer</center>
                             </th>
@@ -151,38 +153,44 @@
                                 <center>Tanggal Pengiriman</center>
                             </th>
                             <th scope="col">
-                                <center>No Kapal</center>
+                                <center>Nama Kapal</center>
                             </th>
                             <th scope="col">
                                 <center>No Container</center>
                             </th>
+                            <th scope="col">
+                                <center>Action</center>
+                            </th>
                         </tr>
+                        <?php $ctr = 1; ?>
 
-                        <tr>
-                            <th scope="row">1</th>
-                            <td></td>
-                            <td>
-                            <td></td>
-                            <td></td>
-                        </tr>
+                        @foreach ($arrHistory as $prm)
+                            <tr>
 
-                        <tr>
-                            <th scope="row">2</th>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
+                                <th scope="row">{{ $ctr }}</th>
+                                <th scope="col">
+                                    <center>{{ $prm->nomor_transaksi }}</center>
+                                </th>
+                                <th scope="col">
+                                    <center>{{ $prm->id_customer }}</center>
+                                </th>
+                                <th scope="col">
+                                    <center>{{ $prm->harga }}</center>
+                                </th>
+                                <th scope="col">
+                                    <center>{{ $prm->tanggal_berangkat }}</center>
+                                </th>
+                                <th scope="col">
+                                    <center>{{ $prm->nama_kapal }}</center>
+                                </th>
+                                <th scope="col">
+                                    <center>{{ $prm->nomor_container }}</center>
+                                </th>
 
-                        <tr>
-                            <th scope="row">3</th>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
+                            </tr>
+                            <?php $ctr++; ?>
+                        @endforeach
+
 
                     </table>
                 </div>
