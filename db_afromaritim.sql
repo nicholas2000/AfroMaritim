@@ -12,7 +12,7 @@ MySQL - 10.4.27-MariaDB : Database - db_afromaritim
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
-CREATE DATABASE /*!32312 IF NOT EXISTS*/`db_afromaritim` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci */;
+CREATE DATABASE /*!32312 IF NOT EXISTS*/`db_afromaritim` /*!40100 DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci */;
 
 USE `db_afromaritim`;
 
@@ -71,20 +71,24 @@ CREATE TABLE `master_tcustomer` (
   `kecamatan` varchar(255) NOT NULL,
   `kelurahan` varchar(255) NOT NULL,
   `kode_pos` varchar(255) NOT NULL,
-  `HP` varchar(255) NOT NULL,
   `telpon` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
-  `status_hutang` varchar(255) NOT NULL,
-  `total_hutang` varchar(255) NOT NULL,
-  `batang_pembayaran` varchar(255) NOT NULL,
-  `no_rekening` varchar(255) NOT NULL,
-  `metode pembayaran` varchar(255) NOT NULL,
+  `status_hutang` varchar(255) DEFAULT NULL,
+  `total_hutang` varchar(255) DEFAULT NULL,
+  `batas_pembayaran` varchar(255) DEFAULT NULL,
+  `no_rekening` varchar(255) DEFAULT NULL,
+  `metode_pembayaran` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id_customer`),
   KEY `fk_customer` (`id_cabang`),
   CONSTRAINT `fk_customer` FOREIGN KEY (`id_cabang`) REFERENCES `master_tcabang` (`id_cabang`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 /*Data for the table `master_tcustomer` */
+
+insert  into `master_tcustomer`(`id_customer`,`id_cabang`,`nama_customer`,`npwp`,`jalan`,`provinsi`,`kota`,`kecamatan`,`kelurahan`,`kode_pos`,`telpon`,`email`,`status_hutang`,`total_hutang`,`batas_pembayaran`,`no_rekening`,`metode_pembayaran`) values 
+('CU001','C001','Nicho','219116815','sur','Jawa Timur','Batu','Sidoarjo','Batu','61213','08113190080','lala@gmail.com',NULL,NULL,NULL,NULL,NULL),
+('CU002','C002','Andi','219117914','Surabaya','Jawa Timur','Surabaya','Batu','Batu','61213','123','lala@gmail.com',NULL,NULL,NULL,NULL,NULL),
+('CU003','C001','Negro','123','A','Jawa Barat','Surabaya','Batu','Blitar','61213','08113190080','lala@gmail.com',NULL,NULL,NULL,NULL,NULL);
 
 /*Table structure for table `master_tkompetitor` */
 
@@ -171,6 +175,10 @@ CREATE TABLE `transaksi` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 /*Data for the table `transaksi` */
+
+insert  into `transaksi`(`nomor_transaksi`,`id_customer`,`nama_barang`,`id_admin`,`ukuran`,`volume`,`berat`,`rute`,`harga`,`jenis_harga`,`tonase`,`harga_tambahan`,`persentase`,`total_harga`,`nama_kapal`,`nomor_container`,`tanggal_berangkat`) values 
+('TC001','CU001','Gula','albert','5 Meter','100m3','2 ton','Jakarta','15000','2','3','1000','200%','1000','Titanic','1','2023-02-28'),
+('TC002','CU001','Gula','admin','1','2','2','Jakarta','3','2','45','1000','5','15000','Olympus','dot','2023-02-23');
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
