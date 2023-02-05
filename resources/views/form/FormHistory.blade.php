@@ -65,28 +65,28 @@
                     </div>
 
             </div>
-            <div class="row ">
-                <div class="col-sm-5">
-                <div><h3> History Transaksi</h3></div>
-                </div>
-                <div class="col-sm-3">
-                    <input type='text' style="width: 180px;" placeholder="Search">
-                    </div>
-                <div class="col-sm">
 
-                <div style="">
-                    <a href="" class="btn btn-primary" style="color: white;height: 37px;margin-right: 5%;" class="p">Import</a>
-                    <a href="" id="btn-excel" class="btn btn-success"
-                        style="color: white;height: 37px;">Export</a>
-                </div>
-            </div>
-        </div>
 
 
 
             <br>
             <div class="row">
-                <form method="post" action="masterHistory/update">
+                    <div class="col-sm-5">
+                    <div><h3> History Transaksi</h3></div>
+                    </div>
+                    <div class="col-sm-3">
+                        <input type='text' style="width: 180px;" placeholder="Search">
+                        </div>
+                    <div class="col-sm">
+
+                    <div style="">
+                        <a href="" class="btn btn-primary" style="color: white;height: 37px;margin-right: 5%;" class="p">Import</a>
+                        <a href="" id="btn-excel" class="btn btn-success"
+                            style="color: white;height: 37px;">Export</a>
+                    </div>
+                </div>
+
+                <form method="post" action="{{url('masterHistory/update/')}}">
                     @csrf
                     <div class="row">
                     <div class="col-sm-12 col-md-6 form-group">
@@ -196,7 +196,7 @@
                                 </th>
                                 <th scope="col">
                                     {{-- <a href="./delete/{{$prm->nomor_transaksi}}" class="btn btn-danger" style="">Delete</a> --}}
-                                    <form method="post" action="masterHistory/delete/{{$prm->nomor_transaksi}}">
+                                    <form method="post" action="{{url('masterHistory/delete/'.$prm->nomor_transaksi)}}">
                                         @csrf
                                             <button type="submit" class="btn btn-danger">Delete</button>
                                         </form>

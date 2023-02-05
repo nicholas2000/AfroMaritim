@@ -179,8 +179,7 @@ CREATE TABLE `transaksi` (
 /*Data for the table `transaksi` */
 
 insert  into `transaksi`(`nomor_transaksi`,`id_customer`,`nama_barang`,`id_admin`,`ukuran`,`volume`,`berat`,`rute`,`harga`,`jenis_harga`,`tonase`,`harga_tambahan`,`persentase`,`total_harga`,`nama_kapal`,`nomor_container`,`tanggal_berangkat`) values 
-('TC002','CU004','Ayam','admin','2','10','1','Surabaya-Malang','20000','2','1','10000','10','20000','Hwe Ship','4','2023-02-03'),
-('TC005','CU005','Ikan','admin','1','10','1','Surabaya-Malang','10000','1','1','10000','10','20000','Godamte Ship','5','2023-02-03');
+('TC005','CU005','Ikan','admin','1','10','1','Surabaya-Malang','10000','1','1','10000','10','20000','Hwe Ship','3','2023-02-03');
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
