@@ -60,8 +60,11 @@
                                 <input name="namacust" autocomplete="off" class="form-control" type="text"
                                     style="width: 210px;">
                                 <div class="result"></div>
+                                <select class="form-control" id="customer_search" name="customer"></select>
                             </div>
+
                         </div>
+
                         <div class="col-sm-3">
                             Nomor Transaksi :
                         </div>
@@ -253,4 +256,35 @@
             $(this).parent(".result").empty();
         });
     });
+
+    $("#customer_search").select2({
+    ajax: {
+      placeholder: 'Cari barang',
+      url: "{{ url('/transaction/customer_search') }}",
+      dataType: 'json',
+      type: "GET",
+      delay: 250,
+      processResults: function (data) {
+        return {
+          results: $.map(data.nama, function (item) {
+            return {
+              text: item.nama,
+              id: item.id
+            }
+          })
+        };
+      },
+      cache: true,
+    }
+})
+.on('select2:select', function (e) {
+  var id = e.params.data.id;
+  $.ajax({
+    url: "{{ url('/transaction/customer') }}/" + id,
+    method: "GET",
+    success:function(response) {
+      dataCustomer(response.customer.nama, response.customer.phone);
+    }
+  });
+});
 </script>
