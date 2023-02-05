@@ -57,6 +57,9 @@
                                 <th scope="col">
                                     <center>Email</center>
                                 </th>
+                                <th scope="col">
+                                    <center>Action</center>
+                                </th>
                             </tr>
                             <?php $ctr = 1; ?>
 
@@ -84,6 +87,18 @@
                                     </th>
                                     <th scope="col">
                                         <center>{{ $prm->email }}</center>
+                                    </th>
+                                    <th scope="col">
+                                        <center style="display: flex;">
+                                            <form action="" method="post">
+                                                @csrf
+                                                <button name=""type="submit" class="btn btn"><i class="fa fa-pencil-alt"></i></button>
+                                            </form>
+                                            <form action="" method="post">
+                                                @csrf
+                                                <button style="margin-left: 2%" type="submit" name="" class="btn btn-danger"><i class="fa fa-trash"></i></button>
+                                            </form>
+                                        </center>
                                     </th>
                                 </tr>
                                 <?php $ctr++; ?>

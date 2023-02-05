@@ -249,7 +249,7 @@
                 $.ajax({
                     url:"autocomplete.php",
                     method:"POST",
-                    data:{query:query},
+                    data:{query:query,ctr:"Ftrans"},
                     success:function(data)
                     {
                         $('#userList').fadeIn();
