@@ -67,6 +67,8 @@ Route::get('/masterPegawai', [controllerpegawai::class, "vmpegawai"]);
 Route::get('/tpegawai',  [controllerpegawai::class, "vfmpegawai"]);
 
 
+
+
 // <-------------->
 Route::post('/doMasterTransaksi', [TransaksiController::class, "doAdd"]);
 Route::get('/masterTransaksi', [TransaksiController::class, "showtransaksi"]);

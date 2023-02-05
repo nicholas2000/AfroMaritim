@@ -14,7 +14,17 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.6.3/js/bootstrap-select.min.js"></script>
-
+<style>
+    .userList
+    {
+        background-color:aliceblue;
+        cursor:pointer;
+    }
+    li
+    {
+        padding:12px;
+    }
+</style>
 </html>
 @if ($errors->any())
     @foreach ($errors->all() as $err)
@@ -37,7 +47,6 @@
             <br>
             <form action="{{ url('/doMasterTransaksi') }} " method="post">
                 @csrf
-
                 <div class="container">
                     <div class="row">
                         <div class="col-sm-3">
@@ -57,10 +66,9 @@
                                           <option data-subtext="Rep California" disabled="disabled">Marvin Martinez</option> --}}
                                 {{-- </select>
                                 </div> --}}
-                                <input name="namacust" autocomplete="off" class="form-control" type="text"
-                                    style="width: 210px;">
-                                <div class="result"></div>
-                                <select class="form-control" id="customer_search" name="customer"></select>
+                                <input style="width: 210px;" type="text" name="namacust" id="user" class="form-control" placeholder="Masukkan Nama" />
+                                <br>
+                                <div class="userList"  id="userList" style="width: 210px;"></div>
                             </div>
 
                         </div>
@@ -138,7 +146,7 @@
                         </div>
                         <div class="col-sm-3">
                             <div class="col-auto">
-                                <select name="jenisharga" class="custom-select" style="width: 210px;margin-left:-15px;"
+                                <select name="jenisharga" class="custom-select" style="font-size:15px;width: 210px;margin-left:-15px;height:40px;"
                                     id="inlineFormCustomSelect">
                                     <option selected>Pilih</option>
                                     <option value="1">One</option>
@@ -182,8 +190,7 @@
                             Total Harga :
                         </div>
                         <div class="col-sm">
-                            <input name="totalharga" class="form-control" type="text"style="width: 210px;"
-                                disabled>
+                            <input name="total" class="form-control" type="text"style="width: 210px;">
                         </div>
                     </div>
                 </div>
@@ -201,8 +208,7 @@
                             Nomor Container :
                         </div>
                         <div class="col-sm">
-                            <input name="nocontainer" class="form-control" type="text"style="width: 210px;"
-                                >
+                            <input name="nocontainer" class="form-control" type="text"style="width: 210px;">
                         </div>
                     </div>
                 </div>
@@ -213,8 +219,7 @@
                             Tanggal Berangkat :
                         </div>
                         <div class="col-sm">
-                            <input name="tglberangkat" class="form-control" type="date"style="width: 210px;"
-                                >
+                            <input name="tglberangkat" class="form-control" type="date"style="width: 210px;">
                         </div>
                         <div class="col-sm-3">
                             <br>
@@ -233,58 +238,29 @@
             return false;
         return true;
     }
+</script>
 
-    $(document).ready(function() {
-        $('.search-box input[type="text"]').on("keyup input", function() {
-
-            var inputVal = $(this).val();
-            var resultDropdown = $(this).siblings(".result");
-            if (inputVal.length) {
-                $.get("backend-search.php", {
-                    term: inputVal,
-                    ctr: "FormTransaksi"
-                }).done(function(data) {
-                    resultDropdown.html(data);
+<script>
+    $(document).ready(function(){
+        $('#user').keyup(function(){
+            var query = $(this).val();
+            if(query != '')
+            {
+                $.ajax({
+                    url:"autocomplete.php",
+                    method:"POST",
+                    data:{query:query},
+                    success:function(data)
+                    {
+                        $('#userList').fadeIn();
+                        $('#userList').html(data);
+                    }
                 });
-            } else {
-                resultDropdown.empty();
             }
         });
-
-        $(document).on("click", ".result", function() {
-            $(this).parents(".search-box").find('input[type="text"]').val($(this).text());
-            $(this).parent(".result").empty();
+        $(document).on('click', 'li', function(){
+            $('#user').val($(this).text());
+            $('#userList').fadeOut();
         });
     });
-
-    $("#customer_search").select2({
-    ajax: {
-      placeholder: 'Cari barang',
-      url: "{{ url('/transaction/customer_search') }}",
-      dataType: 'json',
-      type: "GET",
-      delay: 250,
-      processResults: function (data) {
-        return {
-          results: $.map(data.nama, function (item) {
-            return {
-              text: item.nama,
-              id: item.id
-            }
-          })
-        };
-      },
-      cache: true,
-    }
-})
-.on('select2:select', function (e) {
-  var id = e.params.data.id;
-  $.ajax({
-    url: "{{ url('/transaction/customer') }}/" + id,
-    method: "GET",
-    success:function(response) {
-      dataCustomer(response.customer.nama, response.customer.phone);
-    }
-  });
-});
 </script>

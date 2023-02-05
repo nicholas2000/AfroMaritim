@@ -6,6 +6,11 @@ use Illuminate\Http\Request;
 
 class TransaksiController extends Controller
 {
+    public function showHistory()
+    {
+        $param['arrHistory']=Transaksi::get();
+        return view('admin.mHistory',$param);
+    }
     public function showtransaksi(Request $req)
     {
         return view('admin/mTransaksi');
@@ -58,8 +63,7 @@ class TransaksiController extends Controller
         } else {
             $kode = "TC0{$ctr}";
         }
-        $tothargapalsu=1000;
-        $idadmpalsu="albert";
+        $idadmpalsu="admin";
 
         Transaksi::create([
             'nomor_transaksi' => $kode,
@@ -76,7 +80,7 @@ class TransaksiController extends Controller
             'harga_tambahan'=>$req->hargatambahan,
             'persentase' =>$req->persentase,
             // 'total_harga' =>$req->totalharga,
-            'total_harga' =>$tothargapalsu,
+            'total_harga' =>$req ->total,
             'nama_kapal' =>$req->namakapal,
             'nomor_container' =>$req->nocontainer,
             'tanggal_berangkat' =>$req->tglberangkat,
