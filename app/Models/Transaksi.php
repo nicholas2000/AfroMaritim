@@ -31,4 +31,9 @@ class Transaksi extends Model
         'tanggal_berangkat'
     ];
     protected $keyType = 'string';
+    
+    public function Customer()
+    {
+        return $this->belongsTo(Customer::class,'id_customer','id_customer');
+    }
 }

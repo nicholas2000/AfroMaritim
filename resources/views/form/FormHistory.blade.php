@@ -160,7 +160,7 @@
                                 <center>No Transaksi</center>
                             </th>
                             <th scope="col">
-                                <center>Id Customer</center>
+                                <center>Nama Customer</center>
                             </th>
                             <th scope="col">
                                 <center>Harga</center>
@@ -188,7 +188,7 @@
                                     <center>{{ $prm->nomor_transaksi }}</center>
                                 </th>
                                 <th scope="col">
-                                    <center>{{ $prm->id_customer }}</center>
+                                    <center>{{ $prm->Customer->nama_customer }}</center>
                                 </th>
                                 <th scope="col">
                                     <center>{{ $prm->harga }}</center>
