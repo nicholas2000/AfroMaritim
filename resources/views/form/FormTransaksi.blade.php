@@ -109,19 +109,19 @@
                             Ukuran :
                         </div>
                         <div class="col-sm-2">
-                            <input type="checkbox" name="option-1" id="option-1">
+                            <input type="checkbox" name="option-1" id="option-1" onclick="disable_option1()">
                         </div>
                         <div class="col-sm-3">
-                            <input name="ukuran" class="form-control" type="text"style="width: 210px;" >
+                            <input name="ukuran" id="ukuran" class="form-control" type="text"style="width: 210px;" >
                         </div>
                         <div class="col-sm-1">
                             Volume :
                         </div>
                         <div class="col-sm-2">
-                            <input type="checkbox" name="option-1" id="option-2">
+                            <input type="checkbox" name="option-2" id="option-2" onclick="disable_option2()">
                         </div>
                         <div class="col-sm-1">
-                            <input name="volume" class="form-control" type="text"style="width: 210px;" >
+                            <input name="volume" id="volume" class="form-control" type="text"style="width: 210px;" >
                         </div>
                     </div>
                 </div>
@@ -132,10 +132,10 @@
                             Berat :
                         </div>
                         <div class="col-sm-2">
-                            <input type="checkbox" name="option-1" id="option-3">
+                            <input type="checkbox" name="option-3" id="option-3" onclick="disable_option3()">
                         </div>
                         <div class="col-sm-3">
-                            <input name="berat" class="form-control" type="text"style="width: 210px;" >
+                            <input name="berat" id="berat" class="form-control" type="text"style="width: 210px;" >
                         </div>
                         <div class="col-sm-3">
                             Rute :
@@ -276,13 +276,27 @@
             $('#userList').fadeOut();
         });
     });
-    function disable-option1() {
-        document.getElementById("option-1").disabled = true;
-        document.getElementById("option-2").disabled = false;
-        document.getElementById("option-3").disabled = false;
+    function disable_option1() {
+        document.getElementById("ukuran").disabled = false;
+        document.getElementById("volume").disabled = true;
+        document.getElementById("berat").disabled = true;
+        document.getElementById("option-2").checked = false;
+        document.getElementById("option-3").checked = false;
+    }
+    function disable_option2() {
+        document.getElementById("ukuran").disabled = true;
+        document.getElementById("volume").disabled = false;
+        document.getElementById("berat").disabled = true;
+        document.getElementById("option-1").checked = false;
+        document.getElementById("option-3").checked = false;
+    }
+    function disable_option3() {
+        document.getElementById("ukuran").disabled = true;
+        document.getElementById("volume").disabled = true;
+        document.getElementById("berat").disabled = false;
+        document.getElementById("option-1").checked = false;
+        document.getElementById("option-2").checked = false;
     }
 
-    function undisable() {
-        document.getElementById("myCheck").disabled = false;
-    }
+
 </script>
