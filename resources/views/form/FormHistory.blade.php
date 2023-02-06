@@ -138,6 +138,14 @@
                      </div>
                     </div>
                     <br>
+                    <div class="p ">
+                        <div class="col-sm-5">Link Foto</div>
+                        <div>:</div>
+                        <div class="col-md-3"><input name="ncontainer" type='text' style="width: 180px;"
+                             >
+                     </div>
+                    </div>
+                    <br>
                     <button style="float: right" type="submit" class="btn btn-success">Update</button>
                     <br>
                 </div>

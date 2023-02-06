@@ -90,27 +90,37 @@
                         <div class="col-sm">
                             <input name="namabarang" class="form-control" type="text"style="width: 210px;" >
                         </div>
+
+
                         <div class="col-sm-3">
                             Admin :
                         </div>
                         <div class="col-sm">
                             <input name="kode" class="form-control" type="text"style="width: 210px;" disabled>
                         </div>
+
                     </div>
                 </div>
+
                 <br>
                 <div class="container">
                     <div class="row">
-                        <div class="col-sm-3">
+                        <div class="col-sm-1">
                             Ukuran :
                         </div>
-                        <div class="col-sm">
-                            <input name="ukuran" class="form-control" type="text"style="width: 210px;" >
+                        <div class="col-sm-2">
+                            <input type="checkbox" name="option-1" id="option-1">
                         </div>
                         <div class="col-sm-3">
+                            <input name="ukuran" class="form-control" type="text"style="width: 210px;" >
+                        </div>
+                        <div class="col-sm-1">
                             Volume :
                         </div>
-                        <div class="col-sm">
+                        <div class="col-sm-2">
+                            <input type="checkbox" name="option-1" id="option-2">
+                        </div>
+                        <div class="col-sm-1">
                             <input name="volume" class="form-control" type="text"style="width: 210px;" >
                         </div>
                     </div>
@@ -118,10 +128,13 @@
                 <br>
                 <div class="container">
                     <div class="row">
-                        <div class="col-sm-3">
+                        <div class="col-sm-1">
                             Berat :
                         </div>
-                        <div class="col-sm">
+                        <div class="col-sm-2">
+                            <input type="checkbox" name="option-1" id="option-3">
+                        </div>
+                        <div class="col-sm-3">
                             <input name="berat" class="form-control" type="text"style="width: 210px;" >
                         </div>
                         <div class="col-sm-3">
@@ -263,4 +276,13 @@
             $('#userList').fadeOut();
         });
     });
+    function disable-option1() {
+        document.getElementById("option-1").disabled = true;
+        document.getElementById("option-2").disabled = false;
+        document.getElementById("option-3").disabled = false;
+    }
+
+    function undisable() {
+        document.getElementById("myCheck").disabled = false;
+    }
 </script>

@@ -12,7 +12,7 @@ MySQL - 10.4.27-MariaDB : Database - db_afromaritim
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
-CREATE DATABASE /*!32312 IF NOT EXISTS*/`db_afromaritim` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci */;
+CREATE DATABASE /*!32312 IF NOT EXISTS*/`db_afromaritim` /*!40100 DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci */;
 
 USE `db_afromaritim`;
 
@@ -53,7 +53,7 @@ CREATE TABLE `master_tcabang` (
 /*Data for the table `master_tcabang` */
 
 insert  into `master_tcabang`(`id_cabang`,`nama_cabang`,`jum_cabang`,`alamat_cabang`,`provinsi_cabang`,`kota_cabang`,`kecamatan_cabang`,`kelurahan_cabang`,`kodepos_cabang`,`telpon_cabang`,`gmaps_cabang`,`email_cabang`,`status_cabang`) values 
-('C001','Andi','4','Ngagel Jaya no 3','Jawa Timur','Surabaya','Sidoarjo','Kediri','34234','34534534534','https://afrotransmaritim.co.id/','admi5n@gmail.com','1'),
+('C001','CabangSby','4','Ngagel Jaya no 3','Jawa Timur','Surabaya','Sidoarjo','Kediri','34234','34534534534','https://afrotransmaritim.co.id/','admi5n@gmail.com','1'),
 ('C002','Sudi','2','Lontar Raya 2','Jawa Barat','Surabaya','Sidoarjo','Batu','34234','43534534534','https://afrotransmaritim.co.id/','admi5n@gmail.com','1');
 
 /*Table structure for table `master_tcustomer` */
@@ -86,9 +86,6 @@ CREATE TABLE `master_tcustomer` (
 /*Data for the table `master_tcustomer` */
 
 insert  into `master_tcustomer`(`id_customer`,`id_cabang`,`nama_customer`,`npwp`,`jalan`,`provinsi`,`kota`,`kecamatan`,`kelurahan`,`kode_pos`,`telpon`,`email`,`status_hutang`,`total_hutang`,`batas_pembayaran`,`no_rekening`,`metode_pembayaran`) values 
-('CU001','C001','Nicho','219116815','sur','Jawa Timur','Batu','Sidoarjo','Batu','61213','08113190080','lala@gmail.com',NULL,NULL,NULL,NULL,NULL),
-('CU002','C002','Andi','219117914','Surabaya','Jawa Timur','Surabaya','Batu','Batu','61213','123','lala@gmail.com',NULL,NULL,NULL,NULL,NULL),
-('CU003','C001','Negro','123','A','Jawa Barat','Surabaya','Batu','Blitar','61213','08113190080','lala@gmail.com',NULL,NULL,NULL,NULL,NULL),
 ('CU004','C001','Gradi','1234','Ngagel Jaya TImur','Jawa Timur','Bandung','Sidoarjo','Batu','601','08951111','teje@gmail.com',NULL,NULL,NULL,NULL,NULL),
 ('CU005','C001','Godamte','1111','Ngagel Jaya TImur','Jawa Timur','Surabaya','Sidoarjo','Blitar','602','08951112','godamte1@gmail.com',NULL,NULL,NULL,NULL,NULL);
 
@@ -179,7 +176,7 @@ CREATE TABLE `transaksi` (
 /*Data for the table `transaksi` */
 
 insert  into `transaksi`(`nomor_transaksi`,`id_customer`,`nama_barang`,`id_admin`,`ukuran`,`volume`,`berat`,`rute`,`harga`,`jenis_harga`,`tonase`,`harga_tambahan`,`persentase`,`total_harga`,`nama_kapal`,`nomor_container`,`tanggal_berangkat`) values 
-('TC005','CU005','Ikan','admin','1','10','1','Surabaya-Malang','10000','1','1','10000','10','20000','Hwe Ship','3','2023-02-03');
+('TC002','CU004','Ayam','admin','2','10','1','Surabaya-Malang','20000','2','1','10000','10','20000','Hwe Ship','4','2023-02-03');
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;

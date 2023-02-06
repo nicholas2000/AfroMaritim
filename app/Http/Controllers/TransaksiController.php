@@ -56,9 +56,13 @@ class TransaksiController extends Controller
         );
 
         $temp = Transaksi::count();
+        $trans = Transaksi::all();
         $ctr = 1;
-        for ($i = 0; $i < $temp; $i++) {
-            $ctr++;
+        // for ($i = 0; $i < $temp; $i++) {
+        //     $ctr = substr()
+        // }
+        foreach($trans as $trans){
+            $ctr = intval(substr($trans->nomor_transaksi, 2)) + 1;
         }
         if ($ctr < 10) {
             $kode = "TC00{$ctr}";
@@ -68,7 +72,6 @@ class TransaksiController extends Controller
         $idadmpalsu="admin";
 
         $Customer=Customer::where('nama_customer', 'like', '%' . $req->namacust . '%')->get();
-
 
         Transaksi::create([
             'nomor_transaksi' => $kode,
