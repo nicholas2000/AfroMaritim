@@ -54,7 +54,7 @@ CREATE TABLE `master_tcabang` (
 
 insert  into `master_tcabang`(`id_cabang`,`nama_cabang`,`jum_cabang`,`alamat_cabang`,`provinsi_cabang`,`kota_cabang`,`kecamatan_cabang`,`kelurahan_cabang`,`kodepos_cabang`,`telpon_cabang`,`gmaps_cabang`,`email_cabang`,`status_cabang`) values 
 ('C001','CabangSby','4','Ngagel Jaya no 3','Jawa Timur','Surabaya','Sidoarjo','Kediri','34234','34534534534','https://afrotransmaritim.co.id/','admi5n@gmail.com','1'),
-('C002','Sudi','2','Lontar Raya 2','Jawa Barat','Surabaya','Sidoarjo','Batu','34234','43534534534','https://afrotransmaritim.co.id/','admi5n@gmail.com','1');
+('C002','CabangSda','2','Lontar Raya 2','Jawa Barat','Surabaya','Sidoarjo','Batu','34234','43534534534','https://afrotransmaritim.co.id/','admi5n@gmail.com','1');
 
 /*Table structure for table `master_tcustomer` */
 
@@ -155,9 +155,9 @@ CREATE TABLE `transaksi` (
   `id_customer` varchar(255) NOT NULL,
   `nama_barang` varchar(255) NOT NULL,
   `id_admin` varchar(255) NOT NULL,
-  `ukuran` varchar(255) NOT NULL,
-  `volume` varchar(255) NOT NULL,
-  `berat` varchar(255) NOT NULL,
+  `ukuran` varchar(255) DEFAULT NULL,
+  `volume` varchar(255) DEFAULT NULL,
+  `berat` varchar(255) DEFAULT NULL,
   `rute` varchar(255) NOT NULL,
   `harga` varchar(255) NOT NULL,
   `jenis_harga` varchar(255) NOT NULL,
