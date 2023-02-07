@@ -15,16 +15,6 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-    <style>
-         div.scroll {
-        margin: 4px, 4px;
-        padding: 4px;
-        width: 100%;
-        overflow-x: auto;
-        overflow-y: hidden;
-        white-space: nowrap;
-    }
-    </style>
 </head>
 
 <body>
@@ -43,71 +33,69 @@
                             class="btn btn-primary">Tambah</button></a>
                 </div>
                 <br><br>
-                <div class="scroll">
-                    <div class="col-12">
-                        <table class="table table-bordered">
-                            <tr style="background-color:  #023e94;color: white;">
-                                <th scope="col">No</th>
+
+                <div class="col-12">
+                    <table class="table table-bordered">
+                        <tr style="background-color:  #023e94;color: white;">
+                            <th scope="col">No</th>
+                            <th scope="col">
+                                <center>ID Cabang</center>
+                            </th>
+                            <th scope="col">
+                                <center>Nama Cabang</center>
+                            </th>
+                            <th scope="col">
+                                <center>Alamat Cabang</center>
+                            </th>
+                            <th scope="col">
+                                <center>Email</center>
+                            </th>
+                            <th scope="col">
+                                <center>No Telpon</center>
+                            </th>
+                            <th scope="col">
+                                <center>Action</center>
+                            </th>
+                        </tr>
+                        <?php $ctr = 1; ?>
+
+                        @foreach ($arrCabang as $prm)
+                            <tr>
+
+                                <th scope="row">{{ $ctr }}</th>
                                 <th scope="col">
-                                    <center>ID Cabang</center>
+                                    <center>{{ $prm->id_cabang }}</center>
                                 </th>
                                 <th scope="col">
-                                    <center>Nama Cabang</center>
+                                    <center>{{ $prm->nama_cabang }}</center>
                                 </th>
                                 <th scope="col">
-                                    <center>Alamat Cabang</center>
+                                    <center>{{ $prm->alamat_cabang }}</center>
                                 </th>
                                 <th scope="col">
-                                    <center>Email</center>
+                                    <center>{{ $prm->email_cabang }}</center>
                                 </th>
                                 <th scope="col">
-                                    <center>No Telpon</center>
+                                    <center>{{ $prm->telpon_cabang }}</center>
                                 </th>
                                 <th scope="col">
-                                    <center>Action</center>
+                                    <center style="display: flex;">
+                                        <form action="" method="">
+                                            @csrf
+                                            <button name=""type="submit" class="btn btn"><i class="fa fa-pencil-alt"></i></button>
+                                        </form>
+                                        <form action="" method="">
+                                            @csrf
+                                            <button style="margin-left: 2%" type="submit" name="" class="btn btn-danger"><i class="fa fa-trash"></i></button>
+                                        </form>
+                                    </center>
                                 </th>
                             </tr>
-                            <?php $ctr = 1; ?>
-
-                            @foreach ($arrCabang as $prm)
-                                <tr>
-
-                                    <th scope="row">{{ $ctr }}</th>
-                                    <th scope="col">
-                                        <center>{{ $prm->id_cabang }}</center>
-                                    </th>
-                                    <th scope="col">
-                                        <center>{{ $prm->nama_cabang }}</center>
-                                    </th>
-                                    <th scope="col">
-                                        <center>{{ $prm->alamat_cabang }}</center>
-                                    </th>
-                                    <th scope="col">
-                                        <center>{{ $prm->email_cabang }}</center>
-                                    </th>
-                                    <th scope="col">
-                                        <center>{{ $prm->telpon_cabang }}</center>
-                                    </th>
-                                    <th scope="col">
-                                        <center style="display: flex;">
-                                            <form action="" method="">
-                                                @csrf
-                                                <button name=""type="submit" class="btn btn"><i
-                                                        class="fa fa-pencil-alt"></i></button>
-                                            </form>
-                                            <form action="" method="">
-                                                @csrf
-                                                <button style="margin-left: 2%" type="submit" name=""
-                                                    class="btn btn-danger"><i class="fa fa-trash"></i></button>
-                                            </form>
-                                        </center>
-                                    </th>
-                                </tr>
-                                <?php $ctr++; ?>
-                            @endforeach
-                        </table>
-                    </div>
+                            <?php $ctr++; ?>
+                        @endforeach
+                    </table>
                 </div>
+
             </div>
     </section>
 
