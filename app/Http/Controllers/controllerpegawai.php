@@ -23,15 +23,17 @@ class controllerpegawai extends Controller
 
     public function dovmtpegawai(Request $request)
     {
-        $temp = modelpegawai::count();
+        $pegawai = modelpegawai::all();
         $ctr = 1;
-        for ($i = 0; $i < $temp; $i++) {
-            $ctr++;
+        foreach($pegawai as $p){
+            $ctr = intval(substr($p->id_pegawai, 2)) + 1;
         }
-        if ($ctr < 10) {
+        if($ctr<10){
             $kode = "P00{$ctr}";
-        } else {
+        }else if($ctr<100){
             $kode = "P0{$ctr}";
+        }else{
+            $kode = "P{$ctr}";
         }
 
         $request->validate(

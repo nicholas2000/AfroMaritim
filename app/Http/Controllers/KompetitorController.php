@@ -15,15 +15,17 @@ class KompetitorController extends Controller
 
     public function doAdd(Request $req)
     {
-        $temp = Kompetitor::count();
+        $kompetitor = Kompetitor::all();
         $ctr = 1;
-        for($i = 0; $i<$temp; $i++){
-            $ctr++;
+        foreach($kompetitor as $k){
+            $ctr = intval(substr($k->id_kompetitor, 2)) + 1;
         }
         if($ctr<10){
             $kode = "K00{$ctr}";
-        }else{
+        }else if($ctr<100){
             $kode = "K0{$ctr}";
+        }else{
+            $kode = "K{$ctr}";
         }
 
         $req->validate(

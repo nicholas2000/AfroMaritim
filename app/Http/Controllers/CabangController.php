@@ -16,15 +16,17 @@ class CabangController extends Controller
 
     public function doAdd(Request $req)
     {
-        $temp = Cabang::count();
+        $cabang = Cabang::all();
         $ctr = 1;
-        for($i = 0; $i<$temp; $i++){
-            $ctr++;
+        foreach($cabang as $c){
+            $ctr = intval(substr($c->id_cabang, 2)) + 1;
         }
         if($ctr<10){
             $kode = "C00{$ctr}";
-        }else{
+        }else if($ctr<100){
             $kode = "C0{$ctr}";
+        }else{
+            $kode = "C{$ctr}";
         }
         $status = 0;
         if($req->status=="Aktif"){
