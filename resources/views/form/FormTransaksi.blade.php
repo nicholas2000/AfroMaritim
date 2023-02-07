@@ -37,7 +37,7 @@
                             Nama Customer :
                         </div>
                         <div class="col-sm">
-                            <input name="namacust" class="form-control" type="text" style="width: 210px;"enabled>
+                            <input name="namacust" class="form-control" type="text" style="width: 210px;">
                         </div>
                         <div class="col-sm-3">
                             Nomor Transaksi :
@@ -54,7 +54,7 @@
                             Nama Barang :
                         </div>
                         <div class="col-sm">
-                            <input name="namabarang" class="form-control" type="text"style="width: 210px;" enabled>
+                            <input name="namabarang" class="form-control" type="text"style="width: 210px;" >
                         </div>
                         <div class="col-sm-3">
                             Admin :
@@ -71,13 +71,13 @@
                             Ukuran :
                         </div>
                         <div class="col-sm">
-                            <input name="ukuran" class="form-control" type="text"style="width: 210px;" enabled>
+                            <input name="ukuran" class="form-control" type="text"style="width: 210px;" >
                         </div>
                         <div class="col-sm-3">
                             Volume :
                         </div>
                         <div class="col-sm">
-                            <input name="volume" class="form-control" type="text"style="width: 210px;" enabled>
+                            <input name="volume" class="form-control" type="text"style="width: 210px;" >
                         </div>
                     </div>
                 </div>
@@ -88,13 +88,13 @@
                             Berat :
                         </div>
                         <div class="col-sm">
-                            <input name="berat" class="form-control" type="text"style="width: 210px;" enabled>
+                            <input name="berat" class="form-control" type="text"style="width: 210px;" >
                         </div>
                         <div class="col-sm-3">
                             Rute :
                         </div>
                         <div class="col-sm">
-                            <input name="rute" class="form-control" type="text"style="width: 210px;" enabled>
+                            <input name="rute" class="form-control" type="text"style="width: 210px;" >
                         </div>
                     </div>
                 </div>
@@ -105,7 +105,7 @@
                             Harga :
                         </div>
                         <div class="col-sm">
-                            <input name="harga" class="form-control" type="text"style="width: 210px;" enabled>
+                            <input name="harga" class="form-control" type="text"style="width: 210px;" >
                         </div>
                         <div class="col-sm-3">
                             Jenis Harga :
@@ -131,14 +131,13 @@
                             Tonase :
                         </div>
                         <div class="col-sm">
-                            <input name="tonase" class="form-control" type="text"style="width: 210px;" enabled>
+                            <input name="tonase" class="form-control" type="text"style="width: 210px;" >
                         </div>
                         <div class="col-sm-3">
                             Harga Tambahan :
                         </div>
                         <div class="col-sm">
-                            <input name="hargatambahan" class="form-control" type="text"style="width: 210px;"
-                                enabled>
+                            <input name="hargatambahan" class="form-control" type="text"style="width: 210px;">
                         </div>
                     </div>
                 </div>
@@ -149,8 +148,7 @@
                             Persentase :
                         </div>
                         <div class="col-sm">
-                            <input name="persentase" class="form-control" type="text"style="width: 210px;"
-                                enabled>
+                            <input name="persentase" class="form-control" type="text"style="width: 210px;">
                         </div>
                         <div class="col-sm-3">
                             Total Harga :
@@ -168,15 +166,13 @@
                             Nama Kapal :
                         </div>
                         <div class="col-sm">
-                            <input name="namakapal" class="form-control" type="text"style="width: 210px;"
-                                enabled>
+                            <input name="namakapal" class="form-control" type="text"style="width: 210px;">
                         </div>
                         <div class="col-sm-3">
                             Nomor Container :
                         </div>
                         <div class="col-sm">
-                            <input name="nocontainer" class="form-control" type="text"style="width: 210px;"
-                                enabled>
+                            <input name="nocontainer" class="form-control" type="text"style="width: 210px;">
                         </div>
                     </div>
                 </div>
@@ -187,8 +183,7 @@
                             Tanggal Berangkat :
                         </div>
                         <div class="col-sm">
-                            <input name="tglberangkat" class="form-control" type="date"style="width: 210px;"
-                                enabled>
+                            <input name="tglberangkat" class="form-control" type="date"style="width: 210px;">
                         </div>
                         <div class="col-sm-3">
                             <br>
@@ -208,3 +203,5 @@
         return true;
     }
 </script>
+
+
