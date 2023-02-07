@@ -73,14 +73,9 @@
                         <div class="col-sm-3">
                             Nama Customer :
                         </div>
-<<<<<<< Updated upstream
+
                         <div class="col-sm">
-<<<<<<< HEAD
                             <input name="namacust" class="form-control" type="text" style="width: 210px;">
-=======
-=======
-                        <div class="col-sm-3">
->>>>>>> Stashed changes
                             <div class="search-box">
                                 {{-- <div class="row-fluid">
                                     <select class="selectpicker result" data-show-subtext="true"
@@ -103,7 +98,6 @@
                                 </div>
                             </div>
 
->>>>>>> f411128c848bf22a3d2956dc3164b912977943ea
                         </div>
 
                         <div class="col-sm-3">
@@ -141,13 +135,13 @@
                         <div class="col-sm-1">
                             Ukuran :
                         </div>
-<<<<<<< HEAD
+
                         <div class="col-sm">
                             <input name="ukuran" class="form-control" type="text"style="width: 210px;" >
-=======
+
                         <div class="col-sm-2">
                             <input type="checkbox" name="option-1" id="option-1" onclick="disable_option1()">
->>>>>>> f411128c848bf22a3d2956dc3164b912977943ea
+
                         </div>
                         <div class="col-sm-3">
                             <input name="ukuran" id="ukuran" class="form-control" type="text"style="width: 210px;" >
@@ -209,12 +203,7 @@
                             Harga Tambahan :
                         </div>
                         <div class="col-sm">
-<<<<<<< HEAD
                             <input name="hargatambahan" class="form-control" type="text"style="width: 210px;">
-=======
-                            <input name="hargatambahan" class="form-control" type="text"style="width: 210px;"
-                                >
->>>>>>> f411128c848bf22a3d2956dc3164b912977943ea
                         </div>
                     </div>
                 </div>
@@ -225,12 +214,7 @@
                             Persentase :
                         </div>
                         <div class="col-sm">
-<<<<<<< HEAD
                             <input name="persentase" class="form-control" type="text"style="width: 210px;">
-=======
-                            <input name="persentase" class="form-control" type="text"style="width: 210px;"
-                                >
->>>>>>> f411128c848bf22a3d2956dc3164b912977943ea
                         </div>
                         <div class="col-sm-3">
                             Total Harga :
@@ -247,12 +231,7 @@
                             Nama Kapal :
                         </div>
                         <div class="col-sm">
-<<<<<<< HEAD
                             <input name="namakapal" class="form-control" type="text"style="width: 210px;">
-=======
-                            <input name="namakapal" class="form-control" type="text"style="width: 210px;"
-                                >
->>>>>>> f411128c848bf22a3d2956dc3164b912977943ea
                         </div>
                         <div class="col-sm-3">
                             Nomor Container :
