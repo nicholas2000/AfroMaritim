@@ -110,42 +110,6 @@
                     </div>
                 </div>
 
-                <!-- input district-->
-                <div class="form-group">
-                    <label class="col-md-1 control-label">Kecamatan</label>
-                    <div class="col-md-10 selectContainer">
-                        <div class="input-group">
-                            <span style="background-color: #023e94" class="input-group-addon"><i style="color: white"
-                                    class="glyphicon glyphicon-home"></i></span>
-                            <select name="kecamatan" style="height:35px" class="form-control selectpicker">
-                                <option value="">Pilih Kecamatan</option>
-                                <option>Sidoarjo</option>
-                                <option>Malang</option>
-                                <option>Batu</option>
-                                <option>Gresik</option>
-                            </select>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- input village-->
-                <div class="form-group">
-                    <label class="col-md-1 control-label">Kelurahan</label>
-                    <div class="col-md-10 selectContainer">
-                        <div class="input-group">
-                            <span style="background-color: #023e94" class="input-group-addon"><i style="color: white"
-                                    class="glyphicon glyphicon-home"></i></span>
-                            <select name="kelurahan" style="height:35px" class="form-control selectpicker">
-                                <option value="">Pilih Kelurahan</option>
-                                <option>Kediri</option>
-                                <option>Blitar</option>
-                                <option>Batu</option>
-                                <option>Gresik</option>
-                            </select>
-                        </div>
-                    </div>
-                </div>
-
                 <!--input zipcode-->
                 <div class="form-group">
                     <label class="col-md-1 control-label">Kode Pos</label>
