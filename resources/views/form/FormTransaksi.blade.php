@@ -24,6 +24,27 @@
     {
         padding:12px;
     }
+
+.force-overflow
+{
+	min-height: 350px;
+}
+
+#wrapper
+{
+	text-align: center;
+	width: 500px;
+}
+
+.scrollbar
+{
+	float: left;
+	height: 100px;
+	width: 210px;
+	background: #F5F5F5;
+	overflow-y: scroll;
+}
+
 </style>
 </html>
 @if ($errors->any())
@@ -52,10 +73,14 @@
                         <div class="col-sm-3">
                             Nama Customer :
                         </div>
+<<<<<<< Updated upstream
                         <div class="col-sm">
 <<<<<<< HEAD
                             <input name="namacust" class="form-control" type="text" style="width: 210px;">
 =======
+=======
+                        <div class="col-sm-3">
+>>>>>>> Stashed changes
                             <div class="search-box">
                                 {{-- <div class="row-fluid">
                                     <select class="selectpicker result" data-show-subtext="true"
@@ -71,7 +96,11 @@
                                 </div> --}}
                                 <input style="width: 210px;" type="text" name="namacust" id="user" class="form-control" placeholder="Masukkan Nama" />
                                 <br>
-                                <div class="userList"  id="userList" style="width: 210px;"></div>
+                                <div id="wrapper" onclick="hidden()">
+                                    <div class="scrollbar">
+                                        <div class="userList force-overflow"  id="userList" style="width: 210px;"></div>
+                                    </div>
+                                </div>
                             </div>
 
 >>>>>>> f411128c848bf22a3d2956dc3164b912977943ea
@@ -309,6 +338,13 @@
         document.getElementById("option-2").checked = false;
     }
 
+    function hidden() {
+        if(document.getElementById("user").value==""){
+            document.getElementById("wrapper").hidden = true;
+        }else{
+            document.getElementById("wrapper").hidden = false;
+        }
+    }
+
 
 </script>
->>>>>>> f411128c848bf22a3d2956dc3164b912977943ea

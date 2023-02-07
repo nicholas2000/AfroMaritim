@@ -23,14 +23,20 @@ class CustomerController extends Controller
     public function doAdd(Request $req)
     {
         $temp = Customer::count();
+        $cust = Customer::all();
         $ctr = 1;
-        for($i = 0; $i<$temp; $i++){
-            $ctr++;
+        // for($i = 0; $i<$temp; $i++){
+        //     $ctr++;
+        // }
+        foreach($cust as $c){
+            $ctr = intval(substr($c->id_customer, 2)) + 1;
         }
         if($ctr<10){
             $kode = "CU00{$ctr}";
-        }else{
+        }else if($ctr<100){
             $kode = "CU0{$ctr}";
+        }else{
+            $kode = "CU{$ctr}";
         }
         $status = 0;
         // echo($req->tab);
