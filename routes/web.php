@@ -3,7 +3,10 @@
 use App\Http\Controllers\CabangController;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\controllerpegawai;
+use App\Http\Controllers\CustomerController;
+use App\Http\Controllers\HistoryController;
 use App\Http\Controllers\KompetitorController;
+use App\Http\Controllers\loginController;
 use App\Http\Controllers\TransaksiController;
 use Illuminate\Support\Facades\Route;
 
@@ -33,19 +36,18 @@ Route::get('/tcabang', function () {
     return view('admin.mTcabang');
 });
 
-
 Route::get('/tkompetitor', function () {
     return view('admin.mTkompetitor');
 });
-Route::get('/tcustomer', function () {
-    return view('admin.mTcustomer');
-});
+
 // ROUTE BARUU
 
 
-Route::get('/masterCustomer', function () {
-    return view('admin.mCustomer');
-});
+Route::get('/login', [loginController::class, "login"]);
+
+Route::post('/doAddcustomer', [CustomerController::class, "doAdd"]);
+Route::get('/masterCustomer', [CustomerController::class, "show"]);
+Route::get('/tcustomer',  [CustomerController::class, "vfmcustomer"]);
 
 Route::post('/doAddcabang', [CabangController::class, "doAdd"]);
 Route::get('/masterCabang', [CabangController::class, "show"]);
@@ -59,6 +61,8 @@ Route::get('/masterPegawai', [controllerpegawai::class, "vmpegawai"]);
 Route::get('/tpegawai',  [controllerpegawai::class, "vfmpegawai"]);
 
 
+
+
 // <-------------->
 Route::post('/doMasterTransaksi', [TransaksiController::class, "doAdd"]);
 Route::get('/masterTransaksi', [TransaksiController::class, "showtransaksi"]);
@@ -68,13 +72,11 @@ Route::get('/masterTeam', function () {
     return view('admin.mTeampengiriman');
 });
 
-// Route::get('/masterTransaksi', function () {
-//     return view('admin.mTransaksi');
+// Route::post('/doMasterTransaksi', [TransaksiController::class, "doAdd"]);
+Route::get('/masterHistory', [TransaksiController::class, "showHistory"]);
+// Route::get('/masterHistory', function () {
+//     return view('admin.mHistory');
 // });
-
-Route::get('/masterHistory', function () {
-    return view('admin.mHistory');
-});
 
 Route::get('/masterStatus', function () {
     return view('admin.mStatus');
@@ -115,6 +117,8 @@ Route::get('/tambahformnopo', function () {
 Route::get('/tambahsuratjalan', function () {
     return view('admin.mSuratJalan');
 });
+Route::post('/masterHistory/delete/{id}', [HistoryController::class, "deletehistory"]);
+Route::post('/masterHistory/update', [HistoryController::class, "updatehistory"]);
 
 //ROUTE BARU
 

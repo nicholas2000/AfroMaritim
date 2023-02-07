@@ -1,164 +1,335 @@
 
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
+<link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/css/bootstrap-datetimepicker.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/js/bootstrap-datepicker.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css">
 <style>
-    .p{
-        display: flex;
-        width: 100%
+    .userList
+    {
+        background-color:aliceblue;
+        cursor:pointer;
     }
-    @media screen and (max-width: 600px) {
+    li
+    {
+        padding:12px;
+    }
+</style>
+<script src="https://cdn.jsdelivr.net/npm/table2excel@1.0.4/dist/table2excel.min.js"></script>
+<style>
     .p {
-        width: 60%;
+        display: flex;
+        width: 80%;
     }
-    .pk{
-        width: 47%;
+
+    @media screen and (max-width:600px) {
+        .p {
+            width: 75%;
+        }
+
+        .pk{
+            margin-right: 5%;
+        }
     }
-}
+
+    .clickable {
+        cursor: pointer;
+    }
 </style>
 <section class="order-form m-4">
-    <div class="form-group">
+    <div class="container pt-4">
         <div class="container">
-            <div class="row">
-              <div class="col-sm">
-                <span class="input-group-addon"><i class="glyphicon glyphicon-barcode"></i></span>
-                <input name="" placeholder="Transaksi" class="form-control"  type="text" >
-              </div>
-              <div class="col-5"></div>
-              <div class="" style="">
-                Nama Pegawai :
-              </div>
-            </div>
-          </div>
-          <br>
-          <div class="container">
-            <div class="row">
-              <div class="col-sm">
-                History Transaksi
-              </div>
-              <div class="col-5"></div>
-              <div class="" style="">
-                <button type="button" style="" name="" class="btn btn-success">Import</button>
-                <button type="button" style="" name="" class="btn btn-danger">Export</button>
-              </div>
+            <div class="row ">
+                <div class="col-sm-5 form-group">
+                    <div class="input-group">
+                        <input type="search"  class="form-control rounded p" placeholder=" Transaksi"
+                            aria-label="Search" aria-describedby="search-addon" />
+                     </div>
+
+                </div>
+                <div class="col-sm">
+                    </div>
+                <div class="col-sm-3">
+                    </div>
+                <div class="col-sm-3">
+                    <div>Nama Pegawai :</div>
+                    </div>
 
             </div>
-          </div>
+
+
+
+
+            <br>
+            <div class="row">
+                    <div class="col-sm-5">
+                    <div><h3> History Transaksi</h3></div>
+                    </div>
+                    <div class="col-sm-3">
+                        <input type='text' style="width: 180px;" placeholder="Search">
+                        </div>
+                    <div class="col-sm">
+
+                    <div style="">
+                        <a href="" class="btn btn-primary" style="color: white;height: 37px;margin-right: 5%;" class="p">Import</a>
+                        <a href="" id="btn-excel" class="btn btn-success"
+                            style="color: white;height: 37px;">Export</a>
+                    </div>
+                </div>
+
+                <form method="post" action="{{url('masterHistory/update/')}}">
+                    @csrf
+                    <div class="row">
+                    <div class="col-sm-12 col-md-6 form-group">
+
+                    <div class="p">
+                        <div class="col-md-6">No Transaksi</div>
+                        <div>:</div>
+                        <div class="col-md-3">
+                        <input style="width: 180px;" type="text" name="namacust" id="user" class="form-control" placeholder="Masukkan Transaksi" />
+                        <div class="userList"  id="userList" style="width: 210px;"></div>
+                    </div>
+                    </div>
+
+                    <br>
+                    <div class="p">
+                        <div class="col-md-6">Nama Customer</div>
+                        <div>:</div>
+                        <div class="col-md-3"><input name="ncustomer" type='text' style="width: 180px;"
+                            disabled  >
+                        </div>
+                    </div>
+                    <br>
+                    <div class="p">
+                        <div class="col-md-6">Tanggal Pengiriman</div>
+                        <div>:</div>
+                        <div class="col-md-3"><input name="ntanggal" type='text' style="width: 180px;"
+                               disabled >
+                        </div>
+                    </div>
+                    <br>
+
+                    {{-- ----- --}}
+                </div>
+                <div class="col-sm-12 col-md-6 form-group">
+
+                    <div class="p ">
+                        <div class="col-sm-5">Nama Kapal</div>
+                        <div>:</div>
+                        <div class="col-md-3"><input name="nkapal" type='text' style="width: 180px;"
+                             >
+                     </div>
+                    </div>
+                    <br>
+                    <div class="p ">
+                        <div class="col-sm-5">No Container</div>
+                        <div>:</div>
+                        <div class="col-md-3"><input name="ncontainer" type='text' style="width: 180px;"
+                             >
+                     </div>
+                    </div>
+                    <br>
+                    <div class="p ">
+                        <div class="col-sm-5">Link Foto</div>
+                        <div>:</div>
+                        <div class="col-md-3"><input name="ncontainer" type='text' style="width: 180px;"
+                             >
+                     </div>
+                    </div>
+                    <br>
+                    <button style="float: right" type="submit" class="btn btn-success">Update</button>
+                    <br>
+                </div>
+                        </div>
+                    </form>
+
+                <div class="col-12">
+                    <table class="table table-bordered">
+                        <tr style="background-color:  #023e94;color: white;">
+                            <th scope="col">No</th>
+                            <th scope="col">
+                                <center>No Transaksi</center>
+                            </th>
+                            <th scope="col">
+                                <center>Nama Customer</center>
+                            </th>
+                            <th scope="col">
+                                <center>Harga</center>
+                            </th>
+                            <th scope="col">
+                                <center>Tanggal Pengiriman</center>
+                            </th>
+                            <th scope="col">
+                                <center>Nama Kapal</center>
+                            </th>
+                            <th scope="col">
+                                <center>No Container</center>
+                            </th>
+                            <th scope="col">
+                                <center>Action</center>
+                            </th>
+                        </tr>
+                        <?php $ctr = 1; ?>
+
+                        @foreach ($arrHistory as $prm)
+                            <tr>
+
+                                <th scope="row">{{ $ctr }}</th>
+                                <th scope="col">
+                                    <center>{{ $prm->nomor_transaksi }}</center>
+                                </th>
+                                <th scope="col">
+                                    <center>{{ $prm->Customer->nama_customer }}</center>
+                                </th>
+                                <th scope="col">
+                                    <center>{{ $prm->harga }}</center>
+                                </th>
+                                <th scope="col">
+                                    <center>{{ $prm->tanggal_berangkat }}</center>
+                                </th>
+                                <th scope="col">
+                                    <center>{{ $prm->nama_kapal }}</center>
+                                </th>
+                                <th scope="col">
+                                    <center>{{ $prm->nomor_container }}</center>
+                                </th>
+                                <th scope="col">
+                                    {{-- <a href="./delete/{{$prm->nomor_transaksi}}" class="btn btn-danger" style="">Delete</a> --}}
+                                    <form method="post" action="{{url('masterHistory/delete/'.$prm->nomor_transaksi)}}">
+                                        @csrf
+                                            <button type="submit" class="btn btn-danger">Delete</button>
+                                        </form>
+                                </th>
+
+                            </tr>
+                            <?php $ctr++; ?>
+                        @endforeach
+
+
+                    </table>
+                </div>
+
+            </div>
+        </div>
     </div>
-
-
-          <br>
-          <div class="container">
-            <div class="row">
-              <div class="col-sm-3">
-                No Transaksi
-              </div>
-              <div class="col-sm">
-                <input  name="kode" class="form-control" type="text" enabled>
-              </div>
-
-            </div>
-          </div>
-          <br>
-          <div class="container">
-            <div class="row">
-              <div class="col-sm-3">
-                Nama Customer
-              </div>
-              <div class="col-sm">
-                <input  name="kode" class="form-control" type="text" disabled>
-              </div>
-
-            </div>
-          </div>
-          <br>
-          <div class="container">
-            <div class="row">
-              <div class="col-sm-3">
-                Tanggal Pengiriman
-              </div>
-              <div class="col-sm">
-                <input  name="kode" class="form-control" type="text" disabled>
-              </div>
-            </div>
-          </div>
-
-
-    <br>
-
-    <button style="float: right;" type="button" class="btn btn-primary">Tambah</button>
 </section>
-<br>
-<br>
-<br>
+<script>
+    function onlyNumberKey(evt) {
+        var ASCIICode = (evt.which) ? evt.which : evt.keyCode
+        if (ASCIICode > 31 && (ASCIICode < 48 || ASCIICode > 57))
+            return false;
+        return true;
+    }
 
-<div class="col-12">
-    <table id="datatables" class="table table-bordered">
+    var nowTemp = new Date();
+    var now = new Date(nowTemp.getFullYear(), nowTemp.getMonth(), nowTemp.getDate(), 0, 0, 0, 0);
 
-        <tr style="background-color:  #023e94;color: white;">
-            <th scope="col">No.</th>
-            <th scope="col">
-                <center>No Transaksi</center>
-            </th>
-            <th scope="col">
-                <center>Nama Customer</center>
-            </th>
-            <th scope="col">
-                <center>Harga</center>
-            </th>
-            <th scope="col">
-                <center>Tanggal Pengiriman</center>
-            </th>
-            <th scope="col">
-                <center>Keterangan</center>
-            </th>
-        </tr>
+    var checkin = $('#dp1').datepicker({
 
-        <tr>
-            <th scope="row">1</th>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td>
-                    <button type="button" name=""  class="btn btn"><i class="fa fa-pencil-alt"></i></button>
-                    <button style="margin-left: 2%" name="" type="button" class="btn btn-danger"><i class="fa fa-trash"></i></button>
-                    <button style="margin-left: 2%" name="" type="button" class="btn btn-success"><i class="far fa-money-bill-alt"></i></button>
-            </td>
+        beforeShowDay: function(date) {
+            return date.valueOf() >= now.valueOf();
+        },
+        autoclose: true
 
-        </tr>
+    }).on('changeDate', function(ev) {
+        if (ev.date.valueOf() > checkout.datepicker("getDate").valueOf() || !checkout.datepicker("getDate")
+            .valueOf()) {
 
-        <tr>
-            <th scope="row">2</th>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td>
-                <button type="button" name=""  class="btn btn"><i class="fa fa-pencil-alt"></i></button>
-                <button style="margin-left: 2%;" name="" type="button" class="btn btn-danger"><i class="fa fa-trash"></i></button>
-                <button style="margin-left: 2%;" name="" type="button" class="btn btn-success"><i class="far fa-money-bill-alt"></i></button>
-            </td>
+            var newDate = new Date(ev.date);
+            newDate.setDate(newDate.getDate() + 1);
+            checkout.datepicker("update", newDate);
+
+        }
+        $('#dp2')[0].focus();
+    });
 
 
-        </tr>
+    var checkout = $('#dp2').datepicker({
+        beforeShowDay: function(date) {
+            if (!checkin.datepicker("getDate").valueOf()) {
+                return date.valueOf() >= new Date().valueOf();
+            } else {
+                return date.valueOf() > checkin.datepicker("getDate").valueOf();
+            }
+        },
+        autoclose: true
 
-        <tr>
-            <th scope="row">3</th>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td>
-                <button type="button" name=""  class="btn btn"><i class="fa fa-pencil-alt"></i></button>
-                <button style="margin-left: 2%" name="" type="button" class="btn btn-danger"><i class="fa fa-trash"></i></button>
-                <button style="margin-left: 2%" name="" type="button" class="btn btn-success"><i class="far fa-money-bill-alt"></i></button>
-            </td>
+    }).on('changeDate', function(ev) {});
+
+    document.getElementById("btn-excel").addEventListener("click", () => {
+        let table2excel = new Table2Excel();
+        table2excel.export(document.querySelector("#datatables"));
+    });
+</script>
 
 
-        </tr>
+<script>
+    $(document).ready(function(){
+        $('#user').keyup(function(){
+            var query = $(this).val();
+            if(query != '')
+            {
+                $.ajax({
+                    url:"autocomplete.php",
+                    method:"POST",
+                    data:{query:query,ctr:"Fhistory"},
+                    success:function(data)
+                    {
+                        $('#userList').fadeIn();
+                        $('#userList').html(data);
+                    }
+                });
+            }
+        });
+        $(document).on('click', 'li', function(){
+            $('#user').val($(this).text());
+            $('#userList').fadeOut();
+            $.ajax({
+                url:"autocomplete.php",
+                method:"POST",
+                data:{query:$(this).text(),ctr:"Fhistorynama"},
+                success:function(data)
+                {
+                    $("[name='ncustomer']").val(data);
+                }
 
-    </table>
-</div>
-
+            });
+            $.ajax({
+                url:"autocomplete.php",
+                method:"POST",
+                data:{query:$(this).text(),ctr:"Fhistorytanggal"},
+                success:function(data)
+                {
+                    $("[name='ntanggal']").val(data);
+                }
+            });
+            $.ajax({
+                url:"autocomplete.php",
+                method:"POST",
+                data:{query:$(this).text(),ctr:"Fhistorynamakapal"},
+                success:function(data)
+                {
+                    $("[name='nkapal']").val(data);
+                }
+            });
+            $.ajax({
+                url:"autocomplete.php",
+                method:"POST",
+                data:{query:$(this).text(),ctr:"Fhistorynocontainer"},
+                success:function(data)
+                {
+                    $("[name='ncontainer']").val(data);
+                }
+            });
+        });
+    });
+</script>

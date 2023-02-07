@@ -1,11 +1,18 @@
 <?php
 
 namespace App\Http\Controllers;
+
+use App\Models\Customer;
 use App\Models\Transaksi;
 use Illuminate\Http\Request;
 
 class TransaksiController extends Controller
 {
+    public function showHistory()
+    {
+        $param['arrHistory']=Transaksi::get();
+        return view('admin.mHistory',$param);
+    }
     public function showtransaksi(Request $req)
     {
         return view('admin/mTransaksi');
@@ -49,21 +56,26 @@ class TransaksiController extends Controller
         );
 
         $temp = Transaksi::count();
+        $trans = Transaksi::all();
         $ctr = 1;
-        for ($i = 0; $i < $temp; $i++) {
-            $ctr++;
+        // for ($i = 0; $i < $temp; $i++) {
+        //     $ctr = substr()
+        // }
+        foreach($trans as $trans){
+            $ctr = intval(substr($trans->nomor_transaksi, 2)) + 1;
         }
         if ($ctr < 10) {
             $kode = "TC00{$ctr}";
         } else {
             $kode = "TC0{$ctr}";
         }
-        $tothargapalsu=1000;
-        $idadmpalsu="albert";
-        
+        $idadmpalsu="admin";
+
+        $Customer=Customer::where('nama_customer', 'like', '%' . $req->namacust . '%')->get();
+
         Transaksi::create([
             'nomor_transaksi' => $kode,
-            'id_customer' =>"CU001",
+            'id_customer' =>$Customer[0]->id_customer,
             "id_admin"=> $idadmpalsu,
             'nama_barang' =>$req->namabarang,
             'ukuran' =>$req->ukuran,
@@ -76,7 +88,7 @@ class TransaksiController extends Controller
             'harga_tambahan'=>$req->hargatambahan,
             'persentase' =>$req->persentase,
             // 'total_harga' =>$req->totalharga,
-            'total_harga' =>$tothargapalsu,
+            'total_harga' =>$req ->total,
             'nama_kapal' =>$req->namakapal,
             'nomor_container' =>$req->nocontainer,
             'tanggal_berangkat' =>$req->tglberangkat,
