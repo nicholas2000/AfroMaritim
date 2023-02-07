@@ -200,7 +200,7 @@
                   <option>Accounting</option>
                   <option>Supervisor</option>
                   <option>Pegawai</option>
-                  <option>Supir</option>
+                  <option>Kurir</option>
               </select>
           </div>
       </div>
