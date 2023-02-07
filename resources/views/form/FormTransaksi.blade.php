@@ -104,7 +104,6 @@
                         </div>
                     </div>
                 </div>
-                <br>
                 <div class="container">
                     <div class="row">
                         <div class="col-sm-3">
@@ -129,13 +128,13 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-sm-1">
-                            Ukuran :
+                            Berat :
                         </div>
                         <div class="col-sm-2">
                             <input type="checkbox" name="option-1" id="option-1" onclick="disable_option1()">
                         </div>
                         <div class="col-sm-3">
-                            <input name="ukuran" id="ukuran" class="form-control" type="text"style="width: 210px;" >
+                            <input name="berat" id="berat" class="form-control" type="text"style="width: 210px;" >
                         </div>
                         <div class="col-sm-1">
                             Volume :
@@ -151,14 +150,14 @@
                 <br>
                 <div class="container">
                     <div class="row">
-                        <div class="col-sm-1">
-                            Berat :
-                        </div>
-                        <div class="col-sm-2">
-                            <input type="checkbox" name="option-3" id="option-3" onclick="disable_option3()">
-                        </div>
                         <div class="col-sm-3">
-                            <input name="berat" id="berat" class="form-control" type="text"style="width: 210px;" >
+                            Tonage :
+                        </div>
+                        {{-- <div class="col-sm-2">
+                            <input type="checkbox" name="option-3" id="option-3" onclick="disable_option3()">
+                        </div> --}}
+                        <div class="col-sm-3">
+                            <input name="tonage" class="form-control" type="text"style="width: 210px;" >
                         </div>
                         <div class="col-sm-3">
                             Rute :
@@ -198,10 +197,11 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-sm-3">
-                            Tonage :
+                            Persentase :
                         </div>
                         <div class="col-sm">
-                            <input name="tonase" class="form-control" type="text"style="width: 210px;" >
+                            <input name="persentase" class="form-control" type="text"style="width: 210px;"
+                                >
                         </div>
                         <div class="col-sm-3">
                             Harga Tambahan :
@@ -216,10 +216,10 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-sm-3">
-                            Persentase :
+                            Nama Kapal :
                         </div>
                         <div class="col-sm">
-                            <input name="persentase" class="form-control" type="text"style="width: 210px;"
+                            <input name="namakapal" class="form-control" type="text"style="width: 210px;"
                                 >
                         </div>
                         <div class="col-sm-3">
@@ -234,11 +234,10 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-sm-3">
-                            Nama Kapal :
+                            Tanggal Berangkat :
                         </div>
                         <div class="col-sm">
-                            <input name="namakapal" class="form-control" type="text"style="width: 210px;"
-                                >
+                            <input name="tglberangkat" class="form-control" type="date"style="width: 210px;">
                         </div>
                         <div class="col-sm-3">
                             Nomor Container :
@@ -251,12 +250,8 @@
                 <br>
                 <div class="container">
                     <div class="row">
-                        <div class="col-sm-3">
-                            Tanggal Berangkat :
-                        </div>
-                        <div class="col-sm">
-                            <input name="tglberangkat" class="form-control" type="date"style="width: 210px;">
-                        </div>
+                        <div class="col-sm-3"></div>
+                        <div class="col-sm"></div>
                         <div class="col-sm-3">
                             <br>
                             <button type="submit" name="btnsubmit" class="btn btn-primary">Submit</button>
@@ -299,27 +294,29 @@
             $('#userList').fadeOut();
         });
     });
-    function disable_option1() {
-        document.getElementById("ukuran").disabled = false;
-        document.getElementById("volume").disabled = true;
-        document.getElementById("berat").disabled = true;
-        document.getElementById("option-2").checked = false;
-        document.getElementById("option-3").checked = false;
-    }
+    // function disable_option1() {
+    //     document.getElementById("ukuran").disabled = false;
+    //     document.getElementById("volume").disabled = true;
+    //     document.getElementById("berat").disabled = true;
+    //     document.getElementById("option-2").checked = false;
+    //     document.getElementById("option-3").checked = false;
+    // }
     function disable_option2() {
-        document.getElementById("ukuran").disabled = true;
+        // document.getElementById("ukuran").disabled = true;
         document.getElementById("volume").disabled = false;
         document.getElementById("berat").disabled = true;
         document.getElementById("option-1").checked = false;
-        document.getElementById("option-3").checked = false;
+        // document.getElementById("option-3").checked = false;
     }
-    function disable_option3() {
-        document.getElementById("ukuran").disabled = true;
+    function disable_option1() {
+        // document.getElementById("ukuran").disabled = true;
         document.getElementById("volume").disabled = true;
         document.getElementById("berat").disabled = false;
-        document.getElementById("option-1").checked = false;
+        // document.getElementById("option-1").checked = false;
         document.getElementById("option-2").checked = false;
     }
+
+    $("#wrapper").css("display", "none");
 
     $("#user").on("input", function(){
         // Print entered value in a div box
