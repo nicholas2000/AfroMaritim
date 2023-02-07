@@ -41,7 +41,7 @@
             <header><a href="#!" class="menu-toggle">
                     <i class="fas fa-bars"></i></a><a href="#" class="brand-logo"><i class=""><img
                             style="width: 50px;border-radius: 50%;" src="logo.png" alt="" srcset=""></i>
-                    <span>Afro Maritim</span></a>
+                    <span>Afro Trans Maritim</span></a>
 
             </header>
 
@@ -51,10 +51,10 @@
                         Master </a>
                     <div class='dashboard-nav-dropdown-menu'>
                         <a href="{{ url('/masterCabang') }}"class="dashboard-nav-dropdown-item">Master Cabang</a>
-                        <a href="{{ url('/masterCustomer') }}"class="dashboard-nav-dropdown-item">Master Pegawai</a>
-                        <a href="{{ url('/masterKompetitor') }}"class="dashboard-nav-dropdown-item">Master
+                        <a href="{{ url('/masterPegawai') }}"class="dashboard-nav-dropdown-item">Master Pegawai</a>
+                        <a href="{{ url('/masterCustomer') }}"class="dashboard-nav-dropdown-item">Master
                             Customer</a>
-                        <a href="{{ url('/masterPegawai') }}"class="dashboard-nav-dropdown-item">Master Kompetitor</a>
+                        <a href="{{ url('/masterKompetitor') }}"class="dashboard-nav-dropdown-item">Master Kompetitor</a>
 
 
                     </div>

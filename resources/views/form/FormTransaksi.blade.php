@@ -86,7 +86,7 @@
                                 </div> --}}
                                 <input style="width: 210px;" type="text" name="namacust" id="user" class="form-control" placeholder="Masukkan Nama" />
                                 <br>
-                                <div id="wrapper" onclick="hidden()" style="display: none;">
+                                <div id="wrapper" onclick="hidden()">
                                     <div class="scrollbar">
                                         <div class="userList force-overflow"  id="userList" style="width: 210px;"></div>
                                     </div>
