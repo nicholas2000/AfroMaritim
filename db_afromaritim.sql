@@ -154,20 +154,19 @@ CREATE TABLE `transaksi` (
   `nomor_transaksi` varchar(255) NOT NULL,
   `id_customer` varchar(255) NOT NULL,
   `nama_barang` varchar(255) NOT NULL,
-  `id_admin` varchar(255) NOT NULL,
-  `ukuran` varchar(255) DEFAULT NULL,
-  `volume` varchar(255) DEFAULT NULL,
-  `berat` varchar(255) DEFAULT NULL,
-  `rute` varchar(255) NOT NULL,
+  `id_admin` varchar(255) DEFAULT NULL,
+  `volume` varchar(255) NOT NULL,
+  `berat` varchar(255) NOT NULL,
+  `rute` varchar(255) DEFAULT NULL,
   `harga` varchar(255) NOT NULL,
   `jenis_harga` varchar(255) NOT NULL,
-  `tonase` varchar(255) NOT NULL,
-  `harga_tambahan` varchar(255) NOT NULL,
-  `persentase` varchar(255) NOT NULL,
-  `total_harga` varchar(255) NOT NULL,
-  `nama_kapal` varchar(255) NOT NULL,
-  `nomor_container` varchar(255) NOT NULL,
-  `tanggal_berangkat` date NOT NULL,
+  `tonase` varchar(255) DEFAULT NULL,
+  `harga_tambahan` varchar(255) DEFAULT NULL,
+  `persentase` varchar(255) DEFAULT NULL,
+  `total_harga` varchar(255) DEFAULT NULL,
+  `nama_kapal` varchar(255) DEFAULT NULL,
+  `nomor_container` varchar(255) DEFAULT NULL,
+  `tanggal_berangkat` date DEFAULT NULL,
   PRIMARY KEY (`nomor_transaksi`),
   KEY `id_customer` (`id_customer`),
   CONSTRAINT `transaksi_ibfk_1` FOREIGN KEY (`id_customer`) REFERENCES `master_tcustomer` (`id_customer`)
@@ -175,8 +174,8 @@ CREATE TABLE `transaksi` (
 
 /*Data for the table `transaksi` */
 
-insert  into `transaksi`(`nomor_transaksi`,`id_customer`,`nama_barang`,`id_admin`,`ukuran`,`volume`,`berat`,`rute`,`harga`,`jenis_harga`,`tonase`,`harga_tambahan`,`persentase`,`total_harga`,`nama_kapal`,`nomor_container`,`tanggal_berangkat`) values 
-('TC002','CU004','Ayam','admin','2','10','1','Surabaya-Malang','20000','2','1','10000','10','20000','Hwe Ship','4','2023-02-03');
+insert  into `transaksi`(`nomor_transaksi`,`id_customer`,`nama_barang`,`id_admin`,`volume`,`berat`,`rute`,`harga`,`jenis_harga`,`tonase`,`harga_tambahan`,`persentase`,`total_harga`,`nama_kapal`,`nomor_container`,`tanggal_berangkat`) values 
+('TC002','CU004','Ayam','admin','10','1','Surabaya-Malang','20000','2','1','10000','10','20000','Hwe Ship','4','2023-02-03');
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;

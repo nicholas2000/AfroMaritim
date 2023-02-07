@@ -41,7 +41,7 @@
             <header><a href="#!" class="menu-toggle">
                     <i class="fas fa-bars"></i></a><a href="#" class="brand-logo"><i class=""><img
                             style="width: 50px;border-radius: 50%;" src="logo.png" alt="" srcset=""></i>
-                            <span style="font-size: 17px;">Afro Trans Maritim</span></a>
+                    <span>Afro Maritim</span></a>
 
             </header>
 
