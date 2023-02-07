@@ -9,11 +9,11 @@
 
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 
-<link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.6.3/css/bootstrap-select.min.css" />
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.6.3/js/bootstrap-select.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.6.3/js/bootstrap-select.min.js"></script>
 <style>
     .userList
     {
@@ -24,6 +24,24 @@
     {
         padding:12px;
     }
+    .scrollbar
+{
+	float: left;
+	height: 120px;
+	width: 210px;
+	background: #F5F5F5;
+	overflow-y: scroll;
+}
+
+.force-overflow
+{
+	min-height: 200px;
+}
+
+#wrapper
+{
+	width: 500px;
+}
 </style>
 </html>
 @if ($errors->any())
@@ -52,7 +70,7 @@
                         <div class="col-sm-3">
                             Nama Customer :
                         </div>
-                        <div class="col-sm">
+                        <div class="col-sm-3">
                             <div class="search-box">
                                 {{-- <div class="row-fluid">
                                     <select class="selectpicker result" data-show-subtext="true"
@@ -68,7 +86,12 @@
                                 </div> --}}
                                 <input style="width: 210px;" type="text" name="namacust" id="user" class="form-control" placeholder="Masukkan Nama" />
                                 <br>
-                                <div class="userList"  id="userList" style="width: 210px;"></div>
+                                <div id="wrapper" onclick="hidden()" style="display: none;">
+                                    <div class="scrollbar">
+                                        <div class="userList force-overflow"  id="userList" style="width: 210px;"></div>
+                                    </div>
+                                </div>
+                                <div id="result"></div>
                             </div>
 
                         </div>
@@ -297,6 +320,17 @@
         document.getElementById("option-1").checked = false;
         document.getElementById("option-2").checked = false;
     }
+
+    $("#user").on("input", function(){
+        // Print entered value in a div box
+        // $("#result").text($(this).val());
+        if($("#user").val()==""){
+            $("#wrapper").css("display", "none");
+        }else{
+            $("#wrapper").css("display", "block");
+        }
+
+    });
 
 
 </script>
