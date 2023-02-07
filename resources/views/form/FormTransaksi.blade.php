@@ -206,7 +206,7 @@
                             Harga Tambahan :
                         </div>
                         <div class="col-sm">
-                            <input name="hargatambahan" class="form-control" type="text" value="0" style="width: 210px;">
+                            <input name="hargatambahan" id="hargatambahan" class="form-control" type="text" value="0" style="width: 210px;">
                         </div>
                     </div>
                 </div>
@@ -292,6 +292,7 @@
         $(document).on('click', 'li', function(){
             $('#user').val($(this).text());
             $('#userList').fadeOut();
+            $("#wrapper").css("display", "none");
         });
     });
     // function disable_option1() {
@@ -305,7 +306,8 @@
         // document.getElementById("ukuran").disabled = true;
         document.getElementById("volume").disabled = false;
         document.getElementById("berat").disabled = true;
-        document.getElementById("berat").value = "";
+        document.getElementById("berat").value = "0";
+        document.getElementById("volume").value = "";
         document.getElementById("option").value = "volume";
         document.getElementById("option1").checked = false;
         // document.getElementById("option-3").checked = false;
@@ -314,7 +316,8 @@
         // document.getElementById("ukuran").disabled = true;
         document.getElementById("volume").disabled = true;
         document.getElementById("berat").disabled = false;
-        document.getElementById("volume").value = "";
+        document.getElementById("volume").value = "0";
+        document.getElementById("berat").value = "";
         document.getElementById("option").value = "berat";
         // document.getElementById("option-1").checked = false;
         document.getElementById("option2").checked = false;
@@ -330,8 +333,10 @@
         }else{
             $("#wrapper").css("display", "block");
         }
-
     });
-
+    // $("#hargatambahan").on("input", function(){
+    //     // var hrgtam = intval($("#hargatambahan").text());
+    //     document.getElementById("hargatambahan").value = substr($("#hargatambahan").text());
+    // });
 
 </script>
