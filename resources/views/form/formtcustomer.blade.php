@@ -217,12 +217,23 @@
                     </div>
                 </div>
                 <div class="form-group">
+                    <label class="col-md-1 control-label">Pajak</label>
+                    <div class="col-md-10 inputGroupContainer">
+                        <div  class="input-group" style="margin-top: 10px;" >
+                            <input type="radio" name="pajak" value="pph23"/>
+                            pph 23
+                            <input type="radio" name="pajak" value = "pajak1,1"/>
+                            pajak 1,1
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
                     <label class="col-md-1 control-label">Status Hutang</label>
                     <div class="col-md-10 inputGroupContainer">
-                        <div name="status" class="input-group" style="margin-top: 12px;" >
-                            <input type="radio" name="tab" value="On" onclick="show1();"/>
+                        <div class="input-group" style="margin-top: 12px;" >
+                            <input type="radio" name="status" value="On" onclick="show1();"/>
                             Aktif
-                            <input type="radio" name="tab" value = "Off"onclick="show2();" />
+                            <input type="radio" name="status" value = "Off"onclick="show2();" />
                             Tidak
                         </div>
                     </div>

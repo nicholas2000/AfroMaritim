@@ -36,7 +36,7 @@ class CustomerController extends Controller
         // echo($req->tab);
         // echo("CHECK");
         //  echo(Log::alert("HELLO"));
-        if($req->tab =="On"){
+        if($req->status =="On"){
             $status = 1;
             $req->validate(
                 [
@@ -51,7 +51,7 @@ class CustomerController extends Controller
                     "telpon" => 'required',
                     'HP'=>'required',
                     "email" => 'required',
-                    "tab" => 'required',
+                    "status" => 'required',
                     "batasanHutang"=>'required',
                     "batasPembayaran" => 'required',
                     "noRekening" => 'required',
@@ -69,15 +69,14 @@ class CustomerController extends Controller
                     "HP.required" => "HP harus di isi",
                     "telpon.required" => "no telpon harus di isi",
                     "email.required" => "email harus di isi",
-                    "tab.required" => "status harus di isi",
+                    "status.required" => "status harus di isi",
                     "batasanHutang.required" => "batasan hutang harus di isi",
                     "batasPembayaran.required" => "batas pembayaran harus di isi",
                     "noRekening.required" => "no rekening harus di isi",
                     "metodePembayaran.required" => "metode pembayaran harus di isi"
                 ]
             );
-        }if($req->tab =="Off"){
-            $status = 0;
+        }if($req->status =="Off"){
             $req->validate(
                 [
                     "nama" => 'required',
@@ -90,7 +89,7 @@ class CustomerController extends Controller
                     "kodepos" => 'required',
                     "telpon" => 'required',
                     "email" => 'required',
-                    "tab" => 'required',
+                    "status" => 'required',
                 ],
                 [
                     "nama.required" => "nama harus di isi",
@@ -103,12 +102,11 @@ class CustomerController extends Controller
                     "kodepos.required" => "kode pos harus di isi",
                     "telpon.required" => "no telpon harus di isi",
                     "email.required" => "email harus di isi",
-                    "tab.required" => "status harus di isi",
+                    "status.required" => "status harus di isi",
                 ]
             );
         }
-        if($req->tab == ""){
-            $status = 0;
+        if($req->status == ""){
             $req->validate(
                 [
                     "nama" => 'required',
@@ -121,7 +119,7 @@ class CustomerController extends Controller
                     "kodepos" => 'required',
                     "telpon" => 'required',
                     "email" => 'required',
-                    "tab" => 'required',
+                    "status" => 'required',
                 ],
                 [
                     "nama.required" => "nama harus di isi",
@@ -134,11 +132,15 @@ class CustomerController extends Controller
                     "kodepos.required" => "kode pos harus di isi",
                     "telpon.required" => "no telpon harus di isi",
                     "email.required" => "email harus di isi",
-                    "tab.required" => "status harus di isi",
+                    "status.required" => "status harus di isi",
                 ]
             );
         }
-
+        if($req->pajak=="pph23"){
+            $pajak = 0.02;
+        }else{
+            $pajak = 0.011;
+        }
         Customer::create([
             'id_customer' => $kode,
             'id_cabang'=> $req->cabang,
@@ -152,6 +154,7 @@ class CustomerController extends Controller
             'kode_pos'=>$req->kodepos,
             'telpon'=>$req->telpon,
             'email'=>$req->email,
+            'pajak'=>$pajak,
             'status_hutang'=>$req->status,
             'total_hutang'=>$req->batasanHutang,
             'batas_pembayaran'=>$req->batasPembayaran,
