@@ -24,6 +24,7 @@ class Customer extends Model
         'kode_pos',
         'telpon',
         'email',
+        'pajak',
         'status_hutang',
         'total_hutang',
         'batas_pembayaran',
