@@ -28,10 +28,11 @@ class Transaksi extends Model
         'total_harga',
         'nama_kapal',
         'nomor_container',
-        'tanggal_berangkat'
+        'tanggal_berangkat',
+        'nomor_manifest'
     ];
     protected $keyType = 'string';
-    
+
     public function Customer()
     {
         return $this->belongsTo(Customer::class,'id_customer','id_customer');

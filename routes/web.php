@@ -119,6 +119,7 @@ Route::get('/tambahsuratjalan', function () {
 });
 Route::post('/masterHistory/delete/{id}', [HistoryController::class, "deletehistory"]);
 Route::post('/masterHistory/update', [HistoryController::class, "updatehistory"]);
+Route::post('/masterHistory/check/{id}', [HistoryController::class, "check"]);
 
 //ROUTE BARU
 

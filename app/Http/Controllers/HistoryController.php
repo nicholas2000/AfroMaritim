@@ -33,10 +33,16 @@ class HistoryController extends Controller
     }
     public function updatehistory(Request $request)
     {
-        Transaksi::where('nomor_transaksi',$request->namacust)->update([
-            'nama_kapal' => $request->nkapal,
-            'nomor_container'=> $request->ncontainer,
-        ]);
+        $data = json_decode($request->data);
+
+        foreach ($data as $prm) {
+            Transaksi::where('nomor_transaksi',$prm)->update([
+                'nomor_manifest' => $request->nmanifest,
+                'nomor_container'=> $request->ncontainer,
+                'nama_kapal'=> $request->nkapal
+            ]);
+        }
+
         return redirect('/masterHistory');
     }
 
