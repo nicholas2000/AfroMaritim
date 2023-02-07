@@ -8,11 +8,11 @@
 
 <div class="container">
     @if ($errors->any())
-            @foreach ($errors->all() as $err)
-                <div class="alert alert-danger">{{ $err }}</div>
-            @endforeach
-        @endif
-    <form class="form-horizontal" action="{{url('/doAddkompetitor')}}"id="contact_form" method="post">
+        @foreach ($errors->all() as $err)
+            <div class="alert alert-danger">{{ $err }}</div>
+        @endforeach
+    @endif
+    <form class="form-horizontal" action="{{ url('/doAddkompetitor') }}"id="contact_form" method="post">
         @csrf
         <fieldset>
 
@@ -245,9 +245,9 @@
 </div>
 <script>
     function onlyNumberKey(evt) {
-       var ASCIICode = (evt.which) ? evt.which : evt.keyCode
-       if (ASCIICode > 31 && (ASCIICode < 48 || ASCIICode > 57))
-           return false;
-       return true;
-   }
+        var ASCIICode = (evt.which) ? evt.which : evt.keyCode
+        if (ASCIICode > 31 && (ASCIICode < 48 || ASCIICode > 57))
+            return false;
+        return true;
+    }
 </script>

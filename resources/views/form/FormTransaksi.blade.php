@@ -24,6 +24,27 @@
     {
         padding:12px;
     }
+
+.force-overflow
+{
+	min-height: 350px;
+}
+
+#wrapper
+{
+	text-align: center;
+	width: 500px;
+}
+
+.scrollbar
+{
+	float: left;
+	height: 100px;
+	width: 210px;
+	background: #F5F5F5;
+	overflow-y: scroll;
+}
+
 </style>
 </html>
 @if ($errors->any())
@@ -52,7 +73,14 @@
                         <div class="col-sm-3">
                             Nama Customer :
                         </div>
+<<<<<<< Updated upstream
                         <div class="col-sm">
+<<<<<<< HEAD
+                            <input name="namacust" class="form-control" type="text" style="width: 210px;">
+=======
+=======
+                        <div class="col-sm-3">
+>>>>>>> Stashed changes
                             <div class="search-box">
                                 {{-- <div class="row-fluid">
                                     <select class="selectpicker result" data-show-subtext="true"
@@ -68,9 +96,14 @@
                                 </div> --}}
                                 <input style="width: 210px;" type="text" name="namacust" id="user" class="form-control" placeholder="Masukkan Nama" />
                                 <br>
-                                <div class="userList"  id="userList" style="width: 210px;"></div>
+                                <div id="wrapper" onclick="hidden()">
+                                    <div class="scrollbar">
+                                        <div class="userList force-overflow"  id="userList" style="width: 210px;"></div>
+                                    </div>
+                                </div>
                             </div>
 
+>>>>>>> f411128c848bf22a3d2956dc3164b912977943ea
                         </div>
 
                         <div class="col-sm-3">
@@ -108,8 +141,13 @@
                         <div class="col-sm-1">
                             Ukuran :
                         </div>
+<<<<<<< HEAD
+                        <div class="col-sm">
+                            <input name="ukuran" class="form-control" type="text"style="width: 210px;" >
+=======
                         <div class="col-sm-2">
                             <input type="checkbox" name="option-1" id="option-1" onclick="disable_option1()">
+>>>>>>> f411128c848bf22a3d2956dc3164b912977943ea
                         </div>
                         <div class="col-sm-3">
                             <input name="ukuran" id="ukuran" class="form-control" type="text"style="width: 210px;" >
@@ -117,11 +155,8 @@
                         <div class="col-sm-1">
                             Volume :
                         </div>
-                        <div class="col-sm-2">
-                            <input type="checkbox" name="option-2" id="option-2" onclick="disable_option2()">
-                        </div>
-                        <div class="col-sm-1">
-                            <input name="volume" id="volume" class="form-control" type="text"style="width: 210px;" >
+                        <div class="col-sm">
+                            <input name="volume" class="form-control" type="text"style="width: 210px;" >
                         </div>
                     </div>
                 </div>
@@ -131,19 +166,9 @@
                         <div class="col-sm-1">
                             Berat :
                         </div>
-                        <div class="col-sm-2">
-                            <input type="checkbox" name="option-3" id="option-3" onclick="disable_option3()">
-                        </div>
-                        <div class="col-sm-3">
-                            <input name="berat" id="berat" class="form-control" type="text"style="width: 210px;" >
-                        </div>
-                        <div class="col-sm-3">
-                            Rute :
-                        </div>
                         <div class="col-sm">
-                            <input name="rute" class="form-control" type="text"style="width: 210px;" >
+                            <input name="berat" class="form-control" type="text"style="width: 210px;" >
                         </div>
-                    </div>
                 </div>
                 <br>
                 <div class="container">
@@ -184,8 +209,12 @@
                             Harga Tambahan :
                         </div>
                         <div class="col-sm">
+<<<<<<< HEAD
+                            <input name="hargatambahan" class="form-control" type="text"style="width: 210px;">
+=======
                             <input name="hargatambahan" class="form-control" type="text"style="width: 210px;"
                                 >
+>>>>>>> f411128c848bf22a3d2956dc3164b912977943ea
                         </div>
                     </div>
                 </div>
@@ -196,8 +225,12 @@
                             Persentase :
                         </div>
                         <div class="col-sm">
+<<<<<<< HEAD
+                            <input name="persentase" class="form-control" type="text"style="width: 210px;">
+=======
                             <input name="persentase" class="form-control" type="text"style="width: 210px;"
                                 >
+>>>>>>> f411128c848bf22a3d2956dc3164b912977943ea
                         </div>
                         <div class="col-sm-3">
                             Total Harga :
@@ -214,8 +247,12 @@
                             Nama Kapal :
                         </div>
                         <div class="col-sm">
+<<<<<<< HEAD
+                            <input name="namakapal" class="form-control" type="text"style="width: 210px;">
+=======
                             <input name="namakapal" class="form-control" type="text"style="width: 210px;"
                                 >
+>>>>>>> f411128c848bf22a3d2956dc3164b912977943ea
                         </div>
                         <div class="col-sm-3">
                             Nomor Container :
@@ -253,6 +290,9 @@
     }
 </script>
 
+<<<<<<< HEAD
+
+=======
 <script>
     $(document).ready(function(){
         $('#user').keyup(function(){
@@ -296,6 +336,14 @@
         document.getElementById("berat").disabled = false;
         document.getElementById("option-1").checked = false;
         document.getElementById("option-2").checked = false;
+    }
+
+    function hidden() {
+        if(document.getElementById("user").value==""){
+            document.getElementById("wrapper").hidden = true;
+        }else{
+            document.getElementById("wrapper").hidden = false;
+        }
     }
 
 
