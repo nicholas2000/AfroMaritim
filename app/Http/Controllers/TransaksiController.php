@@ -20,40 +20,107 @@ class TransaksiController extends Controller
 
     public function doAdd(Request $req)
     {
-        $req->validate(
-            [
-                "namacust" => 'required',
-                "namabarang" => 'required',
-                "ukuran" => 'required',
-                "volume"=>'required',
-                "berat"=>'required',
-                "rute"=>'required',
-                "tonase"=>'required',
-                "harga"=>'required',
-                "jenisharga" => 'required',
-                "hargatambahan" => 'required',
-                "persentase" => 'required',
-                "namakapal" => 'required',
-                "nocontainer" => 'required',
-                "tglberangkat" => 'required',
-            ],
-            [
-                "namacust.required" => 'Nama Customer Harus di isi',
-                "namabarang.required" => 'Nama Barang Harus di isi',
-                "ukuran.required" => 'Ukuran Harus di isi',
-                "volume.required"=>'Volume Harus di isi',
-                "berat.required"=>'Rute Harus di isi',
-                "rute.required"=>'Rute Harus di isi',
-                "tonase.required"=>'Tonase Harus di isi',
-                "harga.required"=>'Harga Harus di isi',
-                "jenisharga.required" => 'Jenis Harga Harus dipilih',
-                "hargatambahan.required" => 'Harga Tambahan Harus di isi',
-                "persentase.required" => 'Persentase Harus di isi',
-                "namakapal.required" => 'Nama Kapal Harus di isi',
-                "nocontainer.required" => 'Nomor Container Harus di isi',
-                "tglberangkat.required" => 'Tanggal Berangkat Harus Terisi',
-            ]
-        );
+        if($req->option=="berat"){
+            $req->validate(
+                [
+                    "namacust" => 'required',
+                    "namabarang" => 'required',
+                    // "volume" => 'required',
+                    "berat"=>'required',
+                    "rute"=>'required',
+                    "tonage"=>'required',
+                    "harga"=>'required',
+                    "jenisharga" => 'required',
+                    "hargatambahan" => 'required',
+                    "persentase" => 'required',
+                    "namakapal" => 'required',
+                    "nocontainer" => 'required',
+                    "tglberangkat" => 'required',
+                ],
+                [
+                    "namacust.required" => 'Nama Customer Harus di isi',
+                    "namabarang.required" => 'Nama Barang Harus di isi',
+                    // "volume.required"=>'Volume Harus di isi',
+                    "berat.required"=>'Berat Harus di isi',
+                    "rute.required"=>'Rute Harus di isi',
+                    "tonage.required"=>'Tonage Harus di isi',
+                    "harga.required"=>'Harga Harus di isi',
+                    "jenisharga.required" => 'Jenis Harga Harus dipilih',
+                    "hargatambahan.required" => 'Harga Tambahan Harus di isi',
+                    "persentase.required" => 'Persentase Harus di isi',
+                    "namakapal.required" => 'Nama Kapal Harus di isi',
+                    "nocontainer.required" => 'Nomor Container Harus di isi',
+                    "tglberangkat.required" => 'Tanggal Berangkat Harus Terisi',
+                ]
+            );
+        }else if($req->option=="volume"){
+            $req->validate(
+                [
+                    "namacust" => 'required',
+                    "namabarang" => 'required',
+                    "volume" => 'required',
+                    // "berat"=>'required',
+                    "rute"=>'required',
+                    "tonage"=>'required',
+                    "harga"=>'required',
+                    "jenisharga" => 'required',
+                    "hargatambahan" => 'required',
+                    "persentase" => 'required',
+                    "namakapal" => 'required',
+                    "nocontainer" => 'required',
+                    "tglberangkat" => 'required',
+                ],
+                [
+                    "namacust.required" => 'Nama Customer Harus di isi',
+                    "namabarang.required" => 'Nama Barang Harus di isi',
+                    "volume.required"=>'Volume Harus di isi',
+                    // "berat.required"=>'Berat Harus di isi',
+                    "rute.required"=>'Rute Harus di isi',
+                    "tonage.required"=>'Tonage Harus di isi',
+                    "harga.required"=>'Harga Harus di isi',
+                    "jenisharga.required" => 'Jenis Harga Harus dipilih',
+                    "hargatambahan.required" => 'Harga Tambahan Harus di isi',
+                    "persentase.required" => 'Persentase Harus di isi',
+                    "namakapal.required" => 'Nama Kapal Harus di isi',
+                    "nocontainer.required" => 'Nomor Container Harus di isi',
+                    "tglberangkat.required" => 'Tanggal Berangkat Harus Terisi',
+                ]
+            );
+        }else{
+            $req->validate(
+                [
+                    "namacust" => 'required',
+                    "namabarang" => 'required',
+                    // "volume" => 'required',
+                    // "berat"=>'required',
+                    "rute"=>'required',
+                    "tonage"=>'required',
+                    "harga"=>'required',
+                    "jenisharga" => 'required',
+                    "hargatambahan" => 'required',
+                    "persentase" => 'required',
+                    "namakapal" => 'required',
+                    "nocontainer" => 'required',
+                    "tglberangkat" => 'required',
+                ],
+                [
+                    "namacust.required" => 'Nama Customer Harus di isi',
+                    "namabarang.required" => 'Nama Barang Harus di isi',
+                    // "volume.required"=>'Volume Harus di isi',
+                    // "berat.required"=>'Berat Harus di isi',
+                    "rute.required"=>'Rute Harus di isi',
+                    "tonage.required"=>'Tonage Harus di isi',
+                    "harga.required"=>'Harga Harus di isi',
+                    "jenisharga.required" => 'Jenis Harga Harus dipilih',
+                    "hargatambahan.required" => 'Harga Tambahan Harus di isi',
+                    "persentase.required" => 'Persentase Harus di isi',
+                    "namakapal.required" => 'Nama Kapal Harus di isi',
+                    "nocontainer.required" => 'Nomor Container Harus di isi',
+                    "tglberangkat.required" => 'Tanggal Berangkat Harus Terisi',
+                ]
+            );
+        }
+
 
         $temp = Transaksi::count();
         $trans = Transaksi::all();
@@ -66,10 +133,14 @@ class TransaksiController extends Controller
         }
         if ($ctr < 10) {
             $kode = "TC00{$ctr}";
-        } else {
+        } else if($ctr < 100) {
             $kode = "TC0{$ctr}";
+        } else {
+            $kode = "TC{$ctr}";
         }
         $idadmpalsu="admin";
+        $berat = $req->berat;
+        $volume = $req->volume;
 
         $Customer=Customer::where('nama_customer', 'like', '%' . $req->namacust . '%')->get();
 
@@ -78,13 +149,13 @@ class TransaksiController extends Controller
             'id_customer' =>$Customer[0]->id_customer,
             "id_admin"=> $idadmpalsu,
             'nama_barang' =>$req->namabarang,
-            'ukuran' =>$req->ukuran,
+            // 'ukuran' =>$req->ukuran,
             'volume' =>$req->volume,
             'berat' =>$req->berat,
             'rute' =>$req->rute,
             'harga' =>$req->harga,
             'jenis_harga' => $req->jenisharga,
-            'tonase'=>$req->tonase,
+            'tonase'=>$req->tonage,
             'harga_tambahan'=>$req->hargatambahan,
             'persentase' =>$req->persentase,
             // 'total_harga' =>$req->totalharga,

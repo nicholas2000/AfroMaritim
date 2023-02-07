@@ -131,7 +131,7 @@
                             Berat :
                         </div>
                         <div class="col-sm-2">
-                            <input type="checkbox" name="option-1" id="option-1" onclick="disable_option1()">
+                            <input type="checkbox" name="option1" id="option1" value="op1" onclick="disable_option1()">
                         </div>
                         <div class="col-sm-3">
                             <input name="berat" id="berat" class="form-control" type="text"style="width: 210px;" >
@@ -140,7 +140,7 @@
                             Volume :
                         </div>
                         <div class="col-sm-2">
-                            <input type="checkbox" name="option-2" id="option-2" onclick="disable_option2()">
+                            <input type="checkbox" name="option2" id="option2" value="op2" onclick="disable_option2()">
                         </div>
                         <div class="col-sm-1">
                             <input name="volume" id="volume" class="form-control" type="text"style="width: 210px;" >
@@ -200,15 +200,13 @@
                             Persentase :
                         </div>
                         <div class="col-sm">
-                            <input name="persentase" class="form-control" type="text"style="width: 210px;"
-                                >
+                            <input name="persentase" class="form-control" type="text"style="width: 210px;">
                         </div>
                         <div class="col-sm-3">
                             Harga Tambahan :
                         </div>
                         <div class="col-sm">
-                            <input name="hargatambahan" class="form-control" type="text"style="width: 210px;"
-                                >
+                            <input name="hargatambahan" class="form-control" type="text" value="0" style="width: 210px;">
                         </div>
                     </div>
                 </div>
@@ -250,7 +248,9 @@
                 <br>
                 <div class="container">
                     <div class="row">
-                        <div class="col-sm-3"></div>
+                        <div class="col-sm-3">
+                            <input type="hidden" name="option" id="option">
+                        </div>
                         <div class="col-sm"></div>
                         <div class="col-sm-3">
                             <br>
@@ -305,15 +305,19 @@
         // document.getElementById("ukuran").disabled = true;
         document.getElementById("volume").disabled = false;
         document.getElementById("berat").disabled = true;
-        document.getElementById("option-1").checked = false;
+        document.getElementById("berat").value = "";
+        document.getElementById("option").value = "volume";
+        document.getElementById("option1").checked = false;
         // document.getElementById("option-3").checked = false;
     }
     function disable_option1() {
         // document.getElementById("ukuran").disabled = true;
         document.getElementById("volume").disabled = true;
         document.getElementById("berat").disabled = false;
+        document.getElementById("volume").value = "";
+        document.getElementById("option").value = "berat";
         // document.getElementById("option-1").checked = false;
-        document.getElementById("option-2").checked = false;
+        document.getElementById("option2").checked = false;
     }
 
     $("#wrapper").css("display", "none");
