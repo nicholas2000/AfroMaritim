@@ -9,11 +9,11 @@
 
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 
-<link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.6.3/css/bootstrap-select.min.css" />
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.6.3/js/bootstrap-select.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.6.3/js/bootstrap-select.min.js"></script>
 <style>
     .userList
     {
@@ -24,27 +24,24 @@
     {
         padding:12px;
     }
-
-.force-overflow
-{
-	min-height: 350px;
-}
-
-#wrapper
-{
-	text-align: center;
-	width: 500px;
-}
-
-.scrollbar
+    .scrollbar
 {
 	float: left;
-	height: 100px;
+	height: 120px;
 	width: 210px;
 	background: #F5F5F5;
 	overflow-y: scroll;
 }
 
+.force-overflow
+{
+	min-height: 200px;
+}
+
+#wrapper
+{
+	width: 500px;
+}
 </style>
 </html>
 @if ($errors->any())
@@ -73,14 +70,7 @@
                         <div class="col-sm-3">
                             Nama Customer :
                         </div>
-<<<<<<< Updated upstream
-                        <div class="col-sm">
-<<<<<<< HEAD
-                            <input name="namacust" class="form-control" type="text" style="width: 210px;">
-=======
-=======
                         <div class="col-sm-3">
->>>>>>> Stashed changes
                             <div class="search-box">
                                 {{-- <div class="row-fluid">
                                     <select class="selectpicker result" data-show-subtext="true"
@@ -96,14 +86,14 @@
                                 </div> --}}
                                 <input style="width: 210px;" type="text" name="namacust" id="user" class="form-control" placeholder="Masukkan Nama" />
                                 <br>
-                                <div id="wrapper" onclick="hidden()">
+                                <div id="wrapper" onclick="hidden()" style="display: none;">
                                     <div class="scrollbar">
                                         <div class="userList force-overflow"  id="userList" style="width: 210px;"></div>
                                     </div>
                                 </div>
+                                <div id="result"></div>
                             </div>
 
->>>>>>> f411128c848bf22a3d2956dc3164b912977943ea
                         </div>
 
                         <div class="col-sm-3">
@@ -141,13 +131,8 @@
                         <div class="col-sm-1">
                             Ukuran :
                         </div>
-<<<<<<< HEAD
-                        <div class="col-sm">
-                            <input name="ukuran" class="form-control" type="text"style="width: 210px;" >
-=======
                         <div class="col-sm-2">
                             <input type="checkbox" name="option-1" id="option-1" onclick="disable_option1()">
->>>>>>> f411128c848bf22a3d2956dc3164b912977943ea
                         </div>
                         <div class="col-sm-3">
                             <input name="ukuran" id="ukuran" class="form-control" type="text"style="width: 210px;" >
@@ -155,8 +140,11 @@
                         <div class="col-sm-1">
                             Volume :
                         </div>
-                        <div class="col-sm">
-                            <input name="volume" class="form-control" type="text"style="width: 210px;" >
+                        <div class="col-sm-2">
+                            <input type="checkbox" name="option-2" id="option-2" onclick="disable_option2()">
+                        </div>
+                        <div class="col-sm-1">
+                            <input name="volume" id="volume" class="form-control" type="text"style="width: 210px;" >
                         </div>
                     </div>
                 </div>
@@ -166,9 +154,19 @@
                         <div class="col-sm-1">
                             Berat :
                         </div>
-                        <div class="col-sm">
-                            <input name="berat" class="form-control" type="text"style="width: 210px;" >
+                        <div class="col-sm-2">
+                            <input type="checkbox" name="option-3" id="option-3" onclick="disable_option3()">
                         </div>
+                        <div class="col-sm-3">
+                            <input name="berat" id="berat" class="form-control" type="text"style="width: 210px;" >
+                        </div>
+                        <div class="col-sm-3">
+                            Rute :
+                        </div>
+                        <div class="col-sm">
+                            <input name="rute" class="form-control" type="text"style="width: 210px;" >
+                        </div>
+                    </div>
                 </div>
                 <br>
                 <div class="container">
@@ -200,7 +198,7 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-sm-3">
-                            Tonage :
+                            Tonase :
                         </div>
                         <div class="col-sm">
                             <input name="tonase" class="form-control" type="text"style="width: 210px;" >
@@ -209,12 +207,8 @@
                             Harga Tambahan :
                         </div>
                         <div class="col-sm">
-<<<<<<< HEAD
-                            <input name="hargatambahan" class="form-control" type="text"style="width: 210px;">
-=======
                             <input name="hargatambahan" class="form-control" type="text"style="width: 210px;"
                                 >
->>>>>>> f411128c848bf22a3d2956dc3164b912977943ea
                         </div>
                     </div>
                 </div>
@@ -225,12 +219,8 @@
                             Persentase :
                         </div>
                         <div class="col-sm">
-<<<<<<< HEAD
-                            <input name="persentase" class="form-control" type="text"style="width: 210px;">
-=======
                             <input name="persentase" class="form-control" type="text"style="width: 210px;"
                                 >
->>>>>>> f411128c848bf22a3d2956dc3164b912977943ea
                         </div>
                         <div class="col-sm-3">
                             Total Harga :
@@ -247,12 +237,8 @@
                             Nama Kapal :
                         </div>
                         <div class="col-sm">
-<<<<<<< HEAD
-                            <input name="namakapal" class="form-control" type="text"style="width: 210px;">
-=======
                             <input name="namakapal" class="form-control" type="text"style="width: 210px;"
                                 >
->>>>>>> f411128c848bf22a3d2956dc3164b912977943ea
                         </div>
                         <div class="col-sm-3">
                             Nomor Container :
@@ -290,9 +276,6 @@
     }
 </script>
 
-<<<<<<< HEAD
-
-=======
 <script>
     $(document).ready(function(){
         $('#user').keyup(function(){
@@ -338,13 +321,16 @@
         document.getElementById("option-2").checked = false;
     }
 
-    function hidden() {
-        if(document.getElementById("user").value==""){
-            document.getElementById("wrapper").hidden = true;
+    $("#user").on("input", function(){
+        // Print entered value in a div box
+        // $("#result").text($(this).val());
+        if($("#user").val()==""){
+            $("#wrapper").css("display", "none");
         }else{
-            document.getElementById("wrapper").hidden = false;
+            $("#wrapper").css("display", "block");
         }
-    }
+
+    });
 
 
 </script>
