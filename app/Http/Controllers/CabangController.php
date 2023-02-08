@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Cabang;
+use App\Models\Customer;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -16,6 +17,7 @@ class CabangController extends Controller
 
     public function doAdd(Request $req)
     {
+        $cust = Customer::all();
         $cabang = Cabang::all();
         $ctr = 1;
         foreach($cabang as $c){
