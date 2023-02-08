@@ -88,4 +88,5 @@ class CabangController extends Controller
         // $cabang = DB::table('master_tcabang')->where("id_cabang","=",$id)->first();
         //  return view('/editCabang',['id' => $id, 'cabang' => $cabang]);
     }
+
 }
