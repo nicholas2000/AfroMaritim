@@ -4,13 +4,15 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class modelpegawai extends Model
 {
     use HasFactory;
+    use SoftDeletes;
     protected $table = "master_tpegawai";
     protected $primaryKey = "id_pegawai";
-    public $timestamps = false;
+    public $timestamps = true;
     protected $fillable = [
         'id_pegawai',
         'id_cabang',

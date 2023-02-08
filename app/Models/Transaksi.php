@@ -10,7 +10,7 @@ class Transaksi extends Model
     use HasFactory;
     protected $table = "transaksi";
     protected $primaryKey = "nomor_transaksi";
-    public $timestamps = false;
+    public $timestamps = true;
     protected $fillable = [
         'nomor_transaksi',
         'id_customer',
@@ -21,7 +21,7 @@ class Transaksi extends Model
         'rute',
         'harga',
         'jenis_harga',
-        'tonase',
+        'tonage',
         'harga_tambahan',
         'persentase',
         'total_harga',

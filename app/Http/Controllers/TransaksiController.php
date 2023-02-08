@@ -117,7 +117,7 @@ class TransaksiController extends Controller
             'rute' =>$req->rute,
             'harga' =>$req->harga,
             'jenis_harga' => $req->jenisharga,
-            'tonase'=>$req->tonage,
+            'tonage'=>$req->tonage,
             'harga_tambahan'=>intval($req->hargatambahan),
             'persentase' =>$req->persentase,
             'total_harga' =>$req->total,

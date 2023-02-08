@@ -87,31 +87,33 @@ class CabangController extends Controller
         //     'nama_cabang' => $request->nama
         // ]);
         $cabangTerpilih = Cabang::withTrashed()->find($request->kode);
-        $result = $cabangTerpilih->update($request->all());
+        $result = $cabangTerpilih->update([
+            'nama_cabang' => $request->nama
+        ]);
         if($result){
-            return redirect('/masterCabang')->with('pesan', 'sukses');;
+            return redirect('/masterCabang');
         }else{
-            return redirect('/masterCabang')->with('pesan', 'gagal');;
+            return redirect('/masterCabang');
         }
     }
 
     public function delete(Request $request,$id)
     {
-        Customer::where('id_cabang',$id)->delete();
-        Cabang::where('id_cabang',$id)->delete();
-        return redirect('/masterCabang');
-        // $cabang = Cabang::withTrashed()->find($request->id_cabang);
-        // if($cabang->trashed()){
-        //     $result = $cabang->restore();
-        // }else{
-        //     $result = $cabang->delete();
-        // }
+        // Customer::where('id_cabang',$id)->delete();
+        // Cabang::where('id_cabang',$id)->delete();
+        // return redirect('/masterCabang');
+        $cabang = Cabang::withTrashed()->find($id);
+        if($cabang->trashed()){
+            $result = $cabang->restore();
+        }else{
+            $result = $cabang->delete();
+        }
 
-        // if ($result) {
-        //     return redirect('/masterCabang')->with('pesan', 'sukses');
-        // } else {
-        //     return redirect('/masterCabang')->with('pesan', 'gagal');
-        // }
+        if ($result) {
+            return redirect('/masterCabang');
+        } else {
+            return redirect('/masterCabang');
+        }
     }
 
 }
