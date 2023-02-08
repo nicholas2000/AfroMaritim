@@ -150,7 +150,7 @@
                             Berat :
                         </div>
                         <div class="col-sm-2">
-                            <input type="checkbox" name="option1" id="option1" value="op1" onclick="disable_option1()">
+                            <input type="checkbox" name="option1" id="option1" value="op1" onclick="disable_option1()" checked>
                         </div>
                         <div class="col-sm-3">
                             <input name="berat" id="berat" class="form-control" type="text"style="width: 210px;" >
@@ -317,11 +317,12 @@
     //     document.getElementById("option-2").checked = false;
     //     document.getElementById("option-3").checked = false;
     // }
+    document.getElementById("volume").disabled = true;
+
     function disable_option2() {
         // document.getElementById("ukuran").disabled = true;
         document.getElementById("volume").disabled = false;
         document.getElementById("berat").disabled = true;
-        document.getElementById("berat").value = "0";
         document.getElementById("volume").value = "";
         document.getElementById("option").value = "volume";
         document.getElementById("option1").checked = false;
@@ -331,7 +332,6 @@
         // document.getElementById("ukuran").disabled = true;
         document.getElementById("volume").disabled = true;
         document.getElementById("berat").disabled = false;
-        document.getElementById("volume").value = "0";
         document.getElementById("berat").value = "";
         document.getElementById("option").value = "berat";
         // document.getElementById("option-1").checked = false;
