@@ -231,7 +231,7 @@
                                 <select name="status" style="height:35px" class="form-control selectpicker">
                                     <option value="">Pilih Status</option>
                                     <option>Aktif</option>
-                                    <option>Tidak</option>
+                                    <option>Tidak Aktif</option>
                                 </select>
 
                                 <input type="submit" value="Ubah" style="background-color: #023e94">
@@ -252,6 +252,19 @@
             var jArray = <?php echo json_encode($arrCabang); ?>;
             $("[name='kode']").val(jArray[id]['id_cabang']);
             $("[name='nama']").val(jArray[id]['nama_cabang']);
+            $("[name='jum']").val(jArray[id]['jum_cabang']);
+            $("[name='alamat']").val(jArray[id]['alamat_cabang']);
+            $("[name='provinsi']").val(jArray[id]['provinsi_cabang']);
+            $("[name='kota']").val(jArray[id]['kota_cabang']);
+            $("[name='kodepos']").val(jArray[id]['kodepos_cabang']);
+            $("[name='telpon']").val(jArray[id]['telpon_cabang']);
+            $("[name='gmaps']").val(jArray[id]['gmaps_cabang']);
+            $("[name='email']").val(jArray[id]['email_cabang']);
+            if(jArray[id]['status_cabang']==1){
+                $("[name='status']").val("Aktif");
+            }else{
+                $("[name='status']").val("Tidak Aktif");
+            }
         }
         </script>
 </html>

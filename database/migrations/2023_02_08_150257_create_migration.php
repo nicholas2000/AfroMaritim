@@ -31,6 +31,7 @@ class CreateMigration extends Migration
         Schema::create('master_tpegawai', function (Blueprint $table) {
             $table->string('id_pegawai')->primary();
             $table->string('id_cabang');
+            $table->foreign('id_cabang')->references('id_cabang')->on('master_tcabang');
             $table->string('nama_pegawai');
             $table->string('npwp_pegawai');
             $table->string('alamat_pegawai');
@@ -44,9 +45,33 @@ class CreateMigration extends Migration
             $table->timestamps();
             $table->softDeletes();
         });
+        Schema::create('master_tcustomer', function (Blueprint $table) {
+            $table->string('id_customer')->primary();
+            $table->string('id_cabang');
+            $table->foreign('id_cabang')->references('id_cabang')->on('master_tcabang');
+            $table->string('nama_customer');
+            $table->string('npwp');
+            $table->string('jalan');
+            $table->string('provinsi');
+            $table->string('kota');
+            $table->string('kecamatan');
+            $table->string('kelurahan');
+            $table->string('kode_pos');
+            $table->string('telpon');
+            $table->string('email');
+            $table->string('pajak');
+            $table->string('status_hutang');
+            $table->string('total_hutang');
+            $table->string('batas_pembayaran');
+            $table->string('no_rekening');
+            $table->string('metode_pembayaran');
+            $table->timestamps();
+            $table->softDeletes();
+        });
         Schema::create('transaksi', function (Blueprint $table) {
             $table->string('nomor_transaksi')->primary();
             $table->string('id_customer');
+            $table->foreign('id_customer')->references('id_customer')->on('master_tcustomer');
             $table->string('nama_barang');
             $table->string('id_admin');
             $table->string('volume');
@@ -84,28 +109,7 @@ class CreateMigration extends Migration
             $table->timestamps();
             $table->softDeletes();
         });
-        Schema::create('master_tcustomer', function (Blueprint $table) {
-            $table->string('id_customer')->primary();
-            $table->string('id_cabang');
-            $table->string('nama_customer');
-            $table->string('npwp');
-            $table->string('jalan');
-            $table->string('provinsi');
-            $table->string('kota');
-            $table->string('kecamatan');
-            $table->string('kelurahan');
-            $table->string('kode_pos');
-            $table->string('telpon');
-            $table->string('email');
-            $table->string('pajak');
-            $table->string('status_hutang');
-            $table->string('total_hutang');
-            $table->string('batas_pembayaran');
-            $table->string('no_rekening');
-            $table->string('metode_pembayaran');
-            $table->timestamps();
-            $table->softDeletes();
-        });
+
     }
 
     /**
@@ -115,10 +119,10 @@ class CreateMigration extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('master_tcabang');
-        Schema::dropIfExists('master_tpegawai');
         Schema::dropIfExists('transaksi');
-        Schema::dropIfExists('master_tkompetitor');
         Schema::dropIfExists('master_tcustomer');
+        Schema::dropIfExists('master_tpegawai');
+        Schema::dropIfExists('master_tkompetitor');
+        Schema::dropIfExists('master_tcabang');
     }
 }

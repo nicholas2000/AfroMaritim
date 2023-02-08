@@ -83,13 +83,25 @@ class CabangController extends Controller
 
     public function doEdit(Request $request)
     {
-        // Cabang::where('id_cabang',$request->kode)->update([
-        //     'nama_cabang' => $request->nama
-        // ]);
+        $status = 0;
+        if($request->status=="Aktif"){
+            $status =1;
+        }else{
+            $status =0;
+        }
         $cabangTerpilih = Cabang::withTrashed()->find($request->kode);
         $result = $cabangTerpilih->update([
-            'nama_cabang' => $request->nama
-        ]);
+                'nama_cabang' => $request->nama,
+                'jum_cabang' => $request->jum,
+                'alamat_cabang' => $request->alamat,
+                'provinsi_cabang' => $request->provinsi,
+                'kota_cabang' => $request->kota,
+                'kodepos_cabang' => $request->kodepos,
+                'telpon_cabang' => $request->telpon,
+                'gmaps_cabang' => $request->gmaps,
+                'email_cabang' => $request->email,
+                'status_cabang' => $status
+            ]);
         if($result){
             return redirect('/masterCabang');
         }else{
@@ -97,11 +109,9 @@ class CabangController extends Controller
         }
     }
 
-    public function delete(Request $request,$id)
+    public function delete($id)
     {
-        // Customer::where('id_cabang',$id)->delete();
-        // Cabang::where('id_cabang',$id)->delete();
-        // return redirect('/masterCabang');
+
         $cabang = Cabang::withTrashed()->find($id);
         if($cabang->trashed()){
             $result = $cabang->restore();
