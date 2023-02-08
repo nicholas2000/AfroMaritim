@@ -19,8 +19,6 @@ class modelpegawai extends Model
         'alamat_pegawai',
         'provinsi_pegawai',
         'kota_pegawai',
-        'kecamatan_pegawai',
-        'kelurahan_pegawai',
         'kodepos_pegawai',
         'nohp_pegawai',
         'telp_pegawai',

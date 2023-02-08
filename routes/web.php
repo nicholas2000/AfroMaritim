@@ -59,6 +59,8 @@ Route::get('/masterKompetitor', [KompetitorController::class, "show"]);
 Route::post('/dotmpegawai', [controllerpegawai::class, "dovmtpegawai"]);
 Route::get('/masterPegawai', [controllerpegawai::class, "vmpegawai"]);
 Route::get('/tpegawai',  [controllerpegawai::class, "vfmpegawai"]);
+Route::post('/masterPegawai/delete/{id}', [controllerpegawai::class, "deletepegawai"]);
+Route::post('/masterPegawai/update', [controllerpegawai::class, "updatepegawai"]);
 
 
 

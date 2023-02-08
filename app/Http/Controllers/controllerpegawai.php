@@ -45,8 +45,6 @@ class controllerpegawai extends Controller
                 "kodepos" => 'required',
                 "provinsi"=>'required',
                 "kota"=>'required',
-                "kecamatan"=>'required',
-                "kelurahan"=>'required',
                 "kodepos"=>'required',
                 "hp" => 'required',
                 "telpon" => 'required',
@@ -60,8 +58,6 @@ class controllerpegawai extends Controller
                 "jalan.required" => "jalan harus di isi",
                 "provinsi.required" => "Provinsi harus di pilih",
                 "kota.required" => "Kota harus di pilih",
-                "kecamatan.required" => "Kecamatan harus di pilih",
-                "kelurahan.required" => "Kelurahan harus di pilih",
                 "kodepos.required" => "kode pos harus di isi",
                 "hp.required" => "hp harus di isi",
                 "telpon.required" => "telpon harus di isi",
@@ -77,8 +73,6 @@ class controllerpegawai extends Controller
             'alamat_pegawai' => $request->jalan,
             'provinsi_pegawai' => $request->provinsi,
             'kota_pegawai' => $request->kota,
-            'kecamatan_pegawai' => $request->kecamatan,
-            'kelurahan_pegawai' => $request->kelurahan,
             'kodepos_pegawai' => $request->kodepos,
             'nohp_pegawai' => $request->hp,
             'telp_pegawai' => $request->telpon,
@@ -86,5 +80,15 @@ class controllerpegawai extends Controller
             'role_pegawai' => $request->role
         ]);
         return redirect("/masterPegawai");
+    }
+
+    public function deletepegawai($id_pegawai)
+    {
+        modelpegawai::where('id_pegawai',$id_pegawai)->delete();
+        return redirect('/masterPegawai');
+    }
+    public function updatepegawai()
+    {
+        
     }
 }
