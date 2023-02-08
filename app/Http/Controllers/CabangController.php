@@ -111,4 +111,5 @@ class CabangController extends Controller
             return redirect('/masterCabang')->with('pesan', 'gagal');
         }
     }
+
 }
