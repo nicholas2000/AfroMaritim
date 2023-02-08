@@ -107,7 +107,7 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-sm-3">
-                            Nama Barang :
+                            Jenis Barang :
                         </div>
                         <div class="col-sm">
                             <input name="namabarang" class="form-control" type="text"style="width: 210px;" >
@@ -119,6 +119,25 @@
                         </div>
                         <div class="col-sm">
                             <input name="kode" class="form-control" type="text"style="width: 210px;" disabled>
+                        </div>
+
+                    </div>
+                </div>
+                <br>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-3">
+                            Alamat :
+                        </div>
+                        <div class="col-sm">
+                            <input name="namabarang" class="form-control" type="text"style="width: 210px;" >
+                        </div>
+
+                        <div class="col-sm-3">
+                            Nomor Container :
+                        </div>
+                        <div class="col-sm">
+                            <input name="nocontainer" class="form-control" type="text"style="width: 210px;">
                         </div>
 
                     </div>
@@ -237,11 +256,11 @@
                         <div class="col-sm">
                             <input name="tglberangkat" class="form-control" type="date"style="width: 210px;">
                         </div>
+
+                        <div class="col-sm"></div>
                         <div class="col-sm-3">
-                            Nomor Container :
-                        </div>
-                        <div class="col-sm">
-                            <input name="nocontainer" class="form-control" type="text"style="width: 210px;">
+                            <br>
+                            <button type="submit" name="btnsubmit" class="btn btn-primary">Submit</button>
                         </div>
                     </div>
                 </div>
@@ -251,11 +270,7 @@
                         <div class="col-sm-3">
                             <input type="hidden" name="option" id="option">
                         </div>
-                        <div class="col-sm"></div>
-                        <div class="col-sm-3">
-                            <br>
-                            <button type="submit" name="btnsubmit" class="btn btn-primary">Submit</button>
-                        </div>
+
                     </div>
                 </div>
             </form>

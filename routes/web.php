@@ -81,6 +81,9 @@ Route::get('/masterHistory', [TransaksiController::class, "showHistory"]);
 Route::get('/masterStatus', function () {
     return view('admin.mStatus');
 });
+Route::get('/masterJenisharga', function () {
+    return view('admin.mJenisharga');
+});
 
 Route::get('/masterPiutang', function () {
     return view('admin.mPiutang');

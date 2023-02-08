@@ -54,7 +54,7 @@
                         <a href="{{ url('/masterCustomer') }}"class="dashboard-nav-dropdown-item">Master
                             Customer</a>
                         <a href="{{ url('/masterKompetitor') }}"class="dashboard-nav-dropdown-item">Master Kompetitor</a>
-
+                        <a href="{{ url('/masterJenisharga') }}"class="dashboard-nav-dropdown-item">Master Jenis Harga</a>
 
                     </div>
                     <div class='dashboard-nav-dropdown'>

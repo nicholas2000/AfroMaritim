@@ -103,7 +103,7 @@
                         Welcome Admin
                     </div>
                     <div class='card-body'>
-                        @include("form.FormTransaksi")
+                        @include("form.formJenisHarga")
                     </div>
                 </div>
             </div>
