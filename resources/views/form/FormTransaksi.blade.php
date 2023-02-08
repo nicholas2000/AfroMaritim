@@ -202,13 +202,14 @@
                             <div class="col-auto">
                                 <select name="jenisharga" class="custom-select" style="font-size:15px;width: 210px;margin-left:-15px;height:40px;"
                                     id="inlineFormCustomSelect">
-                                    <option selected>Pilih</option>
-                                    <option value="1">One</option>
-                                    <option value="2">Two</option>
-                                    <option value="3">Three</option>
+                                    @foreach ($arrJenisHarga as $prm)
+                                    <option value="{{ $prm->type }}">{{ $prm->jenis_harga }}</option>
                                 </select>
 
                             </div>
+                            
+                            @endforeach
+                            
                         </div>
                     </div>
                 </div>

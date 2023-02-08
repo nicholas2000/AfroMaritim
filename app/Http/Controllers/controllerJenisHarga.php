@@ -8,7 +8,8 @@ class controllerJenisHarga extends Controller
 {
     public function show()
     {
-        return view ("admin.mJenisHarga");
+        $param['arrJenisHarga']=modelJenisHarga::get();
+        return view ("admin.mJenisHarga",$param);
     }
     public function doAdd(Request $request){
 
