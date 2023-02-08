@@ -10,7 +10,7 @@ class Cabang extends Model
     use HasFactory;
     protected $table = "master_tcabang";
     protected $primaryKey = "id_cabang";
-    public $timestamps = false;
+    public $timestamps = true;
     protected $fillable = [
         'id_cabang',
         'nama_cabang',
@@ -18,8 +18,6 @@ class Cabang extends Model
         'alamat_cabang',
         'provinsi_cabang',
         'kota_cabang',
-        'kecamatan_cabang',
-        'kelurahan_cabang',
         'kodepos_cabang',
         'telpon_cabang',
         'gmaps_cabang',
