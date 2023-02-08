@@ -52,7 +52,9 @@ Route::get('/tcustomer',  [CustomerController::class, "vfmcustomer"]);
 
 Route::post('/doAddcabang', [CabangController::class, "doAdd"]);
 Route::get('/masterCabang', [CabangController::class, "show"]);
-Route::get('/editCabang/{id}',[CabangController::class, "edit"]);
+// Route::post('/editCabang/edit/{id}',[CabangController::class, "edit"]);
+Route::post('/masterCabang/edit', [CabangController::class, "doEdit"]);
+Route::post('/masterCabang/delete/{id}', [CabangController::class, "delete"]);
 
 Route::post('/doAddkompetitor', [KompetitorController::class, "doAdd"]);
 Route::get('/masterKompetitor', [KompetitorController::class, "show"]);
@@ -123,7 +125,6 @@ Route::get('/tambahsuratjalan', function () {
 });
 Route::post('/masterHistory/delete/{id}', [HistoryController::class, "deletehistory"]);
 Route::post('/masterHistory/update', [HistoryController::class, "updatehistory"]);
-Route::post('/masterHistory/check/{id}', [HistoryController::class, "check"]);
 
 
 // Route::get('/masterJenisharga', function () {
