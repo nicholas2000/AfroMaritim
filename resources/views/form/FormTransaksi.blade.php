@@ -362,11 +362,4 @@
         // alert(Number($("#hargatambahan").val()));
     });
 
-    // function cek_angka(text){
-    //     let x = text
-    //     for (let i = 0; i < x.length; i++) {
-
-    //     }
-    // }
-
 </script>
