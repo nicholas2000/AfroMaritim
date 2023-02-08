@@ -93,21 +93,23 @@ class CabangController extends Controller
 
     public function delete(Request $request)
     {
+        Cabang::where('id_cabang',$id)->delete();
+        return redirect('/masterCabang');
 
-        // Cabang::where('id_cabang',$id)->delete();
-        // return redirect('/masterCabang');
-        $cabang = Cabang::withTrashed()->find($request->id_cabang);
-        if($cabang->trashed()){
-            $result = $cabang->restore();
-        }else{
-            $result = $cabang->delete();
-        }
+        Cabang::where('id_cabang',$id)->delete();
+        return redirect('/masterCabang');
+        // $cabang = Cabang::withTrashed()->find($request->id_cabang);
+        // if($cabang->trashed()){
+        //     $result = $cabang->restore();
+        // }else{
+        //     $result = $cabang->delete();
+        // }
 
-        if ($result) {
-            return redirect('/masterCabang')->with('pesan', 'sukses');
-        } else {
-            return redirect('/masterCabang')->with('pesan', 'gagal');
-        }
+        // if ($result) {
+        //     return redirect('/masterCabang')->with('pesan', 'sukses');
+        // } else {
+        //     return redirect('/masterCabang')->with('pesan', 'gagal');
+        // }
     }
 
 }
