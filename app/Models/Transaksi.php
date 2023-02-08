@@ -16,7 +16,6 @@ class Transaksi extends Model
         'id_customer',
         'nama_barang',
         'id_admin',
-        'ukuran',
         'volume',
         'berat',
         'rute',
