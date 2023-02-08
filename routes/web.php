@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\CabangController;
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\controllerJenisHarga;
 use App\Http\Controllers\controllerpegawai;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\HistoryController;
@@ -83,9 +84,7 @@ Route::get('/masterHistory', [TransaksiController::class, "showHistory"]);
 Route::get('/masterStatus', function () {
     return view('admin.mStatus');
 });
-Route::get('/masterJenisharga', function () {
-    return view('admin.mJenisharga');
-});
+
 
 Route::get('/masterPiutang', function () {
     return view('admin.mPiutang');
@@ -125,6 +124,12 @@ Route::get('/tambahsuratjalan', function () {
 Route::post('/masterHistory/delete/{id}', [HistoryController::class, "deletehistory"]);
 Route::post('/masterHistory/update', [HistoryController::class, "updatehistory"]);
 Route::post('/masterHistory/check/{id}', [HistoryController::class, "check"]);
+
+
+// Route::get('/masterJenisharga', function () {
+//     return view('admin.mJenisharga');
+// });
+Route::get('/masterJenisharga', [controllerJenisHarga::class, "show"]);
 
 //ROUTE BARU
 
