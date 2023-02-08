@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Cabang;
 use App\Models\Customer;
-
+use App\Models\Transaksi;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -20,6 +20,7 @@ class CabangController extends Controller
     {
         $cust = Customer::all();
         $cabang = Cabang::all();
+        $transaksi = Transaksi::all();
         $ctr = 1;
         foreach($cabang as $c){
             $ctr = intval(substr($c->id_cabang, 2)) + 1;
