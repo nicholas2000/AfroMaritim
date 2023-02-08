@@ -268,7 +268,7 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-sm-3">
-                            <input type="hidden" name="option" id="option">
+                            <input type="hidden" name="option" id="option" value="berat">
                         </div>
 
                     </div>
@@ -349,9 +349,24 @@
             $("#wrapper").css("display", "block");
         }
     });
-    // $("#hargatambahan").on("input", function(){
-    //     // var hrgtam = intval($("#hargatambahan").text());
-    //     document.getElementById("hargatambahan").value = substr($("#hargatambahan").text());
-    // });
+    $("#hargatambahan").on("input", function(){
+        var hargatambahan = $("#hargatambahan").val();
+        var hrgtam = Number(hargatambahan);
+        var temphrg = hargatambahan.substring(0, hargatambahan.length - 1);
+        if(isNaN(hrgtam)){
+            // alert(temphrg);
+            document.getElementById("hargatambahan").value = "" + temphrg;
+        }else{
+            document.getElementById("hargatambahan").value = "" + hrgtam;
+        }
+        // alert(Number($("#hargatambahan").val()));
+    });
+
+    // function cek_angka(text){
+    //     let x = text
+    //     for (let i = 0; i < x.length; i++) {
+
+    //     }
+    // }
 
 </script>
