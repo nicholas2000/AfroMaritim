@@ -48,6 +48,9 @@
                                 <th scope="col">
                                     <center>Role Pegawai</center>
                                 </th>
+                                <th scope="col">
+                                    <center>Action</center>
+                                </th>
                             </tr>
                             <?php $ctr = 1; ?>
 
@@ -67,10 +70,22 @@
                                     <th scope="col">
                                         <center>{{ $prm->role_pegawai }}</center>
                                     </th>
+                                    <th scope="col">
+                                        <center style="display: flex;">
+                                            <form action="{{ url('/masterCustomer') }}" method="">
+                                                @csrf
+                                                <center><button style="margin-left: 40%;" name=""type="submit" class="btn btn"><i class="fa fa-pencil-alt"></i></button></center>
+                                            </form>
+                                            <form method="post"
+                                        action="{{ url('masterPegawai/delete/' . $prm->id_pegawai) }}">
+                                        @csrf
+                                        <button style="margin-left: 80%;" type="submit" class="btn btn-danger"><i class="fa fa-trash"></i></button>
+                                    </form>
+                                        </center>
+                                    </th>
                                 </tr>
                                 <?php $ctr++; ?>
                             @endforeach
-
 
                         </table>
                     </div>

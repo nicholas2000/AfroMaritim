@@ -12,7 +12,7 @@ MySQL - 10.4.27-MariaDB : Database - db_afromaritim
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
-CREATE DATABASE /*!32312 IF NOT EXISTS*/`db_afromaritim` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci */;
+CREATE DATABASE /*!32312 IF NOT EXISTS*/`db_afromaritim` /*!40100 DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci */;
 
 USE `db_afromaritim`;
 
@@ -90,6 +90,19 @@ insert  into `master_tcustomer`(`id_customer`,`id_cabang`,`nama_customer`,`npwp`
 ('CU003','C001','aku','23423','a','Jawa Barat','Bandung','Malang','Kediri','3423423','3434545','admin@gmail.com','0.02','Off',NULL,NULL,NULL,NULL),
 ('CU004','C001','Gradi','1234','Ngagel Jaya TImur','Jawa Timur','Bandung','Sidoarjo','Batu','601','08951111','teje@gmail.com','0.011',NULL,NULL,NULL,NULL,NULL),
 ('CU005','C001','Godamte','1111','Ngagel Jaya TImur','Jawa Timur','Surabaya','Sidoarjo','Blitar','602','08951112','godamte1@gmail.com','0.02',NULL,NULL,NULL,NULL,NULL);
+
+/*Table structure for table `master_tjenis` */
+
+DROP TABLE IF EXISTS `master_tjenis`;
+
+CREATE TABLE `master_tjenis` (
+  `type` varchar(255) NOT NULL,
+  `jenis_harga` varchar(255) DEFAULT NULL,
+  `nominal` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`type`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+
+/*Data for the table `master_tjenis` */
 
 /*Table structure for table `master_tkompetitor` */
 

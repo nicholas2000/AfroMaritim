@@ -107,7 +107,7 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-sm-3">
-                            Nama Barang :
+                            Jenis Barang :
                         </div>
                         <div class="col-sm">
                             <input name="namabarang" class="form-control" type="text"style="width: 210px;" >
@@ -123,6 +123,25 @@
 
                     </div>
                 </div>
+                <br>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-3">
+                            Alamat :
+                        </div>
+                        <div class="col-sm">
+                            <input name="namabarang" class="form-control" type="text"style="width: 210px;" >
+                        </div>
+
+                        <div class="col-sm-3">
+                            Nomor Container :
+                        </div>
+                        <div class="col-sm">
+                            <input name="nocontainer" class="form-control" type="text"style="width: 210px;">
+                        </div>
+
+                    </div>
+                </div>
 
                 <br>
                 <div class="container">
@@ -131,7 +150,7 @@
                             Berat :
                         </div>
                         <div class="col-sm-2">
-                            <input type="checkbox" name="option1" id="option1" value="op1" onclick="disable_option1()">
+                            <input type="checkbox" name="option1" id="option1" value="op1" onclick="disable_option1()" checked>
                         </div>
                         <div class="col-sm-3">
                             <input name="berat" id="berat" class="form-control" type="text"style="width: 210px;" >
@@ -237,11 +256,11 @@
                         <div class="col-sm">
                             <input name="tglberangkat" class="form-control" type="date"style="width: 210px;">
                         </div>
+
+                        <div class="col-sm"></div>
                         <div class="col-sm-3">
-                            Nomor Container :
-                        </div>
-                        <div class="col-sm">
-                            <input name="nocontainer" class="form-control" type="text"style="width: 210px;">
+                            <br>
+                            <button type="submit" name="btnsubmit" class="btn btn-primary">Submit</button>
                         </div>
                     </div>
                 </div>
@@ -249,13 +268,9 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-sm-3">
-                            <input type="hidden" name="option" id="option">
+                            <input type="hidden" name="option" id="option" value="berat">
                         </div>
-                        <div class="col-sm"></div>
-                        <div class="col-sm-3">
-                            <br>
-                            <button type="submit" name="btnsubmit" class="btn btn-primary">Submit</button>
-                        </div>
+
                     </div>
                 </div>
             </form>
@@ -302,11 +317,12 @@
     //     document.getElementById("option-2").checked = false;
     //     document.getElementById("option-3").checked = false;
     // }
+    document.getElementById("volume").disabled = true;
+
     function disable_option2() {
         // document.getElementById("ukuran").disabled = true;
         document.getElementById("volume").disabled = false;
         document.getElementById("berat").disabled = true;
-        document.getElementById("berat").value = "0";
         document.getElementById("volume").value = "";
         document.getElementById("option").value = "volume";
         document.getElementById("option1").checked = false;
@@ -316,7 +332,6 @@
         // document.getElementById("ukuran").disabled = true;
         document.getElementById("volume").disabled = true;
         document.getElementById("berat").disabled = false;
-        document.getElementById("volume").value = "0";
         document.getElementById("berat").value = "";
         document.getElementById("option").value = "berat";
         // document.getElementById("option-1").checked = false;
@@ -334,9 +349,17 @@
             $("#wrapper").css("display", "block");
         }
     });
-    // $("#hargatambahan").on("input", function(){
-    //     // var hrgtam = intval($("#hargatambahan").text());
-    //     document.getElementById("hargatambahan").value = substr($("#hargatambahan").text());
-    // });
+    $("#hargatambahan").on("input", function(){
+        var hargatambahan = $("#hargatambahan").val();
+        var hrgtam = Number(hargatambahan);
+        var temphrg = hargatambahan.substring(0, hargatambahan.length - 1);
+        if(isNaN(hrgtam)){
+            // alert(temphrg);
+            document.getElementById("hargatambahan").value = "" + temphrg;
+        }else{
+            document.getElementById("hargatambahan").value = "" + hrgtam;
+        }
+        // alert(Number($("#hargatambahan").val()));
+    });
 
 </script>
