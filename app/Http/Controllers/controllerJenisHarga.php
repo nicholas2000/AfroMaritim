@@ -8,10 +8,10 @@ class controllerJenisHarga extends Controller
 {
     public function show()
     {
-        return view ("form.formJenisHarga");
+        return view ("admin.mJenisHarga");
     }
     public function doAdd(Request $request){
-        
+
         $jenisharga = modelJenisHarga::all();
         modelJenisHarga::create([
         'type'=>$request->tipe,
