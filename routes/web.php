@@ -129,8 +129,9 @@ Route::post('/masterHistory/check/{id}', [HistoryController::class, "check"]);
 // Route::get('/masterJenisharga', function () {
 //     return view('admin.mJenisharga');
 // });
-Route::get('/masterJenisharga', [controllerJenisHarga::class, "show"]);
+Route::post('/domasterJenisharga', [controllerJenisHarga::class, "doAdd"]);
 
+Route::get('/masterJenisharga', [controllerJenisHarga::class, "show"]);
 //ROUTE BARU
 
 

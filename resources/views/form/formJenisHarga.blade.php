@@ -11,7 +11,8 @@
 
 <section class="order-form m-4">
     <div class="container">
-        <form class="form-horizontal" action=" " method="post" id="contact_form">
+        <form class="form-horizontal" action=" {{url('/domasterJenisharga')}}" method="post" id="contact_form">
+            @csrf
             <fieldset>
 
                 <!-- Form Add Box Model -->

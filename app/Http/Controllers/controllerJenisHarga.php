@@ -6,7 +6,18 @@ use Illuminate\Http\Request;
 
 class controllerJenisHarga extends Controller
 {
-    public function show(){
-        return view("admin.mJenisharga");
+    public function show()
+    {
+        return view ("form.formJenisHarga");
+    }
+    public function doAdd(Request $request){
+        $jenisharga = modeljenisharga::all();
+        modelJenisHarga::create([
+        'type'=>$request->tipe,
+        'jenis_harga'=>$request->jenisharga,
+        'nominal'=>$request->nominal
+
+    ]);
+    return redirect("/masterJenisharga");
     }
 }

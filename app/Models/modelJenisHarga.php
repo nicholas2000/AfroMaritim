@@ -8,7 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class modelJenisHarga extends Model
 {
     use HasFactory;
-    use HasFactory;
     protected $table = "master_tjenis";
     protected $primaryKey = "type";
     public $timestamps = false;
