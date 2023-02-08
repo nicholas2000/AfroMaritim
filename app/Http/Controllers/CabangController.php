@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Cabang;
 use App\Models\Customer;
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -93,11 +94,9 @@ class CabangController extends Controller
         }
     }
 
-    public function delete(Request $request)
+    public function delete(Request $request,$id)
     {
-        Cabang::where('id_cabang',$id)->delete();
-        return redirect('/masterCabang');
-
+        Customer::where('id_cabang',$id)->delete();
         Cabang::where('id_cabang',$id)->delete();
         return redirect('/masterCabang');
         // $cabang = Cabang::withTrashed()->find($request->id_cabang);
