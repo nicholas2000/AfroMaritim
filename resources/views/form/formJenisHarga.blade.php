@@ -65,7 +65,7 @@
                 <div class="form-group">
                     <label class="col-md-4 control-label"></label>
                     <div class="col-md-4"><br>
-                       <a href="{{ url('/dashboard') }}"><center><button type="button" class="btn btn-primary">Tambah</button></center></a>
+                       <button type="submit" class="btn btn-primary">Tambah</button>
                     </div>
                 </div>
             </fieldset>

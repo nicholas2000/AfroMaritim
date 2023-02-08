@@ -11,7 +11,8 @@ class controllerJenisHarga extends Controller
         return view ("form.formJenisHarga");
     }
     public function doAdd(Request $request){
-        $jenisharga = modeljenisharga::all();
+        
+        $jenisharga = modelJenisHarga::all();
         modelJenisHarga::create([
         'type'=>$request->tipe,
         'jenis_harga'=>$request->jenisharga,
