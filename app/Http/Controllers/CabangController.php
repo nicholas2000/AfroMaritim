@@ -97,21 +97,40 @@ class CabangController extends Controller
 
     public function delete(Request $request,$id)
     {
-        Customer::where('id_cabang',$id)->delete();
-        Cabang::where('id_cabang',$id)->delete();
-        return redirect('/masterCabang');
-        // $cabang = Cabang::withTrashed()->find($request->id_cabang);
-        // if($cabang->trashed()){
-        //     $result = $cabang->restore();
-        // }else{
-        //     $result = $cabang->delete();
+
+
+
+
+
+        // $id_cust = Transaksi::where('id_customer',"CU004")->get();
+        // for($i=0;$i<count($id_cust);$i++){
+
+        //    $customer = Customer::where('id_customer', $id_cust[$i]['id_customer'])->get();
+        //     dd($customer);
+        //     for($j=0;$j<count($customer);$j++){
+
+        //     }
+
         // }
 
-        // if ($result) {
-        //     return redirect('/masterCabang')->with('pesan', 'sukses');
-        // } else {
-        //     return redirect('/masterCabang')->with('pesan', 'gagal');
-        // }
+
+        // Transaksi::where('id_customer',$id_cust)->delete();
+        // Customer::where('id_cabang',$id)->delete();
+        // Cabang::where('id_cabang',$id)->delete();
+        // return redirect('/masterCabang');
+        
+        $cabang = Cabang::withTrashed()->find($request->id_cabang);
+        if($cabang->trashed()){
+            $result = $cabang->restore();
+        }else{
+            $result = $cabang->delete();
+        }
+
+        if ($result) {
+            return redirect('/masterCabang')->with('pesan', 'sukses');
+        } else {
+            return redirect('/masterCabang')->with('pesan', 'gagal');
+        }
     }
 
 }

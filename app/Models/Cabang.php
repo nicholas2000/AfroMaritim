@@ -8,6 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Cabang extends Model
 {
     use HasFactory;
+    use softDeletes;
+
     protected $table = "master_tcabang";
     protected $primaryKey = "id_cabang";
     public $timestamps = true;
