@@ -23,7 +23,7 @@ class controllerpegawai extends Controller
 
     public function dovmtpegawai(Request $request)
     {
-        $pegawai = modelpegawai::all();
+        $pegawai = modelpegawai::withTrashed()->get();
         $ctr = 1;
         foreach($pegawai as $p){
             $ctr = intval(substr($p->id_pegawai, 2)) + 1;
@@ -89,6 +89,6 @@ class controllerpegawai extends Controller
     }
     public function updatepegawai()
     {
-        
+
     }
 }
