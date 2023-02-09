@@ -54,7 +54,6 @@ class CustomerController extends Controller
                     "kelurahan" => 'required',
                     "kodepos" => 'required',
                     "telpon" => 'required',
-                    'HP'=>'required',
                     "email" => 'required',
                     "pajak" => 'required',
                     "status" => 'required',
@@ -163,7 +162,12 @@ class CustomerController extends Controller
                 'kodepos' => $request->kodepos,
                 'telpon' => $request->telpon,
                 'email' => $request->email,
-                'kode_pos' => $request->kodepos
+                'pajak' => $request->status,
+                'status_hutang'=>$request->status_hutang,
+                'total_hutang'=>$request->batasanHutang,
+                'no_rekening'=>$request->noRekening,
+                'metode_pembayaran'=>$request->metodePembayaran
+
             ]);
 
         if($result){

@@ -347,6 +347,10 @@
             document.getElementById("On").checked = true;
             document.getElementById('div1').style.display = 'block';
         }
+        $("[name='batasanHutang']").val(jArray[id]['total_hutang']);
+        $("[name='batasPembayaran']").val(jArray[id]['batas_pembayaran']);
+        $("[name='noRekening']").val(jArray[id]['no_rekening']);
+        $("[name='metodePembayaran']").val(jArray[id]['metode_pembayaran']);
 
     }
 

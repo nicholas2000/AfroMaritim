@@ -178,8 +178,11 @@
                                 <form action="{{ url('masterPegawai/update/') }}" method="post">
                                     @csrf
                                     <label style="margin-left: 40px;">Kode</label>
+                                    @foreach ($cabang as $prm)
                                     <input name="kode" class="form-control" type="text"
-                                        placeholder="{{ $prm->id_pegawai }}" readonly>
+                                    placeholder="{{ $prm->id_pegawai }}" readonly>
+                                        @endforeach
+
 
                                     <label style="margin-left: 40px;">Cabang</label>
                                     <select name="cabang" style="height:35px" class="form-control selectpicker">
@@ -255,7 +258,7 @@
 
 </body>
 <script>
-    function btnedit(id) 
+    function btnedit(id)
     {
         var jArray = <?php echo json_encode($arrPegawai); ?>;
         $("[name='kode']").val(jArray[id]['id_pegawai']);
@@ -269,19 +272,19 @@
         $("[name='hp']").val(jArray[id]['nohp_pegawai']);
         $("[name='telpon']").val(jArray[id]['telp_pegawai']);
         $("[name='email']").val(jArray[id]['email_cabang']);
-        if (jArray[id]['role_pegawai'] == 1) 
+        if (jArray[id]['role_pegawai'] == 1)
         {
             $("[name='role']").val("Super Admin");
-        } 
-        else if (jArray[id]['role_pegawai'] == 2)  
+        }
+        else if (jArray[id]['role_pegawai'] == 2)
         {
             $("[name='role']").val("Accounting");
         }
-        else if (jArray[id]['role_pegawai'] == 3)  
+        else if (jArray[id]['role_pegawai'] == 3)
         {
             $("[name='role']").val("Supervisor");
         }
-        else if (jArray[id]['role_pegawai'] == 4)  
+        else if (jArray[id]['role_pegawai'] == 4)
         {
             $("[name='role']").val("Pegawai");
         }
