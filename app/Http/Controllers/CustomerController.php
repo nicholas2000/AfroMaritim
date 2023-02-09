@@ -38,7 +38,6 @@ class CustomerController extends Controller
         }else{
             $kode = "CU{$ctr}";
         }
-
         $totalhutang = "";
         $batasbayar = "";
         $norek = "";
