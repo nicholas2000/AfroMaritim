@@ -22,7 +22,7 @@ class CustomerController extends Controller
 
     public function doAdd(Request $req)
     {
-        $cust = Customer::all();
+        $cust = Customer::withTrashed()->get();
         $ctr = 1;
         foreach($cust as $c){
             $ctr = intval(substr($c->id_customer, 2)) + 1;

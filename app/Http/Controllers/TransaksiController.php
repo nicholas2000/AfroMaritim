@@ -89,7 +89,7 @@ class TransaksiController extends Controller
         }
 
 
-        $trans = Transaksi::all();
+        $trans = Transaksi::withTrashed()->get();
         $ctr = 1;
         foreach($trans as $t){
             $ctr = intval(substr($t->nomor_transaksi, 2)) + 1;

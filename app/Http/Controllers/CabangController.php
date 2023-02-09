@@ -18,9 +18,8 @@ class CabangController extends Controller
 
     public function doAdd(Request $req)
     {
-        $cust = Customer::all();
-        $cabang = Cabang::all();
-        $transaksi = Transaksi::all();
+
+        $cabang = Cabang::withTrashed()->get();
         $ctr = 1;
         foreach($cabang as $c){
             $ctr = intval(substr($c->id_cabang, 2)) + 1;

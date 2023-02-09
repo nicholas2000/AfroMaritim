@@ -15,7 +15,7 @@ class KompetitorController extends Controller
 
     public function doAdd(Request $req)
     {
-        $kompetitor = Kompetitor::all();
+        $kompetitor = Kompetitor::withTrashed()->get();
         $ctr = 1;
         foreach($kompetitor as $k){
             $ctr = intval(substr($k->id_kompetitor, 2)) + 1;
