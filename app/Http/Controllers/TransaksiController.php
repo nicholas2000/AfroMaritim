@@ -94,7 +94,7 @@ class TransaksiController extends Controller
             $kode = "TC{$ctr}";
         }
         $idadmpalsu="admin";
-
+        // $jenis = explode(",", $req->jenisharga);
         $Customer=Customer::where('nama_customer', 'like', '%' . $req->namacust . '%')->get();
 
         Transaksi::create([
@@ -106,7 +106,7 @@ class TransaksiController extends Controller
             'berat' =>$berat,
             'rute' =>$req->rute,
             'harga' =>$req->harga,
-            'jenis_harga' => $req->jenisharga,
+            'jenis_harga' => explode(",", $req->jenisharga)[0],
             'tonage'=>$req->tonage,
             'harga_tambahan'=>intval($req->hargatambahan),
             'persentase' =>$req->persentase,
