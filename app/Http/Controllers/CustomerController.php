@@ -133,10 +133,11 @@ class CustomerController extends Controller
                 ]
             );
         }
-        if($req->pajak=="pph23"){
-            $pajak = 0.02;
+        $pajak = "";
+        if($req->pajak=="Kena Pajak"){
+            $pajak = "Kena Pajak";
         }else{
-            $pajak = 0.011;
+            $pajak = "Tidak Kena Pajak";
         }
         Customer::create([
             'id_customer' => $kode,
