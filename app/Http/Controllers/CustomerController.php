@@ -10,7 +10,7 @@ class CustomerController extends Controller
 {
     Public function show()
     {
-        $arrCustomer=Customer::get();
+        $arrCustomer=Customer::all();
         $cabang = Cabang::all();
         return view('admin.mCustomer',compact('arrCustomer','cabang'));
     }

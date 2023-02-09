@@ -169,7 +169,7 @@
                                             data-target="#myModal" onclick="btnedit({{$ctr-1}})"><i class="fa fa-pencil-alt"></i></button>
 
                                         <form method="post"
-                                            action="{{ url('masterCustomer/delete/' . $prm->id_cabang) }}">
+                                            action="{{ url('masterCustomer/delete/' . $prm->id_customer) }}">
                                             @csrf
                                             <button type="submit" class="btn btn-danger"><i
                                                     class="fa fa-trash"></i></button>
