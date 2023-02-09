@@ -186,5 +186,21 @@ class CustomerController extends Controller
             return redirect('/masterCustomer');
         }
     }
+    public function delete($id)
+    {
+
+        $customer = Customer::withTrashed()->find($id);
+        if($customer->trashed()){
+            $result = $customer->restore();
+        }else{
+            $result = $customer->delete();
+        }
+
+        if ($result) {
+            return redirect('/masterCustomer');
+        } else {
+            return redirect('/masterCustomer');
+        }
+    }
 
 }

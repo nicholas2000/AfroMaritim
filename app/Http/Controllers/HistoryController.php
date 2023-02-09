@@ -22,7 +22,7 @@ class HistoryController extends Controller
     public function updatehistory(Request $request)
     {
         $data = json_decode($request->data);
-    
+
         foreach ($data as $prm) {
             Transaksi::where('nomor_transaksi',$prm)->update([
                 'nomor_manifest' => $request->nmanifest,
