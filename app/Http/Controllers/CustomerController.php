@@ -163,28 +163,27 @@ class CustomerController extends Controller
     }
     public function doEdit(Request $request)
     {
-        $status = 0;
-        if($request->status=="Aktif"){
-            $status =1;
-        }else{
-            $status =0;
-        }
-        $cabangTerpilih = Customer::withTrashed()->find($request->kode);
-        $result = $cabangTerpilih->update([
-                'cabang' => $request->cabang,
-                'nama' => $request->nama,
+        $cabangCustomer = Customer::withTrashed()->find($request->kode);
+        $result = $cabangCustomer->update([
+                'id_cabang' => $request->cabang,
+                'nama_customer' => $request->nama,
+                'npwp'=>$request->npwp,
                 'alamat' => $request->alamat,
                 'provinsi' => $request->provinsi,
                 'kota' => $request->kota,
                 'kecamatan' => $request->kecamatan,
+                'kelurahan' => $request->kelurahan,
                 'kodepos' => $request->kodepos,
                 'telpon' => $request->telpon,
                 'email' => $request->email,
+                'kode_pos' => $request->kodepos
             ]);
+
+        dd($result);
         if($result){
-            return redirect('/masterCabang');
+            return redirect('/masterCustomer');
         }else{
-            return redirect('/masterCabang');
+            return redirect('/masterCustomer');
         }
     }
 

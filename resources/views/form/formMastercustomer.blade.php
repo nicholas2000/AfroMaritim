@@ -169,7 +169,7 @@
                                             data-target="#myModal" onclick="btnedit({{$ctr-1}})"><i class="fa fa-pencil-alt"></i></button>
 
                                         <form method="post"
-                                            action="{{ url('masterCabang/delete/' . $prm->id_cabang) }}">
+                                            action="{{ url('masterCustomer/delete/' . $prm->id_cabang) }}">
                                             @csrf
                                             <button type="submit" class="btn btn-danger"><i
                                                     class="fa fa-trash"></i></button>
@@ -265,9 +265,9 @@
 
                                             <label style="margin-left: 40px;" >Status Hutang </label>
                                             <div style="display: flex;width: 30px;height: 30px;" >
-                                                <input type="radio" style="margin-top: -10px;margin-left: 40px;" name="status" value="On" onclick="show1();"/>
+                                                <input type="radio" style="margin-top: -10px;margin-left: 40px;" name="status_hutang" value="On" onclick="show1();"/>
                                                 Aktif
-                                                <input type="radio" style="margin-top: -10px;margin-left: 10px;" name="status" value = "Off"onclick="show2();" />
+                                                <input type="radio" style="margin-top: -10px;margin-left: 10px;" name="status_hutang" value = "Off"onclick="show2();" />
                                                 Tidak
                                             </div>
                                             <div id="div1">
@@ -325,6 +325,12 @@
         }else{
             $("[name='status']").val("Tidak Kena Pajak");
         }
+        // if(jArray[id]['status_hutang']=="Off"){
+        //     $("[name='status_hutang']"):checked="false";
+        // }else{
+        //     $("[name='status_hutang']"):checked="true";
+        // }
+
     }
     function show1() {
         document.getElementById('div1').style.display = 'block';

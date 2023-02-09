@@ -49,6 +49,8 @@ Route::get('/login', [loginController::class, "login"]);
 Route::post('/doAddcustomer', [CustomerController::class, "doAdd"]);
 Route::get('/masterCustomer', [CustomerController::class, "show"]);
 Route::get('/tcustomer',  [CustomerController::class, "vfmcustomer"]);
+Route::post('/masterCustomer/edit', [CustomerController::class, "doEdit"]);
+Route::post('/masterCustomer/delete/{id}', [CustomerController::class, "delete"]);
 
 Route::post('/doAddcabang', [CabangController::class, "doAdd"]);
 Route::get('/masterCabang', [CabangController::class, "show"]);
