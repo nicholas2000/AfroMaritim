@@ -72,23 +72,11 @@
                         </div>
                         <div class="col-sm-3">
                             <div class="search-box">
-                                {{-- <div class="row-fluid">
-                                    <select class="selectpicker result" data-show-subtext="true"
-                                        data-live-search="true"> --}}
-                                <!-- <div class="result"></div> -->
-                                {{-- <option data-subtext="Rep California">Tom Foolery</option>
-                                          <option data-subtext="Sen California">Bill Gordon</option>
-                                          <option data-subtext="Sen Massacusetts">Elizabeth Warren</option>
-                                          <option data-subtext="Rep Alabama">Mario Flores</option>
-                                          <option data-subtext="Rep Alaska">Don Young</option>
-                                          <option data-subtext="Rep California" disabled="disabled">Marvin Martinez</option> --}}
-                                {{-- </select>
-                                </div> --}}
                                 <input style="width: 210px;" type="text" name="namacust" id="user" class="form-control" placeholder="Masukkan Nama" />
                                 <br>
                                 <div id="wrapper" onclick="hidden()">
                                     <div class="scrollbar">
-                                        <div class="userList force-overflow"  id="userList" style="width: 210px;"></div>
+                                        <div class="userList force-overflow" id="userList" style="width: 210px;"></div>
                                     </div>
                                 </div>
                                 <div id="result"></div>
@@ -100,7 +88,7 @@
                             Nomor Transaksi :
                         </div>
                         <div class="col-sm">
-                            <input name="kode" class="form-control" type="text" style="width: 210px;" disabled>
+                            <input name="kode" id="kode" class="form-control" type="text" style="width: 210px;" readonly>
                         </div>
                     </div>
                 </div>
@@ -118,7 +106,7 @@
                             Admin :
                         </div>
                         <div class="col-sm">
-                            <input name="kode" class="form-control" type="text"style="width: 210px;" disabled>
+                            <input name="kode" class="form-control" type="text"style="width: 210px;" readonly>
                         </div>
 
                     </div>
@@ -153,7 +141,7 @@
                             <input type="checkbox" name="option1" id="option1" value="op1" onclick="disable_option1()" checked>
                         </div>
                         <div class="col-sm-3">
-                            <input name="berat" id="berat" class="form-control" type="text"style="width: 210px;" >
+                            <input name="berat" id="berat" class="form-control" type="number"style="width: 210px;" value="0" step=".01">
                         </div>
                         <div class="col-sm-1">
                             Volume :
@@ -162,7 +150,7 @@
                             <input type="checkbox" name="option2" id="option2" value="op2" onclick="disable_option2()">
                         </div>
                         <div class="col-sm-1">
-                            <input name="volume" id="volume" class="form-control" type="text"style="width: 210px;" >
+                            <input name="volume" id="volume" class="form-control" type="number"style="width: 210px;" value="0">
                         </div>
                     </div>
                 </div>
@@ -172,9 +160,6 @@
                         <div class="col-sm-3">
                             Tonage :
                         </div>
-                        {{-- <div class="col-sm-2">
-                            <input type="checkbox" name="option-3" id="option-3" onclick="disable_option3()">
-                        </div> --}}
                         <div class="col-sm-3">
                             <input name="tonage" class="form-control" type="text"style="width: 210px;" >
                         </div>
@@ -201,15 +186,20 @@
                         <div class="col-sm-3">
                             <div class="col-auto">
                                 <select name="jenisharga" class="custom-select" style="font-size:15px;width: 210px;margin-left:-15px;height:40px;"
-                                    id="inlineFormCustomSelect">
+                                    id="jenisharga" onchange="choose_harga()">
+                                    <option value=""></option>
                                     @foreach ($arrJenisHarga as $prm)
-                                    <option value="{{ $prm->nominal }}">{{ $prm->tipe }}</option>
+                                        <option value="{{ $prm->tipe }},{{ $prm->jenis_harga }}">{{ $prm->tipe }}</option>
+                                    @endforeach
                                 </select>
-
+                                {{-- <input type="hidden" name="jenis" id="jenis" value=""> --}}
                             </div>
-
-                            @endforeach
-
+                        </div>
+                        <div class="col-sm-3">
+                            Harga :
+                        </div>
+                        <div class="col-sm">
+                            <input name="harga" id="harga" class="form-control" type="number" style="width: 210px;" value="0">
                         </div>
                     </div>
                 </div>
@@ -226,7 +216,7 @@
                             Harga Tambahan :
                         </div>
                         <div class="col-sm">
-                            <input name="hargatambahan" id="hargatambahan" class="form-control" type="text" value="0" style="width: 210px;">
+                            <input name="hargatambahan" id="hargatambahan" class="form-control" type="number" value="0" style="width: 210px;">
                         </div>
                     </div>
                 </div>
@@ -244,7 +234,7 @@
                             Total Harga :
                         </div>
                         <div class="col-sm">
-                            <input name="total" class="form-control" type="text"style="width: 210px;">
+                            <input name="total" id="total" class="form-control" type="number"style="width: 210px;" value="0" readonly>
                         </div>
                     </div>
                 </div>
@@ -311,56 +301,79 @@
             $("#wrapper").css("display", "none");
         });
     });
-    // function disable_option1() {
-    //     document.getElementById("ukuran").disabled = false;
-    //     document.getElementById("volume").disabled = true;
-    //     document.getElementById("berat").disabled = true;
-    //     document.getElementById("option-2").checked = false;
-    //     document.getElementById("option-3").checked = false;
-    // }
-    document.getElementById("volume").disabled = true;
+    document.getElementById("volume").readOnly = true;
 
     function disable_option2() {
-        // document.getElementById("ukuran").disabled = true;
-        document.getElementById("volume").disabled = false;
-        document.getElementById("berat").disabled = true;
-        document.getElementById("volume").value = "";
+        document.getElementById("volume").readOnly = false;
+        document.getElementById("berat").readOnly = true;
+        document.getElementById("berat").value = "0";
+        document.getElementById("volume").value = "0";
         document.getElementById("option").value = "volume";
         document.getElementById("option1").checked = false;
-        // document.getElementById("option-3").checked = false;
+        total_harga();
     }
     function disable_option1() {
-        // document.getElementById("ukuran").disabled = true;
-        document.getElementById("volume").disabled = true;
-        document.getElementById("berat").disabled = false;
-        document.getElementById("berat").value = "";
+        document.getElementById("volume").readOnly = true;
+        document.getElementById("berat").readOnly = false;
+        document.getElementById("berat").value = "0";
+        document.getElementById("volume").value = "0";
         document.getElementById("option").value = "berat";
-        // document.getElementById("option-1").checked = false;
         document.getElementById("option2").checked = false;
+        total_harga();
     }
 
+    //jenis_harga
+    function choose_harga(){
+        var arrJenis = $("#jenisharga").val().split(",");
+        document.getElementById("harga").value = arrJenis[1];
+        // document.getElementById("jenis").value = arrJenis[0];
+        total_harga();
+    }
+
+    //nama
     $("#wrapper").css("display", "none");
 
     $("#user").on("input", function(){
-        // Print entered value in a div box
-        // $("#result").text($(this).val());
         if($("#user").val()==""){
             $("#wrapper").css("display", "none");
         }else{
             $("#wrapper").css("display", "block");
         }
     });
-    $("#hargatambahan").on("input", function(){
-        var hargatambahan = $("#hargatambahan").val();
-        var hrgtam = Number(hargatambahan);
-        var temphrg = hargatambahan.substring(0, hargatambahan.length - 1);
-        if(isNaN(hrgtam)){
-            // alert(temphrg);
-            document.getElementById("hargatambahan").value = "" + temphrg;
-        }else{
-            document.getElementById("hargatambahan").value = "" + hrgtam;
-        }
-        // alert(Number($("#hargatambahan").val()));
-    });
 
+    //auto_gen angka
+    $("#hargatambahan").on("input", function(){
+        change_number("hargatambahan");
+        total_harga();
+    });
+    $("#berat").on("input", function(){
+        change_number("berat");
+        total_harga();
+    });
+    $("#volume").on("input", function(){
+        change_number("volume");
+        total_harga();
+    })
+    $("#harga").on("input", function(){
+        change_number("harga");
+        total_harga();
+    })
+
+    function change_number(direct){
+        var temp = $("#" +direct).val();
+        var changer = Number(temp);
+        document.getElementById(direct).value = "" + changer;
+    }
+
+    function total_harga(){
+        var berat = 0;
+        if(document.getElementById("option1").checked == true){
+            berat = Number(document.getElementById("berat").value);
+        }else if(document.getElementById("option2").checked == true){
+            berat = Number(document.getElementById("volume").value);
+        }
+        var harga = Number(document.getElementById("harga").value);
+        var tambahan = Number(document.getElementById("hargatambahan").value);
+        document.getElementById("total").value = berat * harga + tambahan;
+    }
 </script>
