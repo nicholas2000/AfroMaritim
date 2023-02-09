@@ -86,12 +86,10 @@
         color: #ffffff;
         line-height: 23px;
     }
+
 </style>
 
-
 <body>
-
-
         <section class="order-form m-4">
             <div class="container pt-4">
                 <div class="container">
@@ -100,7 +98,6 @@
                         <hr class="mt" />
                     </div>
                     <br>
-
 
                     <div class="col-12">
                         <a href="{{ url('/tcustomer') }}"><button style="float: right;" type="button"
@@ -179,8 +176,6 @@
                                 </tr>
                                 <?php $ctr++; ?>
                             @endforeach
-
-
                         </table>
                     </div>
 
@@ -273,9 +268,9 @@
 
                                             <label style="margin-left: 40px;" >Status Hutang </label>
                                             <div style="display: flex;width: 30px;height: 30px;" >
-                                                <input type="radio" style="margin-top: -10px;margin-left: 40px;" name="status_hutang" value="On" onclick="show1();"/>
+                                                <input type="radio" style="margin-top: -10px;margin-left: 40px;" name="status_hutang" id="On" value="On" onclick="show1();"/>
                                                 Aktif
-                                                <input type="radio" style="margin-top: -10px;margin-left: 10px;" name="status_hutang" value = "Off"onclick="show2();" />
+                                                <input type="radio" style="margin-top: -10px;margin-left: 10px;" name="status_hutang" id="Off" value="Off" onclick="show2();" />
                                                 Tidak
                                             </div>
                                             <div id="div1">
@@ -333,11 +328,13 @@
         }else{
             $("[name='status']").val("Tidak Kena Pajak");
         }
-        // if(jArray[id]['status_hutang']=="Off"){
-        //     $("[name='status_hutang']"):checked="false";
-        // }else{
-        //     $("[name='status_hutang']"):checked="true";
-        // }
+        if(jArray[id]['status_hutang']=="Off"){
+            document.getElementById("Off").checked = true;
+            document.getElementById('div1').style.display = 'none';
+        }else{
+            document.getElementById("On").checked = true;
+            document.getElementById('div1').style.display = 'block';
+        }
 
     }
     function show1() {
