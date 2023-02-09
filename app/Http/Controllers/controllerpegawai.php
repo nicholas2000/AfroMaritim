@@ -11,8 +11,9 @@ class controllerpegawai extends Controller
 {
     public function vmpegawai()
     {
-        $param['arrPegawai']=modelpegawai::get();
-        return view('admin.mPegawai',$param);
+        $arrPegawai=modelpegawai::all();
+        $cabang = Cabang::all();
+        return view('admin.mPegawai',compact('arrPegawai','cabang'));
     }
 
     public function vfmpegawai()
@@ -82,10 +83,20 @@ class controllerpegawai extends Controller
         return redirect("/masterPegawai");
     }
 
-    public function deletepegawai($id_pegawai)
+    public function deletepegawai($id)
     {
-        modelpegawai::where('id_pegawai',$id_pegawai)->delete();
-        return redirect('/masterPegawai');
+        $pegawai = modelpegawai::withTrashed()->find($id);
+        if($pegawai->trashed()){
+            $result = $pegawai->restore();
+        }else{
+            $result = $pegawai->delete();
+        }
+
+        if ($result) {
+            return redirect('/masterPegawai');
+        } else {
+            return redirect('/masterPegawai');
+        }
     }
     public function updatepegawai()
     {

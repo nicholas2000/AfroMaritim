@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Cabang;
 use App\Models\Kompetitor;
 use Illuminate\Http\Request;
 
@@ -9,8 +10,8 @@ class KompetitorController extends Controller
 {
     public function show()
     {
-        $param['arrKompetitor']=Kompetitor::get();
-        return view('admin.mKompetitor',$param);
+        $arrKompetitor=Kompetitor::all();
+        return view('admin.mKompetitor',compact('arrKompetitor'));
     }
 
     public function doAdd(Request $req)
@@ -81,5 +82,22 @@ class KompetitorController extends Controller
         ]);
 
         return redirect('/masterKompetitor');
+    }
+
+    public function delete($id)
+    {
+
+        $kompetitor = Kompetitor::withTrashed()->find($id);
+        if($kompetitor->trashed()){
+            $result = $kompetitor->restore();
+        }else{
+            $result = $kompetitor->delete();
+        }
+
+        if ($result) {
+            return redirect('/masterKompetitor');
+        } else {
+            return redirect('/masterKompetitor');
+        }
     }
 }

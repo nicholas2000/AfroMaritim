@@ -12,7 +12,7 @@ class Kompetitor extends Model
     use SoftDeletes;
     protected $table = "master_tkompetitor";
     protected $primaryKey = "id_kompetitor";
-    public $timestamps = false;
+    public $timestamps = true;
     protected $fillable = [
         'id_kompetitor',
         'nama_kompetitor',

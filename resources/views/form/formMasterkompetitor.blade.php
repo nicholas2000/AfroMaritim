@@ -49,9 +49,17 @@
                                 <th scope="col"> <center>{{$prm->email_kompetitor}}</center> </th>
                                 <th scope="col"> <center>{{$prm->nohp_kompetitor}}</center> </th>
                                 <th scope="col">
-                                    <center>
-                                        <button type="button" name=""  class="btn btn"><i class="fa fa-pencil-alt"></i></button>
-                                        <button style="margin-left: 2%" name="" type="button" class="btn btn-danger"><i class="fa fa-trash"></i></button>
+                                    <center style="display: flex;">
+                                        <button style="height: 29px;" class="btn" id="btnedit" data-toggle="modal"
+                                            data-target="#myModal" onclick="btnedit({{ $ctr - 1 }})"><i
+                                                class="fa fa-pencil-alt"></i></button>
+
+                                        <form method="post"
+                                            action="{{ url('masterKompetitor/delete/' . $prm->id_kompetitor) }}">
+                                            @csrf
+                                            <button type="submit" class="btn btn-danger"><i
+                                                    class="fa fa-trash"></i></button>
+                                        </form>
                                     </center>
                                 </th>
                             </tr>

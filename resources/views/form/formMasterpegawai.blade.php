@@ -72,11 +72,10 @@
                                     </th>
                                     <th scope="col">
                                         <center style="display: flex;">
-                                            <form action="{{ url('/masterCustomer') }}" method="">
-                                                @csrf
-                                                <center><button style="margin-left: 40%;" name=""type="submit" class="btn btn"><i class="fa fa-pencil-alt"></i></button></center>
-                                            </form>
-                                            <form method="post"
+                                            <button style="height: 29px;" class="btn" id="btnedit" data-toggle="modal"
+                                            data-target="#myModal" onclick="btnedit({{ $ctr - 1 }})"><i
+                                                class="fa fa-pencil-alt"></i></button>
+                                        <form method="post"
                                         action="{{ url('masterPegawai/delete/' . $prm->id_pegawai) }}">
                                         @csrf
                                         <button style="margin-left: 80%;" type="submit" class="btn btn-danger"><i class="fa fa-trash"></i></button>
