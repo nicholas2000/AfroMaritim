@@ -12,9 +12,27 @@ MySQL - 10.4.27-MariaDB : Database - db_afromaritim
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
-CREATE DATABASE /*!32312 IF NOT EXISTS*/`db_afromaritim` /*!40100 DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci */;
+CREATE DATABASE /*!32312 IF NOT EXISTS*/`db_afromaritim` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci */;
 
 USE `db_afromaritim`;
+
+/*Table structure for table `failed_jobs` */
+
+DROP TABLE IF EXISTS `failed_jobs`;
+
+CREATE TABLE `failed_jobs` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `uuid` varchar(255) NOT NULL,
+  `connection` text NOT NULL,
+  `queue` text NOT NULL,
+  `payload` longtext NOT NULL,
+  `exception` longtext NOT NULL,
+  `failed_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `failed_jobs_uuid_unique` (`uuid`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+/*Data for the table `failed_jobs` */
 
 /*Table structure for table `master_jabatan` */
 
@@ -40,21 +58,21 @@ CREATE TABLE `master_tcabang` (
   `alamat_cabang` varchar(255) NOT NULL,
   `provinsi_cabang` varchar(255) NOT NULL,
   `kota_cabang` varchar(255) NOT NULL,
-  `kecamatan_cabang` varchar(255) NOT NULL,
-  `kelurahan_cabang` varchar(255) NOT NULL,
   `kodepos_cabang` varchar(255) NOT NULL,
   `telpon_cabang` varchar(255) NOT NULL,
   `gmaps_cabang` varchar(255) NOT NULL,
   `email_cabang` varchar(255) NOT NULL,
-  `status_cabang` varchar(2) NOT NULL,
+  `status_cabang` varchar(255) NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `deleted_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id_cabang`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 /*Data for the table `master_tcabang` */
 
-insert  into `master_tcabang`(`id_cabang`,`nama_cabang`,`jum_cabang`,`alamat_cabang`,`provinsi_cabang`,`kota_cabang`,`kecamatan_cabang`,`kelurahan_cabang`,`kodepos_cabang`,`telpon_cabang`,`gmaps_cabang`,`email_cabang`,`status_cabang`) values 
-('C001','CabangSby','4','Ngagel Jaya no 3','Jawa Timur','Surabaya','Sidoarjo','Kediri','34234','34534534534','https://afrotransmaritim.co.id/','admi5n@gmail.com','1'),
-('C002','CabangSda','2','Lontar Raya 2','Jawa Barat','Surabaya','Sidoarjo','Batu','34234','43534534534','https://afrotransmaritim.co.id/','admi5n@gmail.com','1');
+insert  into `master_tcabang`(`id_cabang`,`nama_cabang`,`jum_cabang`,`alamat_cabang`,`provinsi_cabang`,`kota_cabang`,`kodepos_cabang`,`telpon_cabang`,`gmaps_cabang`,`email_cabang`,`status_cabang`,`created_at`,`updated_at`,`deleted_at`) values 
+('C001','CabangSba','4','Ngagel Jaya no 3','Jawa Timur','Surabaya','3334534','3434545','https://afrotransmaritim.co.id/','jeffreyadrian27@gmail.com','1','2023-02-08 15:40:52','2023-02-08 15:43:55','2023-02-08 15:43:55');
 
 /*Table structure for table `master_tcustomer` */
 
@@ -73,36 +91,19 @@ CREATE TABLE `master_tcustomer` (
   `kode_pos` varchar(255) NOT NULL,
   `telpon` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
-  `pajak` varchar(255) DEFAULT NULL,
-  `status_hutang` varchar(255) DEFAULT NULL,
-  `total_hutang` varchar(255) DEFAULT NULL,
-  `batas_pembayaran` varchar(255) DEFAULT NULL,
-  `no_rekening` varchar(255) DEFAULT NULL,
-  `metode_pembayaran` varchar(255) DEFAULT NULL,
-  PRIMARY KEY (`id_customer`),
-  KEY `fk_customer` (`id_cabang`),
-  CONSTRAINT `fk_customer` FOREIGN KEY (`id_cabang`) REFERENCES `master_tcabang` (`id_cabang`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  `pajak` varchar(255) NOT NULL,
+  `status_hutang` varchar(255) NOT NULL,
+  `total_hutang` varchar(255) NOT NULL,
+  `batas_pembayaran` varchar(255) NOT NULL,
+  `no_rekening` varchar(255) NOT NULL,
+  `metode_pembayaran` varchar(255) NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `deleted_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id_customer`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 /*Data for the table `master_tcustomer` */
-
-insert  into `master_tcustomer`(`id_customer`,`id_cabang`,`nama_customer`,`npwp`,`jalan`,`provinsi`,`kota`,`kecamatan`,`kelurahan`,`kode_pos`,`telpon`,`email`,`pajak`,`status_hutang`,`total_hutang`,`batas_pembayaran`,`no_rekening`,`metode_pembayaran`) values 
-('CU003','C001','aku','23423','a','Jawa Barat','Bandung','Malang','Kediri','3423423','3434545','admin@gmail.com','0.02','Off',NULL,NULL,NULL,NULL),
-('CU004','C001','Gradi','1234','Ngagel Jaya TImur','Jawa Timur','Bandung','Sidoarjo','Batu','601','08951111','teje@gmail.com','0.011',NULL,NULL,NULL,NULL,NULL),
-('CU005','C001','Godamte','1111','Ngagel Jaya TImur','Jawa Timur','Surabaya','Sidoarjo','Blitar','602','08951112','godamte1@gmail.com','0.02',NULL,NULL,NULL,NULL,NULL);
-
-/*Table structure for table `master_tjenis` */
-
-DROP TABLE IF EXISTS `master_tjenis`;
-
-CREATE TABLE `master_tjenis` (
-  `type` varchar(255) NOT NULL,
-  `jenis_harga` varchar(255) DEFAULT NULL,
-  `nominal` varchar(255) DEFAULT NULL,
-  PRIMARY KEY (`type`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
-
-/*Data for the table `master_tjenis` */
 
 /*Table structure for table `master_tkompetitor` */
 
@@ -124,13 +125,13 @@ CREATE TABLE `master_tkompetitor` (
   `rute_kompetitor` varchar(255) NOT NULL,
   `namabank_kompetitor` varchar(255) NOT NULL,
   `norek_kompetitor` varchar(255) NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `deleted_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id_kompetitor`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 /*Data for the table `master_tkompetitor` */
-
-insert  into `master_tkompetitor`(`id_kompetitor`,`nama_kompetitor`,`npwp_kompetitor`,`alamat_kompetitor`,`provinsi_kompetitor`,`kota_kompetitor`,`kecamatan_kompetitor`,`kelurahan_kompetitor`,`kodepos_kompetitor`,`nohp_kompetitor`,`telp_kompetitor`,`email_kompetitor`,`rute_kompetitor`,`namabank_kompetitor`,`norek_kompetitor`) values 
-('K001','Dono','12312312','Candi tempel no 5','Jawa Timur','Bandung','Sidoarjo','Blitar','3334534','234234','3434545','admi5n@gmail.com','Jalan Tengah','BCA','2234234234');
 
 /*Table structure for table `master_tpegawai` */
 
@@ -144,22 +145,78 @@ CREATE TABLE `master_tpegawai` (
   `alamat_pegawai` varchar(255) NOT NULL,
   `provinsi_pegawai` varchar(255) NOT NULL,
   `kota_pegawai` varchar(255) NOT NULL,
-  `kecamatan_pegawai` varchar(255) NOT NULL,
-  `kelurahan_pegawai` varchar(255) NOT NULL,
   `kodepos_pegawai` varchar(255) NOT NULL,
   `nohp_pegawai` varchar(255) NOT NULL,
   `telp_pegawai` varchar(255) NOT NULL,
   `email_pegawai` varchar(255) NOT NULL,
   `role_pegawai` varchar(255) NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `deleted_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id_pegawai`),
-  KEY `fk_pegawai` (`id_cabang`),
-  CONSTRAINT `fk_pegawai` FOREIGN KEY (`id_cabang`) REFERENCES `master_tcabang` (`id_cabang`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  KEY `id_cabang` (`id_cabang`),
+  CONSTRAINT `master_tpegawai_ibfk_1` FOREIGN KEY (`id_cabang`) REFERENCES `master_tcabang` (`id_cabang`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 /*Data for the table `master_tpegawai` */
 
-insert  into `master_tpegawai`(`id_pegawai`,`id_cabang`,`nama_pegawai`,`npwp_pegawai`,`alamat_pegawai`,`provinsi_pegawai`,`kota_pegawai`,`kecamatan_pegawai`,`kelurahan_pegawai`,`kodepos_pegawai`,`nohp_pegawai`,`telp_pegawai`,`email_pegawai`,`role_pegawai`) values 
-('P001','C001','Jojo','23423','sad','Jawa Timur','Surabaya','Sidoarjo','Blitar','3423423','324234','3434545','admi5n@gmail.com','Super Admin');
+insert  into `master_tpegawai`(`id_pegawai`,`id_cabang`,`nama_pegawai`,`npwp_pegawai`,`alamat_pegawai`,`provinsi_pegawai`,`kota_pegawai`,`kodepos_pegawai`,`nohp_pegawai`,`telp_pegawai`,`email_pegawai`,`role_pegawai`,`created_at`,`updated_at`,`deleted_at`) values 
+('P001','C001','aku','23423','sad','Jawa Timur','Bandung','3334534','324234','3434545','admin@gmail.com','Super Admin','2023-02-08 15:41:29','2023-02-08 15:41:29',NULL);
+
+/*Table structure for table `migrations` */
+
+DROP TABLE IF EXISTS `migrations`;
+
+CREATE TABLE `migrations` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `migration` varchar(255) NOT NULL,
+  `batch` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=93 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+/*Data for the table `migrations` */
+
+insert  into `migrations`(`id`,`migration`,`batch`) values 
+(49,'2023_02_08_140039_cabang_migration',1),
+(88,'2014_10_12_000000_create_users_table',2),
+(89,'2014_10_12_100000_create_password_resets_table',2),
+(90,'2019_08_19_000000_create_failed_jobs_table',2),
+(91,'2019_12_14_000001_create_personal_access_tokens_table',2),
+(92,'2023_02_08_150257_create_migration',2);
+
+/*Table structure for table `password_resets` */
+
+DROP TABLE IF EXISTS `password_resets`;
+
+CREATE TABLE `password_resets` (
+  `email` varchar(255) NOT NULL,
+  `token` varchar(255) NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  KEY `password_resets_email_index` (`email`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+/*Data for the table `password_resets` */
+
+/*Table structure for table `personal_access_tokens` */
+
+DROP TABLE IF EXISTS `personal_access_tokens`;
+
+CREATE TABLE `personal_access_tokens` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `tokenable_type` varchar(255) NOT NULL,
+  `tokenable_id` bigint(20) unsigned NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `token` varchar(64) NOT NULL,
+  `abilities` text DEFAULT NULL,
+  `last_used_at` timestamp NULL DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `personal_access_tokens_token_unique` (`token`),
+  KEY `personal_access_tokens_tokenable_type_tokenable_id_index` (`tokenable_type`,`tokenable_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+/*Data for the table `personal_access_tokens` */
 
 /*Table structure for table `transaksi` */
 
@@ -169,33 +226,46 @@ CREATE TABLE `transaksi` (
   `nomor_transaksi` varchar(255) NOT NULL,
   `id_customer` varchar(255) NOT NULL,
   `nama_barang` varchar(255) NOT NULL,
-  `id_admin` varchar(255) DEFAULT NULL,
-  `volume` varchar(255) DEFAULT NULL,
-  `berat` varchar(255) DEFAULT NULL,
-  `rute` varchar(255) DEFAULT NULL,
+  `id_admin` varchar(255) NOT NULL,
+  `volume` varchar(255) NOT NULL,
+  `berat` varchar(255) NOT NULL,
+  `rute` varchar(255) NOT NULL,
   `harga` varchar(255) NOT NULL,
   `jenis_harga` varchar(255) NOT NULL,
-  `tonase` varchar(255) DEFAULT NULL,
-  `harga_tambahan` varchar(255) DEFAULT NULL,
-  `persentase` varchar(255) DEFAULT NULL,
-  `total_harga` varchar(255) DEFAULT NULL,
-  `nama_kapal` varchar(255) DEFAULT NULL,
-  `nomor_container` varchar(255) DEFAULT NULL,
-  `tanggal_berangkat` date DEFAULT NULL,
-  `nomor_manifest` varchar(255) DEFAULT NULL,
-  `link_foto` varchar(255) DEFAULT NULL,
-  PRIMARY KEY (`nomor_transaksi`),
-  KEY `id_customer` (`id_customer`),
-  CONSTRAINT `transaksi_ibfk_1` FOREIGN KEY (`id_customer`) REFERENCES `master_tcustomer` (`id_customer`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  `tonage` varchar(255) NOT NULL,
+  `harga_tambahan` varchar(255) NOT NULL,
+  `persentase` varchar(255) NOT NULL,
+  `total_harga` varchar(255) NOT NULL,
+  `nama_kapal` varchar(255) NOT NULL,
+  `tanggal_berangkat` date NOT NULL,
+  `nomor_manifest` varchar(255) NOT NULL,
+  `link_foto` varchar(255) NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `deleted_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`nomor_transaksi`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 /*Data for the table `transaksi` */
 
-insert  into `transaksi`(`nomor_transaksi`,`id_customer`,`nama_barang`,`id_admin`,`volume`,`berat`,`rute`,`harga`,`jenis_harga`,`tonase`,`harga_tambahan`,`persentase`,`total_harga`,`nama_kapal`,`nomor_container`,`tanggal_berangkat`,`nomor_manifest`,`link_foto`) values 
-('TC002','CU004','Ayam','admin','10','1','Surabaya-Malang','20000','2','1','10000','10','20000','Hwe Ship','4','2023-02-03','1',NULL),
-('TC003','CU005','a','admin','0','10','Bebas','12100','1','10%','0','10%','10000','Hwe Ship','4','2023-02-15','1',NULL),
-('TC004','CU004','pensil','admin','10',NULL,'Bebas','12100','1','10%','0','10%','10000','Hwe Ship','4','2023-02-16','1',NULL),
-('TC005','CU005','penghapus','admin',NULL,'10','Jalan Tengah','5000','3','10%','0','10%','10000','Kapal Laut','1','2023-02-08',NULL,NULL);
+/*Table structure for table `users` */
+
+DROP TABLE IF EXISTS `users`;
+
+CREATE TABLE `users` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `email_verified_at` timestamp NULL DEFAULT NULL,
+  `password` varchar(255) NOT NULL,
+  `remember_token` varchar(100) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `users_email_unique` (`email`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+/*Data for the table `users` */
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;

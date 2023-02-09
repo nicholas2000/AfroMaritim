@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Customer;
+use App\Models\modelJenisHarga;
 use App\Models\Transaksi;
 use Illuminate\Http\Request;
 
@@ -15,7 +16,8 @@ class TransaksiController extends Controller
     }
     public function showtransaksi(Request $req)
     {
-        return view('admin/mTransaksi');
+        $param['arrJenisHarga']=modelJenisHarga::get();
+        return view('admin/mTransaksi',$param);
     }
 
     public function doAdd(Request $req)
@@ -35,7 +37,6 @@ class TransaksiController extends Controller
                     "hargatambahan" => 'required',
                     "persentase" => 'required',
                     "namakapal" => 'required',
-                    "nocontainer" => 'required',
                     "tglberangkat" => 'required',
                 ],
                 [
@@ -49,7 +50,6 @@ class TransaksiController extends Controller
                     "hargatambahan.required" => 'Harga Tambahan Harus di isi',
                     "persentase.required" => 'Persentase Harus di isi',
                     "namakapal.required" => 'Nama Kapal Harus di isi',
-                    "nocontainer.required" => 'Nomor Container Harus di isi',
                     "tglberangkat.required" => 'Tanggal Berangkat Harus Terisi',
                 ]
             );
@@ -68,7 +68,6 @@ class TransaksiController extends Controller
                     "hargatambahan" => 'required',
                     "persentase" => 'required',
                     "namakapal" => 'required',
-                    "nocontainer" => 'required',
                     "tglberangkat" => 'required',
                 ],
                 [
@@ -82,7 +81,6 @@ class TransaksiController extends Controller
                     "hargatambahan.required" => 'Harga Tambahan Harus di isi',
                     "persentase.required" => 'Persentase Harus di isi',
                     "namakapal.required" => 'Nama Kapal Harus di isi',
-                    "nocontainer.required" => 'Nomor Container Harus di isi',
                     "tglberangkat.required" => 'Tanggal Berangkat Harus Terisi',
                 ]
             );
@@ -117,7 +115,7 @@ class TransaksiController extends Controller
             'rute' =>$req->rute,
             'harga' =>$req->harga,
             'jenis_harga' => $req->jenisharga,
-            'tonase'=>$req->tonage,
+            'tonage'=>$req->tonage,
             'harga_tambahan'=>intval($req->hargatambahan),
             'persentase' =>$req->persentase,
             'total_harga' =>$req->total,

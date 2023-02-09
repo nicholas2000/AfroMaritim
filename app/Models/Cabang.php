@@ -4,12 +4,12 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Cabang extends Model
 {
     use HasFactory;
-    use softDeletes;
-
+    use SoftDeletes;
     protected $table = "master_tcabang";
     protected $primaryKey = "id_cabang";
     public $timestamps = true;
