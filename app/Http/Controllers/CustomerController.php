@@ -10,8 +10,9 @@ class CustomerController extends Controller
 {
     Public function show()
     {
-        $param['arrCustomer']=Customer::get();
-        return view('admin.mCustomer',$param);
+        $arrCustomer=Customer::get();
+        $cabang = Cabang::all();
+        return view('admin.mCustomer',compact('arrCustomer','cabang'));
     }
     public function vfmcustomer()
     {
@@ -179,7 +180,6 @@ class CustomerController extends Controller
                 'kode_pos' => $request->kodepos
             ]);
 
-        dd($result);
         if($result){
             return redirect('/masterCustomer');
         }else{
