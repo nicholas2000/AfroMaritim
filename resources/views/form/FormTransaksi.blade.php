@@ -88,7 +88,7 @@
                                 <br>
                                 <div id="wrapper" onclick="hidden()">
                                     <div class="scrollbar">
-                                        <div class="userList force-overflow"  id="userList" style="width: 210px;"></div>
+                                        <div class="userList force-overflow" id="userList" style="width: 210px;"></div>
                                     </div>
                                 </div>
                                 <div id="result"></div>
@@ -100,7 +100,7 @@
                             Nomor Transaksi :
                         </div>
                         <div class="col-sm">
-                            <input name="kode" class="form-control" type="text" style="width: 210px;" disabled>
+                            <input name="kode" class="form-control" type="text" style="width: 210px;" readonly>
                         </div>
                     </div>
                 </div>
@@ -118,7 +118,7 @@
                             Admin :
                         </div>
                         <div class="col-sm">
-                            <input name="kode" class="form-control" type="text"style="width: 210px;" disabled>
+                            <input name="kode" class="form-control" type="text"style="width: 210px;" readonly>
                         </div>
 
                     </div>
@@ -153,7 +153,7 @@
                             <input type="checkbox" name="option1" id="option1" value="op1" onclick="disable_option1()" checked>
                         </div>
                         <div class="col-sm-3">
-                            <input name="berat" id="berat" class="form-control" type="text"style="width: 210px;" >
+                            <input name="berat" id="berat" class="form-control" type="number"style="width: 210px;" value="0" step=".01">
                         </div>
                         <div class="col-sm-1">
                             Volume :
@@ -162,7 +162,7 @@
                             <input type="checkbox" name="option2" id="option2" value="op2" onclick="disable_option2()">
                         </div>
                         <div class="col-sm-1">
-                            <input name="volume" id="volume" class="form-control" type="text"style="width: 210px;" >
+                            <input name="volume" id="volume" class="form-control" type="number"style="width: 210px;" value="0">
                         </div>
                     </div>
                 </div>
@@ -190,26 +190,25 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-sm-3">
-                            Harga :
-                        </div>
-                        <div class="col-sm">
-                            <input name="harga" class="form-control" type="text"style="width: 210px;" >
-                        </div>
-                        <div class="col-sm-3">
                             Jenis Harga :
                         </div>
                         <div class="col-sm-3">
                             <div class="col-auto">
                                 <select name="jenisharga" class="custom-select" style="font-size:15px;width: 210px;margin-left:-15px;height:40px;"
-                                    id="inlineFormCustomSelect">
+                                    id="jenisharga" onchange="choose_harga()">
+                                    <option value=""></option>
                                     @foreach ($arrJenisHarga as $prm)
-                                    <option value="{{ $prm->nominal }}">{{ $prm->tipe }}</option>
+                                        <option value="{{ $prm->jenis_harga }}">{{ $prm->tipe }}</option>
+                                    @endforeach
                                 </select>
 
                             </div>
-
-                            @endforeach
-
+                        </div>
+                        <div class="col-sm-3">
+                            Harga :
+                        </div>
+                        <div class="col-sm">
+                            <input name="harga" id="harga" class="form-control" type="text"style="width: 210px;" value="0" readonly>
                         </div>
                     </div>
                 </div>
@@ -226,7 +225,7 @@
                             Harga Tambahan :
                         </div>
                         <div class="col-sm">
-                            <input name="hargatambahan" id="hargatambahan" class="form-control" type="text" value="0" style="width: 210px;">
+                            <input name="hargatambahan" id="hargatambahan" class="form-control" type="number" value="0" style="width: 210px;">
                         </div>
                     </div>
                 </div>
@@ -244,7 +243,7 @@
                             Total Harga :
                         </div>
                         <div class="col-sm">
-                            <input name="total" class="form-control" type="text"style="width: 210px;">
+                            <input name="total" id="total" class="form-control" type="number"style="width: 210px;" value="0" readonly>
                         </div>
                     </div>
                 </div>
@@ -318,25 +317,36 @@
     //     document.getElementById("option-2").checked = false;
     //     document.getElementById("option-3").checked = false;
     // }
-    document.getElementById("volume").disabled = true;
+    document.getElementById("volume").readOnly = true;
 
     function disable_option2() {
         // document.getElementById("ukuran").disabled = true;
-        document.getElementById("volume").disabled = false;
-        document.getElementById("berat").disabled = true;
-        document.getElementById("volume").value = "";
+        document.getElementById("volume").readOnly = false;
+        document.getElementById("berat").readOnly = true;
+        document.getElementById("berat").value = "0";
+        document.getElementById("volume").value = "0";
         document.getElementById("option").value = "volume";
         document.getElementById("option1").checked = false;
+        total_harga();
         // document.getElementById("option-3").checked = false;
     }
     function disable_option1() {
         // document.getElementById("ukuran").disabled = true;
-        document.getElementById("volume").disabled = true;
-        document.getElementById("berat").disabled = false;
-        document.getElementById("berat").value = "";
+        document.getElementById("volume").readOnly = true;
+        document.getElementById("berat").readOnly = false;
+        document.getElementById("berat").value = "0";
+        document.getElementById("volume").value = "0";
         document.getElementById("option").value = "berat";
         // document.getElementById("option-1").checked = false;
         document.getElementById("option2").checked = false;
+        total_harga();
+    }
+
+    function choose_harga(){
+        var harga = $("#jenisharga").val();
+        document.getElementById("harga").value = harga;
+        total_harga();
+        // alert(harga);
     }
 
     $("#wrapper").css("display", "none");
@@ -351,16 +361,34 @@
         }
     });
     $("#hargatambahan").on("input", function(){
-        var hargatambahan = $("#hargatambahan").val();
-        var hrgtam = Number(hargatambahan);
-        var temphrg = hargatambahan.substring(0, hargatambahan.length - 1);
-        if(isNaN(hrgtam)){
-            // alert(temphrg);
-            document.getElementById("hargatambahan").value = "" + temphrg;
-        }else{
-            document.getElementById("hargatambahan").value = "" + hrgtam;
-        }
-        // alert(Number($("#hargatambahan").val()));
+        change_number("hargatambahan");
+        total_harga();
     });
+    // if(document.getElementById("option1").checked == true){
+    $("#berat").on("input", function(){
+        change_number("berat");
+        total_harga();
+    });
+    $("#volume").on("input", function(){
+        change_number("volume");
+        total_harga();
+    })
 
+    function change_number(direct){
+        var temp = $("#" +direct).val();
+        var changer = Number(temp);
+        document.getElementById(direct).value = "" + changer;
+    }
+
+    function total_harga(){
+        var berat = 0;
+        if(document.getElementById("option1").checked == true){
+            berat = Number(document.getElementById("berat").value);
+        }else if(document.getElementById("option2").checked == true){
+            berat = Number(document.getElementById("volume").value);
+        }
+        var harga = Number(document.getElementById("harga").value);
+        var tambahan = Number(document.getElementById("hargatambahan").value);
+        document.getElementById("total").value = berat * harga + tambahan;
+    }
 </script>

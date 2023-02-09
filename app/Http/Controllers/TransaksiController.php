@@ -29,7 +29,7 @@ class TransaksiController extends Controller
                 [
                     "namacust" => 'required',
                     "namabarang" => 'required',
-                    "berat"=>'required',
+                    "berat"=>'gt:0',
                     "rute"=>'required',
                     "tonage"=>'required',
                     "harga"=>'required',
@@ -41,24 +41,22 @@ class TransaksiController extends Controller
                 [
                     "namacust.required" => 'Nama Customer Harus di isi',
                     "namabarang.required" => 'Nama Barang Harus di isi',
-                    "berat.required"=>'Berat Harus di isi',
+                    "berat.gt"=>'Berat Harus lebih dari 0',
                     "rute.required"=>'Rute Harus di isi',
                     "tonage.required"=>'Tonage Harus di isi',
-                    "harga.required"=>'Harga Harus di isi',
+                    // "harga.required"=>'Harga Harus di isi',
                     "jenisharga.required" => 'Jenis Harga Harus dipilih',
                     "hargatambahan.required" => 'Harga Tambahan Harus di isi',
                     "persentase.required" => 'Persentase Harus di isi',
                     "tglberangkat.required" => 'Tanggal Berangkat Harus Terisi',
                 ]
             );
-            $volume = "0";
-            $berat = $req->berat;
         }else if($req->option=="volume"){
             $req->validate(
                 [
                     "namacust" => 'required',
                     "namabarang" => 'required',
-                    "volume" => 'required',
+                    "volume" => 'gt:0',
                     "rute"=>'required',
                     "tonage"=>'required',
                     "harga"=>'required',
@@ -70,18 +68,16 @@ class TransaksiController extends Controller
                 [
                     "namacust.required" => 'Nama Customer Harus di isi',
                     "namabarang.required" => 'Nama Barang Harus di isi',
-                    "volume.required"=>'Volume Harus di isi',
+                    "volume.gt"=>'Volume Harus lebih dari 0',
                     "rute.required"=>'Rute Harus di isi',
                     "tonage.required"=>'Tonage Harus di isi',
-                    "harga.required"=>'Harga Harus di isi',
+                    // "harga.required"=>'Harga Harus di isi',
                     "jenisharga.required" => 'Jenis Harga Harus dipilih',
                     "hargatambahan.required" => 'Harga Tambahan Harus di isi',
                     "persentase.required" => 'Persentase Harus di isi',
                     "tglberangkat.required" => 'Tanggal Berangkat Harus Terisi',
                 ]
             );
-            $berat = "0";
-            $volume = $req->volume;
         }
 
 
