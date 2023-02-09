@@ -263,6 +263,33 @@
                                                 <option>Tidak Kena Pajak</option>
                                             </select>
 
+                                            <label style="margin-left: 40px;" >Status Hutang </label>
+                                            <div style="display: flex;width: 30px;height: 30px;" >
+                                                <input type="radio" style="margin-top: -10px;margin-left: 40px;" name="status" value="On" onclick="show1();"/>
+                                                Aktif
+                                                <input type="radio" style="margin-top: -10px;margin-left: 10px;" name="status" value = "Off"onclick="show2();" />
+                                                Tidak
+                                            </div>
+                                            <div id="div1">
+                                                <label style="margin-left: 40px;" >Total Hutang </label>
+                                                <input name="batasanHutang" placeholder="Masukkan Total Hutang" class="form-control" type="text">
+
+                                                <label style="margin-left: 40px;" >Batasan Pembayaran </label>
+                                                <input name="batasPembayaran" onfocus="(this.type='date')" placeholder="Masukkan Batas Waktu Pembayaran"
+                                                class="form-control" type="text">
+
+                                                <label style="margin-left: 40px;" >No Rekening </label>
+                                                <input onkeypress="return onlyNumberKey(event)" name="noRekening" placeholder="Masukkan No Rekening" class="form-control" type="text">
+
+                                                <label style="margin-left: 40px;" >Metode Pembayaran </label>
+                                                <select name="metodePembayaran" style="height:35px"
+                                                class="form-control selectpicker">
+                                                <option value="">Pilih Metode Pembayaran</option>
+                                                <option>Transfer</option>
+                                                <option>Tunai</option>
+                                            </select>
+                                            </div>
+
                                             <input type="submit" value="Ubah" style="background-color: #023e94">
                                         </form>
 
@@ -298,6 +325,19 @@
         }else{
             $("[name='status']").val("Tidak Kena Pajak");
         }
+    }
+    function show1() {
+        document.getElementById('div1').style.display = 'block';
+    }
+
+    function show2() {
+        document.getElementById('div1').style.display = 'none';
+    }
+    function onlyNumberKey(evt) {
+        var ASCIICode = (evt.which) ? evt.which : evt.keyCode
+        if (ASCIICode > 31 && (ASCIICode < 48 || ASCIICode > 57))
+            return false;
+        return true;
     }
     </script>
 

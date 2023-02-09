@@ -20,7 +20,7 @@
         }
 
         .popup form input,
-        .popup form select{
+        .popup form select {
             font-family: "Roboto";
             font-weight: 300;
             font-size: 16px;
@@ -154,7 +154,8 @@
                                     <center style="display: flex;">
 
                                         <button style="height: 29px;" class="btn" id="btnedit" data-toggle="modal"
-                                            data-target="#myModal" onclick="btnedit({{$ctr-1}})"><i class="fa fa-pencil-alt"></i></button>
+                                            data-target="#myModal" onclick="btnedit({{ $ctr - 1 }})"><i
+                                                class="fa fa-pencil-alt"></i></button>
 
                                         <form method="post"
                                             action="{{ url('masterCabang/delete/' . $prm->id_cabang) }}">
@@ -175,14 +176,14 @@
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h4 >Edit Cabang</h4>
+                        <h4>Edit Cabang</h4>
                         <button class="close" type="button" data-dismiss="modal">×</button>
                     </div>
                     <div class="modal-body">
                         <div class="popup">
                             <form action="{{ url('masterCabang/edit/') }}" method="post">
                                 @csrf
-                                <label style="margin-left: 40px;" >Kode</label>
+                                <label style="margin-left: 40px;">Kode</label>
                                 <input name="kode" class="form-control" type="text" readonly>
 
                                 <label style="margin-left: 40px;">Nama</label>
@@ -190,12 +191,12 @@
 
                                 <label style="margin-left: 40px;">Jumlah Pegawai</label>
                                 <input onkeypress="return onlyNumberKey(event)" name="jum"
-                                placeholder="Masukkan Jumlah Pegawai" class="form-control" type="text">
+                                    placeholder="Masukkan Jumlah Pegawai" class="form-control" type="text">
 
                                 <label style="margin-left: 40px;">Alamat</label>
                                 <input name="alamat" placeholder="Masukkan Alamat" class="form-control" type="text">
 
-                                <label style="margin-left: 40px;" >Provinsi</label>
+                                <label style="margin-left: 40px;">Provinsi</label>
                                 <select name="provinsi" style="height:35px" class="form-control selectpicker">
                                     <option value="">Pilih Provinsi</option>
                                     <option>Jawa Timur</option>
@@ -204,7 +205,7 @@
                                     <option>Jakarta Pusat</option>
                                 </select>
 
-                                <label style="margin-left: 40px;" >Kota</label>
+                                <label style="margin-left: 40px;">Kota</label>
                                 <select name="kota" style="height:35px" class="form-control selectpicker">
                                     <option value="">Pilih Kota</option>
                                     <option>Surabaya</option>
@@ -213,21 +214,23 @@
                                     <option>Batu</option>
                                 </select>
 
-                                <label style="margin-left: 40px;" >Kode Pos</label>
+                                <label style="margin-left: 40px;">Kode Pos</label>
                                 <input onkeypress="return onlyNumberKey(event)" name="kodepos"
-                                placeholder="Masukkan Kode Pos" class="form-control" type="text">
+                                    placeholder="Masukkan Kode Pos" class="form-control" type="text">
 
-                                <label style="margin-left: 40px;" >Telpon</label>
+                                <label style="margin-left: 40px;">Telpon</label>
                                 <input onkeypress="return onlyNumberKey(event)" name="telpon"
-                                placeholder="Masukkan Nomer Telpon" class="form-control" type="telp">
+                                    placeholder="Masukkan Nomer Telpon" class="form-control" type="telp">
 
-                                <label style="margin-left: 40px;" >Google Maps</label>
-                                <input name="gmaps" placeholder="Masukkan Link" class="form-control" type="text">
+                                <label style="margin-left: 40px;">Google Maps</label>
+                                <input name="gmaps" placeholder="Masukkan Link" class="form-control"
+                                    type="text">
 
-                                <label style="margin-left: 40px;" >E-mail</label>
-                                <input name="email" placeholder="Masukkan E-Mail" class="form-control" type="email">
+                                <label style="margin-left: 40px;">E-mail</label>
+                                <input name="email" placeholder="Masukkan E-Mail" class="form-control"
+                                    type="email">
 
-                                <label style="margin-left: 40px;" >Status</label>
+                                <label style="margin-left: 40px;">Status</label>
                                 <select name="status" style="height:35px" class="form-control selectpicker">
                                     <option value="">Pilih Status</option>
                                     <option>Aktif</option>
@@ -245,26 +248,33 @@
     </section>
 
 </body>
-    <script>
+<script>
+    function btnedit(id) {
 
-        function btnedit(id) {
-
-            var jArray = <?php echo json_encode($arrCabang); ?>;
-            $("[name='kode']").val(jArray[id]['id_cabang']);
-            $("[name='nama']").val(jArray[id]['nama_cabang']);
-            $("[name='jum']").val(jArray[id]['jum_cabang']);
-            $("[name='alamat']").val(jArray[id]['alamat_cabang']);
-            $("[name='provinsi']").val(jArray[id]['provinsi_cabang']);
-            $("[name='kota']").val(jArray[id]['kota_cabang']);
-            $("[name='kodepos']").val(jArray[id]['kodepos_cabang']);
-            $("[name='telpon']").val(jArray[id]['telpon_cabang']);
-            $("[name='gmaps']").val(jArray[id]['gmaps_cabang']);
-            $("[name='email']").val(jArray[id]['email_cabang']);
-            if(jArray[id]['status_cabang']==1){
-                $("[name='status']").val("Aktif");
-            }else{
-                $("[name='status']").val("Tidak Aktif");
-            }
+        var jArray = <?php echo json_encode($arrCabang); ?>;
+        $("[name='kode']").val(jArray[id]['id_cabang']);
+        $("[name='nama']").val(jArray[id]['nama_cabang']);
+        $("[name='jum']").val(jArray[id]['jum_cabang']);
+        $("[name='alamat']").val(jArray[id]['alamat_cabang']);
+        $("[name='provinsi']").val(jArray[id]['provinsi_cabang']);
+        $("[name='kota']").val(jArray[id]['kota_cabang']);
+        $("[name='kodepos']").val(jArray[id]['kodepos_cabang']);
+        $("[name='telpon']").val(jArray[id]['telpon_cabang']);
+        $("[name='gmaps']").val(jArray[id]['gmaps_cabang']);
+        $("[name='email']").val(jArray[id]['email_cabang']);
+        if (jArray[id]['status_cabang'] == 1) {
+            $("[name='status']").val("Aktif");
+        } else {
+            $("[name='status']").val("Tidak Aktif");
         }
-        </script>
+    }
+
+    function onlyNumberKey(evt) {
+        var ASCIICode = (evt.which) ? evt.which : evt.keyCode
+        if (ASCIICode > 31 && (ASCIICode < 48 || ASCIICode > 57))
+            return false;
+        return true;
+    }
+</script>
+
 </html>

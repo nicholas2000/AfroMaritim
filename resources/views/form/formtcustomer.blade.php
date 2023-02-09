@@ -27,10 +27,10 @@
 <body>
     <div class="container">
         @if ($errors->any())
-        @foreach ($errors->all() as $err)
-            <div class="alert alert-danger">{{ $err }}</div>
-        @endforeach
-    @endif
+            @foreach ($errors->all() as $err)
+                <div class="alert alert-danger">{{ $err }}</div>
+            @endforeach
+        @endif
         <fieldset>
 
             <!-- Form Add Customer -->
@@ -38,7 +38,7 @@
                 <h2><b>Tambah Customer</b></h2>
             </legend><br>
 
-            <form class="form-horizontal" action="{{url('/doAddcustomer')}}" method="post" id="contact_form">
+            <form class="form-horizontal" action="{{ url('/doAddcustomer') }}" method="post" id="contact_form">
                 @csrf
                 <!--input code-->
                 <div class="form-group">
@@ -54,18 +54,19 @@
 
                 <div class="form-group">
                     <label class="col-md-1 control-label">Cabang</label>
-                      <div class="col-md-10 selectContainer">
-                          <div class="input-group">
-                              <span style="background-color: #023e94" class="input-group-addon"><i style="color: white"  class="glyphicon glyphicon-map-marker"></i></span>
-                              <select name="cabang" style="height:35px" class="form-control selectpicker">
-                                  <option value="">Pilih Cabang</option>
-                                  @foreach ($cabang as $prm)
-                                        <option value="{{$prm->id_cabang}}">{{$prm->nama_cabang}}</option>
-                                  @endforeach
-                              </select>
-                          </div>
-                      </div>
-                  </div>
+                    <div class="col-md-10 selectContainer">
+                        <div class="input-group">
+                            <span style="background-color: #023e94" class="input-group-addon"><i style="color: white"
+                                    class="glyphicon glyphicon-map-marker"></i></span>
+                            <select name="cabang" style="height:35px" class="form-control selectpicker">
+                                <option value="">Pilih Cabang</option>
+                                @foreach ($cabang as $prm)
+                                    <option value="{{ $prm->id_cabang }}">{{ $prm->nama_cabang }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                    </div>
+                </div>
 
                 <!-- input name-->
 
@@ -219,10 +220,10 @@
                 <div class="form-group">
                     <label class="col-md-1 control-label">Pajak</label>
                     <div class="col-md-10 inputGroupContainer">
-                        <div  class="input-group" style="margin-top: 10px;" >
-                            <input type="radio" name="pajak" value="pph23"/>
+                        <div class="input-group" style="margin-top: 10px;">
+                            <input type="radio" name="pajak" value="pph23" />
                             Kena Pajak
-                            <input type="radio" name="pajak" value = "pajak1,1"/>
+                            <input type="radio" name="pajak" value="pajak1,1" />
                             Tidak Kena Pajak
                         </div>
                     </div>
@@ -230,10 +231,10 @@
                 <div class="form-group">
                     <label class="col-md-1 control-label">Status Hutang</label>
                     <div class="col-md-10 inputGroupContainer">
-                        <div class="input-group" style="margin-top: 12px;" >
-                            <input type="radio" name="status" value="On" onclick="show1();"/>
+                        <div class="input-group" style="margin-top: 12px;">
+                            <input type="radio" name="status" value="On" onclick="show1();" />
                             Aktif
-                            <input type="radio" name="status" value = "Off"onclick="show2();" />
+                            <input type="radio" name="status" value="Off" onclick="show2();" />
                             Tidak
                         </div>
                     </div>
@@ -259,8 +260,9 @@
                             <div class="input-group">
                                 <span style="background-color: #023e94" class="input-group-addon"><i
                                         style="color: white" class="fa fa-calendar"></i></span>
-                                <input name="batasPembayaran" onfocus="(this.type='date')" placeholder="Masukkan Batas Waktu Pembayaran"
-                                    class="form-control" type="text">
+                                <input name="batasPembayaran" onfocus="(this.type='date')"
+                                    placeholder="Masukkan Batas Waktu Pembayaran" class="form-control"
+                                    type="text">
                             </div>
                         </div>
                     </div>
@@ -299,12 +301,12 @@
                 <div class="form-group">
                     <label class="col-md-4 control-label"></label>
                     <div class="col-md-4"><br>
-                      <center><button type="submit" class="btn btn-primary">Tambah</button></center>
+                        <center><button type="submit" class="btn btn-primary">Tambah</button></center>
                     </div>
                 </div>
             </form>
 
-            </fieldset>
+        </fieldset>
     </div>
     </div><!-- /.container -->
 </body>
