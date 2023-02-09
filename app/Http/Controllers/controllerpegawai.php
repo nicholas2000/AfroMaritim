@@ -11,29 +11,29 @@ class controllerpegawai extends Controller
 {
     public function vmpegawai()
     {
-        $arrPegawai=modelpegawai::all();
+        $arrPegawai = modelpegawai::all();
         $cabang = Cabang::all();
-        return view('admin.mPegawai',compact('arrPegawai','cabang'));
+        return view('admin.mPegawai', compact('arrPegawai', 'cabang'));
     }
 
     public function vfmpegawai()
     {
         $cabang = Cabang::all();
-        return view('admin.mTpegawai',compact('cabang'));
+        return view('admin.mTpegawai', compact('cabang'));
     }
 
     public function dovmtpegawai(Request $request)
     {
         $pegawai = modelpegawai::withTrashed()->get();
         $ctr = 1;
-        foreach($pegawai as $p){
+        foreach ($pegawai as $p) {
             $ctr = intval(substr($p->id_pegawai, 2)) + 1;
         }
-        if($ctr<10){
+        if ($ctr < 10) {
             $kode = "P00{$ctr}";
-        }else if($ctr<100){
+        } else if ($ctr < 100) {
             $kode = "P0{$ctr}";
-        }else{
+        } else {
             $kode = "P{$ctr}";
         }
 
@@ -44,9 +44,9 @@ class controllerpegawai extends Controller
                 "npwp" => 'required',
                 "jalan" => 'required',
                 "kodepos" => 'required',
-                "provinsi"=>'required',
-                "kota"=>'required',
-                "kodepos"=>'required',
+                "provinsi" => 'required',
+                "kota" => 'required',
+                "kodepos" => 'required',
                 "hp" => 'required',
                 "telpon" => 'required',
                 "email" => 'required',
@@ -86,9 +86,9 @@ class controllerpegawai extends Controller
     public function deletepegawai($id)
     {
         $pegawai = modelpegawai::withTrashed()->find($id);
-        if($pegawai->trashed()){
+        if ($pegawai->trashed()) {
             $result = $pegawai->restore();
-        }else{
+        } else {
             $result = $pegawai->delete();
         }
 
@@ -98,8 +98,32 @@ class controllerpegawai extends Controller
             return redirect('/masterPegawai');
         }
     }
-    public function updatepegawai()
+    public function updatepegawai(Request $request)
     {
-
+        $status = 0;
+        if ($request->status == "Aktif") {
+            $status = 1;
+        } else {
+            $status = 0;
+        }
+        $idpegawaiterpilih = modelpegawai::withTrashed()->find($request->kode);
+        $result = $idpegawaiterpilih->update([
+            // 'id_cabang' => $request->cabang,
+            'nama_pegawai' => $request->nama,
+            'npwp_pegawai' => $request->npwp,
+            'alamat_pegawai' => $request->alamat,
+            'provinsi_pegawai' => $request->provinsi,
+            'kota_pegawai' => $request->kota,
+            'kodepos_pegawai' => $request->kodepos,
+            'nohp_pegawai' => $request->hp,
+            'telp_pegawai' => $request->telpon,
+            'email_pegawai' => $request->email,
+            'role_pegawai' => $request->role
+        ]);
+        if ($result) {
+            return redirect('/masterPegawai');
+        } else {
+            return redirect('/masterPegawai');
+        }
     }
 }

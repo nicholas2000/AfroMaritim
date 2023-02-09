@@ -196,7 +196,7 @@
                             <input name="harga" class="form-control" type="text"style="width: 210px;" >
                         </div>
                         <div class="col-sm-3">
-                            Jenis Harga :
+                            Jenis Harga :   
                         </div>
                         <div class="col-sm-3">
                             <div class="col-auto">
