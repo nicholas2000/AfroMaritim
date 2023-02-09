@@ -9,10 +9,10 @@ class modelJenisHarga extends Model
 {
     use HasFactory;
     protected $table = "master_tjenis";
-    protected $primaryKey = "type";
+    protected $primaryKey = "tipe";
     public $timestamps = false;
     protected $fillable = [
-        'type',
+        'tipe',
         'jenis_harga',
         'nominal'
     ];

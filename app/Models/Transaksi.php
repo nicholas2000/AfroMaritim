@@ -28,7 +28,7 @@ class Transaksi extends Model
         'persentase',
         'total_harga',
         'nama_kapal',
-        'nomor_container',
+        'no_container',
         'tanggal_berangkat',
         'nomor_manifest',
         'link_foto'

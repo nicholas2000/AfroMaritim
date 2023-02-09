@@ -36,7 +36,6 @@ class TransaksiController extends Controller
                     "jenisharga" => 'required',
                     "hargatambahan" => 'required',
                     "persentase" => 'required',
-                    "namakapal" => 'required',
                     "tglberangkat" => 'required',
                 ],
                 [
@@ -49,7 +48,6 @@ class TransaksiController extends Controller
                     "jenisharga.required" => 'Jenis Harga Harus dipilih',
                     "hargatambahan.required" => 'Harga Tambahan Harus di isi',
                     "persentase.required" => 'Persentase Harus di isi',
-                    "namakapal.required" => 'Nama Kapal Harus di isi',
                     "tglberangkat.required" => 'Tanggal Berangkat Harus Terisi',
                 ]
             );
@@ -67,7 +65,6 @@ class TransaksiController extends Controller
                     "jenisharga" => 'required',
                     "hargatambahan" => 'required',
                     "persentase" => 'required',
-                    "namakapal" => 'required',
                     "tglberangkat" => 'required',
                 ],
                 [
@@ -80,7 +77,6 @@ class TransaksiController extends Controller
                     "jenisharga.required" => 'Jenis Harga Harus dipilih',
                     "hargatambahan.required" => 'Harga Tambahan Harus di isi',
                     "persentase.required" => 'Persentase Harus di isi',
-                    "namakapal.required" => 'Nama Kapal Harus di isi',
                     "tglberangkat.required" => 'Tanggal Berangkat Harus Terisi',
                 ]
             );
@@ -120,7 +116,7 @@ class TransaksiController extends Controller
             'persentase' =>$req->persentase,
             'total_harga' =>$req->total,
             'nama_kapal' =>$req->namakapal,
-            'nomor_container' =>$req->nocontainer,
+            'no_container' =>$req->nocontainer,
             'tanggal_berangkat' =>$req->tglberangkat,
         ]);
         return redirect("/masterTransaksi");

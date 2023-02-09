@@ -15,7 +15,7 @@ class controllerJenisHarga extends Controller
 
         $jenisharga = modelJenisHarga::all();
         modelJenisHarga::create([
-        'type'=>$request->tipe,
+        'tipe'=>$request->tipe,
         'jenis_harga'=>$request->jenisharga,
         'nominal'=>$request->nominal
 

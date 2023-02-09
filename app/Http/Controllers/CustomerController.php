@@ -160,4 +160,31 @@ class CustomerController extends Controller
         ]);
         return redirect("/masterCustomer");
     }
+    public function doEdit(Request $request)
+    {
+        $status = 0;
+        if($request->status=="Aktif"){
+            $status =1;
+        }else{
+            $status =0;
+        }
+        $cabangTerpilih = Customer::withTrashed()->find($request->kode);
+        $result = $cabangTerpilih->update([
+                'cabang' => $request->cabang,
+                'nama' => $request->nama,
+                'alamat' => $request->alamat,
+                'provinsi' => $request->provinsi,
+                'kota' => $request->kota,
+                'kecamatan' => $request->kecamatan,
+                'kodepos' => $request->kodepos,
+                'telpon' => $request->telpon,
+                'email' => $request->email,
+            ]);
+        if($result){
+            return redirect('/masterCabang');
+        }else{
+            return redirect('/masterCabang');
+        }
+    }
+
 }

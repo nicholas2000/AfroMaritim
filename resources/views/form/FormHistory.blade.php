@@ -182,7 +182,7 @@
                                     <center>{{ $prm->nama_kapal }}</center>
                                 </th>
                                 <th scope="col">
-                                    <center>{{ $prm->nomor_container }}</center>
+                                    <center>{{ $prm->no_container }}</center>
                                 </th>
                                 <th scope="col">
                                     <center>{{ $prm->nomor_manifest }}</center>

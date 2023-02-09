@@ -83,6 +83,7 @@ class CreateMigration extends Migration
             $table->string('harga_tambahan');
             $table->string('persentase');
             $table->string('total_harga');
+            $table->string('no_container');
             $table->string('nama_kapal');
             $table->date('tanggal_berangkat');
             $table->string('nomor_manifest');

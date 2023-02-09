@@ -97,12 +97,12 @@
                 <!-- input street-->
 
                 <div class="form-group">
-                    <label class="col-md-1 control-label">Jalan</label>
+                    <label class="col-md-1 control-label">Alamat</label>
                     <div class="col-md-10 inputGroupContainer">
                         <div class="input-group">
                             <span style="background-color: #023e94" class="input-group-addon"><i style="color: white"
                                     class="glyphicon glyphicon-road"></i></span>
-                            <input name="jalan" placeholder="Masukkan Jalan" class="form-control" type="text">
+                            <input name="jalan" placeholder="Masukkan Alamat" class="form-control" type="text">
                         </div>
                     </div>
                 </div>
@@ -221,9 +221,9 @@
                     <div class="col-md-10 inputGroupContainer">
                         <div  class="input-group" style="margin-top: 10px;" >
                             <input type="radio" name="pajak" value="pph23"/>
-                            pph 23
+                            Kena Pajak
                             <input type="radio" name="pajak" value = "pajak1,1"/>
-                            pajak 1,1
+                            Tidak Kena Pajak
                         </div>
                     </div>
                 </div>
