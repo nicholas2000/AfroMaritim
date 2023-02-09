@@ -20,6 +20,9 @@ class CustomerController extends Controller
         return view('admin.mTcustomer',compact('cabang'));
     }
 
+    public function sd(Request $req){
+        echo "alert($req->status)";
+    }
 
     public function doAdd(Request $req)
     {
@@ -35,7 +38,12 @@ class CustomerController extends Controller
         }else{
             $kode = "CU{$ctr}";
         }
-        if($req->status =="On"){
+
+        $totalhutang = "";
+        $batasbayar = "";
+        $norek = "";
+        $metode = "";
+        if($req->status=="On"){
             $req->validate(
                 [
                     "nama" => 'required',
@@ -49,6 +57,7 @@ class CustomerController extends Controller
                     "telpon" => 'required',
                     'HP'=>'required',
                     "email" => 'required',
+                    "pajak" => 'required',
                     "status" => 'required',
                     "batasanHutang"=>'required',
                     "batasPembayaran" => 'required',
@@ -67,14 +76,20 @@ class CustomerController extends Controller
                     "HP.required" => "HP harus di isi",
                     "telpon.required" => "no telpon harus di isi",
                     "email.required" => "email harus di isi",
-                    "status.required" => "status harus di isi",
+                    "pajak.required" => "pajak harus dipilih",
+                    "status.required" => "status harus dipilih",
                     "batasanHutang.required" => "batasan hutang harus di isi",
                     "batasPembayaran.required" => "batas pembayaran harus di isi",
                     "noRekening.required" => "no rekening harus di isi",
-                    "metodePembayaran.required" => "metode pembayaran harus di isi"
+                    "metodePembayaran.required" => "metode pembayaran harus di isi",
                 ]
             );
-        }if($req->status =="Off"){
+
+            $totalhutang = $req->batasanHutang;
+            $batasbayar = $req->batasPembayaran;
+            $norek = $req->noRekening;
+            $metode = $req->metodePembayaran;
+        }else{
             $req->validate(
                 [
                     "nama" => 'required',
@@ -87,6 +102,7 @@ class CustomerController extends Controller
                     "kodepos" => 'required',
                     "telpon" => 'required',
                     "email" => 'required',
+                    "pajak" => 'required',
                     "status" => 'required',
                 ],
                 [
@@ -100,37 +116,8 @@ class CustomerController extends Controller
                     "kodepos.required" => "kode pos harus di isi",
                     "telpon.required" => "no telpon harus di isi",
                     "email.required" => "email harus di isi",
-                    "status.required" => "status harus di isi",
-                ]
-            );
-        }
-        if($req->status == ""){
-            $req->validate(
-                [
-                    "nama" => 'required',
-                    "npwp" => 'required',
-                    "jalan" => 'required',
-                    "provinsi" => 'required',
-                    "kota" => 'required',
-                    "kecamatan" => 'required',
-                    "kelurahan" => 'required',
-                    "kodepos" => 'required',
-                    "telpon" => 'required',
-                    "email" => 'required',
-                    "status" => 'required',
-                ],
-                [
-                    "nama.required" => "nama harus di isi",
-                    "npwp.required" => "npwp harus di isi",
-                    "jalan.required" => "jalan harus di isi",
-                    "provinsi.required" => "provinsi harus di isi",
-                    "kota.required" => "kota harus di isi",
-                    "kecamatan.required" => "kecamatan harus di isi",
-                    "kelurahan.required" => "kelurahan harus di isi",
-                    "kodepos.required" => "kode pos harus di isi",
-                    "telpon.required" => "no telpon harus di isi",
-                    "email.required" => "email harus di isi",
-                    "status.required" => "status harus di isi",
+                    "pajak.required" => "pajak harus dipilih",
+                    "status.required" => "status harus dipilih",
                 ]
             );
         }
@@ -155,10 +142,10 @@ class CustomerController extends Controller
             'email'=>$req->email,
             'pajak'=>$pajak,
             'status_hutang'=>$req->status,
-            'total_hutang'=>$req->batasanHutang,
-            'batas_pembayaran'=>$req->batasPembayaran,
-            'no_rekening'=>$req->noRekening,
-            'metode_pembayaran'=>$req->metodePembayaran,
+            'total_hutang'=>$totalhutang,
+            'batas_pembayaran'=>$batasbayar,
+            'no_rekening'=>$norek,
+            'metode_pembayaran'=>$metode,
         ]);
         return redirect("/masterCustomer");
     }
