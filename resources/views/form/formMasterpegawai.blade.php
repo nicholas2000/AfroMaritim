@@ -178,18 +178,18 @@
                                 <form action="{{ url('masterPegawai/update/') }}" method="post">
                                     @csrf
                                     <label style="margin-left: 40px;">Kode</label>
-                                    @foreach ($cabang as $prm)
+
                                     <input name="kode" class="form-control" type="text"
                                     placeholder="{{ $prm->id_pegawai }}" readonly>
-                                        @endforeach
 
 
                                     <label style="margin-left: 40px;">Cabang</label>
-                                    <select name="cabang" style="height:35px" class="form-control selectpicker">
-                                        @foreach ($cabang as $prm)
-                                            <option value="{{ $prm->id_cabang }}">{{ $prm->nama_cabang }}</option>
-                                        @endforeach
-                                    </select>
+                                        <select name="cabang" style="height:35px" class="form-control selectpicker">
+                                            <option value="">Pilih Cabang</option>
+                                            @foreach ($cabang as $prm)
+                                                <option value="{{ $prm->id_cabang }}">{{ $prm->nama_cabang }}</option>
+                                            @endforeach
+                                        </select>
 
                                     <label style="margin-left: 40px;">Nama</label>
                                     <input name="nama" placeholder="Masukan Nama" class="form-control"
@@ -262,7 +262,7 @@
     {
         var jArray = <?php echo json_encode($arrPegawai); ?>;
         $("[name='kode']").val(jArray[id]['id_pegawai']);
-        $("[name='cabang']").val(jArray[id]['nama_cabang']);
+        $("[name='cabang']").val(jArray[id]['id_cabang']);
         $("[name='nama']").val(jArray[id]['nama_pegawai']);
         $("[name='npwp']").val(jArray[id]['npwp_pegawai']);
         $("[name='alamat']").val(jArray[id]['alamat_pegawai']);
@@ -271,7 +271,7 @@
         $("[name='kodepos']").val(jArray[id]['kodepos_pegawai']);
         $("[name='hp']").val(jArray[id]['nohp_pegawai']);
         $("[name='telpon']").val(jArray[id]['telp_pegawai']);
-        $("[name='email']").val(jArray[id]['email_cabang']);
+        $("[name='email']").val(jArray[id]['email_pegawai']);
         if (jArray[id]['role_pegawai'] == 1)
         {
             $("[name='role']").val("Super Admin");

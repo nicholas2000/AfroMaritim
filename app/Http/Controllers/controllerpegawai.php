@@ -108,7 +108,7 @@ class controllerpegawai extends Controller
         }
         $idpegawaiterpilih = modelpegawai::withTrashed()->find($request->kode);
         $result = $idpegawaiterpilih->update([
-            // 'id_cabang' => $request->cabang,
+             'id_cabang' => $request->cabang,
             'nama_pegawai' => $request->nama,
             'npwp_pegawai' => $request->npwp,
             'alamat_pegawai' => $request->alamat,
