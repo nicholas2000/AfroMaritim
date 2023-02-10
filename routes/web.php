@@ -8,6 +8,7 @@ use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\HistoryController;
 use App\Http\Controllers\KompetitorController;
 use App\Http\Controllers\loginController;
+use App\Http\Controllers\pengirimancontroller;
 use App\Http\Controllers\TransaksiController;
 use App\Models\Kompetitor;
 use Illuminate\Support\Facades\Route;
@@ -69,7 +70,8 @@ Route::get('/tpegawai',  [controllerpegawai::class, "vfmpegawai"]);
 Route::post('/masterPegawai/delete/{id}', [controllerpegawai::class, "deletepegawai"]);
 Route::post('/masterPegawai/update', [controllerpegawai::class, "updatepegawai"]);
 
-
+Route::get('/masterpengirimansatu', [pengirimancontroller::class, "vmpengirimansatu"]);
+Route::get('/masterpengirimandua', [pengirimancontroller::class, "vmpengirimandua"]);
 
 
 // <-------------->

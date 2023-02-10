@@ -164,7 +164,7 @@
                 </div>
             </div>
 
-            {{-- <--ini untuk pop up menu edit--> --}}
+            {{-- <--untuk pop up menu edit--> --}}
 
             <div id="myModal" class="modal fade">
                 <div class="modal-dialog">
@@ -183,10 +183,12 @@
                                     placeholder="{{ $prm->id_pegawai }}" readonly>
                                         @endforeach
 
-
+                                    @foreach ($cabang as $prm)
                                     <label style="margin-left: 40px;">Cabang</label>
-                                    <select name="cabang" style="height:35px" class="form-control selectpicker">
-                                        @foreach ($cabang as $prm)
+                                    <select name="cabang" style="height:35px" class="form-control selectpicker"  >
+
+                                        <option value="">Pilih Cabang</option>
+                                        {{-- @foreach ($cabang as $prm) --}}
                                             <option value="{{ $prm->id_cabang }}">{{ $prm->nama_cabang }}</option>
                                         @endforeach
                                     </select>
