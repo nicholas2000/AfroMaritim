@@ -180,7 +180,7 @@
                                     <label style="margin-left: 40px;">Kode</label>
 
                                     <input name="kode" class="form-control" type="text"
-                                    placeholder="{{ $prm->id_pegawai }}" readonly>
+                                    placeholder="" readonly>
 
                                     <label style="margin-left: 40px;">Cabang</label>
                                     <select name="cabang" style="height:35px" class="form-control selectpicker">
