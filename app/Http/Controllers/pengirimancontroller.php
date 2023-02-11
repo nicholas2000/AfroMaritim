@@ -8,10 +8,10 @@ class pengirimancontroller extends Controller
 {
     public function vmpengirimansatu()
     {
-        return view("form.formpengirimansatu");
+        return view("admin.mOpsi1");
     }
     public function vmpengirimandua()
     {
-        return view("form.formpengirimandua");
+        return view("admin.mOpsi2");
     }
 }

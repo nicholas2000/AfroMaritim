@@ -105,7 +105,7 @@
                         Welcome Admin
                     </div>
                     <div class='card-body'>
-                        @include("form.formHutang")
+                        @include("form.formpengirimandua")
                     </div>
                 </div>
             </div>
