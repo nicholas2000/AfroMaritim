@@ -49,7 +49,7 @@
                             <center>User </center>
                         </div>
                         <div class="col-sm">
-                            <center>login </center>
+                            <center>Login </center>
                         </div>
                     </div>
                     <hr class="mt" />
