@@ -1,14 +1,15 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\Transaksi;
 use Illuminate\Http\Request;
 
 class pengirimancontroller extends Controller
 {
     public function vmpengirimansatu()
     {
-        return view("admin.mOpsi1");
+        $param['arrHistory']=Transaksi::get();
+        return view('admin.mOpsi1',$param);
     }
     public function vmpengirimandua()
     {

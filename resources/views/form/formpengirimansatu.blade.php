@@ -25,7 +25,7 @@
             width: 75%;
         }
 
-        .pk{
+        .pk {
             margin-right: 5%;
         }
     }
@@ -41,8 +41,8 @@
             <div class="row ">
                 <div class="col-sm-8 col-md-6 form-group">
                     <div class="input-group">
-                        <input type="search"  class="form-control rounded p" placeholder=" Search"
-                            aria-label="Search" aria-describedby="search-addon" />
+                        <input type="search" class="form-control rounded p" placeholder=" Search" aria-label="Search"
+                            aria-describedby="search-addon" />
                         <button type="button" class="btn btn-outline-primary" style="margin-left: 2px">Search</button>
                     </div>
                 </div>
@@ -69,7 +69,8 @@
                             </div>
                         </div>
                         <div style="display: flex;">
-                            <a href="" class="btn btn-primary" style="color: white;height: 37px;margin-right: 5%;" class="p">Import</a>
+                            <a href="" class="btn btn-primary"
+                                style="color: white;height: 37px;margin-right: 5%;" class="p">Import</a>
                             <a href="" id="btn-excel" class="btn btn-success"
                                 style="color: white;height: 37px;">Export</a>
                         </div>
@@ -80,40 +81,21 @@
             <div class="row">
                 <div class="col-sm-12 col-md-6 form-group">
                     <div class="p">
-                        <div class="col-md-4">ID Kapal</div>
+                        <div class="col-md-4">Nama Kurir</div>
                         <div>:</div>
-                        <div class="col-md-3"><input type='text' style="width: 180px;"
-                                placeholder="Masukkan ID Kapal">
-                        </div>
-                    </div>
-                    <br>
-                    <div class="p">
-                        <div class="col-sm-4">Filter </div>
-                        <div>:</div>
-                        <div class="col-sm-3">
-                            <select style="width: 180px;height: 35px;" class="form-control selectpicker">
-                                <option value="">Pilih Filter</option>
-                                <option>Andi</option>
-                                <option>Doni</option>
-                                <option>Tono</option>
-                                <option>Sisil</option>
+                        <div class="col-md-3">
+                            <select name="namakurir" style="height:35px; width: 180px; "
+                                class="form-control selectpicker">
+                                <option value="">Pilih Kurir</option>
+                                <option>Kurir 1</option>
+                                <option>Kurir 2</option>
+                                <option>Kurir 3</option>
+                                <option>Kurir 4</option>
                             </select>
                         </div>
                     </div>
                     <br>
-                    <div class="p">
-                        <div class="col-sm-4">Bulk Action </div>
-                        <div>:</div>
-                        <div class="col-sm-3">
-                            <select style="width: 180px;height: 35px;" class="form-control selectpicker">
-                                <option value="">Pilih Bulk Action</option>
-                                <option>Andi</option>
-                                <option>Doni</option>
-                                <option>Tono</option>
-                                <option>Sisil</option>
-                            </select>
-                        </div>
-                    </div>
+
                     <br>
 
                     {{-- ----- --}}
@@ -121,24 +103,14 @@
                 <div class="col-sm-12 col-md-6 form-group">
 
                     <div class="p ">
-                        <div class="col-sm-5">Status Barang</div>
+                        <div class="col-sm-5">Total Barang Diantar</div>
                         <div>:</div>
                         <div class="col-sm-3">
-                            <select style="width: 180px;height: 35px;" class="form-control selectpicker">
-                                <option value="">Pilih Status Barang</option>
-                                <option>Andi</option>
-                                <option>Doni</option>
-                                <option>Tono</option>
-                                <option>Sisil</option>
-                            </select>
+                            <input style="width: 180px;"type='text' disabled>
                         </div>
                     </div>
                     <br>
-                    <div class="p">
-                        <div class="col-sm-5">Sisa Barang Terkirim</div>
-                        <div>:</div>
-                        <div class="col-sm-3"><input style="width: 180px;"type='text' disabled></div>
-                    </div>
+
                     <br>
                     <a href=""class="btn btn-primary" style="float: right">Update</a>
                     <br>
@@ -148,50 +120,61 @@
                     <table id="datatables" class="table table-bordered">
 
                         <tr style="background-color:  #023e94;color: white;">
-                            <th scope="col">No Transaksi</th>
+                            <th scope="col"> <center><input type="checkbox" name="cball" id="cball"></center>  </th>
+                            <th scope="col"><center> No Transaksi </center></th>
                             <th scope="col">
-                                <center>Nama Barang</center>
+                                <center>Tanggal Pengiriman</center>
                             </th>
                             <th scope="col">
-                                <center>Kurir 1</center>
+                                <center>Status Barang</center>
                             </th>
                             <th scope="col">
-                                <center>Kurir 2</center>
+                                <center>Link Foto</center>
                             </th>
-                            <th scope="col">
-                                <center>Kurir 3</center>
-                            </th>
-                            <th scope="col">
-                                <center>kurir 4</center>
-                            </th>
-                        </tr>
 
-                        <tr>
-                            <th scope="row">1</th>
-                            <td>Lemari</td>
-                            <td> <center><input type="checkbox" name="" id=""></center>  </td>
-                            <td> <center><input type="checkbox" name="" id=""></center>  </td>
-                            <td> <center><input type="checkbox" name="" id=""></center>  </td>
-                            <td> <center><input type="checkbox" name="" id=""></center>  </td>
                         </tr>
+                        <?php $ctr = 1; ?>
 
-                        <tr>
-                            <th scope="row">2</th>
-                            <td>Kursi</td>
-                            <td> <center><input type="checkbox" name="" id=""></center>  </td>
-                            <td> <center><input type="checkbox" name="" id=""></center>  </td>
-                            <td> <center><input type="checkbox" name="" id=""></center>  </td>
-                            <td> <center><input type="checkbox" name="" id=""></center>  </td>
-                        </tr>
+                        @foreach ($arrHistory as $prm)
+                            <tr>
+                                <th >
+                                    <input type="checkbox"  value="{{$prm->nomor_transaksi}}" onclick="myFunction(this)">
+                                </th>
+                                <th scope="row">{{ $ctr }}</th>
+                                <th scope="col">
+                                    <center>{{ $prm->nomor_transaksi }}</center>
+                                </th>
+                                <th scope="col">
+                                    <center>{{ $prm->Customer->nama_customer }}</center>
+                                </th>
+                                <th scope="col">
+                                    <center>{{ $prm->nama_kapal }}</center>
+                                </th>
+                                <th scope="col">
+                                    <center>{{ $prm->no_container }}</center>
+                                </th>
+                                <th scope="col">
+                                    <center>{{ $prm->nomor_manifest }}</center>
+                                </th>
+                                <th scope="col" style="display: flex">
+                                    {{-- <a href="./delete/{{$prm->nomor_transaksi}}" class="btn btn-danger" style="">Delete</a> --}}
+                                    <form action="" method="">
+                                        @csrf
+                                        <button name=""type="submit" class="btn btn"><i class="fa fa-pencil-alt"></i></button>
+                                    </form>
+                                    <form method="post"
+                                        action="{{ url('masterHistory/delete/' . $prm->nomor_transaksi) }}">
+                                        @csrf
+                                        <button type="submit" class="btn btn-danger"><i class="fa fa-trash"></i></button>
+                                    </form>
+                                </th>
 
-                        <tr>
-                            <th scope="row">3</th>
-                            <td>Meja</td>
-                            <td> <center><input type="checkbox" name="" id=""></center>  </td>
-                            <td> <center><input type="checkbox" name="" id=""></center>  </td>
-                            <td> <center><input type="checkbox" name="" id=""></center>  </td>
-                            <td> <center><input type="checkbox" name="" id=""></center>  </td>
-                        </tr>
+
+                            </tr>
+                            <?php $ctr++; ?>
+                        @endforeach
+                        
+
 
                     </table>
                 </div>
