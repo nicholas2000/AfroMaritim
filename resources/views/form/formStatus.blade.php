@@ -37,7 +37,7 @@
 <section class="order-form m-4">
     <div class="container pt-4">
         <div class="container">
-            <h1> Barang </h1>
+            <h1> Status Barang </h1>
             <div class="row ">
                 <div class="col-sm-8 col-md-6 form-group">
                     <div class="input-group">
@@ -145,54 +145,71 @@
                 </div>
 
                 <div class="col-12">
-                    <table id="datatables" class="table table-bordered">
-
+                    <table class="table table-bordered">
                         <tr style="background-color:  #023e94;color: white;">
-                            <th scope="col">No Transaksi</th>
+                            <th scope="col">No</th>
+                            <th scope="col">
+                                <center>No Transaksi</center>
+                            </th>
                             <th scope="col">
                                 <center>Nama Customer</center>
                             </th>
                             <th scope="col">
-                                <center>Tanggal Pengiriman</center>
-                            </th>
-                            <th scope="col">
-                                <center>No Kapal</center>
+                                <center>Nama Kapal</center>
                             </th>
                             <th scope="col">
                                 <center>No Container</center>
                             </th>
                             <th scope="col">
-                                <center>Status Barang</center>
+                                <center>No Manifest</center>
+                            </th>
+                            <th scope="col">
+                                <center>Action</center>
+                            </th>
+                            <th scope="col">
+                                <center></center>
                             </th>
                         </tr>
+                        <?php $ctr = 1; ?>
 
-                        <tr>
-                            <th scope="row">1</th>
-                            <td>Andi</td>
-                            <td>1/9/2023</td>
-                            <td>1</td>
-                            <td>1</td>
-                            <td>Aktif</td>
-                        </tr>
+                        @foreach ($arrHistory as $prm)
+                            <tr>
 
-                        <tr>
-                            <th scope="row">2</th>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
+                                <th scope="row">{{ $ctr }}</th>
+                                <th scope="col">
+                                    <center>{{ $prm->nomor_transaksi }}</center>
+                                </th>
+                                <th scope="col">
+                                    <center>{{ $prm->Customer->nama_customer }}</center>
+                                </th>
+                                <th scope="col">
+                                    <center>{{ $prm->nama_kapal }}</center>
+                                </th>
+                                <th scope="col">
+                                    <center>{{ $prm->no_container }}</center>
+                                </th>
+                                <th scope="col">
+                                    <center>{{ $prm->nomor_manifest }}</center>
+                                </th>
+                                <th scope="col" style="display: flex">
+                                    {{-- <a href="./delete/{{$prm->nomor_transaksi}}" class="btn btn-danger" style="">Delete</a> --}}
+                                    <form action="" method="">
+                                        @csrf
+                                        <button name=""type="submit" class="btn btn"><i class="fa fa-pencil-alt"></i></button>
+                                    </form>
+                                    <form method="post"
+                                        action="{{ url('masterHistory/delete/' . $prm->nomor_transaksi) }}">
+                                        @csrf
+                                        <button type="submit" class="btn btn-danger"><i class="fa fa-trash"></i></button>
+                                    </form>
+                                </th>
+                                <th >
+                                    <input type="checkbox"  value="{{$prm->nomor_transaksi}}" onclick="myFunction(this)">
+                                </th>
 
-                        <tr>
-                            <th scope="row">3</th>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-
+                            </tr>
+                            <?php $ctr++; ?>
+                        @endforeach
                     </table>
                 </div>
 

@@ -112,7 +112,7 @@ class TransaksiController extends Controller
             'persentase' =>$req->persentase,
             'total_harga' =>$req->total,
             'nama_kapal' =>$req->namakapal,
-            'no_container' =>$req->nocontainer,
+            'nomor_manifest' =>$req->nocontainer,
             'tanggal_berangkat' =>$req->tglberangkat,
         ]);
         return redirect("/masterTransaksi");

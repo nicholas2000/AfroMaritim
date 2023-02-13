@@ -55,8 +55,7 @@
                             Customer</a>
                         <a href="{{ url('/masterKompetitor') }}"class="dashboard-nav-dropdown-item">Master Kompetitor</a>
                         <a href="{{ url('/masterJenisharga') }}"class="dashboard-nav-dropdown-item">Master Jenis Harga</a>
-                        <a href="{{ url('/masterpengirimansatu') }}"class="dashboard-nav-dropdown-item">Opsi 1</a>
-                        <a href="{{ url('/masterpengirimandua') }}"class="dashboard-nav-dropdown-item">Opsi 2</a>
+                        <a href="{{ url('/masterpengirimansatu') }}"class="dashboard-nav-dropdown-item">Pengiriman Kurir</a>
 
                     </div>
                     <div class='dashboard-nav-dropdown'>

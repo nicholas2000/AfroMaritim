@@ -37,7 +37,7 @@
 <section class="order-form m-4">
     <div class="container pt-4">
         <div class="container">
-            <h1> Barang </h1>
+            <h1> Pengiriman Kurir </h1>
             <div class="row ">
                 <input type="hidden" name="data">
                 <div class="col-sm-8 col-md-6 form-group">
@@ -113,7 +113,7 @@
                     <br>
 
                     <br>
-                    <a href=""class="btn btn-primary" style="float: right">Update</a>
+                    <a href=""class="btn btn-primary" style="float: right">Masukkan Barang</a>
                     <br>
                 </div>
 
@@ -159,8 +159,6 @@
                                         <button name=""type="submit" class="btn btn"><i class="fa fa-pencil-alt"></i></button>
                                     </form>
                                 </th>
-
-
                             </tr>
                             <?php $ctr++; ?>
                         @endforeach
