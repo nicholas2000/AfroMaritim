@@ -12,7 +12,7 @@ MySQL - 10.4.27-MariaDB : Database - db_afromaritim
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
-CREATE DATABASE /*!32312 IF NOT EXISTS*/`db_afromaritim` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci */;
+CREATE DATABASE /*!32312 IF NOT EXISTS*/`db_afromaritim` /*!40100 DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci */;
 
 USE `db_afromaritim`;
 
@@ -30,12 +30,13 @@ CREATE TABLE `activity` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 /*Data for the table `activity` */
 
 insert  into `activity`(`id`,`user`,`activity`,`ip_address`,`browser`,`os`,`created_at`,`updated_at`) values 
-(1,'Nicho','Login Berhasil','127.0.0.1','Chrome','Windows 10','2023-02-13 13:08:55','2023-02-13 13:08:55');
+(1,'Nicho','Login Berhasil','127.0.0.1','Chrome','Windows 10','2023-02-13 13:08:55','2023-02-13 13:08:55'),
+(2,'Nicho','Login Berhasil','127.0.0.1','Chrome','Windows 10','2023-02-13 14:43:17','2023-02-13 14:43:17');
 
 /*Table structure for table `failed_jobs` */
 
@@ -54,6 +55,19 @@ CREATE TABLE `failed_jobs` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 /*Data for the table `failed_jobs` */
+
+/*Table structure for table `master_jabatan` */
+
+DROP TABLE IF EXISTS `master_jabatan`;
+
+CREATE TABLE `master_jabatan` (
+  `id_jabatan` varchar(255) NOT NULL,
+  `nama_jabatan` varchar(255) NOT NULL,
+  `status_jabatan` varchar(255) NOT NULL,
+  PRIMARY KEY (`id_jabatan`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+/*Data for the table `master_jabatan` */
 
 /*Table structure for table `master_tcabang` */
 
@@ -114,6 +128,25 @@ CREATE TABLE `master_tcustomer` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 /*Data for the table `master_tcustomer` */
+
+insert  into `master_tcustomer`(`id_customer`,`id_cabang`,`nama_customer`,`npwp`,`jalan`,`provinsi`,`kota`,`kecamatan`,`kelurahan`,`kode_pos`,`telpon`,`email`,`pajak`,`status_hutang`,`total_hutang`,`batas_pembayaran`,`no_rekening`,`metode_pembayaran`,`created_at`,`updated_at`,`deleted_at`) values 
+('CU001','C001','Hwe','123','Surabaya','Jawa Barat','Bandung','Malang','Kediri','61213','123456','lala@gmail.com','Tidak Kena Pajak','Off','','','','','2023-02-13 14:50:28','2023-02-13 14:50:28',NULL);
+
+/*Table structure for table `master_tjenis` */
+
+DROP TABLE IF EXISTS `master_tjenis`;
+
+CREATE TABLE `master_tjenis` (
+  `tipe` varchar(255) NOT NULL,
+  `jenis_harga` varchar(255) DEFAULT NULL,
+  `nominal` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`tipe`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+
+/*Data for the table `master_tjenis` */
+
+insert  into `master_tjenis`(`tipe`,`jenis_harga`,`nominal`) values 
+('A','15000','1000');
 
 /*Table structure for table `master_tkompetitor` */
 
@@ -236,20 +269,20 @@ CREATE TABLE `transaksi` (
   `id_customer` varchar(255) NOT NULL,
   `nama_barang` varchar(255) NOT NULL,
   `id_admin` varchar(255) NOT NULL,
-  `volume` varchar(255) NOT NULL,
-  `berat` varchar(255) NOT NULL,
+  `volume` varchar(255) DEFAULT NULL,
+  `berat` varchar(255) DEFAULT NULL,
   `rute` varchar(255) NOT NULL,
   `harga` varchar(255) NOT NULL,
   `jenis_harga` varchar(255) NOT NULL,
   `tonage` varchar(255) NOT NULL,
-  `harga_tambahan` varchar(255) NOT NULL,
-  `persentase` varchar(255) NOT NULL,
+  `harga_tambahan` varchar(255) DEFAULT NULL,
+  `persentase` varchar(255) DEFAULT NULL,
   `total_harga` varchar(255) NOT NULL,
-  `no_container` varchar(255) NOT NULL,
-  `nama_kapal` varchar(255) NOT NULL,
+  `no_container` varchar(255) DEFAULT NULL,
+  `nama_kapal` varchar(255) DEFAULT NULL,
   `tanggal_berangkat` date NOT NULL,
-  `nomor_manifest` varchar(255) NOT NULL,
-  `link_foto` varchar(255) NOT NULL,
+  `nomor_manifest` varchar(255) DEFAULT NULL,
+  `link_foto` varchar(255) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   `deleted_at` timestamp NULL DEFAULT NULL,
@@ -259,6 +292,11 @@ CREATE TABLE `transaksi` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 /*Data for the table `transaksi` */
+
+insert  into `transaksi`(`nomor_transaksi`,`id_customer`,`nama_barang`,`id_admin`,`volume`,`berat`,`rute`,`harga`,`jenis_harga`,`tonage`,`harga_tambahan`,`persentase`,`total_harga`,`no_container`,`nama_kapal`,`tanggal_berangkat`,`nomor_manifest`,`link_foto`,`created_at`,`updated_at`,`deleted_at`) values 
+('TC001','CU001','Surabaya','admin','0','15','Jakarta','3','A','2','0','200%','0','1','Luna','2023-02-10','1',NULL,'2023-02-13 15:03:55','2023-02-13 15:05:23',NULL),
+('TC002','CU001','Surabaya','admin','0','15','Jakarta','3','A','2','0','200%','0','1','Luna','2023-02-10','1',NULL,'2023-02-13 15:03:55','2023-02-13 15:05:23',NULL),
+('TC003','CU001','Makasar','admin','0','20','Makasar','3','A','2','0','10%','0','1','Luna','2023-02-10','1',NULL,'2023-02-13 15:05:04','2023-02-13 15:05:23',NULL);
 
 /*Table structure for table `users` */
 
