@@ -30,12 +30,14 @@ CREATE TABLE `activity` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 /*Data for the table `activity` */
 
 insert  into `activity`(`id`,`user`,`activity`,`ip_address`,`browser`,`os`,`created_at`,`updated_at`) values 
-(1,'Nicho','Login Berhasil','127.0.0.1','Chrome','Windows 10','2023-02-13 13:08:55','2023-02-13 13:08:55');
+(1,'Luna','Login Berhasil','127.0.0.1','Chrome','Windows 10','2023-02-13 15:57:34','2023-02-13 15:57:34'),
+(2,'Luna','Logout Berhasil','127.0.0.1','Chrome','Windows 10','2023-02-13 15:59:36','2023-02-13 15:59:36'),
+(3,'Nicho','Login Berhasil','127.0.0.1','Chrome','Windows 10','2023-02-13 15:59:45','2023-02-13 15:59:45');
 
 /*Table structure for table `failed_jobs` */
 
@@ -80,7 +82,7 @@ CREATE TABLE `master_tcabang` (
 /*Data for the table `master_tcabang` */
 
 insert  into `master_tcabang`(`id_cabang`,`nama_cabang`,`jum_cabang`,`alamat_cabang`,`provinsi_cabang`,`kota_cabang`,`kodepos_cabang`,`telpon_cabang`,`gmaps_cabang`,`email_cabang`,`status_cabang`,`created_at`,`updated_at`,`deleted_at`) values 
-('C001','CabangSby','4','Ngagel Jaya no 3','Jawa Barat','Bandung','34234','08113190080','www.google.com','admi5n@gmail.com','1','2023-02-13 12:58:41','2023-02-13 12:58:41',NULL);
+('C001','CabangSby','4','Ngagel Jaya no 3','Jawa Barat','Bandung','61213','08113190080','https://afrotransmaritim.co.id/','admin@gmail.com','1','2023-02-13 15:55:02','2023-02-13 15:55:02',NULL);
 
 /*Table structure for table `master_tcustomer` */
 
@@ -114,6 +116,27 @@ CREATE TABLE `master_tcustomer` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 /*Data for the table `master_tcustomer` */
+
+insert  into `master_tcustomer`(`id_customer`,`id_cabang`,`nama_customer`,`npwp`,`jalan`,`provinsi`,`kota`,`kecamatan`,`kelurahan`,`kode_pos`,`telpon`,`email`,`pajak`,`status_hutang`,`total_hutang`,`batas_pembayaran`,`no_rekening`,`metode_pembayaran`,`created_at`,`updated_at`,`deleted_at`) values 
+('CU001','C001','Budi','23423','Kabupaten Rembang no 4','Jawa Timur','Bandung','Malang','Kediri','3334534','08113190080','admin@gmail.com','Tidak Kena Pajak','Off','','','','','2023-02-13 16:00:39','2023-02-13 16:00:39',NULL);
+
+/*Table structure for table `master_tjenis` */
+
+DROP TABLE IF EXISTS `master_tjenis`;
+
+CREATE TABLE `master_tjenis` (
+  `tipe` varchar(255) NOT NULL,
+  `jenis_harga` varchar(255) NOT NULL,
+  `nominal` varchar(255) NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`tipe`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+/*Data for the table `master_tjenis` */
+
+insert  into `master_tjenis`(`tipe`,`jenis_harga`,`nominal`,`created_at`,`updated_at`) values 
+('A','1','10000',NULL,NULL);
 
 /*Table structure for table `master_tkompetitor` */
 
@@ -171,7 +194,8 @@ CREATE TABLE `master_tpegawai` (
 /*Data for the table `master_tpegawai` */
 
 insert  into `master_tpegawai`(`id_pegawai`,`id_cabang`,`nama_pegawai`,`npwp_pegawai`,`alamat_pegawai`,`provinsi_pegawai`,`kota_pegawai`,`kodepos_pegawai`,`nohp_pegawai`,`telp_pegawai`,`email_pegawai`,`role_pegawai`,`created_at`,`updated_at`,`deleted_at`) values 
-('P001','C001','Nicho','12312312','Kabupaten Cikalang no 5','Jawa Barat','Bandung','3334534','324234','08113190080','admin@gmail.com','Super Admin','2023-02-13 12:59:17','2023-02-13 12:59:17',NULL);
+('P001','C001','Nicho','23423','Kabupaten Cikalang no 5','Jawa Timur','Surabaya','3334534','324234','08113190080','admin@gmail.com','Super Admin','2023-02-13 15:55:32','2023-02-13 15:55:32',NULL),
+('P002','C001','Luna','23423','Kabupaten Cikalang no 10','Jawa Barat','Bandung','3423423','3423432','08113190080','admi5n@gmail.com','Admin','2023-02-13 15:56:15','2023-02-13 15:56:15',NULL);
 
 /*Table structure for table `migrations` */
 
@@ -182,16 +206,16 @@ CREATE TABLE `migrations` (
   `migration` varchar(255) NOT NULL,
   `batch` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 /*Data for the table `migrations` */
 
 insert  into `migrations`(`id`,`migration`,`batch`) values 
-(1,'2014_10_12_000000_create_users_table',1),
-(2,'2014_10_12_100000_create_password_resets_table',1),
-(3,'2019_08_19_000000_create_failed_jobs_table',1),
-(4,'2019_12_14_000001_create_personal_access_tokens_table',1),
-(5,'2023_02_08_150257_create_migration',1);
+(11,'2014_10_12_000000_create_users_table',1),
+(12,'2014_10_12_100000_create_password_resets_table',1),
+(13,'2019_08_19_000000_create_failed_jobs_table',1),
+(14,'2019_12_14_000001_create_personal_access_tokens_table',1),
+(15,'2023_02_08_150257_create_migration',1);
 
 /*Table structure for table `password_resets` */
 
@@ -236,20 +260,20 @@ CREATE TABLE `transaksi` (
   `id_customer` varchar(255) NOT NULL,
   `nama_barang` varchar(255) NOT NULL,
   `id_admin` varchar(255) NOT NULL,
-  `volume` varchar(255) NOT NULL,
-  `berat` varchar(255) NOT NULL,
+  `volume` varchar(255) DEFAULT NULL,
+  `berat` varchar(255) DEFAULT NULL,
   `rute` varchar(255) NOT NULL,
   `harga` varchar(255) NOT NULL,
   `jenis_harga` varchar(255) NOT NULL,
   `tonage` varchar(255) NOT NULL,
-  `harga_tambahan` varchar(255) NOT NULL,
-  `persentase` varchar(255) NOT NULL,
+  `harga_tambahan` varchar(255) DEFAULT NULL,
+  `persentase` varchar(255) DEFAULT NULL,
   `total_harga` varchar(255) NOT NULL,
-  `no_container` varchar(255) NOT NULL,
-  `nama_kapal` varchar(255) NOT NULL,
+  `no_container` varchar(255) DEFAULT NULL,
+  `nama_kapal` varchar(255) DEFAULT NULL,
   `tanggal_berangkat` date NOT NULL,
-  `nomor_manifest` varchar(255) NOT NULL,
-  `link_foto` varchar(255) NOT NULL,
+  `nomor_manifest` varchar(255) DEFAULT NULL,
+  `link_foto` varchar(255) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   `deleted_at` timestamp NULL DEFAULT NULL,
@@ -259,6 +283,9 @@ CREATE TABLE `transaksi` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 /*Data for the table `transaksi` */
+
+insert  into `transaksi`(`nomor_transaksi`,`id_customer`,`nama_barang`,`id_admin`,`volume`,`berat`,`rute`,`harga`,`jenis_harga`,`tonage`,`harga_tambahan`,`persentase`,`total_harga`,`no_container`,`nama_kapal`,`tanggal_berangkat`,`nomor_manifest`,`link_foto`,`created_at`,`updated_at`,`deleted_at`) values 
+('TC001','CU001','pensil','admin','0','10','A','12100','A','10%','0','10%','0',NULL,NULL,'2023-02-15',NULL,NULL,'2023-02-13 16:04:00','2023-02-13 16:04:00',NULL);
 
 /*Table structure for table `users` */
 
