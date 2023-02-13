@@ -121,6 +121,7 @@
 
                         <tr style="background-color:  #023e94;color: white;">
                             <th scope="col"> <center><input type="checkbox" name="cball" id="cball"></center>  </th>
+                            <th scope="col"><center> No </center></th>
                             <th scope="col"><center> No Transaksi </center></th>
                             <th scope="col">
                                 <center>Tanggal Pengiriman</center>
@@ -145,16 +146,10 @@
                                     <center>{{ $prm->nomor_transaksi }}</center>
                                 </th>
                                 <th scope="col">
-                                    <center>{{ $prm->Customer->nama_customer }}</center>
-                                </th>
-                                <th scope="col">
-                                    <center>{{ $prm->nama_kapal }}</center>
+                                    <center>{{ $prm->tanggal_berangkat }}</center>
                                 </th>
                                 <th scope="col">
                                     <center>{{ $prm->no_container }}</center>
-                                </th>
-                                <th scope="col">
-                                    <center>{{ $prm->nomor_manifest }}</center>
                                 </th>
                                 <th scope="col" style="display: flex">
                                     {{-- <a href="./delete/{{$prm->nomor_transaksi}}" class="btn btn-danger" style="">Delete</a> --}}
@@ -162,18 +157,13 @@
                                         @csrf
                                         <button name=""type="submit" class="btn btn"><i class="fa fa-pencil-alt"></i></button>
                                     </form>
-                                    <form method="post"
-                                        action="{{ url('masterHistory/delete/' . $prm->nomor_transaksi) }}">
-                                        @csrf
-                                        <button type="submit" class="btn btn-danger"><i class="fa fa-trash"></i></button>
-                                    </form>
                                 </th>
 
 
                             </tr>
                             <?php $ctr++; ?>
                         @endforeach
-                        
+
 
 
                     </table>
