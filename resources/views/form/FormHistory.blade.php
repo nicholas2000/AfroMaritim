@@ -214,18 +214,18 @@
     </div>
 </section>
 <script>
-    var data = [];
+    var data3 = [];
     function myFunction(x) {
         if(x.checked==true)
         {
-            data.push(x.value);
+            data3.push(x.value);
 
         }else
         {
-            data.splice(data.indexOf(x.value), 1);
+            data3.splice(data3.indexOf(x.value), 1);
         }
 
-        $("[name='data']").val(JSON.stringify(data));
+        $("[name='data']").val(JSON.stringify(data3));
     }
 
     function onlyNumberKey(evt) {

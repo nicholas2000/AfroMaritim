@@ -5,6 +5,8 @@ namespace App\Http\Middleware;
 use Closure;
 use Illuminate\Http\Request;
 
+use Illuminate\Support\Str;
+
 class LoginMiddleware
 {
     /**
@@ -16,7 +18,9 @@ class LoginMiddleware
      */
     public function handle(Request $request, Closure $next)
     {
-        if($request->session()->get('roleuser')!=null){
+        $role = $request->session()->get('user_now')->role_pegawai;
+        $role = Str::lower(str_replace(' ', '', $role));
+        if($role!=null){
             return $next($request);
         }else{
             return redirect('/');

@@ -1,10 +1,9 @@
-
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <link rel="stylesheet" href="sidebar.css">
 <script src="sidebar.js"></script>
 
 
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Detect.js/2.2.2/detect.min.js"></script>
 <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -16,11 +15,16 @@
         right: 10%;
         display: flex;
     }
-    @media screen and (max-width:600px) {
-    .p{
-        right: -20%;
+
+    .button:focus {
+        outline: none;
     }
-}
+    @media screen and (max-width:600px) {
+        .p {
+            right: -20%;
+        }
+
+    }
 </style>
 <link rel="stylesheet" href="notif.css">
 <meta charset="utf-8">
@@ -44,7 +48,8 @@
 
             </header>
 
-            <nav class="dashboard-nav-list"><a href="{{ url('/dashboard') }}" class="dashboard-nav-item"><i class="fas fa-home"></i>Home </a>
+            <nav class="dashboard-nav-list"><a href="{{ url('/dashboard') }}" class="dashboard-nav-item"><i
+                        class="fas fa-home"></i>Home </a>
                 <div class='dashboard-nav-dropdown' style="background-color:#023e94"><a href="#!"
                         class="dashboard-nav-item dashboard-nav-dropdown-toggle"><i class="fa fa-user-circle"></i>
                         Master </a>
@@ -53,8 +58,10 @@
                         <a href="{{ url('/masterPegawai') }}"class="dashboard-nav-dropdown-item">Master Pegawai</a>
                         <a href="{{ url('/masterCustomer') }}"class="dashboard-nav-dropdown-item">Master
                             Customer</a>
-                        <a href="{{ url('/masterKompetitor') }}"class="dashboard-nav-dropdown-item">Master Kompetitor</a>
-                        <a href="{{ url('/masterJenisharga') }}"class="dashboard-nav-dropdown-item">Master Jenis Harga</a>
+                        <a href="{{ url('/masterKompetitor') }}"class="dashboard-nav-dropdown-item">Master
+                            Kompetitor</a>
+                        <a href="{{ url('/masterJenisharga') }}"class="dashboard-nav-dropdown-item">Master Jenis
+                            Harga</a>
 
                     </div>
                     <div class='dashboard-nav-dropdown'>
@@ -77,9 +84,11 @@
                             <a href="{{ url('/masterPiutang') }}"class="dashboard-nav-dropdown-item">Master Piutang</a>
                         </div>
                     </div>
-                    <div class="nav-item-divider"></div>
-                    <a href="{{ url('/') }}" class="dashboard-nav-item"><i class="fas fa-sign-out-alt"></i> Logout
-                    </a>
+                    <form action="{{ url('/logout') }}">
+                        <input type="hidden" name="device">
+                        <button style="background-color: transparent;border:none;color:white;"
+                            class="button dashboard-nav-item"><i class="fas fa-sign-out-alt"></i> Logout</button>
+                    </form>
                 </div>
             </nav>
         </div>
@@ -104,7 +113,8 @@
                         Welcome Admin
                     </div>
                     <div class='card-body'>
-                        @include("form.formCabang")
+                        @include('form.formCabang')
+
                     </div>
                 </div>
             </div>
@@ -113,6 +123,7 @@
 </body>
 
 <!-- page-wrapper -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Detect.js/2.2.2/detect.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
     integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
@@ -122,6 +133,13 @@
 </script>
 
 <script>
+    var result = detect.parse(navigator.userAgent);
+    var data = [];
+
+    data.push(result.browser.family);
+    data.push(result.os.family);
+
+    $("[name='device']").val(JSON.stringify(data));
     $(document).on("click", "#cust_btn", function() {
 
         $("#myModal").modal("toggle");

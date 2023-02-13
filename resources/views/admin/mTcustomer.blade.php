@@ -3,7 +3,7 @@
 <link rel="stylesheet" href="sidebar.css">
 <script src="sidebar.js"></script>
 
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Detect.js/2.2.2/detect.min.js"></script>
 
 <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
@@ -15,6 +15,9 @@
         width: 40%;
         right: 10%;
         display: flex;
+    }
+    .button:focus {
+        outline: none;
     }
     @media screen and (max-width:600px) {
     .p{
@@ -77,9 +80,11 @@
                             <a href="{{ url('/masterPiutang') }}"class="dashboard-nav-dropdown-item">Master Piutang</a>
                         </div>
                     </div>
-                    <div class="nav-item-divider"></div>
-                    <a href="{{ url('/') }}" class="dashboard-nav-item"><i class="fas fa-sign-out-alt"></i> Logout
-                    </a>
+                    <form action="{{ url('/logout') }}">
+                        <input type="hidden" name="device">
+                        <button style="background-color: transparent;border:none;color:white;"
+                            class="button dashboard-nav-item"><i class="fas fa-sign-out-alt"></i> Logout</button>
+                    </form>
                 </div>
             </nav>
         </div>
@@ -122,6 +127,13 @@
 </script>
 
 <script>
+    var result = detect.parse(navigator.userAgent);
+        var data = [];
+
+        data.push(result.browser.family);
+        data.push(result.os.family);
+
+        $("[name='device']").val(JSON.stringify(data));
     $(document).on("click", "#cust_btn", function() {
 
         $("#myModal").modal("toggle");
