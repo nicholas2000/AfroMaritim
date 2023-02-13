@@ -18,12 +18,15 @@ class LoginMiddleware
      */
     public function handle(Request $request, Closure $next)
     {
-        $role = $request->session()->get('user_now')->role_pegawai;
-        $role = Str::lower(str_replace(' ', '', $role));
-        if($role!=null){
-            return $next($request);
-        }else{
+        $role = "";
+        if($request->session()->get('user_now') != ""){
+            $role = $request->session()->get('user_now')->role_pegawai;
+            $role = Str::lower(str_replace(' ', '', $role));
+        }
+        if($role==null || $role==""){
             return redirect('/');
+        }else{
+            return $next($request);
         }
     }
 }

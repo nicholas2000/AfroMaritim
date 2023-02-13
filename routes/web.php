@@ -28,6 +28,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('login');
 });
+Route::get('/', [loginController::class, "toLoginPage"]);
+
 
 Route::get('/logout', [loginController::class, "logout"]);
 

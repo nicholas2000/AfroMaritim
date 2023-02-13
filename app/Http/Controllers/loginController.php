@@ -9,6 +9,11 @@ use Illuminate\Support\Str;
 
 class loginController extends Controller
 {
+    public function toLoginPage(){
+        session()->put('user_now', '');
+        return view('login');
+    }
+
     public function login(Request $req)
     {
         $login = $req->user;
