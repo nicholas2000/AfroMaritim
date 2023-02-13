@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\Activity;
 use App\Models\modelpegawai;
-use Faker\Provider\UserAgent;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 
@@ -22,19 +21,17 @@ class loginController extends Controller
             $role = Str::lower(str_replace(' ', '', $role));
 
             if($role==$password){
-                $req->session()->put('roleuser', $role);
+                $req->session()->put('user_now', $user);
                     $data = json_decode($req->device);
-                    $this->cekActivity( $req->ip(),$data,$user->nama_pegawai);
+                    $this->cekActivityLogin( $req->ip(),$data,$user->nama_pegawai);
                 return View ("/sidebar/dashboard");
             }else{
                 return redirect ("/")->with("error","Password anda salah! ");
             }
         }
-
-
     }
 
-    function cekActivity($ip,$data,$nama)
+    function cekActivityLogin($ip,$data,$nama)
     {
         $clientIP = $ip;
 
@@ -50,10 +47,31 @@ class loginController extends Controller
         ]);
 
     }
+    function cekActivityLogout($ip,$data,$nama)
+    {
+        $clientIP = $ip;
+        $bname = $data[0];
+        $platform = $data[1];
+        $nama_pegawai = $nama;
+        Activity::create([
+            'user'=> $nama_pegawai,
+            'activity'=>"Logout Berhasil",
+            'ip_address'=>$clientIP,
+            'browser'=>$bname,
+            'os'=> $platform,
+        ]);
+
+    }
 
     public function logout(Request $request)
     {
-        $request->session()->forget('roleuser');
-        return redirect("/login");
+        $user = session()->get('user_now');
+
+        $data = json_decode($request->device);
+
+        $this->cekActivityLogout( $request->ip(),$data,$user->nama_pegawai);
+
+        session()->forget('user_now');
+        return redirect("/");
     }
 }

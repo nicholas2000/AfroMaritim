@@ -4,6 +4,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class AdminMiddleware
 {
@@ -16,7 +17,9 @@ class AdminMiddleware
      */
     public function handle(Request $request, Closure $next)
     {
-        if($request->session()->get('roleuser')=="superadmin"||$request->session()->get('roleuser')=="admin"){
+        $role = $request->session()->get('user_now')->role_pegawai;
+        $role = Str::lower(str_replace(' ', '', $role));
+        if($role=="superadmin"||$role=="admin"){
             return $next($request);
         }else{
             return redirect('/dashboard')->with('error','You do not have permission to do that!');

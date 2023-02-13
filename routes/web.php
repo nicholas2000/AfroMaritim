@@ -53,7 +53,7 @@ Route::get('/tkompetitor', function () {
 
 Route::get('/login', [loginController::class, "login"]);
 
-// Route::middleware(['login','superadmin'])->group(function () {
+Route::middleware(['login','superadmin'])->group(function () {
     Route::post('/doAddcustomer', [CustomerController::class, "doAdd"]);
     Route::get('/masterCustomer', [CustomerController::class, "show"]);
     Route::get('/tcustomer',  [CustomerController::class, "vfmcustomer"]);
@@ -77,7 +77,7 @@ Route::get('/login', [loginController::class, "login"]);
     Route::post('/masterPegawai/update', [controllerpegawai::class, "updatepegawai"]);
         Route::post('/domasterJenisharga', [controllerJenisHarga::class, "doAdd"    ]);
     Route::get('/masterJenisharga', [controllerJenisHarga::class, "show"]);
-// });
+});
 
 
 

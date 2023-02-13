@@ -74,20 +74,20 @@ class CreateMigration extends Migration
             $table->foreign('id_customer')->references('id_customer')->on('master_tcustomer');
             $table->string('nama_barang');
             $table->string('id_admin');
-            $table->string('volume');
-            $table->string('berat');
+            $table->string('volume')->nullable();
+            $table->string('berat')->nullable();
             $table->string('rute');
             $table->string('harga');
             $table->string('jenis_harga');
             $table->string('tonage');
-            $table->string('harga_tambahan');
-            $table->string('persentase');
+            $table->string('harga_tambahan')->nullable();
+            $table->string('persentase')->nullable();
             $table->string('total_harga');
-            $table->string('no_container');
-            $table->string('nama_kapal');
+            $table->string('no_container')->nullable();
+            $table->string('nama_kapal')->nullable();
             $table->date('tanggal_berangkat');
-            $table->string('nomor_manifest');
-            $table->string('link_foto');
+            $table->string('nomor_manifest')->nullable();
+            $table->string('link_foto')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });
@@ -119,6 +119,12 @@ class CreateMigration extends Migration
             $table->string('os');
             $table->timestamps();
         });
+        Schema::create('master_tjenis', function (Blueprint $table) {
+            $table->string('tipe')->primary();
+            $table->string('jenis_harga');
+            $table->string('nominal');
+            $table->timestamps();
+        });
 
     }
 
@@ -135,5 +141,6 @@ class CreateMigration extends Migration
         Schema::dropIfExists('master_tpegawai');
         Schema::dropIfExists('master_tcabang');
         Schema::dropIfExists('activity');
+        Schema::dropIfExists('master_tjenis');
     }
 }

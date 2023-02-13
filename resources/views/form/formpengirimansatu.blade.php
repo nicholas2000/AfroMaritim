@@ -173,18 +173,19 @@
     </div>
 </section>
 <script>
-var data = [];
+var data2 = [];
     function myFunction(x) {
         if(x.checked==true)
         {
-            data.push(x.value);
+            data2.push(x.value);
 
         }else
         {
-            data.splice(data.indexOf(x.value), 1);
+            data2.splice(data2.indexOf(x.value), 1);
         }
 
-        $("[name='barang']").val(data.length);
+        $("[name='barang']").val(data2.length);
+        console.log(data2);
     }
 
     function onlyNumberKey(evt) {
