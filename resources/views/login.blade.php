@@ -8,6 +8,7 @@
 <html class=''>
 
 <head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Detect.js/2.2.2/detect.min.js"></script>
     <script
         src='//production-assets.codepen.io/assets/editor/live/console_runner-079c09a0e3b9ff743e39ee2d5637b9216b3545af0de366d4b9aad9dc87e26bfd.js'>
     </script>
@@ -55,10 +56,8 @@
             <input name="user" type="text" placeholder="Username" />
             <input name="password" type="TEXT" placeholder="Password" />
             <input type="submit" style="color:white;background-color:#023e94" value="Login">
-            {{-- @if (Session::has('error'))
-        <p class="alert "> {{ Session::get('error') }}</p>
-    @endif --}}
             <p class="message"> <a href="">Forgot Password</a></p>
+            <input type="hidden" name="device">
         </form>
     </div>
 
@@ -71,6 +70,13 @@
         function myFunction() {
             document.getElementById("box").style.display="none";
         }
+        var result = detect.parse(navigator.userAgent);
+        var data = [];
+
+        data.push(result.browser.family);
+        data.push(result.os.family);
+
+        $("[name='device']").val(JSON.stringify(data));
     </script>
 </body>
 

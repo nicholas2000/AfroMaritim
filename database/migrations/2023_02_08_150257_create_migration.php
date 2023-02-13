@@ -110,6 +110,15 @@ class CreateMigration extends Migration
             $table->timestamps();
             $table->softDeletes();
         });
+        Schema::create('activity', function (Blueprint $table) {
+            $table->id();
+            $table->string('user');
+            $table->string('activity');
+            $table->string('ip_address');
+            $table->string('browser');
+            $table->string('os');
+            $table->timestamps();
+        });
 
     }
 
@@ -121,9 +130,10 @@ class CreateMigration extends Migration
     public function down()
     {
         Schema::dropIfExists('transaksi');
+        Schema::dropIfExists('master_tkompetitor');
         Schema::dropIfExists('master_tcustomer');
         Schema::dropIfExists('master_tpegawai');
-        Schema::dropIfExists('master_tkompetitor');
         Schema::dropIfExists('master_tcabang');
+        Schema::dropIfExists('activity');
     }
 }
