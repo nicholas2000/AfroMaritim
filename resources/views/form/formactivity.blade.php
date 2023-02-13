@@ -23,6 +23,10 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
     </script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
 </head>
 
 <body>
@@ -57,8 +61,8 @@
                     <div class="row">
                         <div class="col">
                             <button type="button" class="btn btn-success">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="16" fill="currentColor"
-                                    class="bi bi-file-excel" viewBox="0 0 16 16">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="16"
+                                    fill="currentColor" class="bi bi-file-excel" viewBox="0 0 16 16">
                                     <path
                                         d="M5.18 4.616a.5.5 0 0 1 .704.064L8 7.219l2.116-2.54a.5.5 0 1 1 .768.641L8.651 8l2.233 2.68a.5.5 0 0 1-.768.64L8 8.781l-2.116 2.54a.5.5 0 0 1-.768-.641L7.349 8 5.116 5.32a.5.5 0 0 1 .064-.704z">
                                     </path>
@@ -83,15 +87,65 @@
                             </button>
                         </div>
 
-                        <div class="col">
+                        <div class="col-sm-4">
                             <input class="form-control" type="text" name="search" placeholder="Search">
                         </div>
-                        
-                        <div class="col">
-                            <input type="date" name="daterange" value="01/01/2015 1:30 PM - 01/01/2015 2:00 PM" />
+
+                        <div class="col-sm-3">
+                            <div id="date-picker-example" class="md-form md-outline input-with-post-icon datepicker"
+                                inline="true">
+                                <input name="datefilter" placeholder="Select date" type="text" id="example"
+                                    class="form-control">
+
+                                <i class="fas fa-calendar input-prefix"></i>
+                            </div>
                         </div>
                     </div>
                     <hr class="mt" />
+                </div>
+                <br><br>
+                <div class="container">
+                    <div class="col-12">
+                        <table class="table table-bordered">
+                            <tr style="background-color:  #023e94;color: white;">
+                                <th>No</th>
+                                <th scope="col">
+                                    <center>User</center>
+                                </th>
+                                <th scope="col">IP</th>
+                                <th scope="col">
+                                    <center>Browser</center>
+                                </th>
+                                <th scope="col">
+                                    <center>OS</center>
+                                </th>
+                                <th scope="col">
+                                    <center>Created At</center>
+                                </th>
+                            </tr>
+                            <?php $ctr = 1; ?>
+
+                            <tr>
+
+                                <th scope="row">1</th>
+                                <th scope="col">
+                                    User
+                                </th>
+                                <th scope="col">
+                                    172.20.10.4
+                                </th>
+                                <th scope="col">
+                                    Chrome
+                                </th>
+                                <th scope="col">
+                                    Windows
+                                </th>
+                                <th scope="col">
+                                    2023-01-01 00:00:00
+                                </th>
+
+                        </table>
+                    </div>
                 </div>
 
             </div>
@@ -105,14 +159,24 @@
 </body>
 <script type="text/javascript">
     $(function() {
-        $('input[name="daterange"]').daterangepicker({
-            timePicker: true,
-            timePickerIncrement: 30,
+
+        $('input[name="datefilter"]').daterangepicker({
+            autoUpdateInput: false,
             locale: {
-                format: 'MM/DD/YYYY h:mm A'
+                cancelLabel: 'Clear'
             }
         });
+
+        $('input[name="datefilter"]').on('apply.daterangepicker', function(ev, picker) {
+            $(this).val(picker.startDate.format('MM/DD/YYYY') + ' - ' + picker.endDate.format(
+                'MM/DD/YYYY'));
+        });
+
+        $('input[name="datefilter"]').on('cancel.daterangepicker', function(ev, picker) {
+            $(this).val('');
+        });
+
     });
-    </script>
+</script>
 
 </html>
