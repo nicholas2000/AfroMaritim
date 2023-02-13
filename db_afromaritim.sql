@@ -12,7 +12,7 @@ MySQL - 10.4.27-MariaDB : Database - db_afromaritim
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
-CREATE DATABASE /*!32312 IF NOT EXISTS*/`db_afromaritim` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci */;
+CREATE DATABASE /*!32312 IF NOT EXISTS*/`db_afromaritim` /*!40100 DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci */;
 
 USE `db_afromaritim`;
 
@@ -30,14 +30,23 @@ CREATE TABLE `activity` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
+<<<<<<< HEAD
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+=======
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+>>>>>>> 0ef41cb9fe6bf5d954dd628d8910d76052d3a4b6
 
 /*Data for the table `activity` */
 
 insert  into `activity`(`id`,`user`,`activity`,`ip_address`,`browser`,`os`,`created_at`,`updated_at`) values 
+<<<<<<< HEAD
 (1,'Luna','Login Berhasil','127.0.0.1','Chrome','Windows 10','2023-02-13 15:57:34','2023-02-13 15:57:34'),
 (2,'Luna','Logout Berhasil','127.0.0.1','Chrome','Windows 10','2023-02-13 15:59:36','2023-02-13 15:59:36'),
 (3,'Nicho','Login Berhasil','127.0.0.1','Chrome','Windows 10','2023-02-13 15:59:45','2023-02-13 15:59:45');
+=======
+(1,'Nicho','Login Berhasil','127.0.0.1','Chrome','Windows 10','2023-02-13 13:08:55','2023-02-13 13:08:55'),
+(2,'Nicho','Login Berhasil','127.0.0.1','Chrome','Windows 10','2023-02-13 14:43:17','2023-02-13 14:43:17');
+>>>>>>> 0ef41cb9fe6bf5d954dd628d8910d76052d3a4b6
 
 /*Table structure for table `failed_jobs` */
 
@@ -56,6 +65,19 @@ CREATE TABLE `failed_jobs` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 /*Data for the table `failed_jobs` */
+
+/*Table structure for table `master_jabatan` */
+
+DROP TABLE IF EXISTS `master_jabatan`;
+
+CREATE TABLE `master_jabatan` (
+  `id_jabatan` varchar(255) NOT NULL,
+  `nama_jabatan` varchar(255) NOT NULL,
+  `status_jabatan` varchar(255) NOT NULL,
+  PRIMARY KEY (`id_jabatan`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+/*Data for the table `master_jabatan` */
 
 /*Table structure for table `master_tcabang` */
 
@@ -118,7 +140,11 @@ CREATE TABLE `master_tcustomer` (
 /*Data for the table `master_tcustomer` */
 
 insert  into `master_tcustomer`(`id_customer`,`id_cabang`,`nama_customer`,`npwp`,`jalan`,`provinsi`,`kota`,`kecamatan`,`kelurahan`,`kode_pos`,`telpon`,`email`,`pajak`,`status_hutang`,`total_hutang`,`batas_pembayaran`,`no_rekening`,`metode_pembayaran`,`created_at`,`updated_at`,`deleted_at`) values 
+<<<<<<< HEAD
 ('CU001','C001','Budi','23423','Kabupaten Rembang no 4','Jawa Timur','Bandung','Malang','Kediri','3334534','08113190080','admin@gmail.com','Tidak Kena Pajak','Off','','','','','2023-02-13 16:00:39','2023-02-13 16:00:39',NULL);
+=======
+('CU001','C001','Hwe','123','Surabaya','Jawa Barat','Bandung','Malang','Kediri','61213','123456','lala@gmail.com','Tidak Kena Pajak','Off','','','','','2023-02-13 14:50:28','2023-02-13 14:50:28',NULL);
+>>>>>>> 0ef41cb9fe6bf5d954dd628d8910d76052d3a4b6
 
 /*Table structure for table `master_tjenis` */
 
@@ -126,6 +152,7 @@ DROP TABLE IF EXISTS `master_tjenis`;
 
 CREATE TABLE `master_tjenis` (
   `tipe` varchar(255) NOT NULL,
+<<<<<<< HEAD
   `jenis_harga` varchar(255) NOT NULL,
   `nominal` varchar(255) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
@@ -137,6 +164,17 @@ CREATE TABLE `master_tjenis` (
 
 insert  into `master_tjenis`(`tipe`,`jenis_harga`,`nominal`,`created_at`,`updated_at`) values 
 ('A','1','10000',NULL,NULL);
+=======
+  `jenis_harga` varchar(255) DEFAULT NULL,
+  `nominal` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`tipe`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+
+/*Data for the table `master_tjenis` */
+
+insert  into `master_tjenis`(`tipe`,`jenis_harga`,`nominal`) values 
+('A','15000','1000');
+>>>>>>> 0ef41cb9fe6bf5d954dd628d8910d76052d3a4b6
 
 /*Table structure for table `master_tkompetitor` */
 
@@ -285,7 +323,13 @@ CREATE TABLE `transaksi` (
 /*Data for the table `transaksi` */
 
 insert  into `transaksi`(`nomor_transaksi`,`id_customer`,`nama_barang`,`id_admin`,`volume`,`berat`,`rute`,`harga`,`jenis_harga`,`tonage`,`harga_tambahan`,`persentase`,`total_harga`,`no_container`,`nama_kapal`,`tanggal_berangkat`,`nomor_manifest`,`link_foto`,`created_at`,`updated_at`,`deleted_at`) values 
+<<<<<<< HEAD
 ('TC001','CU001','pensil','admin','0','10','A','12100','A','10%','0','10%','0',NULL,NULL,'2023-02-15',NULL,NULL,'2023-02-13 16:04:00','2023-02-13 16:04:00',NULL);
+=======
+('TC001','CU001','Surabaya','admin','0','15','Jakarta','3','A','2','0','200%','0','1','Luna','2023-02-10','1',NULL,'2023-02-13 15:03:55','2023-02-13 15:05:23',NULL),
+('TC002','CU001','Surabaya','admin','0','15','Jakarta','3','A','2','0','200%','0','1','Luna','2023-02-10','1',NULL,'2023-02-13 15:03:55','2023-02-13 15:05:23',NULL),
+('TC003','CU001','Makasar','admin','0','20','Makasar','3','A','2','0','10%','0','1','Luna','2023-02-10','1',NULL,'2023-02-13 15:05:04','2023-02-13 15:05:23',NULL);
+>>>>>>> 0ef41cb9fe6bf5d954dd628d8910d76052d3a4b6
 
 /*Table structure for table `users` */
 

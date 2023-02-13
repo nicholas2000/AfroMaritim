@@ -75,10 +75,7 @@ Route::middleware(['login','superadmin'])->group(function () {
     Route::get('/tpegawai',  [controllerpegawai::class, "vfmpegawai"]);
     Route::post('/masterPegawai/delete/{id}', [controllerpegawai::class, "deletepegawai"]);
     Route::post('/masterPegawai/update', [controllerpegawai::class, "updatepegawai"]);
-
-    Route::get('/formStatus', [pengirimancontroller::class, "showHistory"]);
-
-    Route::post('/domasterJenisharga', [controllerJenisHarga::class, "doAdd"]);
+        Route::post('/domasterJenisharga', [controllerJenisHarga::class, "doAdd"    ]);
     Route::get('/masterJenisharga', [controllerJenisHarga::class, "show"]);
 });
 
