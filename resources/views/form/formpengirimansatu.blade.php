@@ -106,7 +106,7 @@
                         <div class="col-sm-5">Total Barang Diantar</div>
                         <div>:</div>
                         <div class="col-sm-3">
-                            <input style="width: 180px;"type='text' disabled>
+                            <input style="width: 180px;"type='text' name="barang" disabled>
                         </div>
                     </div>
                     <br>
@@ -174,6 +174,20 @@
     </div>
 </section>
 <script>
+var data = [];
+    function myFunction(x) {
+        if(x.checked==true)
+        {
+            data.push(x.value);
+
+        }else
+        {
+            data.splice(data.indexOf(x.value), 1);
+        }
+
+        $("[name='barang']").val(data.length);
+    }
+
     function onlyNumberKey(evt) {
         var ASCIICode = (evt.which) ? evt.which : evt.keyCode
         if (ASCIICode > 31 && (ASCIICode < 48 || ASCIICode > 57))

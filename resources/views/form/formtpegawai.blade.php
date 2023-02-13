@@ -182,7 +182,7 @@
                             <option value="">Pilih Role</option>
                             <option>Super Admin</option>
                             <option>Accounting</option>
-                            <option>Supervisor</option>
+                            <option>Admin</option>
                             <option>Pegawai</option>
                             <option>Kurir</option>
                         </select>

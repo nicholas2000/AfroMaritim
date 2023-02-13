@@ -17,11 +17,12 @@
         right: 10%;
         display: flex;
     }
+
     @media screen and (max-width:600px) {
-    .p{
-        right: -20%;
+        .p {
+            right: -20%;
+        }
     }
-}
 </style>
 <link rel="stylesheet" href="notif.css">
 <meta charset="utf-8">
@@ -45,7 +46,8 @@
 
             </header>
 
-            <nav class="dashboard-nav-list"><a href="{{ url('/dashboard') }}" class="dashboard-nav-item"><i class="fas fa-home"></i>Home </a>
+            <nav class="dashboard-nav-list"><a href="{{ url('/dashboard') }}" class="dashboard-nav-item"><i
+                        class="fas fa-home"></i>Home </a>
                 <div class='dashboard-nav-dropdown' style="background-color:#023e94"><a href="#!"
                         class="dashboard-nav-item dashboard-nav-dropdown-toggle"><i class="fa fa-user-circle"></i>
                         Master </a>
@@ -54,8 +56,10 @@
                         <a href="{{ url('/masterPegawai') }}"class="dashboard-nav-dropdown-item">Master Pegawai</a>
                         <a href="{{ url('/masterCustomer') }}"class="dashboard-nav-dropdown-item">Master
                             Customer</a>
-                        <a href="{{ url('/masterKompetitor') }}"class="dashboard-nav-dropdown-item">Master Kompetitor</a>
-                        <a href="{{ url('/masterJenisharga') }}"class="dashboard-nav-dropdown-item">Master Jenis Harga</a>
+                        <a href="{{ url('/masterKompetitor') }}"class="dashboard-nav-dropdown-item">Master
+                            Kompetitor</a>
+                        <a href="{{ url('/masterJenisharga') }}"class="dashboard-nav-dropdown-item">Master Jenis
+                            Harga</a>
 
 
                     </div>
@@ -67,7 +71,8 @@
                             <a href="{{ url('/masterHistory') }}"class="dashboard-nav-dropdown-item">History
                                 Transaksi</a>
                             <a href="{{ url('/masterStatus') }}"class="dashboard-nav-dropdown-item">Status Barang</a>
-                            <a href="{{ url('/masterTeam') }}"class="dashboard-nav-dropdown-item">Master Team Pengiriman</a>
+                            <a href="{{ url('/masterTeam') }}"class="dashboard-nav-dropdown-item">Master Team
+                                Pengiriman</a>
                             <a href="{{ url('/masterpengirimansatu') }}"class="dashboard-nav-dropdown-item">Opsi 1</a>
                             <a href="{{ url('/masterpengirimandua') }}"class="dashboard-nav-dropdown-item">Opsi 2</a>
                         </div>
@@ -81,8 +86,7 @@
                         </div>
                     </div>
                     <div class="nav-item-divider"></div>
-                    <a href="{{ url('/') }}" class="dashboard-nav-item"><i class="fas fa-sign-out-alt"></i> Logout
-                    </a>
+                        <a href="{{ url('/logout') }}" class="dashboard-nav-item"><i class="fas fa-sign-out-alt"></i> Logout
                 </div>
             </nav>
         </div>
@@ -107,7 +111,9 @@
                         Welcome Admin
                     </div>
                     <div class='card-body'>
-
+                        @if (Session::has('error'))
+                            <p class="alert "> {{ Session::get('error') }}</p>
+                        @endif
                     </div>
                 </div>
             </div>

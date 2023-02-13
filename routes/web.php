@@ -28,8 +28,12 @@ Route::get('/', function () {
     return view('login');
 });
 
-Route::get('/dashboard', function () {
-    return view('sidebar.dashboard');
+Route::get('/logout', [loginController::class, "logout"]);
+
+Route::middleware('login')->group(function () {
+    Route::get('/dashboard', function () {
+        return view('sidebar.dashboard');
+    });
 });
 
 Route::get('/hutang', function () {
@@ -48,46 +52,55 @@ Route::get('/tkompetitor', function () {
 
 Route::get('/login', [loginController::class, "login"]);
 
-Route::post('/doAddcustomer', [CustomerController::class, "doAdd"]);
-Route::get('/masterCustomer', [CustomerController::class, "show"]);
-Route::get('/tcustomer',  [CustomerController::class, "vfmcustomer"]);
-Route::post('/masterCustomer/edit', [CustomerController::class, "doEdit"]);
-Route::post('/masterCustomer/delete/{id}', [CustomerController::class, "delete"]);
+Route::middleware(['login','superadmin'])->group(function () {
+    Route::post('/doAddcustomer', [CustomerController::class, "doAdd"]);
+    Route::get('/masterCustomer', [CustomerController::class, "show"]);
+    Route::get('/tcustomer',  [CustomerController::class, "vfmcustomer"]);
+    Route::post('/masterCustomer/edit', [CustomerController::class, "doEdit"]);
+    Route::post('/masterCustomer/delete/{id}', [CustomerController::class, "delete"]);
 
-Route::post('/doAddcabang', [CabangController::class, "doAdd"]);
-Route::get('/masterCabang', [CabangController::class, "show"]);
-Route::post('/masterCabang/edit', [CabangController::class, "doEdit"]);
-Route::post('/masterCabang/delete/{id}', [CabangController::class, "delete"]);
+    Route::post('/doAddcabang', [CabangController::class, "doAdd"]);
+    Route::get('/masterCabang', [CabangController::class, "show"]);
+    Route::post('/masterCabang/edit', [CabangController::class, "doEdit"]);
+    Route::post('/masterCabang/delete/{id}', [CabangController::class, "delete"]);
 
-Route::post('/doAddkompetitor', [KompetitorController::class, "doAdd"]);
-Route::get('/masterKompetitor', [KompetitorController::class, "show"]);
-Route::post('/masterKompetitor/delete/{id}', [KompetitorController::class, "delete"]);
-Route::post('/masterKompetitor/update', [KompetitorController::class, "update"]);
+    Route::post('/doAddkompetitor', [KompetitorController::class, "doAdd"]);
+    Route::get('/masterKompetitor', [KompetitorController::class, "show"]);
+    Route::post('/masterKompetitor/delete/{id}', [KompetitorController::class, "delete"]);
+    Route::post('/masterKompetitor/update', [KompetitorController::class, "update"]);
 
-Route::post('/dotmpegawai', [controllerpegawai::class, "dovmtpegawai"]);
-Route::get('/masterPegawai', [controllerpegawai::class, "vmpegawai"]);
-Route::get('/tpegawai',  [controllerpegawai::class, "vfmpegawai"]);
-Route::post('/masterPegawai/delete/{id}', [controllerpegawai::class, "deletepegawai"]);
-Route::post('/masterPegawai/update', [controllerpegawai::class, "updatepegawai"]);
+    Route::post('/dotmpegawai', [controllerpegawai::class, "dovmtpegawai"]);
+    Route::get('/masterPegawai', [controllerpegawai::class, "vmpegawai"]);
+    Route::get('/tpegawai',  [controllerpegawai::class, "vfmpegawai"]);
+    Route::post('/masterPegawai/delete/{id}', [controllerpegawai::class, "deletepegawai"]);
+    Route::post('/masterPegawai/update', [controllerpegawai::class, "updatepegawai"]);
+
+    Route::post('/domasterJenisharga', [controllerJenisHarga::class, "doAdd"]);
+    Route::get('/masterJenisharga', [controllerJenisHarga::class, "show"]);
+});
+
+
+
 
 Route::get('/masterpengirimansatu', [pengirimancontroller::class, "vmpengirimansatu"]);
 Route::get('/masterpengirimandua', [pengirimancontroller::class, "vmpengirimandua"]);
 
 
 // <-------------->
-Route::post('/doMasterTransaksi', [TransaksiController::class, "doAdd"]);
-Route::get('/masterTransaksi', [TransaksiController::class, "showtransaksi"]);
+
+Route::middleware(['login','admin'])->group(function () {
+    Route::post('/doMasterTransaksi', [TransaksiController::class, "doAdd"]);
+    Route::get('/masterTransaksi', [TransaksiController::class, "showtransaksi"]);
+
+    Route::post('/masterHistory/delete/{id}', [HistoryController::class, "deletehistory"]);
+    Route::post('/masterHistory/update', [HistoryController::class, "updatehistory"]);
+    Route::get('/masterHistory', [TransaksiController::class, "showHistory"]);
+});
 
 
 Route::get('/masterTeam', function () {
     return view('admin.mTeampengiriman');
 });
-
-// Route::post('/doMasterTransaksi', [TransaksiController::class, "doAdd"]);
-Route::get('/masterHistory', [TransaksiController::class, "showHistory"]);
-// Route::get('/masterHistory', function () {
-//     return view('admin.mHistory');
-// });
 
 Route::get('/masterStatus', function () {
     return view('admin.mStatus');
@@ -129,16 +142,9 @@ Route::get('/tambahformnopo', function () {
 Route::get('/tambahsuratjalan', function () {
     return view('admin.mSuratJalan');
 });
-Route::post('/masterHistory/delete/{id}', [HistoryController::class, "deletehistory"]);
-Route::post('/masterHistory/update', [HistoryController::class, "updatehistory"]);
 
 
-// Route::get('/masterJenisharga', function () {
-//     return view('admin.mJenisharga');
-// });
-Route::post('/domasterJenisharga', [controllerJenisHarga::class, "doAdd"]);
 
-Route::get('/masterJenisharga', [controllerJenisHarga::class, "show"]);
 //ROUTE BARU
 
 
