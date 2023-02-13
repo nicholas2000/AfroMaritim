@@ -26,8 +26,8 @@ class loginController extends Controller
         //     }
         // }
         $macAddr = exec('getmac');
-        // $clientIP = \Request::getClientIp(true);
-        dd($macAddr);
+        $clientIP = $request->ip();
+        dd($clientIP);
     }
 
     public function logout(Request $request)
