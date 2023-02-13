@@ -39,6 +39,7 @@
         <div class="container">
             <h1> Barang </h1>
             <div class="row ">
+                <input type="hidden" name="data">
                 <div class="col-sm-8 col-md-6 form-group">
                     <div class="input-group">
                         <input type="search" class="form-control rounded p" placeholder=" Search" aria-label="Search"
