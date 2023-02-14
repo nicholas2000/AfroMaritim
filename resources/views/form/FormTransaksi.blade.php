@@ -252,7 +252,9 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-sm-3">
+                            {{-- {{$arrTransaksi}} --}}
                             <input type="hidden" name="option" id="option" value="berat">
+                            {{-- <input type="hidden" name="trans" id="trans" value="{{$arrTransaksi}}"> --}}
                         </div>
 
                     </div>
@@ -293,7 +295,11 @@
             $('#userList').fadeOut();
             $("#wrapper").css("display", "none");
         });
+        var kode = $arrTransaksi.length;
+        document.getElementById("kode").value = kode;
     });
+
+    //volume atau berat
     document.getElementById("volume").readOnly = true;
 
     function disable_option2() {

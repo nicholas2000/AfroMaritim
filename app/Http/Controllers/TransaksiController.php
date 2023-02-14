@@ -17,6 +17,7 @@ class TransaksiController extends Controller
     public function showtransaksi(Request $req)
     {
         $param['arrJenisHarga']=modelJenisHarga::get();
+        $param['arrTransaksi']=Transaksi::where('nomor_transaksi', 'like', '%TC%')->count();
         return view('admin/mTransaksi',$param);
     }
 
