@@ -50,6 +50,8 @@
 
             <nav class="dashboard-nav-list"><a href="{{ url('/dashboard') }}" class="dashboard-nav-item"><i
                         class="fas fa-home"></i>Home </a>
+                        <nav class="dashboard-nav-list"><a href="{{ url('/formactivity') }}" class="dashboard-nav-item"><i
+                            class="fas fa-home"></i>Activity </a>
                 <div class='dashboard-nav-dropdown' style="background-color:#023e94"><a href="#!"
                         class="dashboard-nav-item dashboard-nav-dropdown-toggle"><i class="fa fa-user-circle"></i>
                         Master </a>

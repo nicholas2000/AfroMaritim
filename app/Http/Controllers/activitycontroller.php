@@ -12,6 +12,6 @@ class activitycontroller extends Controller
     {
         $arrActivity=Activity::all();
         $arrPegawai=modelpegawai::all();
-        return view("form.formactivity",compact("arrActivity","arrPegawai"));
+        return view("admin.mActivity",compact("arrActivity","arrPegawai"));
     }
 }
