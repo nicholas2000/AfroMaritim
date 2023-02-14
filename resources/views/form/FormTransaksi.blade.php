@@ -181,7 +181,7 @@
                             <div class="col-auto">
                                 <select name="jenisharga" class="custom-select" style="font-size:15px;width: 210px;margin-left:-15px;height:40px;"
                                     id="jenisharga" onchange="choose_harga()">
-                                    <option value=""></option>
+                                    <option value="-,0"></option>
                                     @foreach ($arrJenisHarga as $prm)
                                         <option value="{{ $prm->tipe }},{{ $prm->nominal }}">{{ $prm->tipe }}</option>
                                     @endforeach
@@ -221,8 +221,7 @@
                             Nama Kapal :
                         </div>
                         <div class="col-sm">
-                            <input name="namakapal" class="form-control" type="text"style="width: 210px;"
-                                >
+                            <input name="namakapal" class="form-control" type="text"style="width: 210px;">
                         </div>
                         <div class="col-sm-3">
                             Total Harga :
