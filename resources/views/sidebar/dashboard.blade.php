@@ -18,6 +18,9 @@
         display: flex;
     }
 
+    .button:focus {
+        outline: none;
+    }
     @media screen and (max-width:600px) {
         .p {
             right: -20%;
