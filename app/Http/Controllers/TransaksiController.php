@@ -32,7 +32,6 @@ class TransaksiController extends Controller
                     "namabarang" => 'required',
                     "berat"=>'gt:0',
                     "rute"=>'required',
-                    "tonage"=>'required',
                     "harga"=>'required',
                     "jenisharga" => 'required',
                     "hargatambahan" => 'required',
@@ -44,8 +43,7 @@ class TransaksiController extends Controller
                     "namabarang.required" => 'Nama Barang Harus di isi',
                     "berat.gt"=>'Berat Harus lebih dari 0',
                     "rute.required"=>'Rute Harus di isi',
-                    "tonage.required"=>'Tonage Harus di isi',
-                    // "harga.required"=>'Harga Harus di isi',
+                    "harga.required"=>'Harga Harus di isi',
                     "jenisharga.required" => 'Jenis Harga Harus dipilih',
                     "hargatambahan.required" => 'Harga Tambahan Harus di isi',
                     "persentase.required" => 'Persentase Harus di isi',
@@ -59,7 +57,6 @@ class TransaksiController extends Controller
                     "namabarang" => 'required',
                     "volume" => 'gt:0',
                     "rute"=>'required',
-                    "tonage"=>'required',
                     "harga"=>'required',
                     "jenisharga" => 'required',
                     "hargatambahan" => 'required',
@@ -71,8 +68,7 @@ class TransaksiController extends Controller
                     "namabarang.required" => 'Nama Barang Harus di isi',
                     "volume.gt"=>'Volume Harus lebih dari 0',
                     "rute.required"=>'Rute Harus di isi',
-                    "tonage.required"=>'Tonage Harus di isi',
-                    // "harga.required"=>'Harga Harus di isi',
+                    "harga.required"=>'Harga Harus di isi',
                     "jenisharga.required" => 'Jenis Harga Harus dipilih',
                     "hargatambahan.required" => 'Harga Tambahan Harus di isi',
                     "persentase.required" => 'Persentase Harus di isi',
@@ -95,7 +91,6 @@ class TransaksiController extends Controller
             $kode = "TC{$ctr}";
         }
         $idadmpalsu="admin";
-        // $jenis = explode(",", $req->jenisharga);
         $Customer=Customer::where('nama_customer', 'like', '%' . $req->namacust . '%')->get();
 
         Transaksi::create([
@@ -108,7 +103,6 @@ class TransaksiController extends Controller
             'rute' =>$req->rute,
             'harga' =>$req->harga,
             'jenis_harga' => explode(",", $req->jenisharga)[0],
-            'tonage'=>$req->tonage,
             'harga_tambahan'=>intval($req->hargatambahan),
             'persentase' =>$req->persentase,
             'total_harga' =>$req->total,
