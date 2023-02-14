@@ -175,12 +175,6 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-sm-3">
-                            Harga :
-                        </div>
-                        <div class="col-sm">
-                            <input name="harga" class="form-control" type="text"style="width: 210px;" >
-                        </div>
-                        <div class="col-sm-3">
                             Jenis Harga :
                         </div>
                         <div class="col-sm-3">
@@ -189,11 +183,17 @@
                                     id="jenisharga" onchange="choose_harga()">
                                     <option value=""></option>
                                     @foreach ($arrJenisHarga as $prm)
-                                        <option value="{{ $prm->tipe }},{{ $prm->jenis_harga }}">{{ $prm->tipe }}</option>
+                                        <option value="{{ $prm->tipe }},{{ $prm->nominal }}">{{ $prm->tipe }}</option>
                                     @endforeach
                                 </select>
                                 {{-- <input type="hidden" name="jenis" id="jenis" value=""> --}}
                             </div>
+                        </div>
+                        <div class="col-sm-3">
+                            Harga :
+                        </div>
+                        <div class="col-sm">
+                            <input name="harga" id="harga" class="form-control" type="number" style="width: 210px;" value="0">
                         </div>
                     </div>
                 </div>
