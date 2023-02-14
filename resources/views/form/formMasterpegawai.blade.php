@@ -241,9 +241,8 @@
                                     <select name="role" style="height:35px" class="form-control selectpicker">
                                         <option value="">Pilih Role</option>
                                         <option>Super Admin</option>
+                                        <option>Admin</option>
                                         <option>Accounting</option>
-                                        <option>Supervisor</option>
-                                        <option>Pegawai</option>
                                         <option>Kurir</option>
                                     </select>
                                     <input type="submit" value="Ubah" style="background-color: #023e94">
@@ -272,7 +271,6 @@
         $("[name='provinsi']").val(jArray[id]['provinsi_pegawai']);
         $("[name='kota']").val(jArray[id]['kota_pegawai']);
         $("[name='kodepos']").val(jArray[id]['kodepos_pegawai']);
-        $("[name='hp']").val(jArray[id]['nohp_pegawai']);
         $("[name='telpon']").val(jArray[id]['telp_pegawai']);
         $("[name='email']").val(jArray[id]['email_pegawai']);
         if (jArray[id]['role_pegawai'] == 1)
@@ -281,15 +279,11 @@
         }
         else if (jArray[id]['role_pegawai'] == 2)
         {
-            $("[name='role']").val("Accounting");
+            $("[name='role']").val("Admin");
         }
         else if (jArray[id]['role_pegawai'] == 3)
         {
-            $("[name='role']").val("Supervisor");
-        }
-        else if (jArray[id]['role_pegawai'] == 4)
-        {
-            $("[name='role']").val("Pegawai");
+            $("[name='role']").val("Accounting");
         }
         else
         {

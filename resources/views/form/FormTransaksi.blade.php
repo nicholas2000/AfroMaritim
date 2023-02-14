@@ -158,12 +158,6 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-sm-3">
-                            Tonage :
-                        </div>
-                        <div class="col-sm-3">
-                            <input name="tonage" class="form-control" type="text"style="width: 210px;" >
-                        </div>
-                        <div class="col-sm-3">
                             Rute :
                         </div>
                         <div class="col-sm">
@@ -186,7 +180,6 @@
                                         <option value="{{ $prm->tipe }},{{ $prm->nominal }}">{{ $prm->tipe }}</option>
                                     @endforeach
                                 </select>
-                                {{-- <input type="hidden" name="jenis" id="jenis" value=""> --}}
                             </div>
                         </div>
                         <div class="col-sm-3">
@@ -252,9 +245,7 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-sm-3">
-                            {{-- {{$arrTransaksi}} --}}
                             <input type="hidden" name="option" id="option" value="berat">
-                            {{-- <input type="hidden" name="trans" id="trans" value="{{$arrTransaksi}}"> --}}
                         </div>
 
                     </div>
@@ -325,7 +316,6 @@
     function choose_harga(){
         var arrJenis = $("#jenisharga").val().split(",");
         document.getElementById("harga").value = arrJenis[1];
-        // document.getElementById("jenis").value = arrJenis[0];
         total_harga();
     }
 
