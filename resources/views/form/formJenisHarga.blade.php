@@ -53,7 +53,7 @@
                         <div class="input-group">
                             <span style="background-color: #023e94" class="input-group-addon"><i style="color: white"
                                     class="fa fa-money"></i></span>
-                            <input onkeypress="return onlyNumberKey(event)" name="nominal"
+                            <input onkeypress="" name="nominal"
                                 placeholder="Masukkan Nominal" class="form-control" type="text">
                         </div>
                     </div>
