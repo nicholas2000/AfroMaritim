@@ -183,7 +183,7 @@
                                     id="jenisharga" onchange="choose_harga()">
                                     <option value=""></option>
                                     @foreach ($arrJenisHarga as $prm)
-                                        <option value="{{ $prm->tipe }},{{ $prm->jenis_harga }}">{{ $prm->tipe }}</option>
+                                        <option value="{{ $prm->tipe }},{{ $prm->nominal }}">{{ $prm->tipe }}</option>
                                     @endforeach
                                 </select>
                                 {{-- <input type="hidden" name="jenis" id="jenis" value=""> --}}
