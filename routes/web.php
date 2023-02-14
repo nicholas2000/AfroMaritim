@@ -30,6 +30,7 @@ Route::get('/', function () {
 });
 Route::get('/', [loginController::class, "toLoginPage"]);
 
+Route::get('/formactivity', [activitycontroller::class, "formact"]);
 
 Route::get('/logout', [loginController::class, "logout"]);
 

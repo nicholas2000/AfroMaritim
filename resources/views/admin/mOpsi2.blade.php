@@ -109,7 +109,7 @@
                         Welcome Admin
                     </div>
                     <div class='card-body'>
-                        @include("form.formpengirimandua")
+                        @include("form.formpengirimansatu")
                     </div>
                 </div>
             </div>

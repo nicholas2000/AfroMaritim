@@ -8,17 +8,16 @@ use Illuminate\Database\Eloquent\Model;
 class Pengiriman extends Model
 {
     use HasFactory;
-    protected $table = "activity";
-    protected $primaryKey = "id";
+    protected $table = "pengiriman";
+    protected $primaryKey = "no";
     public $incrementing = true;
     public $timestamps = true;
     protected $fillable = [
-        'id',
-        'user',
-        'activity',
-        'ip_address',
-        'browser',
-        'os'
+        'nama_kurir',
+        'no_transaksi',
+        'tanggal_pengiriman',
+        'status_barang',
+        'link_foto'
     ];
     protected $keyType = 'string';
 }

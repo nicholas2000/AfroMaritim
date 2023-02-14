@@ -1,5 +1,4 @@
-<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <link rel="stylesheet" href="sidebar.css">
 <script src="sidebar.js"></script>
@@ -17,12 +16,14 @@
         right: 10%;
         display: flex;
     }
-
-    @media screen and (max-width:600px) {
-        .p {
-            right: -20%;
-        }
+    .button:focus {
+        outline: none;
     }
+    @media screen and (max-width:600px) {
+    .p{
+        right: -20%;
+    }
+}
 </style>
 <link rel="stylesheet" href="notif.css">
 <meta charset="utf-8">
@@ -46,10 +47,7 @@
 
             </header>
 
-            <nav class="dashboard-nav-list"><a href="{{ url('/dashboard') }}" class="dashboard-nav-item"><i
-                        class="fas fa-home"></i>Home </a>
-                        <nav class="dashboard-nav-list"><a href="{{ url('/formactivity') }}" class="dashboard-nav-item"><i
-                            class="fas fa-home"></i>Activity </a>
+            <nav class="dashboard-nav-list"><a href="{{ url('/dashboard') }}" class="dashboard-nav-item"><i class="fas fa-home"></i>Home </a>
                 <div class='dashboard-nav-dropdown' style="background-color:#023e94"><a href="#!"
                         class="dashboard-nav-item dashboard-nav-dropdown-toggle"><i class="fa fa-user-circle"></i>
                         Master </a>
@@ -58,12 +56,8 @@
                         <a href="{{ url('/masterPegawai') }}"class="dashboard-nav-dropdown-item">Master Pegawai</a>
                         <a href="{{ url('/masterCustomer') }}"class="dashboard-nav-dropdown-item">Master
                             Customer</a>
-                        <a href="{{ url('/masterKompetitor') }}"class="dashboard-nav-dropdown-item">Master
-                            Kompetitor</a>
-                        <a href="{{ url('/masterJenisharga') }}"class="dashboard-nav-dropdown-item">Master Jenis
-                            Harga</a>
-
-
+                        <a href="{{ url('/masterKompetitor') }}"class="dashboard-nav-dropdown-item">Master Kompetitor</a>
+                        <a href="{{ url('/masterJenisharga') }}"class="dashboard-nav-dropdown-item">Master Jenis Harga</a>
 
                     </div>
                     <div class='dashboard-nav-dropdown'>
@@ -74,9 +68,8 @@
                             <a href="{{ url('/masterHistory') }}"class="dashboard-nav-dropdown-item">History
                                 Transaksi</a>
                             <a href="{{ url('/masterStatus') }}"class="dashboard-nav-dropdown-item">Status Barang</a>
-                            <a href="{{ url('/masterTeam') }}"class="dashboard-nav-dropdown-item">Master Team
-                                Pengiriman</a>
-                                <a href="{{ url('/masterpengirimansatu') }}"class="dashboard-nav-dropdown-item">Pengiriman Kurir</a>
+                            <a href="{{ url('/masterTeam') }}"class="dashboard-nav-dropdown-item">Master Team Pengiriman</a>
+                            <a href="{{ url('/masterpengirimansatu') }}"class="dashboard-nav-dropdown-item">Pengiriman Kurir</a>
                         </div>
                     </div>
                     <div class='dashboard-nav-dropdown'>
@@ -87,7 +80,6 @@
                             <a href="{{ url('/masterPiutang') }}"class="dashboard-nav-dropdown-item">Master Piutang</a>
                         </div>
                     </div>
-                    <div class="nav-item-divider"></div>
                     <form action="{{ url('/logout') }}">
                         <input type="hidden" name="device">
                         <button style="background-color: transparent;border:none;color:white;"
@@ -117,9 +109,7 @@
                         Welcome Admin
                     </div>
                     <div class='card-body'>
-                        @if (Session::has('error'))
-                            <p class="alert "> {{ Session::get('error') }}</p>
-                        @endif
+                        @include("form.formactivity")
                     </div>
                 </div>
             </div>
@@ -137,14 +127,13 @@
 </script>
 
 <script>
-     var result = detect.parse(navigator.userAgent);
+    var result = detect.parse(navigator.userAgent);
         var data = [];
 
         data.push(result.browser.family);
         data.push(result.os.family);
 
         $("[name='device']").val(JSON.stringify(data));
-
     $(document).on("click", "#cust_btn", function() {
 
         $("#myModal").modal("toggle");

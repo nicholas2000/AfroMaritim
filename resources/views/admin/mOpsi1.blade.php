@@ -1,180 +1,237 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
+<link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/css/bootstrap-datetimepicker.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<link rel="stylesheet" href="sidebar.css">
-<script src="sidebar.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
 
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Detect.js/2.2.2/detect.min.js"></script>
-<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/js/bootstrap-datepicker.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css">
+
+<script src="https://cdn.jsdelivr.net/npm/table2excel@1.0.4/dist/table2excel.min.js"></script>
 <style>
-    .right {
-        position: absolute;
-        width: 40%;
-        right: 10%;
+    .p {
         display: flex;
+        width: 80%;
     }
-    .button:focus {
-        outline: none;
-    }
+
     @media screen and (max-width:600px) {
-    .p{
-        right: -20%;
+        .p {
+            width: 75%;
+        }
+
+        .pk {
+            margin-right: 5%;
+        }
     }
-}
+
+    .clickable {
+        cursor: pointer;
+    }
 </style>
-<link rel="stylesheet" href="notif.css">
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Dashboard</title>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-<link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
-
-</head>
-
-<body>
-
-    <div class='dashboard'>
-        <div class="dashboard-nav">
-            <header><a href="#!" class="menu-toggle">
-                    <i class="fas fa-bars"></i></a><a href="#" class="brand-logo"><i class=""><img
-                            style="width: 50px;border-radius: 50%;" src="logo.png" alt="" srcset=""></i>
-                    <span style="font-size: 17px;">Afro Trans Maritim</span></a>
-
-            </header>
-
-            <nav class="dashboard-nav-list"><a href="{{ url('/dashboard') }}" class="dashboard-nav-item"><i class="fas fa-home"></i>Home </a>
-                <div class='dashboard-nav-dropdown' style="background-color:#023e94"><a href="#!"
-                        class="dashboard-nav-item dashboard-nav-dropdown-toggle"><i class="fa fa-user-circle"></i>
-                        Master </a>
-                    <div class='dashboard-nav-dropdown-menu'>
-                        <a href="{{ url('/masterCabang') }}"class="dashboard-nav-dropdown-item">Master Cabang</a>
-                        <a href="{{ url('/masterPegawai') }}"class="dashboard-nav-dropdown-item">Master Pegawai</a>
-                        <a href="{{ url('/masterCustomer') }}"class="dashboard-nav-dropdown-item">Master
-                            Customer</a>
-                        <a href="{{ url('/masterKompetitor') }}"class="dashboard-nav-dropdown-item">Master Kompetitor</a>
-                        <a href="{{ url('/masterJenisharga') }}"class="dashboard-nav-dropdown-item">Master Jenis Harga</a>
-
+<section class="order-form m-4">
+    <div class="container pt-4">
+        <div class="container">
+            <h1> Pengiriman Kurir </h1>
+            <div class="row ">
+                <input type="hidden" name="data">
+                <div class="col-sm-8 col-md-6 form-group">
+                    <div class="input-group">
+                        <input type="search" class="form-control rounded p" placeholder=" Search" aria-label="Search"
+                            aria-describedby="search-addon" />
+                        <button type="button" class="btn btn-outline-primary" style="margin-left: 2px">Search</button>
                     </div>
-                    <div class='dashboard-nav-dropdown'>
-                        <a href="#!"class="dashboard-nav-item dashboard-nav-dropdown-toggle"><i
-                                class="fas fa-exchange-alt"></i> Transaksi</a>
-                        <div class='dashboard-nav-dropdown-menu'>
-                            <a href="{{ url('/masterTransaksi') }}"class="dashboard-nav-dropdown-item">Transaksi</a>
-                            <a href="{{ url('/masterHistory') }}"class="dashboard-nav-dropdown-item">History
-                                Transaksi</a>
-                            <a href="{{ url('/masterStatus') }}"class="dashboard-nav-dropdown-item">Status Barang</a>
-                            <a href="{{ url('/masterTeam') }}"class="dashboard-nav-dropdown-item">Master Team Pengiriman</a>
-                            <a href="{{ url('/masterpengirimansatu') }}"class="dashboard-nav-dropdown-item">Pengiriman Kurir</a>
-                        </div>
-                    </div>
-                    <div class='dashboard-nav-dropdown'>
-                        <a href="#!"class="dashboard-nav-item dashboard-nav-dropdown-toggle"><i
-                                class="	far fa-money-bill-alt"></i>Keuangan </a>
-                        <div class='dashboard-nav-dropdown-menu'>
-
-                            <a href="{{ url('/masterPiutang') }}"class="dashboard-nav-dropdown-item">Master Piutang</a>
-                        </div>
-                    </div>
-                    <form action="{{ url('/logout') }}">
-                        <input type="hidden" name="device">
-                        <button style="background-color: transparent;border:none;color:white;"
-                            class="button dashboard-nav-item"><i class="fas fa-sign-out-alt"></i> Logout</button>
-                    </form>
                 </div>
-            </nav>
-        </div>
-        <div class='dashboard-app'>
-            <header class='dashboard-toolbar'><a href="#!" class="menu-toggle"><i class="fas fa-bars"></i></a>
-                <div style="color: white;font-size: 80%" id="myDiv"></div>
-                <ul class="notification-drop right p">
-                    <li class="item">
-                        <i class="fa fa-bell notification-bell" style="font-size: 100%;" aria-hidden="true"></i> <span
-                            class="btn__badge pulse-button ">4</span>
-                        <ul>
-                            <li>First Item</li>
-                            <li>Second Item</li>
-                            <li>Third Item</li>
-                        </ul>
-                    </li>
-                </ul>
-            </header>
-            <div class='dashboard-content'>
-                <div class='container'>
-                    <div class='card-header'>
-                        Welcome Admin
-                    </div>
-                    <div class='card-body'>
-                        @include("form.formpengirimansatu")
+                <div class="col-sm-10 col-md-12 form-group">
+                    <div class="p">
+                        <div class="col-sm-1">Cari</div>
+                        <div class="col-sm-2 pk" style="margin-right: 10%;">
+                            <select style="width: 100px;height: 35px;" class="form-control selectpicker">
+                                <option value="">Semua</option>
+                                <option>Andi</option>
+                                <option>Doni</option>
+                                <option>Tono</option>
+                                <option>Sisil</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <div style="display: flex;">
+                                <input id="dp1" type="text" class=" fa fa-calendar form-control clickable "
+                                    style="margin-right: 10px;width: 110px;" id="DtChkIn"
+                                    placeholder="&#xf133;  Tgl Awal">
+                                <input id="dp2" type="text" class=" fa fa-calendar form-control clickable"
+                                    id="DtChkOut" style="margin-right: 10px;width: 110px;"
+                                    placeholder="&#xf133;  Tgl Akhir">
+                            </div>
+                        </div>
+                        <div style="display: flex;">
+                            <a href="" class="btn btn-primary"
+                                style="color: white;height: 37px;margin-right: 5%;" class="p">Import</a>
+                            <a href="" id="btn-excel" class="btn btn-success"
+                                style="color: white;height: 37px;">Export</a>
+                        </div>
                     </div>
                 </div>
             </div>
+            <br>
+            <div class="row">
+                <div class="col-sm-12 col-md-6 form-group">
+                    <div class="p">
+                        <div class="col-md-4">Nama Kurir</div>
+                        <div>:</div>
+                        <div class="col-md-3">
+                            <select name="namakurir" style="height:35px; width: 180px; "
+                                class="form-control selectpicker">
+                                <option value="">Pilih Kurir</option>
+                                <option>Kurir 1</option>
+                                <option>Kurir 2</option>
+                                <option>Kurir 3</option>
+                                <option>Kurir 4</option>
+                            </select>
+                        </div>
+                    </div>
+                    <br>
+
+                    <br>
+
+                    {{-- ----- --}}
+                </div>
+                <div class="col-sm-12 col-md-6 form-group">
+
+                    <div class="p ">
+                        <div class="col-sm-5">Total Barang Diantar</div>
+                        <div>:</div>
+                        <div class="col-sm-3">
+                            <input style="width: 180px;"type='text' name="barang" disabled>
+                        </div>
+                    </div>
+                    <br>
+
+                    <br>
+                    <a href=""class="btn btn-primary" style="float: right">Masukkan Barang</a>
+                    <br>
+                </div>
+
+                <div class="col-12">
+                    <table id="datatables" class="table table-bordered">
+
+                        <tr style="background-color:  #023e94;color: white;">
+                            <th scope="col"> <center><input type="checkbox" name="cball" id="cball"></center>  </th>
+                            <th scope="col"><center> No </center></th>
+                            <th scope="col"><center> No Transaksi </center></th>
+                            <th scope="col">
+                                <center>Tanggal Pengiriman</center>
+                            </th>
+                            <th scope="col">
+                                <center>Status Barang</center>
+                            </th>
+                            <th scope="col">
+                                <center>Link Foto</center>
+                            </th>
+
+                        </tr>
+                        <?php $ctr = 1; ?>
+
+                        @foreach ($arrHistory as $prm)
+                            <tr>
+                                <th >
+                                    <input type="checkbox"  value="{{$prm->nomor_transaksi}}" onclick="myFunction(this)">
+                                </th>
+                                <th scope="row">{{ $ctr }}</th>
+                                <th scope="col">
+                                    <center>{{ $prm->nomor_transaksi }}</center>
+                                </th>
+                                <th scope="col">
+                                    <center>{{ $prm->tanggal_berangkat }}</center>
+                                </th>
+                                <th scope="col">
+                                    <center>{{ $prm->no_container }}</center>
+                                </th>
+                                <th scope="col" style="display: flex">
+                                    {{-- <a href="./delete/{{$prm->nomor_transaksi}}" class="btn btn-danger" style="">Delete</a> --}}
+                                    <form action="" method="">
+                                        @csrf
+                                        <button name=""type="submit" class="btn btn"><i class="fa fa-pencil-alt"></i></button>
+                                    </form>
+                                </th>
+                            </tr>
+                            <?php $ctr++; ?>
+                        @endforeach
+
+
+
+                    </table>
+                </div>
+
+            </div>
         </div>
     </div>
-</body>
-
-<!-- page-wrapper -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
-</script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
-</script>
-
+</section>
 <script>
-    var result = detect.parse(navigator.userAgent);
-        var data = [];
+var data2 = [];
+    function myFunction(x) {
+        if(x.checked==true)
+        {
+            data2.push(x.value);
 
-        data.push(result.browser.family);
-        data.push(result.os.family);
+        }else
+        {
+            data2.splice(data2.indexOf(x.value), 1);
+        }
 
-        $("[name='device']").val(JSON.stringify(data));
-    $(document).on("click", "#cust_btn", function() {
+        $("[name='barang']").val(data2.length);
+        console.log(data2);
+    }
 
-        $("#myModal").modal("toggle");
+    function onlyNumberKey(evt) {
+        var ASCIICode = (evt.which) ? evt.which : evt.keyCode
+        if (ASCIICode > 31 && (ASCIICode < 48 || ASCIICode > 57))
+            return false;
+        return true;
+    }
 
-    })
-    $(document).ready(function() {
-        $(".notification-drop .item").on('click', function() {
-            $(this).find('ul').toggle();
-        });
+    var nowTemp = new Date();
+    var now = new Date(nowTemp.getFullYear(), nowTemp.getMonth(), nowTemp.getDate(), 0, 0, 0, 0);
+
+    var checkin = $('#dp1').datepicker({
+
+        beforeShowDay: function(date) {
+            return date.valueOf() >= now.valueOf();
+        },
+        autoclose: true
+
+    }).on('changeDate', function(ev) {
+        if (ev.date.valueOf() > checkout.datepicker("getDate").valueOf() || !checkout.datepicker("getDate")
+            .valueOf()) {
+
+            var newDate = new Date(ev.date);
+            newDate.setDate(newDate.getDate() + 1);
+            checkout.datepicker("update", newDate);
+
+        }
+        $('#dp2')[0].focus();
     });
 
-    function showDateTime() {
-        var myDiv = document.getElementById("myDiv");
 
-        var date = new Date();
-        var dayList = ["Minggu", "Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu"];
-        var monthNames = [
-            "Januari",
-            "Februari",
-            "Maret",
-            "April",
-            "Mei",
-            "Juni",
-            "Juli",
-            "Agustus",
-            "September",
-            "Oktober",
-            "November",
-            "Desember"
-        ];
-        var dayName = dayList[date.getDay()];
-        var monthName = monthNames[date.getMonth()];
-        var today = `${dayName}, ${monthName} ${date.getDate()}, ${date.getFullYear()}`;
+    var checkout = $('#dp2').datepicker({
+        beforeShowDay: function(date) {
+            if (!checkin.datepicker("getDate").valueOf()) {
+                return date.valueOf() >= new Date().valueOf();
+            } else {
+                return date.valueOf() > checkin.datepicker("getDate").valueOf();
+            }
+        },
+        autoclose: true
 
-        var hour = date.getHours();
-        var min = date.getMinutes();
-        var sec = date.getSeconds();
+    }).on('changeDate', function(ev) {});
 
-        var time = hour + ":" + min + ":" + sec;
-        myDiv.innerText = `Hari  ${today}. Jam ${time}`;
-    }
-    setInterval(showDateTime, 1000);
+    document.getElementById("btn-excel").addEventListener("click", () => {
+        let table2excel = new Table2Excel();
+        table2excel.export(document.querySelector("#datatables"));
+    });
 </script>
-@yield('content')

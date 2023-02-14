@@ -10,9 +10,8 @@ class pengirimancontroller extends Controller
 {
     public function vmpengirimansatu()
     {
-        $param['arrHistory']=Transaksi::get();
-        $param['pengiriman']=Pengiriman::get();
-        return view('admin.mOpsi1',$param);
+        $param['arrHistory']=Pengiriman::get();
+        return view('admin.mOpsi2',$param);
     }
     public function vmpengirimandua()
     {
