@@ -60,18 +60,20 @@
                             Customer</a>
                         <a href="{{ url('/masterKompetitor') }}"class="dashboard-nav-dropdown-item">Master Kompetitor</a>
                         <a href="{{ url('/masterJenisharga') }}"class="dashboard-nav-dropdown-item">Master Jenis Harga</a>
-                        <a href="{{ url('/masterpengirimansatu') }}"class="dashboard-nav-dropdown-item">Pengiriman Kurir</a>
+
 
                     </div>
                     <div class='dashboard-nav-dropdown'>
                         <a href="#!"class="dashboard-nav-item dashboard-nav-dropdown-toggle"><i
                                 class="fas fa-exchange-alt"></i> Transaksi</a>
                         <div class='dashboard-nav-dropdown-menu'>
+                            <a href="{{ url('/depo') }}"class="dashboard-nav-dropdown-item">Depo</a>
                             <a href="{{ url('/masterTransaksi') }}"class="dashboard-nav-dropdown-item">Transaksi</a>
                             <a href="{{ url('/masterHistory') }}"class="dashboard-nav-dropdown-item">History
                                 Transaksi</a>
                             <a href="{{ url('/masterStatus') }}"class="dashboard-nav-dropdown-item">Status Barang</a>
                             <a href="{{ url('/masterTeam') }}"class="dashboard-nav-dropdown-item">Master Team Pengiriman</a>
+                            <a href="{{ url('/masterpengirimansatu') }}"class="dashboard-nav-dropdown-item">Pengiriman Kurir</a>
                         </div>
                     </div>
                     <div class='dashboard-nav-dropdown'>

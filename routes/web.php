@@ -40,6 +40,8 @@ Route::middleware('login')->group(function () {
     });
 });
 
+
+
 Route::get('/hutang', function () {
     return view('form.formHutang');
 });
@@ -49,6 +51,11 @@ Route::get('/tcabang', function () {
 
 Route::get('/tkompetitor', function () {
     return view('admin.mTkompetitor');
+});
+
+
+Route::get('/depo', function () {
+    return view('admin.mDepo');
 });
 
 // ROUTE BARUU

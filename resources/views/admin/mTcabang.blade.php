@@ -66,6 +66,7 @@
                         <a href="#!"class="dashboard-nav-item dashboard-nav-dropdown-toggle"><i
                                 class="fas fa-exchange-alt"></i> Transaksi</a>
                         <div class='dashboard-nav-dropdown-menu'>
+                            <a href="{{ url('/depo') }}"class="dashboard-nav-dropdown-item">Depo</a>
                             <a href="{{ url('/masterTransaksi') }}"class="dashboard-nav-dropdown-item">Transaksi</a>
                             <a href="{{ url('/masterHistory') }}"class="dashboard-nav-dropdown-item">History
                                 Transaksi</a>
