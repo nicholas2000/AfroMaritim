@@ -23,7 +23,6 @@ class Transaksi extends Model
         'rute',
         'harga',
         'jenis_harga',
-        'tonage',
         'harga_tambahan',
         'persentase',
         'total_harga',

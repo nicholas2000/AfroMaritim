@@ -120,9 +120,6 @@
                                 <center>Provinsi</center>
                             </th>
                             <th scope="col">
-                                <center>Kota</center>
-                            </th>
-                            <th scope="col">
                                 <center>Telpon</center>
                             </th>
                             <th scope="col">
@@ -149,9 +146,6 @@
                                 </th>
                                 <th scope="col">
                                     <center>{{ $prm->provinsi }}</center>
-                                </th>
-                                <th scope="col">
-                                    <center>{{ $prm->kota }}</center>
                                 </th>
                                 <th scope="col">
                                     <center>{{ $prm->telpon }}</center>
@@ -220,36 +214,6 @@
                                             <option>Jawa Barat</option>
                                             <option>Jawa Tengah</option>
                                             <option>Jakarta Pusat</option>
-                                        </select>
-
-                                        <label style="margin-left: 40px;">Kota</label>
-                                        <select name="kota" style="height:35px" class="form-control selectpicker">
-                                            <option value="">Pilih Kota</option>
-                                            <option>Surabaya</option>
-                                            <option>Bandung</option>
-                                            <option>Solo</option>
-                                            <option>Batu</option>
-                                        </select>
-
-
-                                        <label style="margin-left: 40px;">Kecamatan</label>
-                                        <select name="kecamatan" style="height:35px"
-                                            class="form-control selectpicker">
-                                            <option value="">Pilih Kecamatan</option>
-                                            <option>Sidoarjo</option>
-                                            <option>Malang</option>
-                                            <option>Batu</option>
-                                            <option>Gresik</option>
-                                        </select>
-
-                                        <label style="margin-left: 40px;">Kelurahan</label>
-                                        <select name="kelurahan" style="height:35px"
-                                            class="form-control selectpicker">
-                                            <option value="">Pilih Kelurahan</option>
-                                            <option>Kediri</option>
-                                            <option>Blitar</option>
-                                            <option>Batu</option>
-                                            <option>Gresik</option>
                                         </select>
 
                                         <label style="margin-left: 40px;">Kode Pos</label>
@@ -329,9 +293,6 @@
         $("[name='npwp']").val(jArray[id]['npwp']);
         $("[name='alamat']").val(jArray[id]['jalan']);
         $("[name='provinsi']").val(jArray[id]['provinsi']);
-        $("[name='kota']").val(jArray[id]['kota']);
-        $("[name='kecamatan']").val(jArray[id]['kecamatan']);
-        $("[name='kelurahan']").val(jArray[id]['kelurahan']);
         $("[name='telpon']").val(jArray[id]['telpon']);
         $("[name='email']").val(jArray[id]['email']);
         $("[name='kodepos']").val(jArray[id]['kode_pos']);

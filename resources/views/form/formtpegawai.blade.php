@@ -133,19 +133,7 @@
                 </div>
             </div>
 
-            <!--input phone-->
-            <div class="form-group">
-                <label class="col-md-1 control-label">HP</label>
-                <div class="col-md-10 inputGroupContainer">
-                    <div class="input-group">
-                        <span style="background-color: #023e94" class="input-group-addon"><i style="color: white"
-                                class="glyphicon glyphicon-phone"></i></span>
-                        <input onkeypress="return onlyNumberKey(event)" name="hp"
-                            placeholder="Masukkan Nomer HP" class="form-control" type="telp">
-                    </div>
-                </div>
-            </div>
-
+           
             <!--input fax-->
             <div class="form-group">
                 <label class="col-md-1 control-label">Telpon</label>
