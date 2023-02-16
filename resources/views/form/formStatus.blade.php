@@ -126,10 +126,11 @@
                         <div class="col-sm-3">
                             <select style="width: 180px;height: 35px;" class="form-control selectpicker">
                                 <option value="">Pilih Status Barang</option>
-                                <option>Andi</option>
-                                <option>Doni</option>
-                                <option>Tono</option>
-                                <option>Sisil</option>
+                                <option>Depo SBY A</option>
+                                <option>Depo SBY B</option>
+                                <option>Pelabuhan SBY</option>
+                                <option>Pelabuhan MKS</option>
+                                <option>Depo MKS</option>
                             </select>
                         </div>
                     </div>

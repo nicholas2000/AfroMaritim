@@ -102,9 +102,9 @@
                             </div>
                             <br>
                             <div class="p">
-                                <div class="col-md-8">Link Foto</div>
+                                <div class="col-md-8">Nomor Segel</div>
                                 <div>:</div>
-                                <div class="col-md-2"><input name="linkfoto" type='text' style="width: 180px;">
+                                <div class="col-md-2"><input name="nosegel" type='text' style="width: 180px;">
                                 </div>
                             </div>
                         </div>
