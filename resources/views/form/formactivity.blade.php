@@ -30,7 +30,7 @@
     }
 
 
-    .btnUser{
+    .btnUser {
         width: 35%;
         height: 50px;
         border: #4d607c 1px solid;
@@ -52,14 +52,10 @@
                 <br><br>
                 <div class="container">
                     <div class="row">
-                        {{-- <div class="col-md">
-                            <button style="width: 100%;height: 30px;background-color: transparent;border: none;"
-                                class="button" type="button">
-                                <center>All </center>
-                            </button>
-                        </div> --}}
+
                         <div class="col-md">
-                            <button id=btnUser onclick="userClick()" style="width: 100%;height: 30px;background-color: transparent;border: none;"
+                            <button id=btnUser onclick="userClick()"
+                                style="width: 100%;height: 30px;background-color: transparent;border: none;"
                                 class="button" type="button">
                                 <center>User </center>
                             </button>
@@ -78,18 +74,53 @@
                 <br><br>
                 <div id="user" style="display: none">
                     <div class="container">
-                        <div class="row">
-                            <div class="col-sm-4">
-                                <input style="width: 100%;" class="form-control" type="text" name="search" placeholder="Search User">
-                            </div>
-                        </div>
-                        <br>
-                        <div class="container">
-                            <div class="col-12">
-                                @foreach ($arrPegawai as $prm)
-                                    <button class="btnUser">{{$prm->nama_pegawai}}</button>
-                                @endforeach
-                            </div>
+
+                        <div class="col-12">
+
+                            <table class="table">
+                                <thead class="thead-dark">
+                                    <tr>
+                                        <th class="col-3">Access </th>
+                                        <th>
+                                            <center>Admin</center>
+                                        </th>
+                                        <th>
+                                            <center>Accouting</center>
+                                        </th>
+                                        <th>
+                                            <center>Kurir</center>
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php $ctr2 = 1; ?>
+                                    @foreach ($arrPermission as $prm)
+                                        <tr>
+                                            <td>{{ $prm->daftar_berita }}</td>
+                                            <td>
+                                                <center><input class="form-check-input" type="checkbox"
+                                                        value="admin,{{ $prm->daftar_berita }}"
+                                                        onclick="myFunction(this)" id="cekAdmin{{ $ctr2 - 1 }}">
+                                                </center>
+                                            </td>
+                                            <td>
+                                                <center><input class="form-check-input" type="checkbox"
+                                                        value="accounting,{{ $prm->daftar_berita }}"
+                                                        onclick="myFunction(this)" id="cekAccounting{{ $ctr2 - 1 }}">
+                                                </center>
+                                            </td>
+                                            <td>
+                                                <center><input class="form-check-input" type="checkbox"
+                                                        value="kurir,{{ $prm->daftar_berita }}"
+                                                        onclick="myFunction(this)" id="cekKurir{{ $ctr2 - 1 }}">
+                                                </center>
+                                            </td>
+                                        </tr>
+                                        <?php $ctr2++; ?>
+                                    @endforeach
+                                </tbody>
+                            </table>
+
                         </div>
                     </div>
                 </div>
@@ -173,14 +204,14 @@
                                         @if ($prm->activity == 'Login Berhasil')
                                             <th scope="col">
                                                 <div
-                                                    style="background-color: rgb(70, 237, 70);width: 75px;border-radius: 20px;color:white;padding-left:3px;">
+                                                    style="background-color: rgb(70, 237, 70);width: 120px;border-radius: 20px;color:white;padding-left:6px;">
                                                     {{ $prm->activity }}
                                                 </div>
                                             </th>
                                         @else
                                             <th scope="col">
                                                 <div
-                                                    style="background-color: red;width: 80px;border-radius: 20px;color:white;padding-left:3px;">
+                                                    style="background-color: red;width: 130px;border-radius: 20px;color:white;padding-left:6px;">
                                                     {{ $prm->activity }}
                                                 </div>
                                             </th>
@@ -210,12 +241,55 @@
 
 </body>
 <script type="text/javascript">
+    var jArray = <?php echo json_encode($arrPermission); ?>;
+    for (var i = 0; i < jArray.length; i++) {
+        if (jArray[i]['admin'] == 1) {
+            document.getElementById("cekAdmin" + i.toString()).checked = true;
+        }else if (jArray[i]['admin'] == 0) {
+            document.getElementById("cekAdmin" + i.toString()).checked = false;
+        }else if(jArray[i]['accounting'] == 1){
+            document.getElementById("cekAccounting" + i.toString()).checked = true;
+        }else if(jArray[i]['accounting'] == 0){
+            document.getElementById("cekAccounting" + i.toString()).checked = false;
+        }else if(jArray[i]['kurir'] == 1){
+            document.getElementById("cekKurir" + i.toString()).checked = true;
+        }else if(jArray[i]['kurir'] == 0){
+            document.getElementById("cekKurir" + i.toString()).checked = false;
+        }
+    }
+
+    function myFunction(x) {
+        $arr = x.value.split(",");
+        if (x.checked == true) {
+            $.ajax({
+                url: "autocomplete.php",
+                method: "POST",
+                data: {
+                    query1: $arr[0],
+                    query2: $arr[1],
+                    ctr: "Factivitytrue"
+                },
+            });
+        } else {
+            $.ajax({
+                url: "autocomplete.php",
+                method: "POST",
+                data: {
+                    query1: $arr[0],
+                    query2: $arr[1],
+                    ctr: "Factivityfalse"
+                },
+            });
+        }
+    }
+
     function loginClick() {
         document.getElementById("login").style.display = "block";
         document.getElementById("user").style.display = "none";
         document.getElementById("btnLogin").style.backgroundColor = "AliceBlue";
         document.getElementById("btnUser").style.backgroundColor = "transparent";
     }
+
     function userClick() {
         document.getElementById("user").style.display = "block";
         document.getElementById("login").style.display = "none";
