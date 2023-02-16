@@ -63,6 +63,13 @@ Route::get('/depo', function () {
 
 Route::get('/login', [loginController::class, "login"]);
 
+Route::middleware(['login','mastercabang'])->group(function () {
+    Route::post('/doAddcabang', [CabangController::class, "doAdd"]);
+    Route::get('/masterCabang', [CabangController::class, "show"]);
+    Route::post('/masterCabang/edit', [CabangController::class, "doEdit"]);
+    Route::post('/masterCabang/delete/{id}', [CabangController::class, "delete"]);
+});
+
 Route::middleware(['login','superadmin'])->group(function () {
     Route::post('/doAddcustomer', [CustomerController::class, "doAdd"]);
     Route::get('/masterCustomer', [CustomerController::class, "show"]);
@@ -70,10 +77,6 @@ Route::middleware(['login','superadmin'])->group(function () {
     Route::post('/masterCustomer/edit', [CustomerController::class, "doEdit"]);
     Route::post('/masterCustomer/delete/{id}', [CustomerController::class, "delete"]);
 
-    Route::post('/doAddcabang', [CabangController::class, "doAdd"]);
-    Route::get('/masterCabang', [CabangController::class, "show"]);
-    Route::post('/masterCabang/edit', [CabangController::class, "doEdit"]);
-    Route::post('/masterCabang/delete/{id}', [CabangController::class, "delete"]);
 
     Route::post('/doAddkompetitor', [KompetitorController::class, "doAdd"]);
     Route::get('/masterKompetitor', [KompetitorController::class, "show"]);
