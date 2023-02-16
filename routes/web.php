@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Controllers\controllerJenisHarga;
 use App\Http\Controllers\controllerpegawai;
 use App\Http\Controllers\CustomerController;
+use App\Http\Controllers\depoController;
 use App\Http\Controllers\HistoryController;
 use App\Http\Controllers\KompetitorController;
 use App\Http\Controllers\loginController;
@@ -63,6 +64,13 @@ Route::get('/depo', function () {
 
 Route::get('/login', [loginController::class, "login"]);
 
+Route::middleware(['login','mastercabang'])->group(function () {
+    Route::post('/doAddcabang', [CabangController::class, "doAdd"]);
+    Route::get('/masterCabang', [CabangController::class, "show"]);
+    Route::post('/masterCabang/edit', [CabangController::class, "doEdit"]);
+    Route::post('/masterCabang/delete/{id}', [CabangController::class, "delete"]);
+});
+
 Route::middleware(['login','superadmin'])->group(function () {
     Route::post('/doAddcustomer', [CustomerController::class, "doAdd"]);
     Route::get('/masterCustomer', [CustomerController::class, "show"]);
@@ -70,10 +78,6 @@ Route::middleware(['login','superadmin'])->group(function () {
     Route::post('/masterCustomer/edit', [CustomerController::class, "doEdit"]);
     Route::post('/masterCustomer/delete/{id}', [CustomerController::class, "delete"]);
 
-    Route::post('/doAddcabang', [CabangController::class, "doAdd"]);
-    Route::get('/masterCabang', [CabangController::class, "show"]);
-    Route::post('/masterCabang/edit', [CabangController::class, "doEdit"]);
-    Route::post('/masterCabang/delete/{id}', [CabangController::class, "delete"]);
 
     Route::post('/doAddkompetitor', [KompetitorController::class, "doAdd"]);
     Route::get('/masterKompetitor', [KompetitorController::class, "show"]);
@@ -94,7 +98,7 @@ Route::get('/masterpengirimansatu', [pengirimancontroller::class, "vmpengirimans
 Route::get('/masterpengirimandua', [pengirimancontroller::class, "vmpengirimandua"]);
 Route::get('/activity', [activitycontroller::class, "formact"]);
 
-Route::get('/tambahDepo', [TransaksiController::class, "doAddDepo"]);
+Route::post('/tambahDepo', [depoController::class, "doAddDepo"]);
 
 // <-------------->
 
