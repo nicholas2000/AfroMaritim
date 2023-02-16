@@ -26,9 +26,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::get('/', function () {
-//     return view('login');
-// });
+
 Route::get('/', [loginController::class, "toLoginPage"]);
 Route::middleware(['login','superadmin'])->group(function () {
     Route::get('/formactivity', [activitycontroller::class, "formact"]);
@@ -42,8 +40,6 @@ Route::middleware('login')->group(function () {
     });
 });
 
-
-
 Route::get('/hutang', function () {
     return view('form.formHutang');
 });
@@ -54,11 +50,6 @@ Route::get('/tcabang', function () {
 Route::get('/tkompetitor', function () {
     return view('admin.mTkompetitor');
 });
-
-
-// Route::get('/depo', function () {
-//     return view('admin.mDepo');
-// });
 
 // ROUTE BARUU
 
@@ -130,68 +121,9 @@ Route::get('/masterStatus', function () {
     return view('admin.mStatus');
 });
 
-
 Route::get('/masterPiutang', function () {
     return view('admin.mPiutang');
 });
 
-Route::get('/masterPenerimaanbarang', function () {
-    return view('admin.mPenerimaanbarang');
-});
-Route::get('/masterPenawaran', function () {
-    return view('admin.mPenawaran');
-});
-Route::get('/masterPo', function () {
-    return view('admin.mPo');
-});
-
-Route::get('/masterBox', function () {
-    return view('admin.mBox');
-});
-
-Route::get('/tambahpenerimaanbarang', function () {
-    return view('admin.mTambahbarang');
-});
-
-Route::get('/tambahPo', function () {
-    return view('admin.mTambahPo');
-});
-Route::get('/historypenawaran', function () {
-    return view('admin.mHistoryPenawaran');
-});
-Route::get('/tambahformnopo', function () {
-    return view('admin.mTambahFormNoPo');
-});
-
-Route::get('/tambahsuratjalan', function () {
-    return view('admin.mSuratJalan');
-});
 
 
-
-//ROUTE BARU
-
-
-// Route::group(['prefix' => 'dashboard'], function(){
-//     Route::get('/formpegawai', function () {
-//         return view('formMasterpegawai');
-//     })->name('masterpegawai');
-//     Route::get('/formcustomer', function () {
-//         return view('formMastercustomer');
-//     })->name('mastercustomer');
-//     Route::get('/formsupplier', function () {
-//         return view('formMastersupplier');
-//     })->name('mastersupplier');
-//     Route::get('/formbox', function () {
-//         return view('formMasterbox');
-//     })->name('masterbox');
-//     Route::get('/formpenerimaanbarang', function () {
-//         return view('formPenerimaanBarang');
-//     })->name('penerimaanbarang');
-//     Route::get('/formPenawaran', function () {
-//         return view('offerform');
-//     })->name('penawaranbarang');
-//     Route::get('/ormPo', function () {
-//         return view('FormPO');
-//     })->name('formPO)');
-// });
