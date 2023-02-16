@@ -147,8 +147,9 @@
 
                 <div class="col-12">
                     <table id="datatables" class="table table-bordered">
-
+                        
                         <tr style="background-color:  #023e94;color: white;">
+                            <td><center><input type="checkbox" onClick="toggle(this)" /> </center> </td>
                             <th scope="col">No Transaksi</th>
                             <th scope="col">
                                 <center>Nama Customer</center>
@@ -168,6 +169,7 @@
                         </tr>
 
                         <tr>
+                            <td><center><input type="checkbox" name="checkb" id="cbsatu"> </center> </td>
                             <th scope="row">1</th>
                             <td>Andi</td>
                             <td>1/9/2023</td>
@@ -177,6 +179,7 @@
                         </tr>
 
                         <tr>
+                            <td><center><input type="checkbox" name="checkb" id="cbdua"> </center> </td>
                             <th scope="row">2</th>
                             <td></td>
                             <td></td>
@@ -186,6 +189,7 @@
                         </tr>
 
                         <tr>
+                            <td><center><input type="checkbox" name="checkb" id="cbtiga"> </center> </td>
                             <th scope="row">3</th>
                             <td></td>
                             <td></td>
@@ -193,7 +197,6 @@
                             <td></td>
                             <td></td>
                         </tr>
-
                     </table>
                 </div>
 
@@ -201,7 +204,16 @@
         </div>
     </div>
 </section>
+
 <script>
+
+function toggle(source) {
+  checkboxes = document.getElementsByName('checkb');
+  for(var i=0, n=checkboxes.length;i<n;i++) {
+    checkboxes[i].checked = source.checked;
+  }
+}
+
     function onlyNumberKey(evt) {
         var ASCIICode = (evt.which) ? evt.which : evt.keyCode
         if (ASCIICode > 31 && (ASCIICode < 48 || ASCIICode > 57))

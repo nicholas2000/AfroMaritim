@@ -128,17 +128,14 @@ CREATE TABLE `master_tcustomer` (
   `id_customer` varchar(255) NOT NULL,
   `id_cabang` varchar(255) NOT NULL,
   `nama_customer` varchar(255) NOT NULL,
-  `npwp` varchar(255) NOT NULL,
+  `npwp` varchar(255) DEFAULT NULL,
   `jalan` varchar(255) NOT NULL,
-  `provinsi` varchar(255) NOT NULL,
-  `kota` varchar(255) NOT NULL,
-  `kecamatan` varchar(255) NOT NULL,
-  `kelurahan` varchar(255) NOT NULL,
-  `kode_pos` varchar(255) NOT NULL,
+  `provinsi` varchar(255) DEFAULT NULL,
+  `kode_pos` varchar(255) DEFAULT NULL,
   `telpon` varchar(255) NOT NULL,
-  `email` varchar(255) NOT NULL,
-  `pajak` varchar(255) DEFAULT NULL,
-  `status_hutang` varchar(255) DEFAULT NULL,
+  `email` varchar(255) DEFAULT NULL,
+  `pajak` varchar(255) NOT NULL,
+  `status_hutang` varchar(255) NOT NULL,
   `total_hutang` varchar(255) DEFAULT NULL,
   `batas_pembayaran` varchar(255) DEFAULT NULL,
   `no_rekening` varchar(255) DEFAULT NULL,
@@ -153,10 +150,10 @@ CREATE TABLE `master_tcustomer` (
 
 /*Data for the table `master_tcustomer` */
 
-insert  into `master_tcustomer`(`id_customer`,`id_cabang`,`nama_customer`,`npwp`,`jalan`,`provinsi`,`kota`,`kecamatan`,`kelurahan`,`kode_pos`,`telpon`,`email`,`pajak`,`status_hutang`,`total_hutang`,`batas_pembayaran`,`no_rekening`,`metode_pembayaran`,`created_at`,`updated_at`,`deleted_at`) values 
-('CU001','C001','alex','23423','Kabupaten Rembang no 4','Jawa Timur','Bandung','Malang','Kediri','3334534','08113190080','admin@gmail.com','Tidak Kena Pajak','Off',NULL,'',NULL,NULL,'2023-02-13 16:00:39','2023-02-14 07:37:03',NULL),
-('CU002','C001','Nicholas','123','Surabaya','Jawa Timur','Surabaya','Sidoarjo','Blitar','61213','123456','nicho@gmail.com','Tidak Kena Pajak','Off','','','','','2023-02-14 04:39:13','2023-02-14 04:39:13',NULL),
-('CU003','C001','Nicholas','123','Sidoarjo','Jawa Timur','Bandung','Sidoarjo','Blitar','61213','123456','lala@gmail.com','Tidak Kena Pajak','Off','','','','','2023-02-14 05:24:14','2023-02-14 05:24:14',NULL);
+insert  into `master_tcustomer`(`id_customer`,`id_cabang`,`nama_customer`,`npwp`,`jalan`,`provinsi`,`kode_pos`,`telpon`,`email`,`pajak`,`status_hutang`,`total_hutang`,`batas_pembayaran`,`no_rekening`,`metode_pembayaran`,`created_at`,`updated_at`,`deleted_at`) values 
+('CU001','C001','alex','23423','Kabupaten Rembang no 4','Jawa Timur','3334534','08113190080','admin@gmail.com','Tidak Kena Pajak','Off',NULL,'',NULL,NULL,'2023-02-13 16:00:39','2023-02-14 07:37:03',NULL),
+('CU002','C001','Nicholas','123','Surabaya','Jawa Timur','61213','123456','nicho@gmail.com','Tidak Kena Pajak','Off','','','','','2023-02-14 04:39:13','2023-02-14 04:39:13',NULL),
+('CU003','C001','Nicholas','123','Sidoarjo','Jawa Timur','61213','123456','lala@gmail.com','Tidak Kena Pajak','Off','','','','','2023-02-14 05:24:14','2023-02-14 05:24:14',NULL);
 
 /*Table structure for table `master_tjenis` */
 
@@ -187,11 +184,7 @@ CREATE TABLE `master_tkompetitor` (
   `npwp_kompetitor` varchar(255) NOT NULL,
   `alamat_kompetitor` varchar(255) NOT NULL,
   `provinsi_kompetitor` varchar(255) NOT NULL,
-  `kota_kompetitor` varchar(255) NOT NULL,
-  `kecamatan_kompetitor` varchar(255) NOT NULL,
-  `kelurahan_kompetitor` varchar(255) NOT NULL,
   `kodepos_kompetitor` varchar(255) NOT NULL,
-  `nohp_kompetitor` varchar(255) NOT NULL,
   `telp_kompetitor` varchar(255) NOT NULL,
   `email_kompetitor` varchar(255) NOT NULL,
   `rute_kompetitor` varchar(255) NOT NULL,
@@ -285,6 +278,27 @@ CREATE TABLE `pengiriman` (
 
 /*Data for the table `pengiriman` */
 
+/*Table structure for table `permission` */
+
+DROP TABLE IF EXISTS `permission`;
+
+CREATE TABLE `permission` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `daftar_berita` varchar(255) DEFAULT NULL,
+  `admin` tinyint(1) DEFAULT NULL,
+  `accounting` tinyint(1) DEFAULT NULL,
+  `kurir` tinyint(1) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+/*Data for the table `permission` */
+
+insert  into `permission`(`id`,`daftar_berita`,`admin`,`accounting`,`kurir`) values 
+(1,'Master Cabang',1,0,0),
+(2,'Master Pegawai',0,0,0),
+(3,'Master Kompetitor',0,0,0),
+(4,'Master Jenis Harga',0,0,0);
+
 /*Table structure for table `personal_access_tokens` */
 
 DROP TABLE IF EXISTS `personal_access_tokens`;
@@ -320,7 +334,6 @@ CREATE TABLE `transaksi` (
   `rute` varchar(255) NOT NULL,
   `harga` varchar(255) NOT NULL,
   `jenis_harga` varchar(255) NOT NULL,
-  `tonage` varchar(255) NOT NULL,
   `harga_tambahan` varchar(255) DEFAULT NULL,
   `persentase` varchar(255) DEFAULT NULL,
   `total_harga` varchar(255) NOT NULL,
@@ -339,9 +352,9 @@ CREATE TABLE `transaksi` (
 
 /*Data for the table `transaksi` */
 
-insert  into `transaksi`(`nomor_transaksi`,`id_customer`,`nama_barang`,`id_admin`,`volume`,`berat`,`rute`,`harga`,`jenis_harga`,`tonage`,`harga_tambahan`,`persentase`,`total_harga`,`no_container`,`nama_kapal`,`tanggal_berangkat`,`nomor_manifest`,`link_foto`,`created_at`,`updated_at`,`deleted_at`) values 
-('TC001','CU001','pensil','admin','0','10','A','12100','A','10%','0','10%','0',NULL,'A','2023-02-15',NULL,NULL,'2023-02-13 16:04:00','2023-02-14 05:51:26',NULL),
-('TC002','CU002','Sidoarjo','admin','15','0','Jakarta','0','-','2','0','10%','0','2345','Titanic','2023-02-16','1',NULL,'2023-02-14 04:43:30','2023-02-14 04:44:02',NULL);
+insert  into `transaksi`(`nomor_transaksi`,`id_customer`,`nama_barang`,`id_admin`,`volume`,`berat`,`rute`,`harga`,`jenis_harga`,`harga_tambahan`,`persentase`,`total_harga`,`no_container`,`nama_kapal`,`tanggal_berangkat`,`nomor_manifest`,`link_foto`,`created_at`,`updated_at`,`deleted_at`) values 
+('TC001','CU001','pensil','admin','0','10','A','12100','A','0','10%','0',NULL,'A','2023-02-15',NULL,NULL,'2023-02-13 16:04:00','2023-02-14 05:51:26',NULL),
+('TC002','CU002','Sidoarjo','admin','15','0','Jakarta','0','-','0','10%','0','2345','Titanic','2023-02-16','1',NULL,'2023-02-14 04:43:30','2023-02-14 04:44:02',NULL);
 
 /*Table structure for table `users` */
 
@@ -361,28 +374,6 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 /*Data for the table `users` */
-
-/*Table structure for table `permission`*/
-
-DROP TABLE IF EXISTS permission;
-
-CREATE TABLE permission (
-  id int(11) NOT NULL AUTO_INCREMENT,
-  daftar_berita varchar(255) DEFAULT NULL,
-  admin tinyint(1) DEFAULT NULL,
-  accounting tinyint(1) DEFAULT NULL,
-  kurir tinyint(1) DEFAULT NULL,
-  PRIMARY KEY (id)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
-/*Data for the table `permission`*/
-
-insert  into permission(id,daftar_berita,admin,accounting,kurir) values 
-(1,'Master Cabang',1,0,0),
-(2,'Master Pegawai',0,0,0),
-(3,'Master Kompetitor',0,0,0),
-(4,'Master Jenis Harga',0,0,0);
-
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
