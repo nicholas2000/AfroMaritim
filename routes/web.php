@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Controllers\controllerJenisHarga;
 use App\Http\Controllers\controllerpegawai;
 use App\Http\Controllers\CustomerController;
+use App\Http\Controllers\depoController;
 use App\Http\Controllers\HistoryController;
 use App\Http\Controllers\KompetitorController;
 use App\Http\Controllers\loginController;
@@ -94,7 +95,7 @@ Route::get('/masterpengirimansatu', [pengirimancontroller::class, "vmpengirimans
 Route::get('/masterpengirimandua', [pengirimancontroller::class, "vmpengirimandua"]);
 Route::get('/activity', [activitycontroller::class, "formact"]);
 
-Route::get('/tambahDepo', [TransaksiController::class, "doAddDepo"]);
+Route::post('/tambahDepo', [depoController::class, "doAddDepo"]);
 
 // <-------------->
 

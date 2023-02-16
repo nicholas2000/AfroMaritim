@@ -12,7 +12,7 @@ class Depo extends Model
     use SoftDeletes;
     protected $table = "depo";
     protected $primaryKey = "no_resi";
-    public $timestamps = true;
+    public $timestamps = false;
     protected $fillable = [
         'tanggal',
         'no_transaksi',
@@ -20,7 +20,8 @@ class Depo extends Model
         'nama_pengirim',
         'nama_barang',
         'no_resi',
-        'no_container'
+        'no_container',
+        'updated_at'
     ];
     protected $keyType = 'string';
 }

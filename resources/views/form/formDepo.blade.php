@@ -83,7 +83,7 @@
                 <br>
                 <br>
                 <br>
-                <form method="Get" action="{{ url('/tambahDepo') }}">
+                <form method="post" action="{{ url('/tambahDepo') }}">
                     @csrf
                     <input type="hidden" name="data">
                     <div class="row">
@@ -92,7 +92,7 @@
                             <div class="p">
                                 <div class="col-md-8">Tanggal Masuk</div>
                                 <div>:</div>
-                                <div class="col-md-2"><input name="tglmasuk" type="date" value="<?php echo date('Y-m-d'); ?>" disabled/>
+                                <div class="col-md-2"><input name="tglmasuk" type="date" value="<?php echo date('Y-m-d'); ?>" />
                                 </div>
                             </div>
                             <br>

@@ -362,6 +362,28 @@ CREATE TABLE `users` (
 
 /*Data for the table `users` */
 
+/*Table structure for table `permission`*/
+
+DROP TABLE IF EXISTS permission;
+
+CREATE TABLE permission (
+  id int(11) NOT NULL AUTO_INCREMENT,
+  daftar_berita varchar(255) DEFAULT NULL,
+  admin tinyint(1) DEFAULT NULL,
+  accounting tinyint(1) DEFAULT NULL,
+  kurir tinyint(1) DEFAULT NULL,
+  PRIMARY KEY (id)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+/*Data for the table `permission`*/
+
+insert  into permission(id,daftar_berita,admin,accounting,kurir) values 
+(1,'Master Cabang',1,0,0),
+(2,'Master Pegawai',0,0,0),
+(3,'Master Kompetitor',0,0,0),
+(4,'Master Jenis Harga',0,0,0);
+
+
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
 /*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
