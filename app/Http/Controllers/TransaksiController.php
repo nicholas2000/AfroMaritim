@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Customer;
 use App\Models\modelJenisHarga;
 use App\Models\Transaksi;
+use App\Models\Depo;
 use Illuminate\Http\Request;
 
 class TransaksiController extends Controller
@@ -112,4 +113,6 @@ class TransaksiController extends Controller
         ]);
         return redirect("/masterTransaksi");
     }
+
+
 }

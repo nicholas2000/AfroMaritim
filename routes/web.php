@@ -90,12 +90,11 @@ Route::middleware(['login','superadmin'])->group(function () {
 });
 
 
-
-
 Route::get('/masterpengirimansatu', [pengirimancontroller::class, "vmpengirimansatu"]);
 Route::get('/masterpengirimandua', [pengirimancontroller::class, "vmpengirimandua"]);
 Route::get('/activity', [activitycontroller::class, "formact"]);
 
+Route::get('/tambahDepo', [TransaksiController::class, "doAddDepo"]);
 
 // <-------------->
 

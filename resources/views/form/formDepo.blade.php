@@ -63,10 +63,6 @@
                 </div>
 
             </div>
-
-
-
-
             <br>
             <div class="row">
                 <div class="col-sm-9">
@@ -87,7 +83,7 @@
                 <br>
                 <br>
                 <br>
-                <form method="post" action="{{ url('masterHistory/update/') }}">
+                <form method="Get" action="{{ url('/tambahDepo') }}">
                     @csrf
                     <input type="hidden" name="data">
                     <div class="row">
@@ -128,6 +124,13 @@
                             </div>
                             <br>
                             <div class="p ">
+                                <div class="col-md-6">No Transaksi</div>
+                                <div>:</div>
+                                <div class="col-md-6"><input name="notransaksi" type='text' style="width: 180px;">
+                                </div>
+                            </div>
+                            <br>
+                            <div class="p ">
                                 <div class="col-md-6">Nama Barang</div>
                                 <div>:</div>
                                 <div class="col-md-6"><input name="namabarang" type='text' style="width: 180px;">
@@ -137,12 +140,11 @@
                             <div class="p ">
                                 <div class="col-md-6">No Container</div>
                                 <div>:</div>
-                                <div class="col-md-6"><input name="ncontainer" type='text' style="width: 180px;">
+                                <div class="col-md-6"><input name="nocontainer" type='text' style="width: 180px;">
                                 </div>
                             </div>
                             <br>
-                            <button style="float: right" id="update" type="submit" class="btn btn-success">Tambah</button>
-                            <br>
+                            <center><button type="submit" class="btn btn-primary">Tambah</button></center>                            <br>
                         </div>
                     </div>
                 </form>
