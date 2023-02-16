@@ -92,7 +92,7 @@
                             <div class="p">
                                 <div class="col-md-8">Tanggal Masuk</div>
                                 <div>:</div>
-                                <div class="col-md-2"><input name="tglmasuk" type="date" value="<?php echo date('Y-m-d'); ?>" />
+                                <div class="col-md-2"><input name="tglmasuk" type="date" value="<?php echo date('Y-m-d'); ?>" readonly/>
                                 </div>
                             </div>
                             <br>
@@ -152,6 +152,9 @@
                 <div class="col-12">
                     <table class="table table-bordered">
                         <tr style="background-color:  #023e94;color: white;">
+                            <th scope="col" style="width:15%">
+                                <center>Tanggal</center>
+                            </th>
                             <th scope="col">
                                 <center>No Transaksi</center>
                             </th>
@@ -173,51 +176,53 @@
                             <th scope="col">
                                 <center>Action</center>
                             </th>
-                            <th scope="col">
-                                <center></center>
-                            </th>
                         </tr>
                         <?php $ctr = 1; ?>
 
-                        {{-- @foreach ()
-                            <tr> --}}
+                        @foreach ($arrDepo as $prm)
+                            <tr>
 
-                                {{-- <th scope="row">{{ $ctr }}</th>
+
                                 <th scope="col">
-                                    <center>{{ $prm->nomor_transaksi }}</center>
+                                    <center>{{ $prm->tanggal }}</center>
                                 </th>
                                 <th scope="col">
-                                    <center>{{ $prm->Customer->nama_customer }}</center>
+                                    <center>{{ $prm->no_transaksi }}</center>
                                 </th>
                                 <th scope="col">
-                                    <center>{{ $prm->nama_kapal }}</center>
+                                    <center>{{ $prm->nama_penerima }}</center>
+                                </th>
+                                <th scope="col">
+                                    <center>{{ $prm->nama_pengirim }}</center>
+                                </th>
+                                <th scope="col">
+                                    <center>{{ $prm->nama_barang }}</center>
+                                </th>
+                                <th scope="col">
+                                    <center>{{ $prm->no_resi }}</center>
                                 </th>
                                 <th scope="col">
                                     <center>{{ $prm->no_container }}</center>
                                 </th>
                                 <th scope="col">
-                                    <center>{{ $prm->nomor_manifest }}</center>
-                                </th> --}}
-                                {{-- <th scope="col" style="display: flex"> --}}
-                                    {{-- <a href="./delete/{{$prm->nomor_transaksi}}" class="btn btn-danger" style="">Delete</a> --}}
-                                    {{-- <form action="" method="">
-                                        @csrf
-                                        <button name=""type="submit" class="btn btn"><i class="fa fa-pencil-alt"></i></button>
-                                    </form>
-                                    <form method="post"
-                                        action="{{ url('masterHistory/delete/' . $prm->nomor_transaksi) }}">
-                                        @csrf
-                                        <button type="submit" class="btn btn-danger"><i class="fa fa-trash"></i></button>
-                                    </form> --}}
-                                {{-- </th>
-                                <th >
-                                    <input type="checkbox"  value="{{$prm->nomor_transaksi}}" onclick="myFunction(this)">
-                                </th> --}}
+                                    <center style="display: flex;">
+                                        <button style="height: 29px;" class="btn" id="btnedit" data-toggle="modal"
+                                            data-target="#myModal" onclick="btnedit({{ $ctr - 1 }})"><i
+                                                class="fa fa-pencil-alt"></i></button>
 
-                            {{-- </tr>
+                                        <form method="post"
+                                            action="{{ url('masterCustomer/delete/' . $prm->id_customer) }}">
+                                            @csrf
+                                            <button type="submit" class="btn btn-danger"><i
+                                                    class="fa fa-trash"></i></button>
+                                        </form>
+                                    </center>
+                                </th>
+                            </tr>
                             <?php $ctr++; ?>
-                        @endforeach --}}
+                        @endforeach
                     </table>
+            </table>
                 </div>
 
             </div>
