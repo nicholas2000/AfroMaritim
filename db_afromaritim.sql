@@ -30,14 +30,50 @@ CREATE TABLE `activity` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 /*Data for the table `activity` */
 
 insert  into `activity`(`id`,`user`,`activity`,`ip_address`,`browser`,`os`,`created_at`,`updated_at`) values 
 (1,'Luna','Login Berhasil','127.0.0.1','Chrome','Windows 10','2023-02-13 15:57:34','2023-02-13 15:57:34'),
 (2,'Luna','Logout Berhasil','127.0.0.1','Chrome','Windows 10','2023-02-13 15:59:36','2023-02-13 15:59:36'),
-(3,'Nicho','Login Berhasil','127.0.0.1','Chrome','Windows 10','2023-02-13 15:59:45','2023-02-13 15:59:45');
+(3,'Nicho','Login Berhasil','127.0.0.1','Chrome','Windows 10','2023-02-13 15:59:45','2023-02-13 15:59:45'),
+(4,'Nicho','Login Berhasil','127.0.0.1','Chrome','Windows 10','2023-02-13 16:33:09','2023-02-13 16:33:09'),
+(5,'Nicho','Logout Berhasil','127.0.0.1','Chrome','Windows 10','2023-02-13 16:33:11','2023-02-13 16:33:11'),
+(6,'Luna','Login Berhasil','127.0.0.1','Chrome','Windows 10','2023-02-13 16:33:40','2023-02-13 16:33:40'),
+(7,'Luna','Logout Berhasil','127.0.0.1','Chrome','Windows 10','2023-02-13 16:33:53','2023-02-13 16:33:53'),
+(8,'Luna','Login Berhasil','127.0.0.1','Chrome','Windows 10','2023-02-13 16:35:40','2023-02-13 16:35:40'),
+(9,'Luna','Logout Berhasil','127.0.0.1','Chrome','Windows 10','2023-02-13 16:36:45','2023-02-13 16:36:45'),
+(10,'Luna','Login Berhasil','127.0.0.1','Chrome','Windows 10','2023-02-13 16:37:59','2023-02-13 16:37:59'),
+(11,'Luna','Logout Berhasil','127.0.0.1','Chrome','Windows 10','2023-02-13 16:38:05','2023-02-13 16:38:05'),
+(12,'Luna','Login Berhasil','127.0.0.1','Chrome','Windows 10','2023-02-13 16:51:51','2023-02-13 16:51:51'),
+(13,'Luna','Logout Berhasil','127.0.0.1','Chrome','Windows 10','2023-02-13 16:52:09','2023-02-13 16:52:09'),
+(14,'Nicho','Login Berhasil','127.0.0.1','Chrome','Windows 10','2023-02-13 16:52:26','2023-02-13 16:52:26'),
+(15,'Nicho','Login Berhasil','127.0.0.1','Chrome','Windows 10','2023-02-14 02:28:19','2023-02-14 02:28:19'),
+(16,'Nicho','Login Berhasil','127.0.0.1','Chrome','Windows 10','2023-02-14 02:28:57','2023-02-14 02:28:57'),
+(17,'Nicho','Login Berhasil','127.0.0.1','Chrome','Windows 10','2023-02-14 02:30:37','2023-02-14 02:30:37'),
+(18,'Nicho','Logout Berhasil','127.0.0.1','Chrome','Windows 10','2023-02-14 03:47:26','2023-02-14 03:47:26'),
+(19,'Nicho','Login Berhasil','127.0.0.1','Chrome','Windows 10','2023-02-14 04:34:13','2023-02-14 04:34:13'),
+(20,'Nicho','Login Berhasil','127.0.0.1','Chrome','Windows 10','2023-02-14 07:35:37','2023-02-14 07:35:37'),
+(21,'Nicho','Login Berhasil','127.0.0.1','Chrome','Windows 10','2023-02-15 04:16:49','2023-02-15 04:16:49'),
+(22,'Nicho','Login Berhasil','127.0.0.1','Chrome','Windows 10','2023-02-16 01:22:48','2023-02-16 01:22:48');
+
+/*Table structure for table `depo` */
+
+DROP TABLE IF EXISTS `depo`;
+
+CREATE TABLE `depo` (
+  `tanggal` date DEFAULT NULL,
+  `no_transaksi` varchar(255) DEFAULT NULL,
+  `nama_penerima` varchar(40) DEFAULT NULL,
+  `nama_pengirim` varchar(40) DEFAULT NULL,
+  `nama_barang` varchar(40) DEFAULT NULL,
+  `no_resi` varchar(255) NOT NULL,
+  `no_container` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`no_resi`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+/*Data for the table `depo` */
 
 /*Table structure for table `failed_jobs` */
 
@@ -82,7 +118,7 @@ CREATE TABLE `master_tcabang` (
 /*Data for the table `master_tcabang` */
 
 insert  into `master_tcabang`(`id_cabang`,`nama_cabang`,`jum_cabang`,`alamat_cabang`,`provinsi_cabang`,`kota_cabang`,`kodepos_cabang`,`telpon_cabang`,`gmaps_cabang`,`email_cabang`,`status_cabang`,`created_at`,`updated_at`,`deleted_at`) values 
-('C001','CabangSby','4','Ngagel Jaya no 3','Jawa Barat','Bandung','61213','08113190080','https://afrotransmaritim.co.id/','admin@gmail.com','1','2023-02-13 15:55:02','2023-02-13 15:55:02',NULL);
+('C001','CabangSurabaya','4','Ngagel Jaya no 3','Jawa Barat','Bandung','61213','08113190080','https://afrotransmaritim.co.id/','admin@gmail.com','1','2023-02-13 15:55:02','2023-02-14 07:37:41',NULL);
 
 /*Table structure for table `master_tcustomer` */
 
@@ -101,12 +137,12 @@ CREATE TABLE `master_tcustomer` (
   `kode_pos` varchar(255) NOT NULL,
   `telpon` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
-  `pajak` varchar(255) NOT NULL,
-  `status_hutang` varchar(255) NOT NULL,
-  `total_hutang` varchar(255) NOT NULL,
-  `batas_pembayaran` varchar(255) NOT NULL,
-  `no_rekening` varchar(255) NOT NULL,
-  `metode_pembayaran` varchar(255) NOT NULL,
+  `pajak` varchar(255) DEFAULT NULL,
+  `status_hutang` varchar(255) DEFAULT NULL,
+  `total_hutang` varchar(255) DEFAULT NULL,
+  `batas_pembayaran` varchar(255) DEFAULT NULL,
+  `no_rekening` varchar(255) DEFAULT NULL,
+  `metode_pembayaran` varchar(255) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   `deleted_at` timestamp NULL DEFAULT NULL,
@@ -118,7 +154,9 @@ CREATE TABLE `master_tcustomer` (
 /*Data for the table `master_tcustomer` */
 
 insert  into `master_tcustomer`(`id_customer`,`id_cabang`,`nama_customer`,`npwp`,`jalan`,`provinsi`,`kota`,`kecamatan`,`kelurahan`,`kode_pos`,`telpon`,`email`,`pajak`,`status_hutang`,`total_hutang`,`batas_pembayaran`,`no_rekening`,`metode_pembayaran`,`created_at`,`updated_at`,`deleted_at`) values 
-('CU001','C001','Budi','23423','Kabupaten Rembang no 4','Jawa Timur','Bandung','Malang','Kediri','3334534','08113190080','admin@gmail.com','Tidak Kena Pajak','Off','','','','','2023-02-13 16:00:39','2023-02-13 16:00:39',NULL);
+('CU001','C001','alex','23423','Kabupaten Rembang no 4','Jawa Timur','Bandung','Malang','Kediri','3334534','08113190080','admin@gmail.com','Tidak Kena Pajak','Off',NULL,'',NULL,NULL,'2023-02-13 16:00:39','2023-02-14 07:37:03',NULL),
+('CU002','C001','Nicholas','123','Surabaya','Jawa Timur','Surabaya','Sidoarjo','Blitar','61213','123456','nicho@gmail.com','Tidak Kena Pajak','Off','','','','','2023-02-14 04:39:13','2023-02-14 04:39:13',NULL),
+('CU003','C001','Nicholas','123','Sidoarjo','Jawa Timur','Bandung','Sidoarjo','Blitar','61213','123456','lala@gmail.com','Tidak Kena Pajak','Off','','','','','2023-02-14 05:24:14','2023-02-14 05:24:14',NULL);
 
 /*Table structure for table `master_tjenis` */
 
@@ -136,7 +174,8 @@ CREATE TABLE `master_tjenis` (
 /*Data for the table `master_tjenis` */
 
 insert  into `master_tjenis`(`tipe`,`jenis_harga`,`nominal`,`created_at`,`updated_at`) values 
-('A','1','10000',NULL,NULL);
+('A','1','10000',NULL,NULL),
+('B','1','15000',NULL,NULL);
 
 /*Table structure for table `master_tkompetitor` */
 
@@ -230,6 +269,22 @@ CREATE TABLE `password_resets` (
 
 /*Data for the table `password_resets` */
 
+/*Table structure for table `pengiriman` */
+
+DROP TABLE IF EXISTS `pengiriman`;
+
+CREATE TABLE `pengiriman` (
+  `no` int(11) NOT NULL AUTO_INCREMENT,
+  `nama_kurir` varchar(25) NOT NULL,
+  `no_transaksi` varchar(255) DEFAULT NULL,
+  `tanggal_pengiriman` date DEFAULT NULL,
+  `status_barang` varchar(15) DEFAULT NULL,
+  `link foto` varchar(15) DEFAULT NULL,
+  PRIMARY KEY (`no`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+/*Data for the table `pengiriman` */
+
 /*Table structure for table `personal_access_tokens` */
 
 DROP TABLE IF EXISTS `personal_access_tokens`;
@@ -285,7 +340,8 @@ CREATE TABLE `transaksi` (
 /*Data for the table `transaksi` */
 
 insert  into `transaksi`(`nomor_transaksi`,`id_customer`,`nama_barang`,`id_admin`,`volume`,`berat`,`rute`,`harga`,`jenis_harga`,`tonage`,`harga_tambahan`,`persentase`,`total_harga`,`no_container`,`nama_kapal`,`tanggal_berangkat`,`nomor_manifest`,`link_foto`,`created_at`,`updated_at`,`deleted_at`) values 
-('TC001','CU001','pensil','admin','0','10','A','12100','A','10%','0','10%','0',NULL,NULL,'2023-02-15',NULL,NULL,'2023-02-13 16:04:00','2023-02-13 16:04:00',NULL);
+('TC001','CU001','pensil','admin','0','10','A','12100','A','10%','0','10%','0',NULL,'A','2023-02-15',NULL,NULL,'2023-02-13 16:04:00','2023-02-14 05:51:26',NULL),
+('TC002','CU002','Sidoarjo','admin','15','0','Jakarta','0','-','2','0','10%','0','2345','Titanic','2023-02-16','1',NULL,'2023-02-14 04:43:30','2023-02-14 04:44:02',NULL);
 
 /*Table structure for table `users` */
 
