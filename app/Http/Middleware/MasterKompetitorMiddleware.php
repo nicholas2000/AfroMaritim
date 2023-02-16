@@ -2,8 +2,11 @@
 
 namespace App\Http\Middleware;
 
+use App\Models\Permission;
 use Closure;
 use Illuminate\Http\Request;
+
+use Illuminate\Support\Str;
 
 class MasterKompetitorMiddleware
 {
@@ -16,6 +19,20 @@ class MasterKompetitorMiddleware
      */
     public function handle(Request $request, Closure $next)
     {
-        return $next($request);
+        $role = $request->session()->get('user_now')->role_pegawai;
+        $role = Str::lower(str_replace(' ', '', $role));
+        $cek = Permission::where('daftar_berita',"Master Kompetitor")->first();
+        if($role=="superadmin"){
+            return $next($request);
+        }else if($cek->admin==true){
+            return $next($request);
+        }else if($cek->accounting==true){
+            return $next($request);
+        }else if($cek->kurir==true){
+            return $next($request);
+        }
+        else{
+            return redirect('/dashboard')->with('error','You do not have permission to do that!');
+        }
     }
 }

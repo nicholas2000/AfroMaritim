@@ -57,14 +57,14 @@
                             <button id=btnUser onclick="userClick()"
                                 style="width: 100%;height: 30px;background-color: transparent;border: none;"
                                 class="button" type="button">
-                                <center>User </center>
+                                <center>Hak Akses </center>
                             </button>
                         </div>
                         <div class="col-md">
                             <button id=btnLogin onclick="loginClick()"
                                 style="width: 100%;height: 30px;background-color: transparent;border: none;"
                                 class="button" type="button">
-                                <center>Login </center>
+                                <center>Activity Login </center>
                             </button>
                         </div>
                     </div>

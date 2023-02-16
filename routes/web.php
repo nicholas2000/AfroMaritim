@@ -30,8 +30,9 @@ use Illuminate\Support\Facades\Route;
 //     return view('login');
 // });
 Route::get('/', [loginController::class, "toLoginPage"]);
-
-Route::get('/formactivity', [activitycontroller::class, "formact"]);
+Route::middleware(['login','superadmin'])->group(function () {
+    Route::get('/formactivity', [activitycontroller::class, "formact"]);
+});
 
 Route::get('/logout', [loginController::class, "logout"]);
 
@@ -71,28 +72,33 @@ Route::middleware(['login','mastercabang'])->group(function () {
     Route::post('/masterCabang/delete/{id}', [CabangController::class, "delete"]);
 });
 
-Route::middleware(['login','superadmin'])->group(function () {
+Route::middleware(['login','mastercustomer'])->group(function () {
     Route::post('/doAddcustomer', [CustomerController::class, "doAdd"]);
     Route::get('/masterCustomer', [CustomerController::class, "show"]);
     Route::get('/tcustomer',  [CustomerController::class, "vfmcustomer"]);
     Route::post('/masterCustomer/edit', [CustomerController::class, "doEdit"]);
     Route::post('/masterCustomer/delete/{id}', [CustomerController::class, "delete"]);
+});
 
-
+Route::middleware(['login','masterkompetitor'])->group(function () {
     Route::post('/doAddkompetitor', [KompetitorController::class, "doAdd"]);
     Route::get('/masterKompetitor', [KompetitorController::class, "show"]);
     Route::post('/masterKompetitor/delete/{id}', [KompetitorController::class, "delete"]);
     Route::post('/masterKompetitor/update', [KompetitorController::class, "update"]);
+});
 
+Route::middleware(['login','masterpegawai'])->group(function () {
     Route::post('/dotmpegawai', [controllerpegawai::class, "dovmtpegawai"]);
     Route::get('/masterPegawai', [controllerpegawai::class, "vmpegawai"]);
     Route::get('/tpegawai',  [controllerpegawai::class, "vfmpegawai"]);
     Route::post('/masterPegawai/delete/{id}', [controllerpegawai::class, "deletepegawai"]);
     Route::post('/masterPegawai/update', [controllerpegawai::class, "updatepegawai"]);
-        Route::post('/domasterJenisharga', [controllerJenisHarga::class, "doAdd"    ]);
-    Route::get('/masterJenisharga', [controllerJenisHarga::class, "show"]);
 });
 
+Route::middleware(['login','masterjenisharga'])->group(function () {
+    Route::get('/masterJenisharga', [controllerJenisHarga::class, "show"]);
+    Route::post('/domasterJenisharga', [controllerJenisHarga::class, "doAdd"]);
+});
 
 Route::get('/masterpengirimansatu', [pengirimancontroller::class, "vmpengirimansatu"]);
 Route::get('/masterpengirimandua', [pengirimancontroller::class, "vmpengirimandua"]);
@@ -102,10 +108,12 @@ Route::post('/tambahDepo', [depoController::class, "doAddDepo"]);
 
 // <-------------->
 
-Route::middleware(['login','admin'])->group(function () {
+Route::middleware(['login','transaksi'])->group(function () {
     Route::post('/doMasterTransaksi', [TransaksiController::class, "doAdd"]);
     Route::get('/masterTransaksi', [TransaksiController::class, "showtransaksi"]);
+});
 
+Route::middleware(['login','history'])->group(function () {
     Route::post('/masterHistory/delete/{id}', [HistoryController::class, "deletehistory"]);
     Route::post('/masterHistory/update', [HistoryController::class, "updatehistory"]);
     Route::get('/masterHistory', [TransaksiController::class, "showHistory"]);

@@ -64,8 +64,13 @@ class Kernel extends HttpKernel
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
         'superadmin' => \App\Http\Middleware\SuperAdminMiddleware::class,
-        'admin' => \App\Http\Middleware\AdminMiddleware::class,
         'login' => \App\Http\Middleware\LoginMiddleware::class,
         'mastercabang'=> \App\Http\Middleware\MasterCabangMiddleware::class,
+        'mastercustomer'=> \App\Http\Middleware\MasterCustomerMiddleware::class,
+        'masterjenisharga'=> \App\Http\Middleware\MasterJenisHargaMiddleware::class,
+        'masterkompetitor'=> \App\Http\Middleware\MasterKompetitorMiddleware::class,
+        'masterpegawai'=> \App\Http\Middleware\MasterPegawaiMiddleware::class,
+        'history'=> \App\Http\Middleware\HistoryTransaksiMiddleware::class,
+        'transaksi'=> \App\Http\Middleware\TransaksiMiddleware::class,
     ];
 }

@@ -5,10 +5,9 @@ namespace App\Http\Middleware;
 use App\Models\Permission;
 use Closure;
 use Illuminate\Http\Request;
-
 use Illuminate\Support\Str;
 
-class MasterJenisHargaMiddleware
+class TransaksiMiddleware
 {
     /**
      * Handle an incoming request.
@@ -21,7 +20,7 @@ class MasterJenisHargaMiddleware
     {
         $role = $request->session()->get('user_now')->role_pegawai;
         $role = Str::lower(str_replace(' ', '', $role));
-        $cek = Permission::where('daftar_berita',"Master Jenis Harga")->first();
+        $cek = Permission::where('daftar_berita',"Transaksi")->first();
         if($role=="superadmin"){
             return $next($request);
         }else if($cek->admin==true){
