@@ -99,14 +99,14 @@
                             <div class="p">
                                 <div class="col-md-8">Nama Penerima</div>
                                 <div>:</div>
-                                <div class="col-md-2"><input name="namapenerima" type='text' style="width: 180px;">
+                                <div class="col-md-2"><input name="namapenerima" type='text'>
                                 </div>
                             </div>
                             <br>
                             <div class="p">
                                 <div class="col-md-8">Nama Pengirim</div>
                                 <div>:</div>
-                                <div class="col-md-2"><input name="namapengirim" type='text' style="width: 180px;">
+                                <div class="col-md-2"><input name="namapengirim" type='text' >
                                 </div>
                             </div>
                             <br>
@@ -119,28 +119,28 @@
                             <div class="p ">
                                 <div class="col-md-6">No Resi</div>
                                 <div>:</div>
-                                <div class="col-md-6"><input name="noresi" type='text' style="width: 180px;">
+                                <div class="col-md-6"><input name="noresi" type='text' >
                                 </div>
                             </div>
                             <br>
                             <div class="p ">
                                 <div class="col-md-6">No Transaksi</div>
                                 <div>:</div>
-                                <div class="col-md-6"><input name="notransaksi" type='text' style="width: 180px;">
+                                <div class="col-md-6"><input name="notransaksi" type='text'>
                                 </div>
                             </div>
                             <br>
                             <div class="p ">
                                 <div class="col-md-6">Nama Barang</div>
                                 <div>:</div>
-                                <div class="col-md-6"><input name="namabarang" type='text' style="width: 180px;">
+                                <div class="col-md-6"><input name="namabarang" type='text'>
                                 </div>
                             </div>
                             <br>
                             <div class="p ">
                                 <div class="col-md-6">No Container</div>
                                 <div>:</div>
-                                <div class="col-md-6"><input name="nocontainer" type='text' style="width: 180px;">
+                                <div class="col-md-6"><input name="nocontainer" type='text'>
                                 </div>
                             </div>
                             <br>
