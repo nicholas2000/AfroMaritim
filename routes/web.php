@@ -55,9 +55,9 @@ Route::get('/tkompetitor', function () {
 });
 
 
-Route::get('/depo', function () {
-    return view('admin.mDepo');
-});
+// Route::get('/depo', function () {
+//     return view('admin.mDepo');
+// });
 
 // ROUTE BARUU
 
@@ -98,7 +98,9 @@ Route::get('/masterpengirimansatu', [pengirimancontroller::class, "vmpengirimans
 Route::get('/masterpengirimandua', [pengirimancontroller::class, "vmpengirimandua"]);
 Route::get('/activity', [activitycontroller::class, "formact"]);
 
+Route::get('/depo', [depoController::class, "show"]);
 Route::post('/tambahDepo', [depoController::class, "doAddDepo"]);
+
 
 // <-------------->
 

@@ -8,14 +8,15 @@ use App\Models\Depo;
 class depoController extends Controller
 {
 
-    public function showDepo()
+ public function show()
     {
-        $arrDepo=depo::all();
+        $arrDepo=Depo::all();
         return view('admin.mDepo',compact('arrDepo'));
     }
 
     public function doAddDepo(Request $req)
     {
+
         Depo::create([
             'tanggal' => $req->tglmasuk,
             'no_transaksi' => $req->notransaksi,
@@ -25,6 +26,6 @@ class depoController extends Controller
             'no_resi'=>$req->noresi,
             'no_container'=>$req->nocontainer
         ]);
-        return redirect("/depo");
+        return redirect('/depo');
     }
 }
