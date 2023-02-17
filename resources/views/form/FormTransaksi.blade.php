@@ -74,8 +74,21 @@
                         <div class="col-sm">
                             <input name="kode" id="kode" class="form-control" type="text" style="width: 210px;" value="{{$kodeTrans}}" readonly>
                         </div>
+
                         <div class="col-sm-3">
-                            Nama Customer :
+                            Nomor Container :
+                        </div>
+                        <div class="col-sm">
+                            <input name="nocontainer" class="form-control" type="text"style="width: 210px;">
+                        </div>
+                    </div>
+                </div>
+                <br>
+                {{--  --}}
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-3">
+                            Nama Pengirim :
                         </div>
                         <div class="col-sm-3">
                             <div class="search-box">
@@ -90,26 +103,11 @@
                             </div>
 
                         </div>
-
-
-                    </div>
-                </div>
-                {{--  --}}
-                <div class="container">
-                    <div class="row">
                         <div class="col-sm-3">
                             Jenis Barang :
                         </div>
                         <div class="col-sm">
                             <input name="namabarang" class="form-control" type="text"style="width: 210px;" >
-                        </div>
-
-
-                        <div class="col-sm-3">
-                            Admin :
-                        </div>
-                        <div class="col-sm">
-                            <input name="kode" class="form-control" type="text"style="width: 210px;" readonly>
                         </div>
 
                     </div>
@@ -124,14 +122,6 @@
                         <div class="col-sm">
                             <input name="namabarang" class="form-control" type="text"style="width: 210px;" >
                         </div>
-
-                        <div class="col-sm-3">
-                            Nomor Container :
-                        </div>
-                        <div class="col-sm">
-                            <input name="nocontainer" class="form-control" type="text"style="width: 210px;">
-                        </div>
-
                     </div>
                 </div>
 {{--  --}}

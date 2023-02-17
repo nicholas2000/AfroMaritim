@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 16 Feb 2023 pada 07.30
+-- Waktu pembuatan: 17 Feb 2023 pada 07.21
 -- Versi server: 10.4.25-MariaDB
 -- Versi PHP: 8.1.10
 
@@ -68,7 +68,9 @@ INSERT INTO `activity` (`id`, `user`, `activity`, `ip_address`, `browser`, `os`,
 (20, 'Nicho', 'Login Berhasil', '127.0.0.1', 'Chrome', 'Windows 10', '2023-02-14 00:35:37', '2023-02-14 00:35:37'),
 (21, 'Nicho', 'Login Berhasil', '127.0.0.1', 'Chrome', 'Windows 10', '2023-02-14 21:16:49', '2023-02-14 21:16:49'),
 (22, 'Nicho', 'Login Berhasil', '127.0.0.1', 'Chrome', 'Windows 10', '2023-02-15 18:22:48', '2023-02-15 18:22:48'),
-(23, 'Nicho', 'Login Berhasil', '127.0.0.1', 'Chrome', 'Windows 10', '2023-02-15 22:15:31', '2023-02-15 22:15:31');
+(23, 'Nicho', 'Login Berhasil', '127.0.0.1', 'Chrome', 'Windows 10', '2023-02-15 22:15:31', '2023-02-15 22:15:31'),
+(24, 'Nicho', 'Login Berhasil', '127.0.0.1', 'Chrome', 'Windows 10', '2023-02-16 20:14:08', '2023-02-16 20:14:08'),
+(25, 'Nicho', 'Login Berhasil', '127.0.0.1', 'Chrome', 'Windows 10', '2023-02-16 22:28:05', '2023-02-16 22:28:05');
 
 -- --------------------------------------------------------
 
@@ -381,6 +383,7 @@ CREATE TABLE `transaksi` (
   `tambahan_harga` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `potongan_harga` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `total_harga` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `nomor_container` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `nomor_manifest` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `link_foto` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
@@ -392,8 +395,8 @@ CREATE TABLE `transaksi` (
 -- Dumping data untuk tabel `transaksi`
 --
 
-INSERT INTO `transaksi` (`nomor_transaksi`, `nama_pengirim`, `alamat_pengirim`, `nohp_pengirim`, `email_pengirim`, `nama_penerima`, `alamat_penerima`, `nohp_penerima`, `email_penerima`, `nama_barang`, `jenis_ukuran`, `nominal_ukuran`, `rute`, `nama_kapal`, `tanggal_berangkat`, `jenis_harga`, `harga_kubik`, `harga`, `tambahan_harga`, `potongan_harga`, `total_harga`, `nomor_manifest`, `link_foto`, `created_at`, `updated_at`, `deleted_at`) VALUES
-('TC001', 'CU001', '', '', '', '', '', '', '', 'pensil', '0', '10', 'A', NULL, NULL, '', '', '', NULL, NULL, '', NULL, NULL, '2023-02-13 09:04:00', '2023-02-13 22:51:26', NULL);
+INSERT INTO `transaksi` (`nomor_transaksi`, `nama_pengirim`, `alamat_pengirim`, `nohp_pengirim`, `email_pengirim`, `nama_penerima`, `alamat_penerima`, `nohp_penerima`, `email_penerima`, `nama_barang`, `jenis_ukuran`, `nominal_ukuran`, `rute`, `nama_kapal`, `tanggal_berangkat`, `jenis_harga`, `harga_kubik`, `harga`, `tambahan_harga`, `potongan_harga`, `total_harga`, `nomor_container`, `nomor_manifest`, `link_foto`, `created_at`, `updated_at`, `deleted_at`) VALUES
+('TC001', 'CU001', '', '', '', '', '', '', '', 'pensil', '0', '10', 'A', NULL, NULL, '', '', '', NULL, NULL, '', NULL, NULL, NULL, '2023-02-13 09:04:00', '2023-02-13 22:51:26', NULL);
 
 -- --------------------------------------------------------
 
@@ -522,7 +525,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT untuk tabel `activity`
 --
 ALTER TABLE `activity`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT untuk tabel `failed_jobs`
