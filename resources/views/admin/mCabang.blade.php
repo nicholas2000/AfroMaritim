@@ -2,7 +2,8 @@
 <link rel="stylesheet" href="sidebar.css">
 <script src="sidebar.js"></script>
 
-
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Detect.js/2.2.2/detect.min.js"></script>
 <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
@@ -19,12 +20,13 @@
     .button:focus {
         outline: none;
     }
-    @media screen and (max-width:600px) {
+    @media screen and (max-width:600vh) {
         .p {
             right: -20%;
         }
 
     }
+
 </style>
 <link rel="stylesheet" href="notif.css">
 <meta charset="utf-8">
