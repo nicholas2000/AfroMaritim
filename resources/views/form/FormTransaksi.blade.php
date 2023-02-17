@@ -65,8 +65,15 @@
             <br>
             <form action="{{ url('/doMasterTransaksi') }} " method="post">
                 @csrf
+                {{-- FORM --}}
                 <div class="container">
                     <div class="row">
+                        <div class="col-sm-3">
+                            Nomor Transaksi :
+                        </div>
+                        <div class="col-sm">
+                            <input name="kode" id="kode" class="form-control" type="text" style="width: 210px;" value="{{$kodeTrans}}" readonly>
+                        </div>
                         <div class="col-sm-3">
                             Nama Customer :
                         </div>
@@ -84,14 +91,10 @@
 
                         </div>
 
-                        <div class="col-sm-3">
-                            Nomor Transaksi :
-                        </div>
-                        <div class="col-sm">
-                            <input name="kode" id="kode" class="form-control" type="text" style="width: 210px;" readonly>
-                        </div>
+
                     </div>
                 </div>
+                {{--  --}}
                 <div class="container">
                     <div class="row">
                         <div class="col-sm-3">
@@ -112,6 +115,7 @@
                     </div>
                 </div>
                 <br>
+                {{--  --}}
                 <div class="container">
                     <div class="row">
                         <div class="col-sm-3">
@@ -130,7 +134,7 @@
 
                     </div>
                 </div>
-
+{{--  --}}
                 <br>
                 <div class="container">
                     <div class="row">
@@ -155,6 +159,7 @@
                     </div>
                 </div>
                 <br>
+                {{--  --}}
                 <div class="container">
                     <div class="row">
                         <div class="col-sm-3">
@@ -166,6 +171,7 @@
                     </div>
                 </div>
                 <br>
+                {{--  --}}
                 <div class="container">
                     <div class="row">
                         <div class="col-sm-3">
@@ -191,6 +197,7 @@
                     </div>
                 </div>
                 <br>
+                {{--  --}}
                 <div class="container">
                     <div class="row">
                         <div class="col-sm-3">
@@ -208,6 +215,7 @@
                     </div>
                 </div>
                 <br>
+                {{--  --}}
                 <div class="container">
                     <div class="row">
                         <div class="col-sm-3">
@@ -225,6 +233,7 @@
                     </div>
                 </div>
                 <br>
+                {{--  --}}
                 <div class="container">
                     <div class="row">
                         <div class="col-sm-3">
@@ -242,10 +251,12 @@
                     </div>
                 </div>
                 <br>
+                {{--  --}}
                 <div class="container">
                     <div class="row">
                         <div class="col-sm-3">
                             <input type="hidden" name="option" id="option" value="berat">
+                            {{$kodeTrans}}
                         </div>
 
                     </div>

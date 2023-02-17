@@ -6,6 +6,8 @@ use App\Models\Customer;
 use App\Models\modelJenisHarga;
 use App\Models\Transaksi;
 use App\Models\Depo;
+use Carbon\Carbon;
+use DateTime;
 use Illuminate\Http\Request;
 
 class TransaksiController extends Controller
@@ -18,7 +20,22 @@ class TransaksiController extends Controller
     public function showtransaksi(Request $req)
     {
         $param['arrJenisHarga']=modelJenisHarga::get();
-        $param['arrTransaksi']=Transaksi::where('nomor_transaksi', 'like', '%TC%')->count();
+        // $param['totalTrans']=Transaksi::where('nomor_transaksi', 'like', '%TC%');
+        // // $param['kodeTrans']=Transaksi::where
+        // $mytime = Carbon::now()->format('m-Y');
+        // $param['time'] = $mytime->toDateTimeString();
+        $time = date('y-m');
+        $first = "TC{$time}";
+        $totalTrans = Transaksi::where('nomor_transaksi', 'like', '%{$first}%')->count() + 1;
+        $newTrans = "";
+        if($totalTrans<10){
+            $newTrans = "{$first}-00{$totalTrans}";
+        }else if($totalTrans<100){
+            $newTrans = "{$first}-0{$totalTrans}";
+        }else{
+            $newTrans = "{$first}-{$totalTrans}";
+        }
+        $param['kodeTrans'] = $newTrans;
         return view('admin/mTransaksi',$param);
     }
 
