@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 16 Feb 2023 pada 07.30
+-- Waktu pembuatan: 17 Feb 2023 pada 13.04
 -- Versi server: 10.4.25-MariaDB
 -- Versi PHP: 8.1.10
 
@@ -68,7 +68,9 @@ INSERT INTO `activity` (`id`, `user`, `activity`, `ip_address`, `browser`, `os`,
 (20, 'Nicho', 'Login Berhasil', '127.0.0.1', 'Chrome', 'Windows 10', '2023-02-14 00:35:37', '2023-02-14 00:35:37'),
 (21, 'Nicho', 'Login Berhasil', '127.0.0.1', 'Chrome', 'Windows 10', '2023-02-14 21:16:49', '2023-02-14 21:16:49'),
 (22, 'Nicho', 'Login Berhasil', '127.0.0.1', 'Chrome', 'Windows 10', '2023-02-15 18:22:48', '2023-02-15 18:22:48'),
-(23, 'Nicho', 'Login Berhasil', '127.0.0.1', 'Chrome', 'Windows 10', '2023-02-15 22:15:31', '2023-02-15 22:15:31');
+(23, 'Nicho', 'Login Berhasil', '127.0.0.1', 'Chrome', 'Windows 10', '2023-02-15 22:15:31', '2023-02-15 22:15:31'),
+(24, 'Nicho', 'Login Berhasil', '127.0.0.1', 'Chrome', 'Windows 10', '2023-02-16 20:14:08', '2023-02-16 20:14:08'),
+(25, 'Nicho', 'Login Berhasil', '127.0.0.1', 'Chrome', 'Windows 10', '2023-02-16 22:28:05', '2023-02-16 22:28:05');
 
 -- --------------------------------------------------------
 
@@ -192,8 +194,9 @@ CREATE TABLE `master_tjenis` (
 --
 
 INSERT INTO `master_tjenis` (`tipe`, `jenis_harga`, `nominal`, `created_at`, `updated_at`) VALUES
-('A', '1', '10000', NULL, NULL),
-('B', '1', '15000', NULL, NULL);
+('A', 'Volume', '10000', NULL, NULL),
+('B', 'Volume', '-10000', NULL, NULL),
+('C', 'Berat', '35', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -361,6 +364,7 @@ CREATE TABLE `personal_access_tokens` (
 DROP TABLE IF EXISTS `transaksi`;
 CREATE TABLE `transaksi` (
   `nomor_transaksi` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `nomor_segel` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `nama_pengirim` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `alamat_pengirim` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `nohp_pengirim` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -378,9 +382,10 @@ CREATE TABLE `transaksi` (
   `jenis_harga` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `harga_kubik` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `harga` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `tambahan_harga` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `potongan_harga` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `harga_tambahan` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `harga_potongan` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `total_harga` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `nomor_container` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `nomor_manifest` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `link_foto` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
@@ -392,8 +397,9 @@ CREATE TABLE `transaksi` (
 -- Dumping data untuk tabel `transaksi`
 --
 
-INSERT INTO `transaksi` (`nomor_transaksi`, `nama_pengirim`, `alamat_pengirim`, `nohp_pengirim`, `email_pengirim`, `nama_penerima`, `alamat_penerima`, `nohp_penerima`, `email_penerima`, `nama_barang`, `jenis_ukuran`, `nominal_ukuran`, `rute`, `nama_kapal`, `tanggal_berangkat`, `jenis_harga`, `harga_kubik`, `harga`, `tambahan_harga`, `potongan_harga`, `total_harga`, `nomor_manifest`, `link_foto`, `created_at`, `updated_at`, `deleted_at`) VALUES
-('TC001', 'CU001', '', '', '', '', '', '', '', 'pensil', '0', '10', 'A', NULL, NULL, '', '', '', NULL, NULL, '', NULL, NULL, '2023-02-13 09:04:00', '2023-02-13 22:51:26', NULL);
+INSERT INTO `transaksi` (`nomor_transaksi`, `nomor_segel`, `nama_pengirim`, `alamat_pengirim`, `nohp_pengirim`, `email_pengirim`, `nama_penerima`, `alamat_penerima`, `nohp_penerima`, `email_penerima`, `nama_barang`, `jenis_ukuran`, `nominal_ukuran`, `rute`, `nama_kapal`, `tanggal_berangkat`, `jenis_harga`, `harga_kubik`, `harga`, `harga_tambahan`, `harga_potongan`, `total_harga`, `nomor_container`, `nomor_manifest`, `link_foto`, `created_at`, `updated_at`, `deleted_at`) VALUES
+('TC001', '', 'CU001', '', '', '', '', '', '', '', 'pensil', '0', '10', 'A', NULL, NULL, '', '', '', NULL, NULL, '', NULL, NULL, NULL, '2023-02-13 09:04:00', '2023-02-13 22:51:26', NULL),
+('TC23-02-001', NULL, 'Budi', 'Jalan Manyar 1', '088888888888', 'cabangsba@gmail.com', 'Anduk', 'Jalan Manyar 2', '0999999999', 'cabangsbb@gmail.com', 'Karet', 'Berat', '3', 'A', NULL, '2023-02-24', 'C', '30000', '0', '10000', '30000', '0', NULL, NULL, NULL, '2023-02-17 04:49:17', '2023-02-17 04:49:17', NULL);
 
 -- --------------------------------------------------------
 
@@ -456,109 +462,10 @@ ALTER TABLE `master_tjenis`
   ADD PRIMARY KEY (`tipe`);
 
 --
--- Indeks untuk tabel `master_tkompetitor`
---
-ALTER TABLE `master_tkompetitor`
-  ADD PRIMARY KEY (`id_kompetitor`);
-
---
--- Indeks untuk tabel `master_tpegawai`
---
-ALTER TABLE `master_tpegawai`
-  ADD PRIMARY KEY (`id_pegawai`),
-  ADD KEY `master_tpegawai_id_cabang_foreign` (`id_cabang`);
-
---
--- Indeks untuk tabel `migrations`
---
-ALTER TABLE `migrations`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indeks untuk tabel `password_resets`
---
-ALTER TABLE `password_resets`
-  ADD KEY `password_resets_email_index` (`email`);
-
---
--- Indeks untuk tabel `pengiriman`
---
-ALTER TABLE `pengiriman`
-  ADD PRIMARY KEY (`no`);
-
---
--- Indeks untuk tabel `permission`
---
-ALTER TABLE `permission`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indeks untuk tabel `personal_access_tokens`
---
-ALTER TABLE `personal_access_tokens`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `personal_access_tokens_token_unique` (`token`),
-  ADD KEY `personal_access_tokens_tokenable_type_tokenable_id_index` (`tokenable_type`,`tokenable_id`);
-
---
 -- Indeks untuk tabel `transaksi`
 --
 ALTER TABLE `transaksi`
-  ADD PRIMARY KEY (`nomor_transaksi`),
-  ADD KEY `transaksi_id_customer_foreign` (`nama_pengirim`);
-
---
--- Indeks untuk tabel `users`
---
-ALTER TABLE `users`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `users_email_unique` (`email`);
-
---
--- AUTO_INCREMENT untuk tabel yang dibuang
---
-
---
--- AUTO_INCREMENT untuk tabel `activity`
---
-ALTER TABLE `activity`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
-
---
--- AUTO_INCREMENT untuk tabel `failed_jobs`
---
-ALTER TABLE `failed_jobs`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT untuk tabel `migrations`
---
-ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
-
---
--- AUTO_INCREMENT untuk tabel `pengiriman`
---
-ALTER TABLE `pengiriman`
-  MODIFY `no` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT untuk tabel `permission`
---
-ALTER TABLE `permission`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
-
---
--- AUTO_INCREMENT untuk tabel `personal_access_tokens`
---
-ALTER TABLE `personal_access_tokens`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT untuk tabel `users`
---
-ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  ADD PRIMARY KEY (`nomor_transaksi`);
 
 --
 -- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
@@ -569,18 +476,6 @@ ALTER TABLE `users`
 --
 ALTER TABLE `master_tcustomer`
   ADD CONSTRAINT `master_tcustomer_id_cabang_foreign` FOREIGN KEY (`id_cabang`) REFERENCES `master_tcabang` (`id_cabang`);
-
---
--- Ketidakleluasaan untuk tabel `master_tpegawai`
---
-ALTER TABLE `master_tpegawai`
-  ADD CONSTRAINT `master_tpegawai_id_cabang_foreign` FOREIGN KEY (`id_cabang`) REFERENCES `master_tcabang` (`id_cabang`);
-
---
--- Ketidakleluasaan untuk tabel `transaksi`
---
-ALTER TABLE `transaksi`
-  ADD CONSTRAINT `transaksi_id_customer_foreign` FOREIGN KEY (`nama_pengirim`) REFERENCES `master_tcustomer` (`id_customer`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -65,14 +65,34 @@
             <br>
             <form action="{{ url('/doMasterTransaksi') }} " method="post">
                 @csrf
+                {{-- FORM --}}
                 <div class="container">
                     <div class="row">
                         <div class="col-sm-3">
-                            Nama Customer :
+                            Nomor Transaksi :
+                        </div>
+                        <div class="col-sm">
+                            <input name="kode" id="kode" class="form-control" type="text" style="width: 210px;" value="{{$kodeTrans}}" readonly>
+                        </div>
+
+                        <div class="col-sm-3">
+                            Nomor Segel :
+                        </div>
+                        <div class="col-sm">
+                            <input name="nomor_segel" class="form-control" type="text"style="width: 210px;">
+                        </div>
+                    </div>
+                </div>
+                <hr>
+                {{--  --}}
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-3">
+                            Nama Pengirim :
                         </div>
                         <div class="col-sm-3">
                             <div class="search-box">
-                                <input style="width: 210px;" type="text" name="namacust" id="user" class="form-control" placeholder="Masukkan Nama" />
+                                <input style="width: 210px;" type="text" name="nama_pengirim" id="user" class="form-control" placeholder="Masukkan Nama" />
                                 <br>
                                 <div id="wrapper" onclick="hidden()">
                                     <div class="scrollbar">
@@ -83,78 +103,140 @@
                             </div>
 
                         </div>
-
                         <div class="col-sm-3">
-                            Nomor Transaksi :
+                            Nama Penerima :
                         </div>
                         <div class="col-sm">
-                            <input name="kode" id="kode" class="form-control" type="text" style="width: 210px;" readonly>
+                            <input name="nama_penerima" class="form-control" type="text"style="width: 210px;" >
                         </div>
+
                     </div>
                 </div>
+                {{-- <br> --}}
+                {{--  --}}
                 <div class="container">
                     <div class="row">
                         <div class="col-sm-3">
-                            Jenis Barang :
+                            Alamat Pengirim :
                         </div>
                         <div class="col-sm">
-                            <input name="namabarang" class="form-control" type="text"style="width: 210px;" >
+                            <input name="alamat_pengirim" class="form-control" type="text"style="width: 210px;" >
                         </div>
-
-
                         <div class="col-sm-3">
-                            Admin :
+                            Alamat Penerima :
                         </div>
                         <div class="col-sm">
-                            <input name="kode" class="form-control" type="text"style="width: 210px;" readonly>
+                            <input name="alamat_penerima" class="form-control" type="text"style="width: 210px;" >
                         </div>
-
+                    </div>
+                </div>
+{{--  --}}
+                <br>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-3">
+                            No HP Pengirim :
+                        </div>
+                        <div class="col-sm">
+                            <input name="nohp_pengirim" class="form-control" type="text"style="width: 210px;" >
+                        </div>
+                        <div class="col-sm-3">
+                            No HP Penerima :
+                        </div>
+                        <div class="col-sm">
+                            <input name="nohp_penerima" class="form-control" type="text"style="width: 210px;" >
+                        </div>
+                    </div>
+                </div>
+                <br>
+                {{--  --}}
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-3">
+                            Email Pengirim :
+                        </div>
+                        <div class="col-sm">
+                            <input name="email_pengirim" class="form-control" type="text"style="width: 210px;" >
+                        </div>
+                        <div class="col-sm-3">
+                            Email Penerima :
+                        </div>
+                        <div class="col-sm">
+                            <input name="email_penerima" class="form-control" type="text"style="width: 210px;" >
+                        </div>
+                    </div>
+                </div>
+                <hr>
+                {{--  --}}
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-3">
+                            Nama Barang :
+                        </div>
+                        <div class="col-sm">
+                            <input name="nama_barang" class="form-control" type="text"style="width: 210px;" >
+                        </div>
+                        <div class="col-sm-3">
+                            Jenis Harga :
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="col-auto">
+                                <select name="jenisharga" class="custom-select" style="font-size:15px;width: 210px;margin-left:-15px;height:40px;"
+                                    id="jenisharga" onchange="choose_harga()">
+                                    <option value="-,-,0"></option>
+                                    @foreach ($arrJenisHarga as $prm)
+                                        <option value="{{ $prm->tipe }},{{ $prm->jenis_harga }},{{ $prm->nominal }}">{{ $prm->tipe }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <br>
                 <div class="container">
                     <div class="row">
                         <div class="col-sm-3">
-                            Alamat :
+                            Jenis Ukuran :
                         </div>
-                        <div class="col-sm">
-                            <input name="namabarang" class="form-control" type="text"style="width: 210px;" >
-                        </div>
-
                         <div class="col-sm-3">
-                            Nomor Container :
+                            <div class="col-auto">
+                                <select name="jenis_ukuran" class="custom-select" style="font-size:15px;width: 210px;margin-left:-15px;height:40px;"
+                                    id="jenis_ukuran" onchange="choose_ukuran()">
+                                    <option value="Berat">Berat</option>
+                                    <option value="Volume">Volume</option>
+                                </select>
+                            </div>
+                            {{-- <input type="radio" name="jenis_ukuran" id="jenis_ukuran" value="Berat" checked>Berat
+                            <input type="radio" name="jenis_ukuran" id="jenis_ukuran" value="Volume">Volume --}}
                         </div>
-                        <div class="col-sm">
-                            <input name="nocontainer" class="form-control" type="text"style="width: 210px;">
+                        <div class="col-sm-3">
+                            Harga / Kubik :
                         </div>
-
+                        <div class="col-sm-3">
+                            <input name="harga_kubik" id="harga_kubik" class="form-control" type="number"style="width: 210px;" value="0">
+                        </div>
                     </div>
                 </div>
-
                 <br>
+                {{--  --}}
                 <div class="container">
                     <div class="row">
-                        <div class="col-sm-1">
-                            Berat :
+                        <div class="col-sm-3">
+                            Nominal Ukuran :
                         </div>
-                        <div class="col-sm-2">
-                            <input type="checkbox" name="option1" id="option1" value="op1" onclick="disable_option1()" checked>
+                        <div class="col-sm">
+                            <input name="nominal_ukuran" id="nominal_ukuran" class="form-control" type="number"style="width: 210px;" value="0">
                         </div>
                         <div class="col-sm-3">
-                            <input name="berat" id="berat" class="form-control" type="number"style="width: 210px;" value="0" step=".01">
+                            Harga by Jenis :
                         </div>
-                        <div class="col-sm-1">
-                            Volume :
-                        </div>
-                        <div class="col-sm-2">
-                            <input type="checkbox" name="option2" id="option2" value="op2" onclick="disable_option2()">
-                        </div>
-                        <div class="col-sm-1">
-                            <input name="volume" id="volume" class="form-control" type="number"style="width: 210px;" value="0">
+                        <div class="col-sm">
+                            <input name="harga_jenis" id="harga_jenis" class="form-control" type="number"style="width: 210px;" value="0" readonly>
                         </div>
                     </div>
                 </div>
                 <br>
+                {{--  --}}
                 <div class="container">
                     <div class="row">
                         <div class="col-sm-3">
@@ -163,68 +245,34 @@
                         <div class="col-sm">
                             <input name="rute" class="form-control" type="text"style="width: 210px;" >
                         </div>
-                    </div>
-                </div>
-                <br>
-                <div class="container">
-                    <div class="row">
                         <div class="col-sm-3">
-                            Jenis Harga :
-                        </div>
-                        <div class="col-sm-3">
-                            <div class="col-auto">
-                                <select name="jenisharga" class="custom-select" style="font-size:15px;width: 210px;margin-left:-15px;height:40px;"
-                                    id="jenisharga" onchange="choose_harga()">
-                                    <option value="-,0"></option>
-                                    @foreach ($arrJenisHarga as $prm)
-                                        <option value="{{ $prm->tipe }},{{ $prm->nominal }}">{{ $prm->tipe }}</option>
-                                    @endforeach
-                                </select>
-                            </div>
-                        </div>
-                        <div class="col-sm-3">
-                            Harga :
+                            Harga Tambahan:
                         </div>
                         <div class="col-sm">
-                            <input name="harga" id="harga" class="form-control" type="number" style="width: 210px;" value="0">
+                            <input name="harga_tambahan" id="harga_tambahan" class="form-control" type="number" style="width: 210px;" value="0">
                         </div>
                     </div>
                 </div>
                 <br>
-                <div class="container">
-                    <div class="row">
-                        <div class="col-sm-3">
-                            Persentase :
-                        </div>
-                        <div class="col-sm">
-                            <input name="persentase" class="form-control" type="text"style="width: 210px;">
-                        </div>
-                        <div class="col-sm-3">
-                            Harga Tambahan :
-                        </div>
-                        <div class="col-sm">
-                            <input name="hargatambahan" id="hargatambahan" class="form-control" type="number" value="0" style="width: 210px;">
-                        </div>
-                    </div>
-                </div>
-                <br>
+                {{--  --}}
                 <div class="container">
                     <div class="row">
                         <div class="col-sm-3">
                             Nama Kapal :
                         </div>
                         <div class="col-sm">
-                            <input name="namakapal" class="form-control" type="text"style="width: 210px;">
+                            <input name="nama_kapal" class="form-control" type="text"style="width: 210px;">
                         </div>
                         <div class="col-sm-3">
-                            Total Harga :
+                            Harga Potongan :
                         </div>
                         <div class="col-sm">
-                            <input name="total" id="total" class="form-control" type="number"style="width: 210px;" value="0" readonly>
+                            <input name="harga_potongan" id="harga_potongan" class="form-control" type="number" value="0" style="width: 210px;">
                         </div>
                     </div>
                 </div>
                 <br>
+                {{--  --}}
                 <div class="container">
                     <div class="row">
                         <div class="col-sm-3">
@@ -234,6 +282,19 @@
                             <input name="tglberangkat" class="form-control" type="date"style="width: 210px;">
                         </div>
 
+                        <div class="col-sm-3">
+                            Total Harga :
+                        </div>
+                        <div class="col-sm">
+                            <input name="total" id="total" class="form-control" type="number"style="width: 210px;" value="0" readonly>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                {{--  --}}
+                <div class="container">
+                    <div class="row">
+
                         <div class="col-sm"></div>
                         <div class="col-sm-3">
                             <br>
@@ -242,10 +303,13 @@
                     </div>
                 </div>
                 <br>
+                {{--  --}}
                 <div class="container">
                     <div class="row">
                         <div class="col-sm-3">
                             <input type="hidden" name="option" id="option" value="berat">
+                            <input type="hidden" name="livesearch" id="livesearch" value="no">
+                            {{$total}}
                         </div>
 
                     </div>
@@ -285,38 +349,55 @@
             $('#user').val($(this).text());
             $('#userList').fadeOut();
             $("#wrapper").css("display", "none");
+            document.getElementById('livesearch').value = "yes";
         });
         var kode = $arrTransaksi.length;
         document.getElementById("kode").value = kode;
     });
 
-    //volume atau berat
-    document.getElementById("volume").readOnly = true;
-
-    function disable_option2() {
-        document.getElementById("volume").readOnly = false;
-        document.getElementById("berat").readOnly = true;
-        document.getElementById("berat").value = "0";
-        document.getElementById("volume").value = "0";
-        document.getElementById("option").value = "volume";
-        document.getElementById("option1").checked = false;
-        total_harga();
-    }
-    function disable_option1() {
-        document.getElementById("volume").readOnly = true;
-        document.getElementById("berat").readOnly = false;
-        document.getElementById("berat").value = "0";
-        document.getElementById("volume").value = "0";
-        document.getElementById("option").value = "berat";
-        document.getElementById("option2").checked = false;
-        total_harga();
-    }
+    //jenis_ukuran
+    // function
 
     //jenis_harga
     function choose_harga(){
         var arrJenis = $("#jenisharga").val().split(",");
-        document.getElementById("harga").value = arrJenis[1];
+        if(arrJenis[1]=="-"){
+            document.getElementById("harga_jenis").value = Number($('#harga_kubik').val());
+        }else{
+            var hargaKubik = Number($('#harga_kubik').val());
+            if(arrJenis[1]!=$("#jenis_ukuran").val()){
+                alert(arrJenis[1] + $("#jenis_ukuran").val());
+                $('#jenisharga').val("-,-,0");
+                document.getElementById("harga_jenis").value = hargaKubik;
+            }else{
+                ganti_harga_jenis();
+            }
+        }
+        // document.getElementById("harga").value = arrJenis[1];
         total_harga();
+    }
+
+    function choose_ukuran(){
+        var arrJenis = $("#jenisharga").val().split(",");
+        var hargaKubik = Number($('#harga_kubik').val());
+        if(arrJenis[1]!=$("#jenis_ukuran").val()){
+            alert(arrJenis[1] + $("#jenis_ukuran").val());
+            $('#jenisharga').val("-,-,0");
+            document.getElementById("harga_jenis").value = hargaKubik;
+        }
+    }
+
+    function ganti_harga_jenis(){
+        var arrJenis = $("#jenisharga").val().split(",");
+
+        var berat = Number($("#nominal_ukuran").val());
+        var hargaKubik = Number($('#harga_kubik').val());
+
+        if(arrJenis[1] == "Berat"){
+            document.getElementById("harga_jenis").value = berat * (hargaKubik + hargaKubik * Number(arrJenis[2]) / 100);
+        }else if(arrJenis[1] == "Volume"){
+            document.getElementById("harga_jenis").value = berat * (hargaKubik + Number(arrJenis[2]));
+        }
     }
 
     //nama
@@ -331,20 +412,22 @@
     });
 
     //auto_gen angka
-    $("#hargatambahan").on("input", function(){
-        change_number("hargatambahan");
+    $("#harga_tambahan").on("input", function(){
+        change_number("harga_tambahan");
         total_harga();
     });
-    $("#berat").on("input", function(){
-        change_number("berat");
+    $("#harga_kubik").on("input", function(){
+        change_number("harga_kubik");
+        ganti_harga_jenis();
         total_harga();
     });
-    $("#volume").on("input", function(){
-        change_number("volume");
+    $("#nominal_ukuran").on("input", function(){
+        change_number("nominal_ukuran");
+        ganti_harga_jenis();
         total_harga();
     })
-    $("#harga").on("input", function(){
-        change_number("harga");
+    $("#harga_potongan").on("input", function(){
+        change_number("harga_potongan");
         total_harga();
     })
 
@@ -355,14 +438,9 @@
     }
 
     function total_harga(){
-        var berat = 0;
-        if(document.getElementById("option1").checked == true){
-            berat = Number(document.getElementById("berat").value);
-        }else if(document.getElementById("option2").checked == true){
-            berat = Number(document.getElementById("volume").value);
-        }
-        var harga = Number(document.getElementById("harga").value);
-        var tambahan = Number(document.getElementById("hargatambahan").value);
-        document.getElementById("total").value = berat * harga + tambahan;
+        var harga = Number(document.getElementById("harga_jenis").value);
+        var tambahan = Number(document.getElementById("harga_tambahan").value);
+        var potongan = Number(document.getElementById("harga_potongan").value);
+        document.getElementById("total").value = harga + tambahan - potongan;
     }
 </script>
