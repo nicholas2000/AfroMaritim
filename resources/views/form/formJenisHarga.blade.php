@@ -27,8 +27,7 @@
                         <div class="input-group">
                             <span style="background-color: #023e94" class="input-group-addon"><i style="color: white"
                                     class="fa fa-tags"></i></span>
-                            {{-- <input name="jenisharga" placeholder="Masukkan Jenis Harga" class="form-control" type="text"> --}}
-                            <select name="jenisharga" id="jenisharga" class="form-control" style="height:35px;" aria-placeholder="Masukkan Jenis Harga">
+                            <select name="jenisharga" id="jenisharga" class="form-control" style="height:35px;">
                                 <option value="Berat">Berat</option>
                                 <option value="Volume">Volume</option>
                             </select>

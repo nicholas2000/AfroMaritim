@@ -183,9 +183,9 @@
                             <div class="col-auto">
                                 <select name="jenisharga" class="custom-select" style="font-size:15px;width: 210px;margin-left:-15px;height:40px;"
                                     id="jenisharga" onchange="choose_harga()">
-                                    <option value="-,0"></option>
+                                    <option value="-,-,0"></option>
                                     @foreach ($arrJenisHarga as $prm)
-                                        <option value="{{ $prm->tipe }},{{ $prm->nominal }}">{{ $prm->tipe }}</option>
+                                        <option value="{{ $prm->tipe }},{{ $prm->jenis_harga }},{{ $prm->nominal }}">{{ $prm->tipe }}</option>
                                     @endforeach
                                 </select>
                             </div>
@@ -199,8 +199,15 @@
                             Jenis Ukuran :
                         </div>
                         <div class="col-sm-3">
-                            <input type="radio" name="jenis_ukuran" id="" value="Berat" checked>Berat
-                            <input type="radio" name="jenis_ukuran" id="" value="Volume">Volume
+                            <div class="col-auto">
+                                <select name="jenis_ukuran" class="custom-select" style="font-size:15px;width: 210px;margin-left:-15px;height:40px;"
+                                    id="jenis_ukuran" onchange="choose_ukuran()">
+                                    <option value="Berat">Berat</option>
+                                    <option value="Volume">Volume</option>
+                                </select>
+                            </div>
+                            {{-- <input type="radio" name="jenis_ukuran" id="jenis_ukuran" value="Berat" checked>Berat
+                            <input type="radio" name="jenis_ukuran" id="jenis_ukuran" value="Volume">Volume --}}
                         </div>
                         <div class="col-sm-3">
                             Harga / Kubik :
@@ -242,7 +249,7 @@
                             Harga Tambahan:
                         </div>
                         <div class="col-sm">
-                            <input name="harga_tambahan" id="harga" class="form-control" type="number" style="width: 210px;" value="0">
+                            <input name="harga_tambahan" id="harga_tambahan" class="form-control" type="number" style="width: 210px;" value="0">
                         </div>
                     </div>
                 </div>
@@ -302,7 +309,7 @@
                         <div class="col-sm-3">
                             <input type="hidden" name="option" id="option" value="berat">
                             <input type="hidden" name="livesearch" id="livesearch" value="no">
-                            {{-- {{$kodeTrans}} --}}
+                            {{$total}}
                         </div>
 
                     </div>
@@ -348,11 +355,49 @@
         document.getElementById("kode").value = kode;
     });
 
+    //jenis_ukuran
+    // function
+
     //jenis_harga
     function choose_harga(){
         var arrJenis = $("#jenisharga").val().split(",");
-        document.getElementById("harga").value = arrJenis[1];
+        if(arrJenis[1]=="-"){
+            document.getElementById("harga_jenis").value = Number($('#harga_kubik').val());
+        }else{
+            var hargaKubik = Number($('#harga_kubik').val());
+            if(arrJenis[1]!=$("#jenis_ukuran").val()){
+                alert(arrJenis[1] + $("#jenis_ukuran").val());
+                $('#jenisharga').val("-,-,0");
+                document.getElementById("harga_jenis").value = hargaKubik;
+            }else{
+                ganti_harga_jenis();
+            }
+        }
+        // document.getElementById("harga").value = arrJenis[1];
         total_harga();
+    }
+
+    function choose_ukuran(){
+        var arrJenis = $("#jenisharga").val().split(",");
+        var hargaKubik = Number($('#harga_kubik').val());
+        if(arrJenis[1]!=$("#jenis_ukuran").val()){
+            alert(arrJenis[1] + $("#jenis_ukuran").val());
+            $('#jenisharga').val("-,-,0");
+            document.getElementById("harga_jenis").value = hargaKubik;
+        }
+    }
+
+    function ganti_harga_jenis(){
+        var arrJenis = $("#jenisharga").val().split(",");
+
+        var berat = Number($("#nominal_ukuran").val());
+        var hargaKubik = Number($('#harga_kubik').val());
+
+        if(arrJenis[1] == "Berat"){
+            document.getElementById("harga_jenis").value = berat * (hargaKubik + hargaKubik * Number(arrJenis[2]) / 100);
+        }else if(arrJenis[1] == "Volume"){
+            document.getElementById("harga_jenis").value = berat * (hargaKubik + Number(arrJenis[2]));
+        }
     }
 
     //nama
@@ -373,10 +418,12 @@
     });
     $("#harga_kubik").on("input", function(){
         change_number("harga_kubik");
+        ganti_harga_jenis();
         total_harga();
     });
     $("#nominal_ukuran").on("input", function(){
         change_number("nominal_ukuran");
+        ganti_harga_jenis();
         total_harga();
     })
     $("#harga_potongan").on("input", function(){
@@ -391,9 +438,9 @@
     }
 
     function total_harga(){
-        var berat = 0;
-        var harga = Number(document.getElementById("harga").value);
-        var tambahan = Number(document.getElementById("hargatambahan").value);
-        document.getElementById("total").value = berat * harga + tambahan;
+        var harga = Number(document.getElementById("harga_jenis").value);
+        var tambahan = Number(document.getElementById("harga_tambahan").value);
+        var potongan = Number(document.getElementById("harga_potongan").value);
+        document.getElementById("total").value = harga + tambahan - potongan;
     }
 </script>
