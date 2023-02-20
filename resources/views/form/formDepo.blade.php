@@ -126,7 +126,7 @@
                             <div class="p ">
                                 <div class="col-md-6">No Transaksi</div>
                                 <div>:</div>
-                                <div class="col-md-6"><input name="notransaksi" type='text'>
+                                <div class="col-md-6"><input name="notransaksi" type='text'value="{{$kodeTrans}}" readonly>
                                 </div>
                             </div>
                             <br>
@@ -230,6 +230,8 @@
     </div>
 </section>
 <script>
+      var kode = $arrTransaksi.length;
+        document.getElementById("kode").value = kode;
     var data3 = [];
     function myFunction(x) {
         if(x.checked==true)

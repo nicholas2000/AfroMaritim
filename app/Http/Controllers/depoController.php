@@ -12,6 +12,16 @@ class depoController extends Controller
     {
         $arrDepo=Depo::all();
         return view('admin.mDepo',compact('arrDepo'));
+        $newTrans = "";
+        if($totalTrans<10){
+            $newTrans = "{$first}-00{$totalTrans}";
+        }else if($totalTrans<100){
+            $newTrans = "{$first}-0{$totalTrans}";
+        }else{
+            $newTrans = "{$first}-{$totalTrans}";
+        }
+        $param['kodeTrans'] = $newTrans;
+        $param['total'] = $totalTrans;
     }
 
     public function doAddDepo(Request $req)
