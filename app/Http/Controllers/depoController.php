@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Depo;
+use App\Models\Transaksi;
 
 class depoController extends Controller
 {
@@ -12,6 +13,7 @@ class depoController extends Controller
     {
         $arrDepo=Depo::all();
         return view('admin.mDepo',compact('arrDepo'));
+        $Transaksi = Transaksi::all();
     }
 
     public function doAddDepo(Request $req)
