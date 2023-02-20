@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Depo;
 use App\Models\Transaksi;
+use App\Models\modelJenisHarga;
 
 class depoController extends Controller
 {
@@ -12,21 +13,41 @@ class depoController extends Controller
  public function show()
     {
         $arrDepo=Depo::all();
-        return view('admin.mDepo',compact('arrDepo'));
+
         $Transaksi = Transaksi::all();
+        $param['arrJenisHarga']=modelJenisHarga::get();
+        // $param['totalTrans']=Transaksi::where('nomor_transaksi', 'like', '%TC%');
+        // // $param['kodeTrans']=Transaksi::where
+        // $mytime = Carbon::now()->format('m-Y');
+        // $param['time'] = $mytime->toDateTimeString();
+        $time = date('y-m');
+        $first = "TC{$time}";
+        $totalTrans = Transaksi::where('nomor_transaksi', 'like', "%{$first}%")->count() + 1;
+        // dd($totalTrans);
+        $newTrans = "";
+        if($totalTrans<10){
+            $newTrans = "{$first}-00{$totalTrans}";
+        }else if($totalTrans<100){
+            $newTrans = "{$first}-0{$totalTrans}";
+        }else{
+            $newTrans = "{$first}-{$totalTrans}";
+        }
+        $param['kodeTrans'] = $newTrans;
+        $param['total'] = $totalTrans;
+        return view('admin.mDepo',compact('Transaksi'),$param);
     }
 
     public function doAddDepo(Request $req)
     {
 
-        Depo::create([
+        Transaksi::create([
             'tanggal' => $req->tglmasuk,
-            'no_transaksi' => $req->notransaksi,
+            'nomor_transaksi' => $req->notransaksi,
             'nama_penerima'=> $req->namapenerima,
             'nama_pengirim'=>$req->namapengirim,
             'nama_barang'=>$req->namabarang,
-            'no_resi'=>$req->noresi,
-            'no_container'=>$req->nocontainer
+            'nomor_resi'=>$req->noresi,
+            'nomor_container'=>$req->nocontainer
         ]);
         return redirect('/depo');
     }

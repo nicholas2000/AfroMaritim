@@ -104,7 +104,7 @@
                             <div class="p">
                                 <div class="col-md-8">Nomor Segel</div>
                                 <div>:</div>
-                                <div class="col-md-2"><input name="nosegel" type='text' style="width: 180px;">
+                                <div class="col-md-2"><input name="nomor_segel" type='text' style="width: 180px;">
                                 </div>
                             </div>
                         </div>
@@ -160,6 +160,9 @@
                                 <center>No Manifest</center>
                             </th>
                             <th scope="col">
+                                <center>No Segel</center>
+                            </th>
+                            <th scope="col">
                                 <center>Action</center>
                             </th>
                             <th scope="col">
@@ -176,16 +179,19 @@
                                     <center>{{ $prm->nomor_transaksi }}</center>
                                 </th>
                                 <th scope="col">
-                                    <center>{{ $prm->Customer->nama_customer }}</center>
+                                    <center>{{ $prm->nama_pengirim }}</center>
                                 </th>
                                 <th scope="col">
                                     <center>{{ $prm->nama_kapal }}</center>
                                 </th>
                                 <th scope="col">
-                                    <center>{{ $prm->no_container }}</center>
+                                    <center>{{ $prm->nomor_container }}</center>
                                 </th>
                                 <th scope="col">
                                     <center>{{ $prm->nomor_manifest }}</center>
+                                </th>
+                                <th scope="col">
+                                    <center>{{ $prm->nomor_segel }}</center>
                                 </th>
                                 <th scope="col" style="display: flex">
                                     {{-- <a href="./delete/{{$prm->nomor_transaksi}}" class="btn btn-danger" style="">Delete</a> --}}

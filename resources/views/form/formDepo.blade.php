@@ -179,15 +179,15 @@
                         </tr>
                         <?php $ctr = 1; ?>
 
-                        @foreach ($arrDepo as $prm)
+                        @foreach ($Transaksi as $prm)
                             <tr>
 
 
                                 <th scope="col">
-                                    <center>{{ $prm->tanggal }}</center>
+                                    <center>{{ $prm->tanggal}}</center>
                                 </th>
                                 <th scope="col">
-                                    <center>{{ $prm->no_transaksi }}</center>
+                                    <center>{{ $prm->nomor_transaksi }}</center>
                                 </th>
                                 <th scope="col">
                                     <center>{{ $prm->nama_penerima }}</center>
@@ -199,10 +199,10 @@
                                     <center>{{ $prm->nama_barang }}</center>
                                 </th>
                                 <th scope="col">
-                                    <center>{{ $prm->no_resi }}</center>
+                                    <center>{{ $prm->nomor_resi }}</center>
                                 </th>
                                 <th scope="col">
-                                    <center>{{ $prm->no_container }}</center>
+                                    <center>{{ $prm->nomor_container }}</center>
                                 </th>
                                 <th scope="col">
                                     <center style="display: flex;">
