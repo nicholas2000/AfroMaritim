@@ -6,23 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
-        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
-    </script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
-        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
-    </script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
-        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
-    </script>
+
     <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css">
+
 </head>
 <style>
     .button:focus {
@@ -37,6 +27,11 @@
         background-color: transparent;
         border-radius: 15px;
     }
+    .wrapper{
+        display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+    }
 </style>
 
 <body>
@@ -48,8 +43,6 @@
                     <hr class="mt" />
                 </div>
                 <br>
-
-                <br><br>
                 <div class="container">
                     <div class="row">
 
@@ -72,56 +65,51 @@
                 </div>
 
                 <br><br>
-                <div id="user" style="display: none">
-                    <div class="container">
-
-                        <div class="col-12">
-
-                            <table class="table">
-                                <thead class="thead-dark">
+                <div id="user" class="wrapper" style="display: none">
+                    <div class="container col-md-10" >
+                        <table class="table">
+                            <thead style="background-color:  #023e94;color: white;">
+                                <tr>
+                                    <th>Access </th>
+                                    <th>
+                                        <center>Admin</center>
+                                    </th>
+                                    <th>
+                                        <center>Accouting</center>
+                                    </th>
+                                    <th>
+                                        <center>Kurir</center>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php $ctr2 = 1; ?>
+                                @foreach ($arrPermission as $prm)
                                     <tr>
-                                        <th class="col-3">Access </th>
-                                        <th>
-                                            <center>Admin</center>
-                                        </th>
-                                        <th>
-                                            <center>Accouting</center>
-                                        </th>
-                                        <th>
-                                            <center>Kurir</center>
-                                        </th>
+                                        <td>{{ $prm->daftar_berita }}</td>
+                                        <td>
+                                            <center><input class="form-check-input" type="checkbox"
+                                                    value="admin,{{ $prm->daftar_berita }}" onclick="myFunction(this)"
+                                                    id="cekAdmin{{ $ctr2 - 1 }}">
+                                            </center>
+                                        </td>
+                                        <td>
+                                            <center><input class="form-check-input" type="checkbox"
+                                                    value="accounting,{{ $prm->daftar_berita }}"
+                                                    onclick="myFunction(this)" id="cekAccounting{{ $ctr2 - 1 }}">
+                                            </center>
+                                        </td>
+                                        <td>
+                                            <center><input class="form-check-input" type="checkbox"
+                                                    value="kurir,{{ $prm->daftar_berita }}" onclick="myFunction(this)"
+                                                    id="cekKurir{{ $ctr2 - 1 }}">
+                                            </center>
+                                        </td>
                                     </tr>
-                                </thead>
-                                <tbody>
-                                    <?php $ctr2 = 1; ?>
-                                    @foreach ($arrPermission as $prm)
-                                        <tr>
-                                            <td>{{ $prm->daftar_berita }}</td>
-                                            <td>
-                                                <center><input class="form-check-input" type="checkbox"
-                                                        value="admin,{{ $prm->daftar_berita }}"
-                                                        onclick="myFunction(this)" id="cekAdmin{{ $ctr2 - 1 }}">
-                                                </center>
-                                            </td>
-                                            <td>
-                                                <center><input class="form-check-input" type="checkbox"
-                                                        value="accounting,{{ $prm->daftar_berita }}"
-                                                        onclick="myFunction(this)" id="cekAccounting{{ $ctr2 - 1 }}">
-                                                </center>
-                                            </td>
-                                            <td>
-                                                <center><input class="form-check-input" type="checkbox"
-                                                        value="kurir,{{ $prm->daftar_berita }}"
-                                                        onclick="myFunction(this)" id="cekKurir{{ $ctr2 - 1 }}">
-                                                </center>
-                                            </td>
-                                        </tr>
-                                        <?php $ctr2++; ?>
-                                    @endforeach
-                                </tbody>
-                            </table>
-
-                        </div>
+                                    <?php $ctr2++; ?>
+                                @endforeach
+                            </tbody>
+                        </table>
                     </div>
                 </div>
                 <div id="login" style="display: none">
@@ -161,99 +149,113 @@
                             </div>
 
                             <div class="col-sm-3">
-                                <div id="date-picker-example" class="md-form md-outline input-with-post-icon datepicker"
-                                    inline="true">
-                                    <input name="datefilter" placeholder="Select date" type="text" id="example"
-                                        class="form-control">
+                                <input type="text" name="daterange" value="" />
 
-                                    <i class="fas fa-calendar input-prefix"></i>
-                                </div>
+                                <i class="fas fa-calendar input-prefix"></i>
                             </div>
                         </div>
-                        <hr class="mt" />
                     </div>
-                    <br><br>
-                    <div class="container">
+                    <hr class="mt" />
+                    <div class="container col-md-10 " style="width: 100%;overflow: hidden;">
                         <div class="col-12">
-                            <table class="table table-bordered">
-                                <tr style="background-color:  #023e94;color: white;">
-                                    <th>No</th>
-                                    <th scope="col">
-                                        <center>User</center>
-                                    </th>
-                                    <th scope="col">Activity</th>
-                                    <th scope="col">IP</th>
-                                    <th scope="col">
-                                        <center>Browser</center>
-                                    </th>
-                                    <th scope="col">
-                                        <center>OS</center>
-                                    </th>
-                                    <th scope="col">
-                                        <center>Created At</center>
-                                    </th>
-                                </tr>
-                                <?php $ctr = 1; ?>
-                                @foreach ($arrActivity as $prm)
-                                    <tr>
 
-                                        <th scope="row">{{ $ctr }}</th>
-                                        <th scope="col">
-                                            {{ $prm->user }}
+                            <table class="table" style="overflow-x: auto; display: block;
+                            white-space: nowrap;">
+                                <thead style="background-color:  #023e94;color: white;">
+                                    <tr>
+                                        <th>
+                                            <center>No</center>
                                         </th>
-                                        @if ($prm->activity == 'Login Berhasil')
-                                            <th scope="col">
-                                                <div
-                                                    style="background-color: rgb(70, 237, 70);width: 120px;border-radius: 20px;color:white;padding-left:6px;">
-                                                    {{ $prm->activity }}
-                                                </div>
-                                            </th>
-                                        @else
-                                            <th scope="col">
-                                                <div
-                                                    style="background-color: red;width: 130px;border-radius: 20px;color:white;padding-left:6px;">
-                                                    {{ $prm->activity }}
-                                                </div>
-                                            </th>
-                                        @endif
-                                        <th scope="col">
-                                            {{ $prm->ip_address }}
+                                        <th>
+                                            <center>User</center>
                                         </th>
-                                        <th scope="col">
-                                            {{ $prm->browser }}
+                                        <th>
+                                            <center>Activity</center>
                                         </th>
-                                        <th scope="col">
-                                            {{ $prm->os }}
+                                        <th>
+                                            <center>IP</center>
                                         </th>
-                                        <th scope="col">
-                                            {{ $prm->created_at->format('d/M/Y H:i:s') }}
+                                        <th>
+                                            <center>OS</center>
                                         </th>
-                                        <?php $ctr++; ?>
+                                        <th>
+                                            <center>Browser</center>
+                                        </th>
+                                        <th>
+                                            <center>Created At</center>
+                                        </th>
                                     </tr>
-                                @endforeach
+                                </thead>
+                                <tbody>
+                                    <?php $ctr = 1; ?>
+                                    @foreach ($arrActivity as $prm)
+                                        <tr>
+
+                                            <th scope="row">{{ $ctr }}</th>
+                                            <th scope="col">
+                                                {{ $prm->user }}
+                                            </th>
+                                            @if ($prm->activity == 'Login Berhasil')
+                                                <th scope="col">
+                                                    <div
+                                                        style="background-color: rgb(70, 237, 70);width: 100%;border-radius: 10px;color:white;">
+                                                        {{ $prm->activity }}
+                                                    </div>
+                                                </th>
+                                            @else
+                                                <th scope="col">
+                                                    <div
+                                                        style="background-color: red;width: 100%;border-radius: 10px;color:white;">
+                                                        {{ $prm->activity }}
+                                                    </div>
+                                                </th>
+                                            @endif
+                                            <th scope="col">
+                                                {{ $prm->ip_address }}
+                                            </th>
+                                            <th scope="col">
+                                                {{ $prm->browser }}
+                                            </th>
+                                            <th scope="col">
+                                                {{ $prm->os }}
+                                            </th>
+                                            <th scope="col">
+                                                {{ $prm->created_at->format('d/M/Y H:i:s') }}
+                                            </th>
+                                            <?php $ctr++; ?>
+                                        </tr>
+                                    @endforeach
+                                </tbody>
                             </table>
                         </div>
                     </div>
                 </div>
+                <br><br>
             </div>
         </div>
     </section>
 
 </body>
 <script type="text/javascript">
+
+$(document).ready(function() {
+  $(".notification-drop .item").on('click',function() {
+    $(this).find('ul').toggle();
+  });
+});
     var jArray = <?php echo json_encode($arrPermission); ?>;
     for (var i = 0; i < jArray.length; i++) {
         if (jArray[i]['admin'] == 1) {
             document.getElementById("cekAdmin" + i.toString()).checked = true;
-        }else if (jArray[i]['admin'] == 0) {
+        } else if (jArray[i]['admin'] == 0) {
             document.getElementById("cekAdmin" + i.toString()).checked = false;
-        }else if(jArray[i]['accounting'] == 1){
+        } else if (jArray[i]['accounting'] == 1) {
             document.getElementById("cekAccounting" + i.toString()).checked = true;
-        }else if(jArray[i]['accounting'] == 0){
+        } else if (jArray[i]['accounting'] == 0) {
             document.getElementById("cekAccounting" + i.toString()).checked = false;
-        }else if(jArray[i]['kurir'] == 1){
+        } else if (jArray[i]['kurir'] == 1) {
             document.getElementById("cekKurir" + i.toString()).checked = true;
-        }else if(jArray[i]['kurir'] == 0){
+        } else if (jArray[i]['kurir'] == 0) {
             document.getElementById("cekKurir" + i.toString()).checked = false;
         }
     }
@@ -298,23 +300,12 @@
     }
 
     $(function() {
-
-        $('input[name="datefilter"]').daterangepicker({
-            autoUpdateInput: false,
-            locale: {
-                cancelLabel: 'Clear'
-            }
+        $('input[name="daterange"]').daterangepicker({
+            opens: 'left'
+        }, function(start, end, label) {
+            console.log("A new date selection was made: " + start.format('YYYY-MM-DD') + ' to ' + end
+                .format('YYYY-MM-DD'));
         });
-
-        $('input[name="datefilter"]').on('apply.daterangepicker', function(ev, picker) {
-            $(this).val(picker.startDate.format('MM/DD/YYYY') + ' - ' + picker.endDate.format(
-                'MM/DD/YYYY'));
-        });
-
-        $('input[name="datefilter"]').on('cancel.daterangepicker', function(ev, picker) {
-            $(this).val('');
-        });
-
     });
 </script>
 
