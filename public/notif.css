@@ -52,9 +52,9 @@ ul {
   }
 
   .notification-bell{
-    font-size: 20px;
-    padding-top: 0;
-    color: white;
+    font-size: 40px;
+    padding-top: 30px;
+    color: #023e94;
   }
 
   .btn__badge {
@@ -64,7 +64,7 @@ ul {
     position: absolute;
     top: 0;
     right: 0px;
-    padding:  3px 8px;
+    padding: 2px 8px;
     border-radius: 50%;
     margin-top: 15px;
   }
