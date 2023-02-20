@@ -375,15 +375,13 @@
     }
 
     .t {
-        /* float: left;
-        margin-left: 20%;
-        font-size: 100%;
-        position: relative; */
+        margin-bottom: 40px;
+        margin-left: -40%;
     }
 
     .p {
-        /* float: right;
-        position: relative; */
+        margin-bottom: 1%;
+        margin-right: -40%
     }
 
     .burger {
@@ -393,23 +391,20 @@
 
 
     @media screen and (max-width:600px) {
-        .p {
-            /* float: right;
-            margin-right: -20%;
-            position: relative; */
-        }
+
 
         .t {
-            /* float: left;
-            margin-left: 10%;
-            width: 40%; */
+            margin-left: 40%;
+            font-size: 15px;
         }
 
         .burger {
             margin-left: 20%;
         }
 
-
+        .p{
+            margin-right: -80%;
+        }
     }
 </style>
 
@@ -481,8 +476,8 @@
                 <div style="color: black;font-size: 80%;margin-left: 1%;padding-top: 25px;width: 100%;text-align:center" id="myDiv"></div>
                 <ul class="notification-drop right p t">
                     <li class="item">
-                        <i class="fa fa-bell notification-bell dashboard-toolbar" style="font-size: 70%;text-align:right" aria-hidden="true"></i> <span
-                            class="btn__badge pulse-button " style="">4</span>
+                        <span class="btn__badge pulse-button " style="">4</span>
+                        <i class="fa fa-bell notification-bell dashboard-toolbar" style="text-align:right;" aria-hidden="true"></i>
                         <ul>
                             <li>First Item</li>
                             <li>Second Item</li>
@@ -529,6 +524,12 @@
 </body>
 
 <script>
+
+$(document).ready(function() {
+  $(".notification-drop .item").on('click',function() {
+    $(this).find('ul').toggle();
+  });
+});
     $(document).ready(function() {
         var trigger = $('.hamburger'),
             overlay = $('.overlay'),
