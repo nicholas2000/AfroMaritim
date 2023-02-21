@@ -120,7 +120,7 @@
                             Alamat Pengirim :
                         </div>
                         <div class="col-sm">
-                            <input name="alamat_pengirim" class="form-control" type="text"style="width: 210px;" >
+                            <input name="alamat_pengirim" id="alamat_pengirim" class="form-control" type="text"style="width: 210px;" >
                         </div>
                         <div class="col-sm-3">
                             Alamat Penerima :
@@ -138,7 +138,7 @@
                             No HP Pengirim :
                         </div>
                         <div class="col-sm">
-                            <input name="nohp_pengirim" class="form-control" type="text"style="width: 210px;" >
+                            <input name="nohp_pengirim" id="nohp_pengirim" class="form-control" type="text"style="width: 210px;" >
                         </div>
                         <div class="col-sm-3">
                             No HP Penerima :
@@ -156,7 +156,7 @@
                             Email Pengirim :
                         </div>
                         <div class="col-sm">
-                            <input name="email_pengirim" class="form-control" type="text"style="width: 210px;" >
+                            <input name="email_pengirim" id="email_pengirim" class="form-control" type="text"style="width: 210px;" >
                         </div>
                         <div class="col-sm-3">
                             Email Penerima :
@@ -356,8 +356,10 @@
             $('#userList').fadeOut();
             $("#wrapper").css("display", "none");
             document.getElementById('livesearch').value = "yes";
-            const price = $('#'+$(this).text()).data('npwp');
-            console.log(price);
+            const getID = $(this).text().split('-');
+            document.getElementById("alamat_pengirim").value = $('#'+getID[0]).data('alamat');
+            document.getElementById("nohp_pengirim").value = $('#'+getID[0]).data('hp');
+            document.getElementById("email_pengirim").value = $('#'+getID[0]).data('email');
         });
         var kode = $arrTransaksi.length;
         document.getElementById("kode").value = kode;

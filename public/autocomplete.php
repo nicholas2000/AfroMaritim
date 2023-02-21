@@ -20,7 +20,8 @@
 
             if(mysqli_num_rows($result) > 0){
                 while($row = mysqli_fetch_array($result)){
-                    $output .= '<li><div id="CU001-alex" data-npwp="'.$row['npwp'].'">'.$row['id_customer'].'-'.$row["nama_customer"].'</div></li>';
+                    $temp = ' data-alamat="'.$row['jalan'].'" data-hp="' . $row['telpon'] . '" data-email="' . $row['email'] . '"';
+                    $output .= '<li><div id="' . $row['id_customer'] . '"' . $temp .'>'.$row['id_customer'].'-'.$row["nama_customer"].'</div></li>';
                 }
             }
             $output .= '</ul>';
