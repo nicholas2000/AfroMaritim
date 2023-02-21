@@ -339,12 +339,12 @@
                     data:{query:query,ctr:"Ftrans"},
                     success:function(data)
                     {
-                        console.log(data.length);
-                        if(data.length>46){
+                        if(data.length>1){
                             $('#userList').fadeIn();
                             $('#userList').html(data);
                         }else{
                             $('#userList').fadeOut();
+                            $('#userList').html("");
                             $("#wrapper").css("display", "none");
                         }
                     }
