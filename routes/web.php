@@ -11,6 +11,7 @@ use App\Http\Controllers\HistoryController;
 use App\Http\Controllers\KompetitorController;
 use App\Http\Controllers\loginController;
 use App\Http\Controllers\pengirimancontroller;
+use App\Http\Controllers\statusController;
 use App\Http\Controllers\TransaksiController;
 use App\Models\Kompetitor;
 use Illuminate\Support\Facades\Route;
@@ -52,7 +53,7 @@ Route::get('/tkompetitor', function () {
 });
 
 // ROUTE BARUU
-
+Route::get('/masterStatus', [statusController::class, "showStatus"]);
 
 Route::get('/login', [loginController::class, "login"]);
 
@@ -117,9 +118,9 @@ Route::get('/masterTeam', function () {
     return view('admin.mTeampengiriman');
 });
 
-Route::get('/masterStatus', function () {
-    return view('admin.mStatus');
-});
+// Route::get('/masterStatus', function () {
+//     return view('admin.mStatus');
+// });
 
 Route::get('/masterPiutang', function () {
     return view('admin.mPiutang');
