@@ -36,7 +36,7 @@
 </style>
 <section class="order-form m-4">
     <form action="{{ url('/showstatus') }}"method="get">
-        
+
         <div class="container pt-4">
             <div class="container">
                 <h1> Status Barang </h1>
@@ -63,13 +63,19 @@
                             </div>
                             <div class="form-group">
                                 <div style="display: flex;">
-                                    <input id="dp1" type="text" class=" fa fa-calendar form-control clickable "
-                                        style="margin-right: 10px;width: 110px;" id="DtChkIn"
-                                        placeholder="&#xf133;  Tgl Awal">
-                                    <input id="dp2" type="text" class=" fa fa-calendar form-control clickable"
-                                        id="DtChkOut" style="margin-right: 10px;width: 110px;"
+                                    <input type="date" class=" form-control"
+                                        style="margin-right: 10px;width: 150px;"
+                                        placeholder="&#xf133;  Tgl Awal" id="currentDate">
+                                    <input type="date" class=" form-control"
+                                         style="margin-right: 10px;width: 150px;"
                                         placeholder="&#xf133;  Tgl Akhir">
                                 </div>
+                                <script>
+                                    var today = new Date();
+                                    var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+                                    // document.getElementById("currentDate").value = date;
+                                    console.log(date);
+                                  </script>
                             </div>
                             <div style="display: flex;">
                                 <a href="" class="btn btn-primary"
