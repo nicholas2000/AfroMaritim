@@ -22,12 +22,9 @@
                 while($row = mysqli_fetch_array($result)){
                     $output .= '<li><div id="CU001-alex" data-npwp="'.$row['npwp'].'">'.$row['id_customer'].'-'.$row["nama_customer"].'</div></li>';
                 }
-            }else{
-                $output .= '<li>User Not Found</li>';
             }
-
-        $output .= '</ul>';
-        echo $output;
+            $output .= '</ul>';
+            echo $output;
         }
     }
     // else if($_REQUEST["ctr"]=="Fhistory"){

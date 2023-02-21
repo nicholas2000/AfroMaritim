@@ -339,8 +339,14 @@
                     data:{query:query,ctr:"Ftrans"},
                     success:function(data)
                     {
-                        $('#userList').fadeIn();
-                        $('#userList').html(data);
+                        console.log(data.length);
+                        if(data.length>45){
+                            $('#userList').fadeIn();
+                            $('#userList').html(data);
+                        }else{
+                            $('#userList').fadeOut();
+                            $("#wrapper").css("display", "none");
+                        }
                     }
                 });
             }
