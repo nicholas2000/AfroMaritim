@@ -30,7 +30,7 @@ CREATE TABLE `activity` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=33 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=35 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 /*Data for the table `activity` */
 
@@ -66,7 +66,9 @@ insert  into `activity`(`id`,`user`,`activity`,`ip_address`,`browser`,`os`,`crea
 (29,'Nicho','Login Berhasil','127.0.0.1','Chrome','Windows 10','2023-02-19 03:04:06','2023-02-19 03:04:06'),
 (30,'Nicho','Login Berhasil','127.0.0.1','Chrome','Windows 10','2023-02-20 06:47:48','2023-02-20 06:47:48'),
 (31,'Nicho','Logout Berhasil','127.0.0.1','Chrome','Windows 10','2023-02-20 07:46:59','2023-02-20 07:46:59'),
-(32,'Nicho','Login Berhasil','127.0.0.1','Chrome','Windows 10','2023-02-20 07:47:05','2023-02-20 07:47:05');
+(32,'Nicho','Login Berhasil','127.0.0.1','Chrome','Windows 10','2023-02-20 07:47:05','2023-02-20 07:47:05'),
+(33,'Nicho','Login Berhasil','127.0.0.1','Chrome','Windows 10','2023-02-20 08:56:39','2023-02-20 08:56:39'),
+(34,'Nicho','Login Berhasil','127.0.0.1','Chrome','Windows 10','2023-02-21 02:27:19','2023-02-21 02:27:19');
 
 /*Table structure for table `depo` */
 
@@ -357,6 +359,7 @@ CREATE TABLE `transaksi` (
   `total_harga` varchar(255) DEFAULT NULL,
   `nomor_container` varchar(255) DEFAULT NULL,
   `nomor_resi` varchar(255) DEFAULT NULL,
+  `status_barang` varchar(25) DEFAULT NULL,
   `nomor_manifest` varchar(255) DEFAULT NULL,
   `tanggal` date DEFAULT NULL,
   `link_foto` varchar(255) DEFAULT NULL,
@@ -368,10 +371,11 @@ CREATE TABLE `transaksi` (
 
 /*Data for the table `transaksi` */
 
-insert  into `transaksi`(`nomor_transaksi`,`nomor_segel`,`nama_pengirim`,`alamat_pengirim`,`nohp_pengirim`,`email_pengirim`,`nama_penerima`,`alamat_penerima`,`nohp_penerima`,`email_penerima`,`nama_barang`,`jenis_ukuran`,`nominal_ukuran`,`rute`,`nama_kapal`,`jenis_harga`,`harga_kubik`,`harga`,`harga_tambahan`,`harga_potongan`,`total_harga`,`nomor_container`,`nomor_resi`,`nomor_manifest`,`tanggal`,`link_foto`,`created_at`,`updated_at`,`deleted_at`) values 
-('TC23-02-001','1','Rudi',NULL,NULL,NULL,'Rudi',NULL,NULL,NULL,'Ale',NULL,NULL,NULL,'Titanic',NULL,NULL,NULL,NULL,NULL,NULL,'1',NULL,'1','2023-02-20',NULL,'2023-02-20 08:33:11','2023-02-20 08:53:52',NULL),
-('TC23-02-002','1','Lula',NULL,NULL,NULL,'Lula',NULL,NULL,NULL,'Kapak',NULL,NULL,NULL,'Titanic',NULL,NULL,NULL,NULL,NULL,NULL,'1',NULL,'1','2023-02-20',NULL,'2023-02-20 08:37:48','2023-02-20 08:53:52',NULL),
-('TC23-02-003',NULL,'Sasuke',NULL,NULL,NULL,'Sasuke',NULL,NULL,NULL,'Kunai',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'23','31',NULL,'2023-02-20',NULL,'2023-02-20 08:38:46','2023-02-20 08:38:46',NULL);
+insert  into `transaksi`(`nomor_transaksi`,`nomor_segel`,`nama_pengirim`,`alamat_pengirim`,`nohp_pengirim`,`email_pengirim`,`nama_penerima`,`alamat_penerima`,`nohp_penerima`,`email_penerima`,`nama_barang`,`jenis_ukuran`,`nominal_ukuran`,`rute`,`nama_kapal`,`jenis_harga`,`harga_kubik`,`harga`,`harga_tambahan`,`harga_potongan`,`total_harga`,`nomor_container`,`nomor_resi`,`status_barang`,`nomor_manifest`,`tanggal`,`link_foto`,`created_at`,`updated_at`,`deleted_at`) values 
+('TC23-02-001','1','Rudi',NULL,NULL,NULL,'Rudi',NULL,NULL,NULL,'Ale',NULL,NULL,NULL,'Titanic',NULL,NULL,NULL,NULL,NULL,NULL,'1',NULL,NULL,'1','2023-02-20',NULL,'2023-02-20 08:33:11','2023-02-20 08:53:52',NULL),
+('TC23-02-002','1','Lula',NULL,NULL,NULL,'Lula',NULL,NULL,NULL,'Kapak',NULL,NULL,NULL,'Titanic',NULL,NULL,NULL,NULL,NULL,NULL,'1',NULL,NULL,'1','2023-02-20',NULL,'2023-02-20 08:37:48','2023-02-20 08:53:52',NULL),
+('TC23-02-003',NULL,'Sasuke',NULL,NULL,NULL,'Sasuke',NULL,NULL,NULL,'Kunai',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'23','31',NULL,NULL,'2023-02-20',NULL,'2023-02-20 08:38:46','2023-02-20 08:38:46',NULL),
+('TC23-02-004',NULL,'teje',NULL,NULL,NULL,'teje',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'2023-02-21',NULL,'2023-02-21 02:28:25','2023-02-21 02:28:25',NULL);
 
 /*Table structure for table `users` */
 
