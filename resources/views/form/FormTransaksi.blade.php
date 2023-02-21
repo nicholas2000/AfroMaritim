@@ -339,8 +339,14 @@
                     data:{query:query,ctr:"Ftrans"},
                     success:function(data)
                     {
-                        $('#userList').fadeIn();
-                        $('#userList').html(data);
+                        console.log(data.length);
+                        if(data.length>45){
+                            $('#userList').fadeIn();
+                            $('#userList').html(data);
+                        }else{
+                            $('#userList').fadeOut();
+                            $("#wrapper").css("display", "none");
+                        }
                     }
                 });
             }
@@ -350,6 +356,8 @@
             $('#userList').fadeOut();
             $("#wrapper").css("display", "none");
             document.getElementById('livesearch').value = "yes";
+            const price = $('#'+$(this).text()).data('npwp');
+            console.log(price);
         });
         var kode = $arrTransaksi.length;
         document.getElementById("kode").value = kode;

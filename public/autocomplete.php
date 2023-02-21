@@ -16,18 +16,15 @@
             $output = '';
             $query = "SELECT * FROM master_tcustomer WHERE nama_customer LIKE '%".$_POST["query"]."%'";
             $result = mysqli_query($connect, $query);
-            $output = '<ul class="list-unstyled">';
+            $output= '<ul class="list-unstyled" id="package">';
 
             if(mysqli_num_rows($result) > 0){
                 while($row = mysqli_fetch_array($result)){
-                    $output .= '<li>'.$row["nama_customer"].'</li>';
+                    $output .= '<li><div id="CU001-alex" data-npwp="'.$row['npwp'].'">'.$row['id_customer'].'-'.$row["nama_customer"].'</div></li>';
                 }
-            }else{
-                $output .= '<li>User Not Found</li>';
             }
-
-        $output .= '</ul>';
-        echo $output;
+            $output .= '</ul>';
+            echo $output;
         }
     }
     // else if($_REQUEST["ctr"]=="Fhistory"){
