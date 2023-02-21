@@ -350,6 +350,8 @@
             $('#userList').fadeOut();
             $("#wrapper").css("display", "none");
             document.getElementById('livesearch').value = "yes";
+            const price = $('#'+$(this).text()).data('npwp');
+            console.log(price);
         });
         var kode = $arrTransaksi.length;
         document.getElementById("kode").value = kode;
