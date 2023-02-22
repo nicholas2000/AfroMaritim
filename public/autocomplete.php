@@ -16,15 +16,14 @@
             $output = '';
             $query = "SELECT * FROM master_tcustomer WHERE nama_customer LIKE '%".$_POST["query"]."%'";
             $result = mysqli_query($connect, $query);
-            $output= '<ul class="list-unstyled" id="package">';
-
             if(mysqli_num_rows($result) > 0){
+                $output= '<ul class="list-unstyled" id="package">';
                 while($row = mysqli_fetch_array($result)){
                     $temp = ' data-alamat="'.$row['jalan'].'" data-hp="' . $row['telpon'] . '" data-email="' . $row['email'] . '"';
                     $output .= '<li><div id="' . $row['id_customer'] . '"' . $temp .'>'.$row['id_customer'].'-'.$row["nama_customer"].'</div></li>';
                 }
+                $output .= '</ul>';
             }
-            $output .= '</ul>';
             echo $output;
         }
     }
