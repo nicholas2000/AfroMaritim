@@ -406,7 +406,6 @@
             $('#user').val($(this).text());
             $('#userList').fadeOut();
             $("#wrapper").css("display", "none");
-            // document.getElementById('livesearch').value = "yes";
             const getID = $(this).text().split('-');
             document.getElementById("alamatpengirim").value = $('#'+getID[0]).data('alamat');
             document.getElementById("nohppengirim").value = $('#'+getID[0]).data('hp');
