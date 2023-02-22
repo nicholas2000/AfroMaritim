@@ -39,11 +39,6 @@ class depoController extends Controller
 
     public function doAddDepo(Request $req)
     {
-        // $trans = Transaksi::where('nomor_resi', 'like', "%{$req->noresi}%")->count();
-
-        // if($trans>0){
-        //     alert('');
-        // }else{
         Transaksi::create([
             'tanggal' => $req->tglmasuk,
             'nomor_transaksi' => $req->notransaksi,

@@ -49,8 +49,14 @@
             if(mysqli_num_rows($result) > 0){
                 $output= '<ul class="list-unstyled" id="package_resi">';
                 while($row = mysqli_fetch_array($result)){
-                    // $temp = ' data-alamat="'.$row['jalan'].'" data-hp="' . $row['telpon'] . '" data-email="' . $row['email'] . '"';
-                    $output .= '<li><div id="' . $row['nomor_resi'] . '">'.$row['nomor_resi'].'</div></li>';
+                    $temp = ' data-notrans="'.$row['nomor_transaksi'].'" data-pengirim="' . $row['nama_pengirim'] . '" data-penerima="' . $row['nama_penerima'] .
+                        '" data-alamatpengirim="' . $row['alamat_pengirim'] . '" data-nohppengirim="' . $row['nohp_pengirim'] . '" data-emailpengirim="' . $row['email_pengirim'] .
+                        '" data-alamatpenerima="' . $row['alamat_penerima'] . '" data-nohppenerima="' . $row['nohp_penerima'] . '" data-emailpenerima="' . $row['email_penerima'] .
+                        '" data-namabarang="' . $row['nama_barang'] . '" data-jenisukuran="' . $row['jenis_ukuran'] . '" data-nominalukuran="' . $row['nominal_ukuran'] .
+                        '" data-rute="' . $row['rute'] . '" data-namakapal="' . $row['nama_kapal'] . '" data-tanggal="' . $row['tanggal']. '" data-jenisharga="' .
+                        $row['jenis_harga'] . '" data-hargakubik="' . $row['harga_kubik'] . '" data-harga="' . $row['harga'] . '" data-hargatambahan="' . $row['harga_tambahan'] .
+                        '" data-hargapotongan="' . $row['harga_potongan'] . '" data-totalharga="' . $row['total_harga'] . '"';
+                    $output .= '<li><div id="' . $row['nomor_resi'] . '" ' . $temp . '>'.$row['nomor_resi'].'</div></li>';
                 }
                 $output .= '</ul>';
             }

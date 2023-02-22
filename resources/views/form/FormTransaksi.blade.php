@@ -118,7 +118,7 @@
                             Nama Penerima :
                         </div>
                         <div class="col-sm">
-                            <input name="nama_penerima" class="form-control" type="text"style="width: 210px;" >
+                            <input name="nama_penerima" id="nama_penerima" class="form-control" type="text"style="width: 210px;" >
                         </div>
 
                     </div>
@@ -137,7 +137,7 @@
                             Alamat Penerima :
                         </div>
                         <div class="col-sm">
-                            <input name="alamat_penerima" class="form-control" type="text"style="width: 210px;" >
+                            <input name="alamat_penerima" id="alamat_penerima" class="form-control" type="text"style="width: 210px;" >
                         </div>
                     </div>
                 </div>
@@ -155,7 +155,7 @@
                             No HP Penerima :
                         </div>
                         <div class="col-sm">
-                            <input name="nohp_penerima" class="form-control" type="text"style="width: 210px;" >
+                            <input name="nohp_penerima" id="nohp_penerima" class="form-control" type="text"style="width: 210px;" >
                         </div>
                     </div>
                 </div>
@@ -173,7 +173,7 @@
                             Email Penerima :
                         </div>
                         <div class="col-sm">
-                            <input name="email_penerima" class="form-control" type="text"style="width: 210px;" >
+                            <input name="email_penerima" id="email_penerima" class="form-control" type="text"style="width: 210px;" >
                         </div>
                     </div>
                 </div>
@@ -185,7 +185,7 @@
                             Nama Barang :
                         </div>
                         <div class="col-sm">
-                            <input name="nama_barang" class="form-control" type="text"style="width: 210px;" >
+                            <input name="nama_barang" id="nama_barang" class="form-control" type="text"style="width: 210px;" >
                         </div>
                         <div class="col-sm-3">
                             Jenis Harga :
@@ -254,7 +254,7 @@
                             Rute :
                         </div>
                         <div class="col-sm">
-                            <input name="rute" class="form-control" type="text"style="width: 210px;" >
+                            <input name="rute" id="rute" class="form-control" type="text"style="width: 210px;" >
                         </div>
                         <div class="col-sm-3">
                             Harga Tambahan:
@@ -272,7 +272,7 @@
                             Nama Kapal :
                         </div>
                         <div class="col-sm">
-                            <input name="nama_kapal" class="form-control" type="text"style="width: 210px;">
+                            <input name="nama_kapal" id="nama_kapal" class="form-control" type="text"style="width: 210px;">
                         </div>
                         <div class="col-sm-3">
                             Harga Potongan :
@@ -290,7 +290,7 @@
                             Tanggal Berangkat :
                         </div>
                         <div class="col-sm">
-                            <input name="tglberangkat" class="form-control" type="date"style="width: 210px;">
+                            <input name="tglberangkat" id="tanggal" class="form-control" type="date"style="width: 210px;">
                         </div>
 
                         <div class="col-sm-3">
@@ -320,6 +320,7 @@
                         <div class="col-sm-3">
                             <input type="hidden" name="option" id="option" value="berat">
                             <input type="hidden" name="livesearch" id="livesearch" value="no">
+                            <input type="hidden" name="update" id="update" value="no">
                             {{-- {{$total}} --}}
                         </div>
 
@@ -340,6 +341,59 @@
 
 <script>
     $(document).ready(function(){
+        //resi
+        $('#resi').keyup(function(){
+            var query = $(this).val();
+            if(query != '')
+            {
+                $.ajax({
+                    url:"autocomplete.php",
+                    method:"POST",
+                    data:{query:query,ctr:"Fnoresi"},
+                    success:function(data)
+                    {
+                        if(data.length>1){
+                            $('#resiList').fadeIn();
+                            $('#resiList').html(data);
+                        }else{
+                            $('#resiList').fadeOut();
+                            $('#resiList').html("");
+                            $("#wrapper_resi").css("display", "none");
+                        }
+                    }
+                });
+            }
+        });
+        $(document).on('click', '#package_resi li', function(){
+            $('#resi').val($(this).text());
+            $('#resiList').fadeOut();
+            $("#wrapper_resi").css("display", "none");
+            document.getElementById('update').value = "yes";
+            const getID = $(this).text();
+            document.getElementById("kode").value = $('#'+getID).data('notrans');
+            document.getElementById("user").value = $('#'+getID).data('pengirim');
+            document.getElementById("alamat_pengirim").value = $('#'+getID).data('alamatpengirim');
+            document.getElementById("nohp_pengirim").value = $('#'+getID).data('nohppengirim');
+            document.getElementById("email_pengirim").value = $('#'+getID).data('emailpengirim');
+            document.getElementById("nama_penerima").value = $('#'+getID).data('penerima');
+            document.getElementById("alamat_penerima").value = $('#'+getID).data('alamatpenerima');
+            document.getElementById("nohp_penerima").value = $('#'+getID).data('nohppenerima');
+            document.getElementById("email_penerima").value = $('#'+getID).data('emailpenerima');
+            document.getElementById("nama_barang").value = $('#'+getID).data('namabarang');
+            $('#jenis_ukuran').val($('#'+getID).data('jenisukuran'));
+            document.getElementById("nominal_ukuran").value = $('#'+getID).data('nominalukuran');
+            document.getElementById("rute").value = $('#'+getID).data('rute');
+            document.getElementById("nama_kapal").value = $('#'+getID).data('nama_kapal');
+            document.getElementById("tanggal").value = $('#'+getID).data('tanggal');
+            $('#jenisharga').val($('#'+getID).data('jenisharga'));
+            document.getElementById("harga_kubik").value = $('#'+getID).data('hargakubik');
+            document.getElementById("harga_jenis").value = $('#'+getID).data('harga');
+            document.getElementById("harga_tambahan").value = $('#'+getID).data('hargatambahan');
+            document.getElementById("harga_potongan").value = $('#'+getID).data('hargapotongan');
+            document.getElementById("total").value = $('#'+getID).data('totalharga');
+        });
+
+
         //user
         $('#user').keyup(function(){
             var query = $(this).val();
@@ -375,40 +429,6 @@
         });
         var kode = $arrTransaksi.length;
         document.getElementById("kode").value = kode;
-
-        //resi
-        $('#resi').keyup(function(){
-            var query = $(this).val();
-            if(query != '')
-            {
-                $.ajax({
-                    url:"autocomplete.php",
-                    method:"POST",
-                    data:{query:query,ctr:"Fnoresi"},
-                    success:function(data)
-                    {
-                        if(data.length>1){
-                            $('#resiList').fadeIn();
-                            $('#resiList').html(data);
-                        }else{
-                            $('#resiList').fadeOut();
-                            $('#resiList').html("");
-                            $("#wrapper_resi").css("display", "none");
-                        }
-                    }
-                });
-            }
-        });
-        $(document).on('click', '#package_resi li', function(){
-            $('#resi').val($(this).text());
-            $('#resiList').fadeOut();
-            $("#wrapper_resi").css("display", "none");
-            // document.getElementById('livesearch').value = "yes";
-            // const getID = $(this).text().split('-');
-            // document.getElementById("alamat_pengirim").value = $('#'+getID[0]).data('alamat');
-            // document.getElementById("nohp_pengirim").value = $('#'+getID[0]).data('hp');
-            // document.getElementById("email_pengirim").value = $('#'+getID[0]).data('email');
-        });
     });
     //nama
     $("#wrapper").css("display", "none");
