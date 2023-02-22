@@ -35,41 +35,29 @@
     }
 </style>
 <section class="order-form m-4">
-    <form action="{{ url('/showstatus') }}"method="get">
-
         <div class="container pt-4">
             <div class="container">
                 <h1> Status Barang </h1>
                 <div class="row ">
                     <div class="col-sm-8 col-md-6 form-group">
-                        <div class="input-group">
-                            <input type="search" class="form-control rounded p" placeholder=" Search"
-                                aria-label="Search" aria-describedby="search-addon" />
-                            <button type="button" class="btn btn-outline-primary"
-                                style="margin-left: 2px">Search</button>
-                        </div>
                     </div>
                     <div class="col-sm-10 col-md-12 form-group">
                         <div class="p">
-                            <div class="col-sm-1">Cari</div>
-                            <div class="col-sm-2 pk" style="margin-right: 10%;">
-                                <select style="width: 100px;height: 35px;" class="form-control selectpicker">
-                                    <option value="">Semua</option>
-                                    <option>Andi</option>
-                                    <option>Doni</option>
-                                    <option>Tono</option>
-                                    <option>Sisil</option>
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <div style="display: flex;">
-                                    <input type="date" class=" form-control"
-                                        style="margin-right: 10px;width: 150px;"
-                                        placeholder="&#xf133;  Tgl Awal" id="currentDate">
-                                    <input type="date" class=" form-control"
-                                         style="margin-right: 10px;width: 150px;"
-                                        placeholder="&#xf133;  Tgl Akhir">
-                                </div>
+                            <form action="{{ url('/search_tanggal') }}" method="get">
+
+                                <div class="form-group" style="margin-right:10px;">
+                                    <div style="display: flex;">
+                                        <input type="date" class=" form-control"
+                                            style="margin-right: 10px;width: 150px;"
+                                            placeholder="&#xf133;  Tgl Awal" id="currentDate" name="date_awal">
+                                        <input type="date" class=" form-control"
+                                             style="margin-right: 10px;width: 150px;"
+                                            placeholder="&#xf133;  Tgl Akhir" name="date_akhir">
+                                            <button type="submit" class="btn btn-success">Cari</button>
+                                    </div>
+
+                            </form>
+
                                 <script>
                                     var today = new Date();
                                     var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
@@ -87,6 +75,7 @@
                     </div>
                 </div>
                 <br>
+                <form action="{{ url('/showstatus') }}"method="get">
                 <div class="row">
                     <div class="col-sm-12 col-md-6 form-group">
                         <div class="p">
@@ -111,19 +100,7 @@
                             </div>
                         </div>
                         <br>
-                        <div class="p">
-                            <div class="col-sm-4">Bulk Action </div>
-                            <div>:</div>
-                            <div class="col-sm-3">
-                                <select style="width: 180px;height: 35px;" class="form-control selectpicker">
-                                    <option value="">Pilih Bulk Action</option>
-                                    <option>Andi</option>
-                                    <option>Doni</option>
-                                    <option>Tono</option>
-                                    <option>Sisil</option>
-                                </select>
-                            </div>
-                        </div>
+                        
                         <br>
 
                         {{-- ----- --}}

@@ -54,6 +54,7 @@ Route::get('/tkompetitor', function () {
 
 // ROUTE BARUU
 Route::get('/masterStatus', [statusController::class, "showStatus"]);
+Route::get('/search_tanggal', [statusController::class, "searchTanggal"]);
 
 Route::get('/login', [loginController::class, "login"]);
 

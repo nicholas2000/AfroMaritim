@@ -15,6 +15,15 @@
 </head>
 
 <style>
+     @media screen and (max-width:600px) {
+        .p {
+            width: 75%;
+        }
+
+        .pk {
+            margin-right: 5%;
+        }
+    }
     .popup form {
         width: 100%;
     }

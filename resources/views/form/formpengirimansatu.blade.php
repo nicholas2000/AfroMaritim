@@ -147,7 +147,7 @@
                                     <center>{{ $prm->nomor_transaksi }}</center>
                                 </th>
                                 <th scope="col">
-                                    <center>{{ $prm->tanggal_berangkat }}</center>
+                                    <center>{{ $prm->tanggal }}</center>
                                 </th>
                                 <th scope="col">
                                     <center>{{ $prm->no_container }}</center>
