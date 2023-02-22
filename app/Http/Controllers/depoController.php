@@ -39,16 +39,25 @@ class depoController extends Controller
 
     public function doAddDepo(Request $req)
     {
+        // $trans = Transaksi::where('nomor_resi', 'like', "%{$req->noresi}%")->count();
 
+        // if($trans>0){
+        //     alert('');
+        // }else{
         Transaksi::create([
             'tanggal' => $req->tglmasuk,
             'nomor_transaksi' => $req->notransaksi,
-            'nama_penerima'=> $req->namapenerima,
             'nama_pengirim'=>$req->namapengirim,
+            'alamat_pengirim'=>$req->alamatpengirim,
+            'nohp_pengirim'=>$req->nohppengirim,
+            'email_pengirim'=>$req->emailpengirim,
+            'nama_penerima'=> $req->namapenerima,
             'nama_barang'=>$req->namabarang,
             'nomor_resi'=>$req->noresi,
-            'nomor_container'=>$req->nocontainer
+            'nomor_container'=>$req->nocontainer,
+            'status_barang' => 'Depo SBY',
         ]);
         return redirect('/depo');
+        // }
     }
 }

@@ -92,7 +92,7 @@ class TransaksiController extends Controller
 
         Transaksi::create([
             'nomor_transaksi' => $req->kode,
-            'nomor_segel' => $req->nomor_segel,
+            'nomor_resi' => $req->nomor_resi,
             'nama_pengirim' =>  $pengirim,
             'alamat_pengirim' => $req->alamat_pengirim,
             'nohp_pengirim' => $req->nohp_pengirim,
@@ -106,13 +106,14 @@ class TransaksiController extends Controller
             'nominal_ukuran' => $req->nominal_ukuran,
             'rute' => $req->rute,
             'nama_kapal' => $req->nama_kapal,
-            'tanggal_berangkat' =>$req->tglberangkat,
+            'tanggal' =>$req->tglberangkat,
             'jenis_harga' => explode(",", $req->jenisharga)[0],
             'harga_kubik' => $req->harga_kubik,
             'harga' => $req->harga_jenis,
             'harga_tambahan' => $req->harga_tambahan,
             'harga_potongan' => $req->harga_potongan,
             'total_harga' => $req->total,
+            'status_barang' => 'Kantor SBY',
         ]);
         return redirect("/masterTransaksi");
     }

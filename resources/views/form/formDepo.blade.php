@@ -13,7 +13,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/js/bootstrap-datepicker.min.js"></script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css">
 <style>
-    .userList {
+    .list {
         background-color: aliceblue;
         cursor: pointer;
     }
@@ -67,7 +67,7 @@
             <div class="row">
                 <div class="col-sm-9">
                     <div>
-                        <h3> Depo</h3>
+                        <h3>Depo</h3>
                     </div>
                 </div>
 
@@ -97,16 +97,30 @@
                             </div>
                             <br>
                             <div class="p">
-                                <div class="col-md-8">Nama Penerima</div>
+                                <div class="col-md-8">Nama Pengirim</div>
                                 <div>:</div>
-                                <div class="col-md-2"><input name="namapenerima" type='text'>
+                                <div class="col-md-2">
+                                    <div class="search-box">
+                                        <input style="width: 210px;" type="text" name="namapengirim" id="user" class="form-control" placeholder="Masukkan Nama" />
+                                {{-- <input type="text" name="nama_pengirim" id="user"/> --}}
+                                        <div id="wrapper" onclick="hidden()">
+                                            <div class="scrollbar">
+                                                <div class="list force-overflow" id="userList" style="width: 210px;"></div>
+                                            </div>
+                                        </div>
+                                        {{-- <div id="result"></div> --}}
+                                    </div>
+
                                 </div>
+                                <input type="hidden" name="alamatpengirim" id="alamatpengirim" value="">
+                                <input type="hidden" name="nohppengirim" id="nohppengirim" value="">
+                                <input type="hidden" name="emailpengirim" id="emailpengirim" value="">
                             </div>
                             <br>
                             <div class="p">
-                                <div class="col-md-8">Nama Pengirim</div>
+                                <div class="col-md-8">Nama Penerima</div>
                                 <div>:</div>
-                                <div class="col-md-2"><input name="namapengirim" type='text' >
+                                <div class="col-md-2"><input name="namapenerima" type='text'>
                                 </div>
                             </div>
                             <br>
@@ -296,72 +310,117 @@
 
 
 <script>
-    $(document).ready(function() {
-        $('#user').keyup(function() {
+    // $(document).ready(function() {
+    //     $('#user').keyup(function() {
+    //         var query = $(this).val();
+    //         if (query != '') {
+    //             $.ajax({
+    //                 url: "autocomplete.php",
+    //                 method: "POST",
+    //                 data: {
+    //                     query: query,
+    //                     ctr: "Fhistory"
+    //                 },
+    //                 success: function(data) {
+    //                     $('#userList').fadeIn();
+    //                     $('#userList').html(data);
+    //                 }
+    //             });
+    //         }
+    //     });
+    //     $(document).on('click', 'li', function() {
+    //         $('#user').val($(this).text());
+    //         $('#userList').fadeOut();
+    //         $.ajax({
+    //             url: "autocomplete.php",
+    //             method: "POST",
+    //             data: {
+    //                 query: $(this).text(),
+    //                 ctr: "Fhistorynama"
+    //             },
+    //             success: function(data) {
+    //                 $("[name='ncustomer']").val(data);
+    //             }
+
+    //         });
+    //         $.ajax({
+    //             url: "autocomplete.php",
+    //             method: "POST",
+    //             data: {
+    //                 query: $(this).text(),
+    //                 ctr: "Fhistorytanggal"
+    //             },
+    //             success: function(data) {
+    //                 $("[name='ntanggal']").val(data);
+    //             }
+    //         });
+    //         $.ajax({
+    //             url: "autocomplete.php",
+    //             method: "POST",
+    //             data: {
+    //                 query: $(this).text(),
+    //                 ctr: "Fhistorynamakapal"
+    //             },
+    //             success: function(data) {
+    //                 $("[name='nkapal']").val(data);
+    //             }
+    //         });
+    //         $.ajax({
+    //             url: "autocomplete.php",
+    //             method: "POST",
+    //             data: {
+    //                 query: $(this).text(),
+    //                 ctr: "Fhistorynocontainer"
+    //             },
+    //             success: function(data) {
+    //                 $("[name='ncontainer']").val(data);
+    //             }
+    //         });
+    //     });
+    // });
+    $(document).ready(function(){
+        //user
+        $('#user').keyup(function(){
             var query = $(this).val();
-            if (query != '') {
+            if(query != '')
+            {
                 $.ajax({
-                    url: "autocomplete.php",
-                    method: "POST",
-                    data: {
-                        query: query,
-                        ctr: "Fhistory"
-                    },
-                    success: function(data) {
-                        $('#userList').fadeIn();
-                        $('#userList').html(data);
+                    url:"autocomplete.php",
+                    method:"POST",
+                    data:{query:query,ctr:"Ftransdepo"},
+                    success:function(data)
+                    {
+                        if(data.length>1){
+                            $('#userList').fadeIn();
+                            $('#userList').html(data);
+                        }else{
+                            $('#userList').fadeOut();
+                            $('#userList').html("");
+                            $("#wrapper").css("display", "none");
+                        }
                     }
                 });
             }
         });
-        $(document).on('click', 'li', function() {
+        $(document).on('click', '#package_nama li', function(){
             $('#user').val($(this).text());
             $('#userList').fadeOut();
-            $.ajax({
-                url: "autocomplete.php",
-                method: "POST",
-                data: {
-                    query: $(this).text(),
-                    ctr: "Fhistorynama"
-                },
-                success: function(data) {
-                    $("[name='ncustomer']").val(data);
-                }
-
-            });
-            $.ajax({
-                url: "autocomplete.php",
-                method: "POST",
-                data: {
-                    query: $(this).text(),
-                    ctr: "Fhistorytanggal"
-                },
-                success: function(data) {
-                    $("[name='ntanggal']").val(data);
-                }
-            });
-            $.ajax({
-                url: "autocomplete.php",
-                method: "POST",
-                data: {
-                    query: $(this).text(),
-                    ctr: "Fhistorynamakapal"
-                },
-                success: function(data) {
-                    $("[name='nkapal']").val(data);
-                }
-            });
-            $.ajax({
-                url: "autocomplete.php",
-                method: "POST",
-                data: {
-                    query: $(this).text(),
-                    ctr: "Fhistorynocontainer"
-                },
-                success: function(data) {
-                    $("[name='ncontainer']").val(data);
-                }
-            });
+            $("#wrapper").css("display", "none");
+            // document.getElementById('livesearch').value = "yes";
+            const getID = $(this).text().split('-');
+            document.getElementById("alamatpengirim").value = $('#'+getID[0]).data('alamat');
+            document.getElementById("nohppengirim").value = $('#'+getID[0]).data('hp');
+            document.getElementById("emailpengirim").value = $('#'+getID[0]).data('email');
         });
+    });
+    $("#wrapper").css("display", "none");
+    // $("#wrapper_resi").css("display", "none");
+
+    $("#user").on("input", function(){
+        if($("#user").val()==""){
+            $("#wrapper").css("display", "none");
+        }else{
+            $("#wrapper").css("display", "block");
+        }
     });
 </script>

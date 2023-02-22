@@ -320,7 +320,7 @@
                         <div class="col-sm-3">
                             <input type="hidden" name="option" id="option" value="berat">
                             <input type="hidden" name="livesearch" id="livesearch" value="no">
-                            {{$total}}
+                            {{-- {{$total}} --}}
                         </div>
 
                     </div>
@@ -384,17 +384,17 @@
                 $.ajax({
                     url:"autocomplete.php",
                     method:"POST",
-                    data:{query:query,ctr:"Ftransdepo"},
+                    data:{query:query,ctr:"Fnoresi"},
                     success:function(data)
                     {
-                        // if(data==0){
+                        if(data.length>1){
                             $('#resiList').fadeIn();
                             $('#resiList').html(data);
-                        // }else{
-                        //     $('#resiList').fadeOut();
-                        //     $('#resiList').html("");
-                        //     $("#wrapper_resi").css("display", "none");
-                        // }
+                        }else{
+                            $('#resiList').fadeOut();
+                            $('#resiList').html("");
+                            $("#wrapper_resi").css("display", "none");
+                        }
                     }
                 });
             }
