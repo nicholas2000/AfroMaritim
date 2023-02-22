@@ -44,7 +44,7 @@
     }else if($_REQUEST["ctr"]=="Fnoresi"){
         if(isset($_POST["query"])){
             $output = '';
-            $query = "SELECT * FROM transaksi WHERE nomor_resi LIKE '%".$_POST["query"]."%' AND (status_barang = 'DEPO' OR status_barang = 'KANTOR')";
+            $query = "SELECT * FROM transaksi WHERE nomor_resi LIKE '%".$_POST["query"]."%' AND (status_barang = 'Depo SBY' OR status_barang = 'Kantor SBY')";
             $result = mysqli_query($connect, $query);
             if(mysqli_num_rows($result) > 0){
                 $output= '<ul class="list-unstyled" id="package_resi">';
