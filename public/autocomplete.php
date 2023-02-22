@@ -17,10 +17,25 @@
             $query = "SELECT * FROM master_tcustomer WHERE nama_customer LIKE '%".$_POST["query"]."%'";
             $result = mysqli_query($connect, $query);
             if(mysqli_num_rows($result) > 0){
-                $output= '<ul class="list-unstyled" id="package">';
+                $output= '<ul class="list-unstyled" id="package_nama">';
                 while($row = mysqli_fetch_array($result)){
                     $temp = ' data-alamat="'.$row['jalan'].'" data-hp="' . $row['telpon'] . '" data-email="' . $row['email'] . '"';
                     $output .= '<li><div id="' . $row['id_customer'] . '"' . $temp .'>'.$row['id_customer'].'-'.$row["nama_customer"].'</div></li>';
+                }
+                $output .= '</ul>';
+            }
+            echo $output;
+        }
+    }else if($_REQUEST["ctr"]=="Ftransdepo"){
+        if(isset($_POST["query"])){
+            $output = '';
+            $query = "SELECT * FROM transaksi WHERE nomor_resi LIKE '%".$_POST["query"]."%' AND (status_barang = 'DEPO' OR status_barang = 'KANTOR')";
+            $result = mysqli_query($connect, $query);
+            if(mysqli_num_rows($result) > 0){
+                $output= '<ul class="list-unstyled" id="package_resi">';
+                while($row = mysqli_fetch_array($result)){
+                    // $temp = ' data-alamat="'.$row['jalan'].'" data-hp="' . $row['telpon'] . '" data-email="' . $row['email'] . '"';
+                    $output .= '<li><div id="' . $row['nomor_resi'] . '">'.$row['nomor_resi'].'</div></li>';
                 }
                 $output .= '</ul>';
             }

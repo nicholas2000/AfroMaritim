@@ -15,7 +15,7 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.6.3/js/bootstrap-select.min.js"></script>
 <style>
-    .userList
+    .list
     {
         background-color:aliceblue;
         cursor:pointer;
@@ -76,11 +76,23 @@
                         </div>
 
                         <div class="col-sm-3">
-                            Nomor Segel :
+                            Nomor Resi :
                         </div>
-                        <div class="col-sm">
+                        <div class="col-sm-3">
+                            <div class="search-box">
+                                <input style="width: 210px;" type="text" name="nomor_resi" id="resi" class="form-control" placeholder="Masukkan No Resi" />
+                                <div id="wrapper_resi" onclick="hidden()">
+                                    <div class="scrollbar">
+                                        <div class="list force-overflow" id="resiList" style="width: 210px;"></div>
+                                    </div>
+                                </div>
+                                {{-- <div id="result_resi"></div> --}}
+                            </div>
+
+                        </div>
+                        {{-- <div class="col-sm">
                             <input name="nomor_segel" class="form-control" type="text"style="width: 210px;">
-                        </div>
+                        </div> --}}
                     </div>
                 </div>
                 <hr>
@@ -93,13 +105,12 @@
                         <div class="col-sm-3">
                             <div class="search-box">
                                 <input style="width: 210px;" type="text" name="nama_pengirim" id="user" class="form-control" placeholder="Masukkan Nama" />
-                                <br>
                                 <div id="wrapper" onclick="hidden()">
                                     <div class="scrollbar">
-                                        <div class="userList force-overflow" id="userList" style="width: 210px;"></div>
+                                        <div class="list force-overflow" id="userList" style="width: 210px;"></div>
                                     </div>
                                 </div>
-                                <div id="result"></div>
+                                {{-- <div id="result"></div> --}}
                             </div>
 
                         </div>
@@ -112,7 +123,7 @@
 
                     </div>
                 </div>
-                {{-- <br> --}}
+                <br>
                 {{--  --}}
                 <div class="container">
                     <div class="row">
@@ -329,6 +340,7 @@
 
 <script>
     $(document).ready(function(){
+        //user
         $('#user').keyup(function(){
             var query = $(this).val();
             if(query != '')
@@ -351,7 +363,7 @@
                 });
             }
         });
-        $(document).on('click', 'li', function(){
+        $(document).on('click', '#package_nama li', function(){
             $('#user').val($(this).text());
             $('#userList').fadeOut();
             $("#wrapper").css("display", "none");
@@ -363,6 +375,58 @@
         });
         var kode = $arrTransaksi.length;
         document.getElementById("kode").value = kode;
+
+        //resi
+        $('#resi').keyup(function(){
+            var query = $(this).val();
+            if(query != '')
+            {
+                $.ajax({
+                    url:"autocomplete.php",
+                    method:"POST",
+                    data:{query:query,ctr:"Ftransdepo"},
+                    success:function(data)
+                    {
+                        // if(data==0){
+                            $('#resiList').fadeIn();
+                            $('#resiList').html(data);
+                        // }else{
+                        //     $('#resiList').fadeOut();
+                        //     $('#resiList').html("");
+                        //     $("#wrapper_resi").css("display", "none");
+                        // }
+                    }
+                });
+            }
+        });
+        $(document).on('click', '#package_resi li', function(){
+            $('#resi').val($(this).text());
+            $('#resiList').fadeOut();
+            $("#wrapper_resi").css("display", "none");
+            // document.getElementById('livesearch').value = "yes";
+            // const getID = $(this).text().split('-');
+            // document.getElementById("alamat_pengirim").value = $('#'+getID[0]).data('alamat');
+            // document.getElementById("nohp_pengirim").value = $('#'+getID[0]).data('hp');
+            // document.getElementById("email_pengirim").value = $('#'+getID[0]).data('email');
+        });
+    });
+    //nama
+    $("#wrapper").css("display", "none");
+    $("#wrapper_resi").css("display", "none");
+
+    $("#user").on("input", function(){
+        if($("#user").val()==""){
+            $("#wrapper").css("display", "none");
+        }else{
+            $("#wrapper").css("display", "block");
+        }
+    });
+    $("#resi").on("input", function(){
+        if($("#resi").val()==""){
+            $("#wrapper_resi").css("display", "none");
+        }else{
+            $("#wrapper_resi").css("display", "block");
+        }
     });
 
     //jenis_ukuran
@@ -409,17 +473,6 @@
             document.getElementById("harga_jenis").value = berat * (hargaKubik + Number(arrJenis[2]));
         }
     }
-
-    //nama
-    $("#wrapper").css("display", "none");
-
-    $("#user").on("input", function(){
-        if($("#user").val()==""){
-            $("#wrapper").css("display", "none");
-        }else{
-            $("#wrapper").css("display", "block");
-        }
-    });
 
     //auto_gen angka
     $("#harga_tambahan").on("input", function(){
