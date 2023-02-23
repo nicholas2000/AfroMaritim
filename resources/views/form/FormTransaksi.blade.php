@@ -383,7 +383,7 @@
             $('#jenis_ukuran').val($('#'+getID).data('jenisukuran'));
             document.getElementById("nominal_ukuran").value = $('#'+getID).data('nominalukuran');
             document.getElementById("rute").value = $('#'+getID).data('rute');
-            document.getElementById("nama_kapal").value = $('#'+getID).data('nama_kapal');
+            document.getElementById("nama_kapal").value = $('#'+getID).data('namakapal');
             document.getElementById("tanggal").value = $('#'+getID).data('tanggal');
             $('#jenisharga').val($('#'+getID).data('jenisharga'));
             document.getElementById("harga_kubik").value = $('#'+getID).data('hargakubik');

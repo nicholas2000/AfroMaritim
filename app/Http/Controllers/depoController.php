@@ -50,6 +50,12 @@ class depoController extends Controller
             'nama_barang'=>$req->namabarang,
             'nomor_resi'=>$req->noresi,
             'nomor_container'=>$req->nocontainer,
+            'nominal_ukuran' => 0,
+            'harga_kubik' => 0,
+            'harga' => 0,
+            'harga_tambahan' => 0,
+            'harga_potongan' => 0,
+            'total_harga' => 0,
             'status_barang' => 'Depo SBY',
         ]);
         return redirect('/depo');

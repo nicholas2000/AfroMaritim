@@ -20,7 +20,7 @@
                 $output= '<ul class="list-unstyled" id="package_nama">';
                 while($row = mysqli_fetch_array($result)){
                     $temp = ' data-alamat="'.$row['jalan'].'" data-hp="' . $row['telpon'] . '" data-email="' . $row['email'] . '"';
-                    $output .= '<li><div id="' . $row['id_customer'] . '"' . $temp .'>'.$row['id_customer'].'-'.$row["nama_customer"].'</div></li>';
+                    $output .= '<li><div id="' . $row['id_customer'] . '"' . $temp .'>'.$row['id_customer'].' - '.$row["nama_customer"].'</div></li>';
                 }
                 $output .= '</ul>';
             }
@@ -35,7 +35,7 @@
                 $output= '<ul class="list-unstyled" id="package_nama">';
                 while($row = mysqli_fetch_array($result)){
                     $temp = ' data-alamat="'.$row['jalan'].'" data-hp="' . $row['telpon'] . '" data-email="' . $row['email'] . '"';
-                    $output .= '<li><div id="' . $row['id_customer'] . '"' . $temp .'>'.$row['id_customer'].'-'.$row["nama_customer"].'</div></li>';
+                    $output .= '<li><div id="' . $row['id_customer'] . '"' . $temp .'>'.$row['id_customer'].' - '.$row["nama_customer"].'</div></li>';
                 }
                 $output .= '</ul>';
             }

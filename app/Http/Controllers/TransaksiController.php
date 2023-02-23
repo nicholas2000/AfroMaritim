@@ -84,37 +84,65 @@ class TransaksiController extends Controller
         );
 
         $pengirim = $req->nama_pengirim;
-        if($req->livesearch == "yes"){
-            $Customer=Customer::where('nama_customer', '=', $pengirim)->get();
-            $pengirim = $Customer[0]->id_customer;
-        }
+        // if($req->livesearch == "yes"){
+        //     $Customer=Customer::where('nama_customer', '=', $pengirim)->get();
+        //     $pengirim = $Customer[0]->id_customer;
+        // }
         // dd($req->livesearch);
 
-        Transaksi::create([
-            'nomor_transaksi' => $req->kode,
-            'nomor_resi' => $req->nomor_resi,
-            'nama_pengirim' =>  $pengirim,
-            'alamat_pengirim' => $req->alamat_pengirim,
-            'nohp_pengirim' => $req->nohp_pengirim,
-            'email_pengirim' => $req->email_pengirim,
-            'nama_penerima' => $req->nama_penerima,
-            'alamat_penerima' => $req->alamat_penerima,
-            'nohp_penerima' => $req->nohp_penerima,
-            'email_penerima' => $req->email_penerima,
-            'nama_barang' => $req->nama_barang,
-            'jenis_ukuran' => $req->jenis_ukuran,
-            'nominal_ukuran' => $req->nominal_ukuran,
-            'rute' => $req->rute,
-            'nama_kapal' => $req->nama_kapal,
-            'tanggal' =>$req->tglberangkat,
-            'jenis_harga' => explode(",", $req->jenisharga)[0],
-            'harga_kubik' => $req->harga_kubik,
-            'harga' => $req->harga_jenis,
-            'harga_tambahan' => $req->harga_tambahan,
-            'harga_potongan' => $req->harga_potongan,
-            'total_harga' => $req->total,
-            'status_barang' => 'Kantor SBY',
-        ]);
+        if($req->update=="no"){
+            Transaksi::create([
+                'nomor_transaksi' => $req->kode,
+                'nomor_resi' => $req->nomor_resi,
+                'nama_pengirim' =>  $pengirim,
+                'alamat_pengirim' => $req->alamat_pengirim,
+                'nohp_pengirim' => $req->nohp_pengirim,
+                'email_pengirim' => $req->email_pengirim,
+                'nama_penerima' => $req->nama_penerima,
+                'alamat_penerima' => $req->alamat_penerima,
+                'nohp_penerima' => $req->nohp_penerima,
+                'email_penerima' => $req->email_penerima,
+                'nama_barang' => $req->nama_barang,
+                'jenis_ukuran' => $req->jenis_ukuran,
+                'nominal_ukuran' => $req->nominal_ukuran,
+                'rute' => $req->rute,
+                'nama_kapal' => $req->nama_kapal,
+                'tanggal' =>$req->tglberangkat,
+                'jenis_harga' => $req->jenisharga,
+                'harga_kubik' => $req->harga_kubik,
+                'harga' => $req->harga_jenis,
+                'harga_tambahan' => $req->harga_tambahan,
+                'harga_potongan' => $req->harga_potongan,
+                'total_harga' => $req->total,
+                'status_barang' => 'Kantor SBY',
+            ]);
+        }else{
+            $transaksi = Transaksi::withTrashed()->find($req->kode);
+            $result = $transaksi->update([
+                'nomor_resi' => $req->nomor_resi,
+                'nama_pengirim' =>  $pengirim,
+                'alamat_pengirim' => $req->alamat_pengirim,
+                'nohp_pengirim' => $req->nohp_pengirim,
+                'email_pengirim' => $req->email_pengirim,
+                'nama_penerima' => $req->nama_penerima,
+                'alamat_penerima' => $req->alamat_penerima,
+                'nohp_penerima' => $req->nohp_penerima,
+                'email_penerima' => $req->email_penerima,
+                'nama_barang' => $req->nama_barang,
+                'jenis_ukuran' => $req->jenis_ukuran,
+                'nominal_ukuran' => $req->nominal_ukuran,
+                'rute' => $req->rute,
+                'nama_kapal' => $req->nama_kapal,
+                'tanggal' =>$req->tglberangkat,
+                'jenis_harga' => $req->jenisharga,
+                'harga_kubik' => $req->harga_kubik,
+                'harga' => $req->harga_jenis,
+                'harga_tambahan' => $req->harga_tambahan,
+                'harga_potongan' => $req->harga_potongan,
+                'total_harga' => $req->total,
+                'status_barang' => 'Kantor SBY',
+            ]);
+        }
         return redirect("/masterTransaksi");
     }
 
