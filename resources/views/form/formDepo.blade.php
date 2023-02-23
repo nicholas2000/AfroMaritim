@@ -21,6 +21,77 @@
     li {
         padding: 12px;
     }
+    .popup form {
+        width: 100%;
+    }
+
+    .popup form input,
+    .popup form select {
+        font-family: "Roboto";
+        font-weight: 300;
+        font-size: 16px;
+    }
+
+    .popup form input,
+    .popup form select {
+        height: 38px;
+    }
+
+    .popup form input,
+    .popup form select {
+        border: 1px solid #d0d0d0;
+        display: block;
+        margin: 0 auto;
+        margin-bottom: 20px;
+        padding-left: 10px;
+        width: 83.55%;
+    }
+
+
+
+    ::-webkit-input-placeholder {
+        color: blue;
+        opacity: 1;
+    }
+
+    ::-moz-placeholder {
+        color: blue;
+        opacity: 1;
+    }
+
+    :-moz-placeholder {
+        color: blue;
+        opacity: 1;
+    }
+
+    :-ms-input-placeholder {
+        color: blue;
+        opacity: 1;
+    }
+
+    .popup form select {
+        background-image: url("../image/arr-black.png");
+        background-position: right 10px center;
+        background-repeat: no-repeat;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        text-indent: 0.01px;
+        text-overflow: '';
+        -ms-appearance: none;
+        appearance: none !important;
+    }
+
+
+    .popup form input[type="submit"] {
+        border-radius: 3px;
+        width: 317px;
+        height: 40px;
+        margin-bottom: 0;
+        font-weight: 500;
+        font-size: 1em;
+        color: #ffffff;
+        line-height: 23px;
+    }
 </style>
 <script src="https://cdn.jsdelivr.net/npm/table2excel@1.0.4/dist/table2excel.min.js"></script>
 <style>
@@ -42,6 +113,24 @@
     .clickable {
         cursor: pointer;
     }
+       /* .scrollbar
+{
+	float: left;
+	height: 120px;
+	width: 210px;
+	background: #F5F5F5;
+	overflow-y: scroll;
+}
+
+.force-overflow
+{
+	min-height: 200px;
+}
+
+#wrapper
+{
+	width: 500px;
+} */
 </style>
 <section class="order-form m-4">
     <div class="container pt-4">
@@ -101,11 +190,11 @@
                                 <div>:</div>
                                 <div class="col-md-2">
                                     <div class="search-box">
-                                        <input style="width: 210px;" type="text" name="namapengirim" id="user" class="form-control" placeholder="Masukkan Nama" />
+                                        <input style="" type="text" name="namapengirim" id="user" class="" placeholder="" />
                                 {{-- <input type="text" name="nama_pengirim" id="user"/> --}}
                                         <div id="wrapper" onclick="hidden()">
                                             <div class="scrollbar">
-                                                <div class="list force-overflow" id="userList" style="width: 210px;"></div>
+                                                <div class="list force-overflow" id="userList" style="width: 185px;"></div>
                                             </div>
                                         </div>
                                         {{-- <div id="result"></div> --}}
@@ -236,7 +325,50 @@
                             <?php $ctr++; ?>
                         @endforeach
                     </table>
-            </table>
+
+                    <div id="myModal" class="modal fade">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h4>Edit Cabang</h4>
+                                    <button class="close" type="button" data-dismiss="modal">×</button>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="popup">
+                                        <form action="{{ url('/editDepo') }}" method="post">
+                                            @csrf
+
+                                            <label style="margin-left: 40px;">Nama Penerima</label>
+                                            <input name="nama_penerima" placeholder="Masukkan Nama Penerima" class="form-control"
+                                                type="text">
+
+                                            <label style="margin-left: 40px;">Nama Pengirim</label>
+                                            <input name="nama_pengirim" placeholder="Masukkan Nama Pengirim" class="form-control"
+                                                type="text">
+
+                                            <label style="margin-left: 40px;">Nama Barang</label>
+                                            <input name="nama_barang" placeholder="Masukkan Nama Barang" class="form-control"
+                                                type="text">
+
+                                            <label style="margin-left: 40px;">Nomor Resi</label>
+                                            <input name="nomor_resi" placeholder="Masukkan Nomor Resi" class="form-control"
+                                                type="text">
+
+                                            <label style="margin-left: 40px;">Nomor Container</label>
+                                            <input name="nomor_container" placeholder="Masukkan Nomor Container" class="form-control"
+                                                    type="text">
+                                            <input type="hidden" name="nomor_transaksi" value="">
+
+
+                                            <input type="submit" value="Ubah" style="background-color: #023e94">
+                                        </form>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
 
             </div>
@@ -354,4 +486,16 @@
             $("#wrapper").css("display", "block");
         }
     });
+
+    function btnedit(id) {
+        var jArray = <?php echo json_encode($Transaksi); ?>;
+        $("[name='nama_pengirim']").val(jArray[id]['nama_pengirim']);
+        $("[name='nama_penerima']").val(jArray[id]['nama_penerima']);
+        $("[name='nama_barang']").val(jArray[id]['nama_barang']);
+        $("[name='nomor_resi']").val(jArray[id]['nomor_resi']);
+        $("[name='nomor_container']").val(jArray[id]['nomor_container']);
+        $("[name='nomor_transaksi']").val(jArray[id]['nomor_transaksi']);
+
+
+    }
 </script>

@@ -55,4 +55,22 @@ class depoController extends Controller
         return redirect('/depo');
         // }
     }
+    public function doEdit(Request $req){
+        $depo = Transaksi::withTrashed()->find($req->nomor_transaksi);
+        $result = $depo->update([
+            'nama_pengirim'=>$req->nama_pengirim,
+            'nama_penerima'=> $req->nama_penerima,
+            'nama_barang'=>$req->nama_barang,
+            'nomor_resi'=>$req->nomor_resi,
+            'nomor_container'=>$req->nomor_container,
+            'status_barang' => 'Depo SBY',
+
+            ]);
+
+        if($result){
+            return redirect('/depo');
+        }else{
+            return redirect('/depo');
+        }
+    }
 }
