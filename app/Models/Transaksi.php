@@ -33,13 +33,14 @@ class Transaksi extends Model
         'jenis_harga',
         'harga_kubik',
         'harga',
-        'tambahan_harga',
-        'potongan_harga',
+        'harga_tambahan',
+        'harga_potongan',
         'total_harga',
         'tanggal',
         'nomor_container',
         'nomor_manifest',
         'link_foto',
+        'status_barang'
     ];
     protected $keyType = 'string';
 
