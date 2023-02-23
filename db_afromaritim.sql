@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 22 Feb 2023 pada 16.16
+-- Waktu pembuatan: 23 Feb 2023 pada 04.34
 -- Versi server: 10.4.25-MariaDB
 -- Versi PHP: 8.1.10
 
@@ -84,7 +84,10 @@ INSERT INTO `activity` (`id`, `user`, `activity`, `ip_address`, `browser`, `os`,
 (36, 'Nicho', 'Login Berhasil', '127.0.0.1', 'Chrome', 'Windows 10', '2023-02-21 01:24:46', '2023-02-21 01:24:46'),
 (37, 'Nicho', 'Login Berhasil', '127.0.0.1', 'Chrome', 'Windows 10', '2023-02-22 00:25:57', '2023-02-22 00:25:57'),
 (38, 'Nicho', 'Login Berhasil', '127.0.0.1', 'Chrome', 'Windows 10', '2023-02-22 03:19:07', '2023-02-22 03:19:07'),
-(39, 'Nicho', 'Login Berhasil', '127.0.0.1', 'Chrome', 'Windows 10', '2023-02-22 04:01:33', '2023-02-22 04:01:33');
+(39, 'Nicho', 'Login Berhasil', '127.0.0.1', 'Chrome', 'Windows 10', '2023-02-22 04:01:33', '2023-02-22 04:01:33'),
+(40, 'Nicho', 'Login Berhasil', '127.0.0.1', 'Chrome', 'Windows 10', '2023-02-22 11:03:32', '2023-02-22 11:03:32'),
+(41, 'Nicho', 'Login Berhasil', '127.0.0.1', 'Chrome', 'Windows 10', '2023-02-22 11:08:55', '2023-02-22 11:08:55'),
+(42, 'Nicho', 'Login Berhasil', '127.0.0.1', 'Chrome', 'Windows 10', '2023-02-22 19:35:05', '2023-02-22 19:35:05');
 
 -- --------------------------------------------------------
 
@@ -424,10 +427,10 @@ CREATE TABLE `transaksi` (
 --
 
 INSERT INTO `transaksi` (`nomor_transaksi`, `nomor_resi`, `nama_pengirim`, `alamat_pengirim`, `nohp_pengirim`, `email_pengirim`, `nama_penerima`, `alamat_penerima`, `nohp_penerima`, `email_penerima`, `nama_barang`, `jenis_ukuran`, `nominal_ukuran`, `rute`, `nama_kapal`, `jenis_harga`, `harga_kubik`, `harga`, `harga_tambahan`, `harga_potongan`, `total_harga`, `nomor_container`, `status_barang`, `nomor_segel`, `nomor_manifest`, `tanggal`, `link_foto`, `created_at`, `updated_at`, `deleted_at`) VALUES
-('TC23-02-001', '32', 'Rudi', NULL, NULL, NULL, 'Rudi', NULL, NULL, NULL, 'Ale', NULL, NULL, NULL, 'Titanic', NULL, NULL, NULL, NULL, NULL, NULL, '1', 'Kantor SBY', '1', '1', '2023-02-20', NULL, '2023-02-20 01:33:11', '2023-02-20 01:53:52', NULL),
-('TC23-02-002', '33', 'Lula', NULL, NULL, NULL, 'Lula', NULL, NULL, NULL, 'Kapak', NULL, NULL, NULL, 'Titanic', NULL, NULL, NULL, NULL, NULL, NULL, '1', NULL, '1', '1', '2023-02-20', NULL, '2023-02-20 01:37:48', '2023-02-20 01:53:52', NULL),
+('TC23-02-001', '32', 'Rudi', 'bbbb', '23232', 'a@gmail.com', 'Rudi', 'bbbb', '23232', 'a@gmail.com', 'Ale', 'Volume', '4', 'SBY - MKS', 'Titania', 'B,Volume,-10000', '100000', '360000', '10000', '40000', '330000', '1', 'Kantor SBY', '1', '1', '2023-02-20', NULL, '2023-02-20 01:33:11', '2023-02-22 19:48:43', NULL),
+('TC23-02-002', '33', 'Lula', NULL, NULL, NULL, 'Lula', NULL, NULL, NULL, 'Kapak', NULL, NULL, NULL, 'Titanic', NULL, NULL, NULL, NULL, NULL, NULL, '1', 'Kantor SBY', '1', '1', '2023-02-20', NULL, '2023-02-20 01:37:48', '2023-02-20 01:53:52', NULL),
 ('TC23-02-003', '31', 'Sasuke', NULL, NULL, NULL, 'Sasuke', NULL, NULL, NULL, 'Kunai', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '23', 'Depo SBY', NULL, NULL, '2023-02-20', NULL, '2023-02-20 01:38:46', '2023-02-20 01:38:46', NULL),
-('TC23-02-004', '34', 'teje', NULL, NULL, NULL, 'teje', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2023-02-21', NULL, '2023-02-20 19:28:25', '2023-02-20 19:28:25', NULL);
+('TC23-02-004', '34', 'teje', NULL, NULL, NULL, 'teje', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Depo SBY', NULL, NULL, '2023-02-21', NULL, '2023-02-20 19:28:25', '2023-02-20 19:28:25', NULL);
 
 -- --------------------------------------------------------
 
@@ -504,7 +507,7 @@ ALTER TABLE `transaksi`
 -- AUTO_INCREMENT untuk tabel `activity`
 --
 ALTER TABLE `activity`
-  MODIFY `id` bigint(255) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
+  MODIFY `id` bigint(255) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
 
 --
 -- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
