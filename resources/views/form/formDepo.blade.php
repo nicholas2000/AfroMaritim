@@ -314,7 +314,7 @@
                                                 class="fa fa-pencil-alt"></i></button>
 
                                         <form method="post"
-                                            action="{{ url('masterCustomer/delete/' . $prm->id_customer) }}">
+                                            action="{{ url('/formDepo/delete/' . $prm->nomor_transaksi) }}">
                                             @csrf
                                             <button type="submit" class="btn btn-danger"><i
                                                     class="fa fa-trash"></i></button>

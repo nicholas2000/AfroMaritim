@@ -100,7 +100,8 @@ Route::get('/activity', [activitycontroller::class, "formact"]);
 Route::get('/depo', [depoController::class, "show"]);
 Route::post('/tambahDepo', [depoController::class, "doAddDepo"]);
 Route::post('/editDepo', [depoController::class, "doEdit"]);
-
+Route::post('/cekDepo/{id}', [depoController::class, "cek"]);
+Route::post('/formDepo/delete/{id}', [depoController::class, "delete"]);
 
 // <-------------->
 

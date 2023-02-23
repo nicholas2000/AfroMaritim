@@ -79,4 +79,20 @@ class depoController extends Controller
             return redirect('/depo');
         }
     }
+
+    public function delete($id)
+    {
+        $depo = Transaksi::withTrashed()->find($id);
+        if($depo->trashed()){
+            $result = $depo->restore();
+        }else{
+            $result = $depo->delete();
+        }
+
+        if ($result) {
+            return redirect('/depo');
+        } else {
+            return redirect('/depo');
+        }
+    }
 }

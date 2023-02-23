@@ -48,4 +48,5 @@ class Transaksi extends Model
     {
         return $this->belongsTo(Customer::class,'id_customer','id_customer');
     }
+
 }
