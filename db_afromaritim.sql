@@ -101,7 +101,7 @@ insert  into `master_tcabang`(`id_cabang`,`nama_cabang`,`jum_cabang`,`alamat_cab
 DROP TABLE IF EXISTS `master_tcontainer`;
 
 CREATE TABLE `master_tcontainer` (
-  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `id` varchar(255) NOT NULL,
   `no_container` varchar(255) NOT NULL,
   `nama_container` varchar(255) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
@@ -219,16 +219,16 @@ CREATE TABLE `migrations` (
   `migration` varchar(255) NOT NULL,
   `batch` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 /*Data for the table `migrations` */
 
 insert  into `migrations`(`id`,`migration`,`batch`) values 
-(21,'2014_10_12_000000_create_users_table',1),
-(22,'2014_10_12_100000_create_password_resets_table',1),
-(23,'2019_08_19_000000_create_failed_jobs_table',1),
-(24,'2019_12_14_000001_create_personal_access_tokens_table',1),
-(25,'2023_02_08_150257_create_migration',1);
+(6,'2014_10_12_000000_create_users_table',1),
+(7,'2014_10_12_100000_create_password_resets_table',1),
+(8,'2019_08_19_000000_create_failed_jobs_table',1),
+(9,'2019_12_14_000001_create_personal_access_tokens_table',1),
+(10,'2023_02_08_150257_create_migration',1);
 
 /*Table structure for table `password_resets` */
 
@@ -321,7 +321,7 @@ CREATE TABLE `transaksi` (
   `harga_tambahan` varchar(255) DEFAULT NULL,
   `persentase` varchar(255) DEFAULT NULL,
   `total_harga` varchar(255) NOT NULL,
-  `no_container` varchar(255) DEFAULT NULL,
+  `id_container` varchar(255) NOT NULL,
   `nama_kapal` varchar(255) DEFAULT NULL,
   `tanggal_berangkat` date NOT NULL,
   `nomor_manifest` varchar(255) DEFAULT NULL,
@@ -331,6 +331,8 @@ CREATE TABLE `transaksi` (
   `deleted_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`nomor_transaksi`),
   KEY `transaksi_id_customer_foreign` (`id_customer`),
+  KEY `transaksi_id_container_foreign` (`id_container`),
+  CONSTRAINT `transaksi_id_container_foreign` FOREIGN KEY (`id_container`) REFERENCES `master_tcontainer` (`id`),
   CONSTRAINT `transaksi_id_customer_foreign` FOREIGN KEY (`id_customer`) REFERENCES `master_tcustomer` (`id_customer`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 

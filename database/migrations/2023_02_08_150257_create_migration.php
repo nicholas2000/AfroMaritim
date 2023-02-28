@@ -28,6 +28,7 @@ class CreateMigration extends Migration
             $table->timestamps();
             $table->softDeletes();
         });
+
         Schema::create('master_tpegawai', function (Blueprint $table) {
             $table->string('id_pegawai')->primary();
             $table->string('id_cabang');
@@ -64,6 +65,15 @@ class CreateMigration extends Migration
             $table->timestamps();
             $table->softDeletes();
         });
+
+        Schema::create('master_tcontainer', function (Blueprint $table) {
+            $table->string('id')->primary();
+            $table->string('no_container');
+            $table->string('nama_container');
+            $table->timestamps();
+            $table->softDeletes();
+        });
+
         Schema::create('transaksi', function (Blueprint $table) {
             $table->string('nomor_transaksi')->primary();
             $table->string('id_customer');
@@ -78,7 +88,8 @@ class CreateMigration extends Migration
             $table->string('harga_tambahan')->nullable();
             $table->string('persentase')->nullable();
             $table->string('total_harga');
-            $table->string('no_container')->nullable();
+            $table->string('id_container');
+            $table->foreign('id_container')->references('id')->on('master_tcontainer');
             $table->string('nama_kapal')->nullable();
             $table->date('tanggal_berangkat');
             $table->string('nomor_manifest')->nullable();
@@ -86,6 +97,9 @@ class CreateMigration extends Migration
             $table->timestamps();
             $table->softDeletes();
         });
+
+
+
         Schema::create('master_tkompetitor', function (Blueprint $table) {
             $table->string('id_kompetitor')->primary();
             $table->string('nama_kompetitor');
@@ -116,13 +130,7 @@ class CreateMigration extends Migration
             $table->string('nominal');
             $table->timestamps();
         });
-        Schema::create('master_tcontainer', function (Blueprint $table) {
-            $table->id();
-            $table->string('no_container');
-            $table->string('nama_container');
-            $table->timestamps();
-            $table->softDeletes();
-        });
+
 
     }
 
@@ -134,12 +142,12 @@ class CreateMigration extends Migration
     public function down()
     {
         Schema::dropIfExists('transaksi');
-        Schema::dropIfExists('master_tkompetitor');
+        Schema::dropIfExists('master_tcontainer');
         Schema::dropIfExists('master_tcustomer');
         Schema::dropIfExists('master_tpegawai');
         Schema::dropIfExists('master_tcabang');
+        Schema::dropIfExists('master_tkompetitor');
         Schema::dropIfExists('activity');
         Schema::dropIfExists('master_tjenis');
-        Schema::dropIfExists('master_tcontainer');
     }
 }
