@@ -119,7 +119,7 @@
                         Welcome Admin
                     </div>
                     <div class='card-body'>
-                        @include('form.formCabang')
+                        @include('form.formContainer')
 
                     </div>
                 </div>
