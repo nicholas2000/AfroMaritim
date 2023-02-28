@@ -11,7 +11,7 @@
 
 <section class="order-form m-4">
     <div class="container">
-        <form class="form-horizontal" action=" {{url('/domasterJenisharga')}}" method="post" id="contact_form">
+        <form class="form-horizontal" action=" {{url('/doaddcontainer')}}" method="post" id="contact_form">
             @csrf
             <fieldset>
 
@@ -27,7 +27,7 @@
                         <div class="input-group">
                             <span style="background-color: #023e94" class="input-group-addon"><i style="color: white"
                                     class="fa fa-archive"></i></span>
-                            <input name="No"
+                            <input name="nocon"
                                 placeholder="Masukkan Type" class="form-control" type="text">
                         </div>
                     </div>
@@ -40,7 +40,7 @@
                         <div class="input-group">
                             <span style="background-color: #023e94" class="input-group-addon"><i style="color: white"
                                     class="fa fa-money"></i></span>
-                            <input onkeypress="" name="nominal"
+                            <input name="namacon"
                                 placeholder="Masukkan Nominal" class="form-control" type="text">
                         </div>
                     </div>

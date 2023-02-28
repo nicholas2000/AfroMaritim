@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\activitycontroller;
 use App\Http\Controllers\CabangController;
+use App\Http\Controllers\containercontroller;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\controllerJenisHarga;
 use App\Http\Controllers\controllerpegawai;
@@ -51,9 +52,9 @@ Route::get('/tcontainer', function () {
     return view('form.formtcontainer');
 });
 
-Route::get('/masterContainer', function () {
-    return view('form.formContainer');
-});
+// Route::get('/masterContainer', function () {
+//     return view('form.formContainer');
+// });
 
 // ROUTE BARUU
 Route::get('/masterStatus', [statusController::class, "showStatus"]);
@@ -132,5 +133,5 @@ Route::get('/masterPiutang', function () {
     return view('admin.mPiutang');
 });
 
-
-
+Route::get('/masterContainer', [containercontroller::class, "show"]);
+Route::post('/doaddcontainer', [containercontroller::class, "doAdd"]);

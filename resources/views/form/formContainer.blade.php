@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,6 +14,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
+
 <body>
     <section class="order-form m-4">
         <div class="container pt-4">
@@ -24,20 +26,31 @@
                 <br>
 
                 <div class="col-12">
-                 <a href="{{ url('/tcontainer') }}">  <button style="float: right;" type="button" class="btn btn-primary">Tambah</button></a>
+                    <a href="{{ url('/tcontainer') }}"> <button style="float: right;" type="button"
+                            class="btn btn-primary">Tambah</button></a>
                 </div>
                 <br><br>
                 <div class="col-12">
                     <table class="table table-bordered">
                         <tr style="background-color:  #023e94;color: white;">
-                                <th scope="col">No</th>
-                                <th scope="col"> <center>No Container</center> </th>
-                                <th scope="col"> <center>Nama Container</center> </th>
+                            <th scope="col">No</th>
+                            <th scope="col">
+                                <center>No Container</center>
+                            </th>
+                            <th scope="col">
+                                <center>Nama Container</center>
+                            </th>
 
+                        </tr>
+                        @foreach ($arrCon as $prm)
+                            <tr>
+                                <td></td>
+                                <td>{{ $prm->no_container }}</td>
+                                <td>{{ $prm->nama_container }}</td>
                             </tr>
+                        @endforeach
 
-
-                        </table>
+                    </table>
                 </div>
 
             </div>
