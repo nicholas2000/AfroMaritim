@@ -47,9 +47,12 @@ Route::get('/hutang', function () {
 Route::get('/tcabang', function () {
     return view('admin.mTcabang');
 });
+Route::get('/tcontainer', function () {
+    return view('form.formtcontainer');
+});
 
-Route::get('/tkompetitor', function () {
-    return view('admin.mTkompetitor');
+Route::get('/masterContainer', function () {
+    return view('form.formContainer');
 });
 
 // ROUTE BARUU

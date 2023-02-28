@@ -436,6 +436,7 @@
                         <li><a href="{{ url('/masterCustomer') }}">Master Customer</a></li>
                         <li><a href="{{ url('/masterKompetitor') }}">Master Kompetitor</a></li>
                         <li style="margin-bottom: 5px;"><a href="{{ url('/masterJenisharga') }}">Master Jenis Harga</a>
+                            <a href="{{ url('/masterContainer') }}"class="dashboard-nav-dropdown-item">Master Container</a>
                         </li>
                     </ul>
                 </li>

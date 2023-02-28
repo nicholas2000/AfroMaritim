@@ -65,7 +65,7 @@
                             Kompetitor</a>
                         <a href="{{ url('/masterJenisharga') }}"class="dashboard-nav-dropdown-item">Master Jenis
                             Harga</a>
-
+                            <a href="{{ url('/masterContainer') }}"class="dashboard-nav-dropdown-item">Master Container</a>
 
 
                     </div>
