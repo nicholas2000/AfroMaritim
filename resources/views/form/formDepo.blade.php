@@ -137,9 +137,13 @@
         <div class="container">
             <div class="row ">
                 <div class="col-sm-5 form-group">
-                    <div class="input-group">
-                        <input type="search" class="form-control rounded p" placeholder=" Transaksi"
-                            aria-label="Search" aria-describedby="search-addon" />
+                    <div class="search-box">
+                        <input style="width: 210px;" type="text" name="contSearch" id="contSearch" class="form-control" placeholder="No Container" />
+                        <div id="wrapper_cont" onclick="hidden()">
+                            <div class="scrollbar">
+                                <div class="list force-overflow" id="contList" style="width: 210px;"></div>
+                            </div>
+                        </div>
                     </div>
 
                 </div>
@@ -376,8 +380,8 @@
     </div>
 </section>
 <script>
-      var kode = $arrTransaksi.length;
-        document.getElementById("kode").value = kode;
+    var kode = $arrTransaksi.length;
+    document.getElementById("kode").value = kode;
     var data3 = [];
     function myFunction(x) {
         if(x.checked==true)
@@ -443,6 +447,34 @@
 
 <script>
     $(document).ready(function(){
+        //container
+        $('#contSearch').keyup(function(){
+            var query = $(this).val();
+            if(query != '')
+            {
+                $.ajax({
+                    url:"autocomplete.php",
+                    method:"POST",
+                    data:{query:query,ctr:"Fcontainerdepo"},
+                    success:function(data)
+                    {
+                        if(data.length>1){
+                            $('#contList').fadeIn();
+                            $('#contList').html(data);
+                        }else{
+                            $('#contList').fadeOut();
+                            $('#contList').html("");
+                            $("#wrapper_cont").css("display", "none");
+                        }
+                    }
+                });
+            }
+        });
+        $(document).on('click', '#package_cont li', function(){
+            $('#contSearch').val($(this).text());
+            $('#contList').fadeOut();
+            $("#wrapper_cont").css("display", "none");
+        });
         //user
         $('#user').keyup(function(){
             var query = $(this).val();
@@ -477,6 +509,7 @@
         });
     });
     $("#wrapper").css("display", "none");
+    $("#wrapper_cont").css("display", "none");
     // $("#wrapper_resi").css("display", "none");
 
     $("#user").on("input", function(){
@@ -484,6 +517,14 @@
             $("#wrapper").css("display", "none");
         }else{
             $("#wrapper").css("display", "block");
+        }
+    });
+
+    $("#contSearch").on("input", function(){
+        if($("#contSearch").val()==""){
+            $("#wrapper_cont").css("display", "none");
+        }else{
+            $("#wrapper_cont").css("display", "block");
         }
     });
 
