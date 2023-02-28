@@ -116,6 +116,13 @@ class CreateMigration extends Migration
             $table->string('nominal');
             $table->timestamps();
         });
+        Schema::create('master_tcontainer', function (Blueprint $table) {
+            $table->id();
+            $table->string('no_container');
+            $table->string('nama_container');
+            $table->timestamps();
+            $table->softDeletes();
+        });
 
     }
 
@@ -133,5 +140,6 @@ class CreateMigration extends Migration
         Schema::dropIfExists('master_tcabang');
         Schema::dropIfExists('activity');
         Schema::dropIfExists('master_tjenis');
+        Schema::dropIfExists('master_tcontainer');
     }
 }
