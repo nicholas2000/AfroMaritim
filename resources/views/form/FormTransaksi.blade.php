@@ -182,7 +182,7 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-sm-3">
-                            Nama Barang :
+                            Jenis Barang :
                         </div>
                         <div class="col-sm">
                             <input name="nama_barang" id="nama_barang" class="form-control" type="text"style="width: 210px;" >

@@ -181,7 +181,7 @@
                             <div class="p">
                                 <div class="col-md-8">Tanggal Masuk</div>
                                 <div>:</div>
-                                <div class="col-md-2"><input name="tglmasuk" type="date" value="<?php echo date('Y-m-d'); ?>" readonly/>
+                                <div class="col-md-2" ><input style="width:185px;"  name="tglmasuk" type="date" value="<?php echo date('Y-m-d'); ?>" readonly/>
                                 </div>
                             </div>
                             <br>
