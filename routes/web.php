@@ -135,3 +135,5 @@ Route::get('/masterPiutang', function () {
 
 Route::get('/masterContainer', [containercontroller::class, "show"]);
 Route::post('/doaddcontainer', [containercontroller::class, "doAdd"]);
+Route::post('/masterContainer/lock/{id}', [containercontroller::class, "lock"]);
+Route::post('/masterContainer/unlock/{id}', [containercontroller::class, "unlock"]);

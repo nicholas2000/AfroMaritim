@@ -70,6 +70,7 @@ class CreateMigration extends Migration
             $table->string('id')->primary();
             $table->string('no_container');
             $table->string('nama_container');
+            $table->string('status');
             $table->timestamps();
             $table->softDeletes();
         });

@@ -54,7 +54,7 @@
         <div class=><img style="margin-top: -15px" src="logo.png" /></div>
         <form class="login-form" action="{{ url('/login') }}">
             <input name="user" type="text" placeholder="Username" />
-            <input name="password" type="TEXT" placeholder="Password" />
+            <input name="password" type="password" placeholder="Password" />
             <input type="submit" style="color:white;background-color:#023e94" value="Login">
             <p class="message"> <a href="">Forgot Password</a></p>
             <input type="hidden" name="device">

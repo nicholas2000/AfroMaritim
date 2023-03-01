@@ -28,7 +28,7 @@
                             <span style="background-color: #023e94" class="input-group-addon"><i style="color: white"
                                     class="fa fa-archive"></i></span>
                             <input name="nocon"
-                                placeholder="Masukkan Type" class="form-control" type="text">
+                                placeholder="Masukkan No Container" class="form-control" type="text">
                         </div>
                     </div>
                 </div>
@@ -41,7 +41,7 @@
                             <span style="background-color: #023e94" class="input-group-addon"><i style="color: white"
                                     class="fa fa-money"></i></span>
                             <input name="namacon"
-                                placeholder="Masukkan Nominal" class="form-control" type="text">
+                                placeholder="Masukkan Nama Container" class="form-control" type="text">
                         </div>
                     </div>
                 </div>
