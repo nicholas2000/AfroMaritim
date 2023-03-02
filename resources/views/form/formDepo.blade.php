@@ -232,9 +232,9 @@
                             <br>
                             <br>
                             <div class="p ">
-                                <div class="col-md-6">Nama Barang</div>
+                                <div class="col-md-6">Jenis Barang</div>
                                 <div>:</div>
-                                <div class="col-md-6"><input name="namabarang" type='text'>
+                                <div class="col-md-6"><input name="jenis_barang" type='text'>
                                 </div>
                             </div>
                             <br>
@@ -266,7 +266,7 @@
                                 <center>Nama Pengirim</center>
                             </th>
                             <th scope="col">
-                                <center>Nama Barang</center>
+                                <center>Jenis Barang</center>
                             </th>
                             <th scope="col">
                                 <center>No Resi</center>
@@ -297,7 +297,7 @@
                                     <center>{{ $prm->nama_pengirim }}</center>
                                 </th>
                                 <th scope="col">
-                                    <center>{{ $prm->nama_barang }}</center>
+                                    <center>{{ $prm->jenis_barang }}</center>
                                 </th>
                                 <th scope="col">
                                     <center>{{ $prm->nomor_resi }}</center>

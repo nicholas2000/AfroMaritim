@@ -24,7 +24,7 @@ class Transaksi extends Model
         'alamat_penerima',
         'nohp_penerima',
         'email_penerima',
-        'nama_barang',
+        'jenis_barang',
         'jenis_ukuran',
         'nominal_ukuran',
         'rute',

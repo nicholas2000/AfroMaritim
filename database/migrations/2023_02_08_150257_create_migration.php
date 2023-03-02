@@ -76,21 +76,24 @@ class CreateMigration extends Migration
 
         Schema::create('transaksi', function (Blueprint $table) {
             $table->string('nomor_resi')->primary();
-            $table->string('nomor_segel');
-            $table->string('nama_pengirim');
-            $table->string('alamat_pengirim');
-            $table->string('nohp_pengirim');
+            $table->string('nomor_manifest')->nullable();
+            $table->string('nomor_segel')->nullable();
+            $table->string('nama_pengirim')->nullable();
+            $table->string('alamat_pengirim')->nullable();
+            $table->string('nohp_pengirim')->nullable();
             $table->string('email_pengirim')->nullable();
             $table->string('nama_penerima')->nullable();
-            $table->string('alamat_penerima');
-            $table->string('email_penerima');
-            $table->string('nama_barang');
+            $table->string('alamat_penerima')->nullable();
+            $table->string('nohp_penerima')->nullable();
+            $table->string('email_penerima')->nullable();
+            $table->string('jenis_barang')->nullable();
             $table->string('jenis_ukuran')->nullable();
-            $table->string('nominal_ukuran')->nullable();
-            $table->string('rute');
-            $table->string('nama_kapal');
+            $table->string('volume')->nullable();
+            $table->string('jenis_harga')->nullable();
+            $table->string('rute')->nullable();
+            $table->string('nama_kapal')->nullable();
             $table->string('harga_kubik')->nullable();
-            $table->date('harga');
+            $table->date('harga')->nullable();
             $table->string('harga_tambahan')->nullable();
             $table->string('harga_potongan')->nullable();
             $table->string('total_harga')->nullable();

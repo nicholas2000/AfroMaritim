@@ -17,7 +17,7 @@ class Depo extends Model
         'no_transaksi',
         'nama_penerima',
         'nama_pengirim',
-        'nama_barang',
+        'jenis_barang',
         'no_container'
     ];
     protected $keyType = 'string';

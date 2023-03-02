@@ -127,7 +127,7 @@ class TransaksiController extends Controller
                 'alamat_penerima' => $req->alamat_penerima,
                 'nohp_penerima' => $req->nohp_penerima,
                 'email_penerima' => $req->email_penerima,
-                'nama_barang' => $req->nama_barang,
+                'jenis_barang' => $req->nama_barang,
                 'jenis_ukuran' => $req->jenis_ukuran,
                 'nominal_ukuran' => $req->nominal_ukuran,
                 'rute' => $req->rute,
