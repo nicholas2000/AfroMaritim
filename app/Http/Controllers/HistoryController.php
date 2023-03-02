@@ -23,9 +23,9 @@ class HistoryController extends Controller
     {
         $data = json_decode($request->data);
         foreach ($data as $prm) {
-            Transaksi::where('nomor_transaksi',$prm)->update([
-                'nomor_manifest' => $request->nmanifest,
-                'nomor_container'=> $request->ncontainer,
+            Transaksi::where('nomor_resi',$prm)->update([
+                // 'nomor_manifest' => $request->nmanifest,
+                // 'nomor_container'=> $request->ncontainer,
                 'nama_kapal'=> $request->nkapal,
                 'nomor_segel'=> $request->nomor_segel
             ]);

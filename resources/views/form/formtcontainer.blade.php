@@ -27,7 +27,7 @@
                         <div class="input-group">
                             <span style="background-color: #023e94" class="input-group-addon"><i style="color: white"
                                     class="fa fa-archive"></i></span>
-                            <input name="nocon"
+                            <input name="nomor_container"
                                 placeholder="Masukkan No Container" class="form-control" type="text">
                         </div>
                     </div>

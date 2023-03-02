@@ -14,8 +14,9 @@ class Container extends Model
     protected $primaryKey = "nomor_container";
     public $timestamps = true;
     protected $fillable = [
-        'no_container',
+        'nomor_container',
         'nama_container',
         'status'
     ];
+    protected $keyType = 'string';
 }

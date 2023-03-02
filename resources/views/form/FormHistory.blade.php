@@ -127,13 +127,6 @@
                                 </div>
                             </div>
                             <br>
-                            <div class="p ">
-                                <div class="col-md-6">No Container</div>
-                                <div>:</div>
-                                <div class="col-md-6"><input name="ncontainer" type='text' style="width: 180px;">
-                                </div>
-                            </div>
-                            <br>
                             <button style="float: right" id="update" type="submit" class="btn btn-success">Update</button>
                             <br>
                         </div>
@@ -145,7 +138,7 @@
                         <tr style="background-color:  #023e94;color: white;">
                             <th scope="col">No</th>
                             <th scope="col">
-                                <center>No Transaksi</center>
+                                <center>No Resi</center>
                             </th>
                             <th scope="col">
                                 <center>Nama Customer</center>
@@ -176,7 +169,7 @@
 
                                 <th scope="row">{{ $ctr }}</th>
                                 <th scope="col">
-                                    <center>{{ $prm->nomor_transaksi }}</center>
+                                    <center>{{ $prm->nomor_resi }}</center>
                                 </th>
                                 <th scope="col">
                                     <center>{{ $prm->nama_pengirim }}</center>
@@ -200,13 +193,13 @@
                                         <button name=""type="submit" class="btn btn"><i class="fa fa-pencil-alt"></i></button>
                                     </form>
                                     <form method="post"
-                                        action="{{ url('masterHistory/delete/' . $prm->nomor_transaksi) }}">
+                                        action="{{ url('masterHistory/delete/' . $prm->nomor_resi) }}">
                                         @csrf
                                         <button type="submit" class="btn btn-danger"><i class="fa fa-trash"></i></button>
                                     </form>
                                 </th>
                                 <th >
-                                    <input type="checkbox"  value="{{$prm->nomor_transaksi}}" onclick="myFunction(this)">
+                                    <input type="checkbox"  value="{{$prm->nomor_resi}}" onclick="myFunction(this)">
                                 </th>
 
                             </tr>

@@ -17,14 +17,9 @@ class containercontroller extends Controller
     }
     public function doAdd(Request $req)
     {
-        $ctr =1;
-        $container = Container::withTrashed()->get();
-        foreach($container as $c){
-            $ctr = intval($c->id) + 1;
-        }
+
         Container::create([
-            'id' => $ctr,
-            'no_container'=>$req->nocon,
+            'nomor_container'=>$req->nomor_container,
             'nama_container'=>$req->namacon,
             'status'=>"1"
         ]);

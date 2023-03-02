@@ -54,7 +54,7 @@
                         @foreach ($arrCon as $prm)
                             <tr>
                                 <td>{{ $ctr }}</td>
-                                <td>{{ $prm->no_container }}</td>
+                                <td>{{ $prm->nomor_container }}</td>
                                 <td>{{ $prm->nama_container }}</td>
                                 @if ($prm->status == '1')
                                     <td>Buka</td>

@@ -69,10 +69,10 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-sm-3">
-                            Nomor Transaksi :
+                            Nomor Container :
                         </div>
                         <div class="col-sm">
-                            <input name="kode" id="kode" class="form-control" type="text" style="width: 210px;" value="{{$kodeTrans}}" readonly>
+                            <input name="nocontainer" id="nocontainer" class="form-control" type="text" style="width: 210px;" value="" readonly>
                         </div>
 
                         <div class="col-sm-3">
@@ -370,7 +370,7 @@
             $("#wrapper_resi").css("display", "none");
             document.getElementById('update').value = "yes";
             const getID = $(this).text();
-            document.getElementById("kode").value = $('#'+getID).data('notrans');
+            document.getElementById("nocontainer").value = $('#'+getID).data('nomorcontainer');
             document.getElementById("user").value = $('#'+getID).data('pengirim');
             document.getElementById("alamat_pengirim").value = $('#'+getID).data('alamatpengirim');
             document.getElementById("nohp_pengirim").value = $('#'+getID).data('nohppengirim');

@@ -11,10 +11,10 @@ class Transaksi extends Model
     use HasFactory;
     use SoftDeletes;
     protected $table = "transaksi";
-    protected $primaryKey = "nomor_transaksi";
+    protected $primaryKey = "nomor_resi";
     public $timestamps = true;
     protected $fillable = [
-        'nomor_transaksi',
+        'nomor_resi',
         'nomor_segel',
         'nama_pengirim',
         'alamat_pengirim',

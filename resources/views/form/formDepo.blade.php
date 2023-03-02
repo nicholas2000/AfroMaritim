@@ -230,12 +230,6 @@
                                 </div>
                             </div>
                             <br>
-                            <div class="p ">
-                                <div class="col-md-6">No Transaksi</div>
-                                <div>:</div>
-                                <div class="col-md-6"><input name="notransaksi" type='text'value="{{$kodeTrans}}" readonly>
-                                </div>
-                            </div>
                             <br>
                             <div class="p ">
                                 <div class="col-md-6">Nama Barang</div>
@@ -291,10 +285,10 @@
 
 
                                 <th scope="col">
-                                    <center>{{ $prm->tanggal}}</center>
+                                    <center>{{ $prm->tanggal_berangkat}}</center>
                                 </th>
                                 <th scope="col">
-                                    <center>{{ $prm->nomor_transaksi }}</center>
+                                    <center>{{ $prm->nomor_resi }}</center>
                                 </th>
                                 <th scope="col">
                                     <center>{{ $prm->nama_penerima }}</center>

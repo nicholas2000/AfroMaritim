@@ -20,28 +20,28 @@ class depoController extends Controller
         // // $param['kodeTrans']=Transaksi::where
         // $mytime = Carbon::now()->format('m-Y');
         // $param['time'] = $mytime->toDateTimeString();
-        $time = date('y-m');
-        $first = "TC{$time}";
-        $totalTrans = Transaksi::where('nomor_transaksi', 'like', "%{$first}%")->count() + 1;
-        // dd($totalTrans);
-        $newTrans = "";
-        if($totalTrans<10){
-            $newTrans = "{$first}-00{$totalTrans}";
-        }else if($totalTrans<100){
-            $newTrans = "{$first}-0{$totalTrans}";
-        }else{
-            $newTrans = "{$first}-{$totalTrans}";
-        }
-        $param['kodeTrans'] = $newTrans;
-        $param['total'] = $totalTrans;
+        // $time = date('y-m');
+        // $first = "TC{$time}";
+        // $totalTrans = Transaksi::where('nomor_transaksi', 'like', "%{$first}%")->count() + 1;
+        // // dd($totalTrans);
+        // $newTrans = "";
+        // if($totalTrans<10){
+        //     $newTrans = "{$first}-00{$totalTrans}";
+        // }else if($totalTrans<100){
+        //     $newTrans = "{$first}-0{$totalTrans}";
+        // }else{
+        //     $newTrans = "{$first}-{$totalTrans}";
+        // }
+        // $param['kodeTrans'] = $newTrans;
+        // $param['total'] = $totalTrans;
         return view('admin.mDepo',compact('Transaksi'),$param);
     }
 
     public function doAddDepo(Request $req)
     {
         Transaksi::create([
-            'tanggal' => $req->tglmasuk,
-            'nomor_transaksi' => $req->notransaksi,
+            'tanggal_berangkat' => $req->tglmasuk,
+            'nomor_segel' => $req->nomor_segel,
             'nama_pengirim'=>$req->namapengirim,
             'alamat_pengirim'=>$req->alamatpengirim,
             'nohp_pengirim'=>$req->nohppengirim,
@@ -62,7 +62,7 @@ class depoController extends Controller
         // }
     }
     public function doEdit(Request $req){
-        $depo = Transaksi::withTrashed()->find($req->nomor_transaksi);
+        $depo = Transaksi::withTrashed()->find($req->nomor_resi);
         $result = $depo->update([
             'nama_pengirim'=>$req->nama_pengirim,
             'nama_penerima'=> $req->nama_penerima,

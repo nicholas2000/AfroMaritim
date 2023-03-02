@@ -24,19 +24,19 @@ class TransaksiController extends Controller
         // // $param['kodeTrans']=Transaksi::where
         // $mytime = Carbon::now()->format('m-Y');
         // $param['time'] = $mytime->toDateTimeString();
-        $time = date('y-m');
-        $first = "TC{$time}";
-        $totalTrans = Transaksi::where('nomor_transaksi', 'like', "%{$first}%")->count() + 1;
-        $newTrans = "";
-        if($totalTrans<10){
-            $newTrans = "{$first}-00{$totalTrans}";
-        }else if($totalTrans<100){
-            $newTrans = "{$first}-0{$totalTrans}";
-        }else{
-            $newTrans = "{$first}-{$totalTrans}";
-        }
-        $param['kodeTrans'] = $newTrans;
-        $param['total'] = $totalTrans;
+        // $time = date('y-m');
+        // $first = "TC{$time}";
+        // $totalTrans = Transaksi::where('nomor_resi', 'like', "%{$first}%")->count() + 1;
+        // $newTrans = "";
+        // if($totalTrans<10){
+        //     $newTrans = "{$first}-00{$totalTrans}";
+        // }else if($totalTrans<100){
+        //     $newTrans = "{$first}-0{$totalTrans}";
+        // }else{
+        //     $newTrans = "{$first}-{$totalTrans}";
+        // }
+        // $param['kodeTrans'] = $newTrans;
+        // $param['total'] = $totalTrans;
         return view('admin/mTransaksi',$param);
     }
 
@@ -92,7 +92,6 @@ class TransaksiController extends Controller
 
         if($req->update=="no"){
             Transaksi::create([
-                'nomor_transaksi' => $req->kode,
                 'nomor_resi' => $req->nomor_resi,
                 'nama_pengirim' =>  $pengirim,
                 'alamat_pengirim' => $req->alamat_pengirim,
@@ -102,9 +101,9 @@ class TransaksiController extends Controller
                 'alamat_penerima' => $req->alamat_penerima,
                 'nohp_penerima' => $req->nohp_penerima,
                 'email_penerima' => $req->email_penerima,
-                'nama_barang' => $req->nama_barang,
+                'jenis_barang' => $req->nama_barang,
                 'jenis_ukuran' => $req->jenis_ukuran,
-                'nominal_ukuran' => $req->nominal_ukuran,
+                'volume' => $req->nominal_ukuran,
                 'rute' => $req->rute,
                 'nama_kapal' => $req->nama_kapal,
                 'tanggal_berangkat' =>$req->tglberangkat,
