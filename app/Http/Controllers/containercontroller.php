@@ -4,13 +4,16 @@ namespace App\Http\Controllers;
 
 use App\Models\Container;
 use Illuminate\Http\Request;
+use App\Models\Transaksi;
 
 class containercontroller extends Controller
 {
     public function show(Request $req)
     {
-        $param['arrCon']=Container::get();
-        return view('admin.mContainer',$param);
+        $id = $req->no_container;
+        $arrTransaksi=Transaksi::all()->where('id_container' , $id);
+        $arrCon=Container::all();
+        return view('admin.mContainer',compact("arrTransaksi","arrCon"));
     }
     public function doAdd(Request $req)
     {

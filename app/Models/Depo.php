@@ -13,7 +13,7 @@ class Depo extends Model
     public $timestamps = false;
     protected $fillable = [
         'no_resi',
-        'tanggal',
+        'tanggal_berangkat',
         'no_transaksi',
         'nama_penerima',
         'nama_pengirim',

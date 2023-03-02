@@ -67,8 +67,7 @@ class CreateMigration extends Migration
         });
 
         Schema::create('master_tcontainer', function (Blueprint $table) {
-            $table->string('id')->primary();
-            $table->string('no_container');
+            $table->string('nomor_container')->primary();
             $table->string('nama_container');
             $table->string('status');
             $table->timestamps();
@@ -76,25 +75,30 @@ class CreateMigration extends Migration
         });
 
         Schema::create('transaksi', function (Blueprint $table) {
-            $table->string('nomor_transaksi')->primary();
-            $table->string('id_customer');
-            $table->foreign('id_customer')->references('id_customer')->on('master_tcustomer');
+            $table->string('nomor_resi')->primary();
+            $table->string('nomor_segel');
+            $table->string('nama_pengirim');
+            $table->string('alamat_pengirim');
+            $table->string('nohp_pengirim');
+            $table->string('email_pengirim')->nullable();
+            $table->string('nama_penerima')->nullable();
+            $table->string('alamat_penerima');
+            $table->string('email_penerima');
             $table->string('nama_barang');
-            $table->string('id_admin');
-            $table->string('volume')->nullable();
-            $table->string('berat')->nullable();
+            $table->string('jenis_ukuran')->nullable();
+            $table->string('nominal_ukuran')->nullable();
             $table->string('rute');
-            $table->string('harga');
-            $table->string('jenis_harga');
+            $table->string('nama_kapal');
+            $table->string('harga_kubik')->nullable();
+            $table->date('harga');
             $table->string('harga_tambahan')->nullable();
-            $table->string('persentase')->nullable();
-            $table->string('total_harga');
-            $table->string('id_container');
-            $table->foreign('id_container')->references('id')->on('master_tcontainer');
-            $table->string('nama_kapal')->nullable();
-            $table->date('tanggal_berangkat');
-            $table->string('nomor_manifest')->nullable();
+            $table->string('harga_potongan')->nullable();
+            $table->string('total_harga')->nullable();
+            $table->string('tanggal_berangkat')->nullable();
+            $table->string('nomor_container')->nullable();
+            $table->foreign('nomor_container')->references('nomor_container')->on('master_tcontainer');
             $table->string('link_foto')->nullable();
+            $table->string('status_barang')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

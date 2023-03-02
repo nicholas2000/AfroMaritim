@@ -11,11 +11,9 @@ class Container extends Model
     use HasFactory;
     use SoftDeletes;
     protected $table = "master_tcontainer";
-    protected $primaryKey = "id";
-    public $incrementing = true;
+    protected $primaryKey = "nomor_container";
     public $timestamps = true;
     protected $fillable = [
-        'id',
         'no_container',
         'nama_container',
         'status'

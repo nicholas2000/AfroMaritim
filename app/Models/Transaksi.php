@@ -36,7 +36,7 @@ class Transaksi extends Model
         'harga_tambahan',
         'harga_potongan',
         'total_harga',
-        'tanggal',
+        'tanggal_berangkat',
         'nomor_container',
         'nomor_manifest',
         'link_foto',
