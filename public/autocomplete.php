@@ -65,12 +65,11 @@
     }else if($_REQUEST["ctr"]=="Fcontainerdepo"){
         if(isset($_POST["query"])){
             $output = '';
-            $query = "SELECT * FROM master_tcontainer WHERE nomor_container LIKE '%".$_POST["query"]."%'";
+            $query = "SELECT * FROM master_tcontainer WHERE nomor_container LIKE '%".$_POST["query"]."%' AND status=1";
             $result = mysqli_query($connect, $query);
             if(mysqli_num_rows($result) > 0){
                 $output= '<ul class="list-unstyled" id="package_cont">';
                 while($row = mysqli_fetch_array($result)){
-                    // $temp = ' data-alamat="'.$row['jalan'].'" data-hp="' . $row['telpon'] . '" data-email="' . $row['email'] . '"';
                     $output .= '<li><div id="' . $row['nomor_container'] . '">'.$row['nomor_container'].'</div></li>';
                 }
                 $output .= '</ul>';

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Container;
 use Illuminate\Http\Request;
 use App\Models\Depo;
 use App\Models\Transaksi;
@@ -40,8 +41,8 @@ class depoController extends Controller
     public function doAddDepo(Request $req)
     {
         Transaksi::create([
-            'tanggal_berangkat' => $req->tglmasuk,
-            'nomor_segel' => $req->nomor_segel,
+            'tanggal' => $req->tglmasuk,
+            // 'nomor_segel' => $req->nomor_segel,
             'nama_pengirim'=>$req->namapengirim,
             'alamat_pengirim'=>$req->alamatpengirim,
             'nohp_pengirim'=>$req->nohppengirim,
@@ -49,15 +50,20 @@ class depoController extends Controller
             'nama_penerima'=> $req->namapenerima,
             'jenis_barang'=>$req->jenis_barang,
             'nomor_resi'=>$req->noresi,
-            'nomor_container'=>$req->nocontainer,
-            'volume' => '0',
+            'nomor_container'=>$req->contSearch,
+            'jumlah_barang' => $req->colly,
+            'volume' => $req->volume,
             'harga_kubik' => '0',
             'harga' => '0',
             'harga_tambahan' => '0',
             'harga_potongan' => '0',
             'total_harga' => '0',
-            'status_barang' => 'Depo SBY',
+            'status_barang' => 'Depo',
         ]);
+        if($req->final=="yes"){
+            $close_container = Container::find($req->contSearch);
+            $close_container->update(['status' => '0']);
+        }
         return redirect('/depo');
         // }
     }

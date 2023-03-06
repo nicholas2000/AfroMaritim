@@ -137,14 +137,6 @@
         <div class="container">
             <div class="row ">
                 <div class="col-sm-5 form-group">
-                    <div class="search-box">
-                        <input style="width: 210px;" type="text" name="contSearch" id="contSearch" class="form-control" placeholder="No Container" />
-                        <div id="wrapper_cont" onclick="hidden()">
-                            <div class="scrollbar">
-                                <div class="list force-overflow" id="contList" style="width: 210px;"></div>
-                            </div>
-                        </div>
-                    </div>
 
                 </div>
                 <div class="col-sm">
@@ -181,33 +173,29 @@
                     <input type="hidden" name="data">
                     <div class="row">
                         <div class="col-sm-12 col-md-6 form-group">
-
-                            <div class="p">
-                                <div class="col-md-8">Tanggal Masuk</div>
+                            <div class="search-box">
+                                <input style="width: 210px;" type="text" name="contSearch" id="contSearch" class="form-control" placeholder="No Container" />
+                                <div id="wrapper_cont" onclick="hidden()">
+                                    <div class="scrollbar">
+                                        <div class="list force-overflow" id="contList" style="width: 210px;"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-md-6 form-group"></div>
+                        <div class="col-sm-12 col-md-6 form-group">
+                            <div class="p ">
+                                <div class="col-md-8">No Resi</div>
                                 <div>:</div>
-                                <div class="col-md-2" ><input style="width:185px;"  name="tglmasuk" type="date" value="<?php echo date('Y-m-d'); ?>" readonly/>
+                                <div class="col-md-2"><input name="noresi" type='text' >
                                 </div>
                             </div>
                             <br>
                             <div class="p">
-                                <div class="col-md-8">Nama Pengirim</div>
+                                <div class="col-md-8">Tanggal Masuk</div>
                                 <div>:</div>
-                                <div class="col-md-2">
-                                    <div class="search-box">
-                                        <input style="" type="text" name="namapengirim" id="user" class="" placeholder="" />
-                                {{-- <input type="text" name="nama_pengirim" id="user"/> --}}
-                                        <div id="wrapper" onclick="hidden()">
-                                            <div class="scrollbar">
-                                                <div class="list force-overflow" id="userList" style="width: 185px;"></div>
-                                            </div>
-                                        </div>
-                                        {{-- <div id="result"></div> --}}
-                                    </div>
-
+                                <div class="col-md-2" ><input style="width:185px;"  name="tglmasuk" type="date" data-date-format="DD/MON/YYYY" value="<?php echo date('Y-m-d'); ?>" readonly/>
                                 </div>
-                                <input type="hidden" name="alamatpengirim" id="alamatpengirim" value="">
-                                <input type="hidden" name="nohppengirim" id="nohppengirim" value="">
-                                <input type="hidden" name="emailpengirim" id="emailpengirim" value="">
                             </div>
                             <br>
                             <div class="p">
@@ -217,35 +205,67 @@
                                 </div>
                             </div>
                             <br>
+                            <div class="p">
+                                <div class="col-md-8">Nama Pengirim</div>
+                                <div>:</div>
+                                <div class="col-md-2">
+                                    <div class="search-box">
+                                        <input style="" type="text" name="namapengirim" id="user" class="" placeholder="" />
+                                        <div id="wrapper" onclick="hidden()">
+                                            <div class="scrollbar">
+                                                <div class="list force-overflow" id="userList" style="width: 185px;"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <input type="hidden" name="alamatpengirim" id="alamatpengirim" value="">
+                                <input type="hidden" name="nohppengirim" id="nohppengirim" value="">
+                                <input type="hidden" name="emailpengirim" id="emailpengirim" value="">
+                            </div>
+                            <br>
                         </div>
 
                         {{-- ----- --}}
 
                         <div class="col-sm-12 col-md-6 form-group">
 
+
                             <div class="p ">
-                                <div class="col-md-6">No Resi</div>
+                                <div class="col-md-8">Jenis Barang</div>
                                 <div>:</div>
-                                <div class="col-md-6"><input name="noresi" type='text' >
-                                </div>
-                            </div>
-                            <br>
-                            <br>
-                            <div class="p ">
-                                <div class="col-md-6">Jenis Barang</div>
-                                <div>:</div>
-                                <div class="col-md-6"><input name="jenis_barang" type='text'>
+                                <div class="col-md-2"><input name="jenis_barang" type='text'>
                                 </div>
                             </div>
                             <br>
                             <div class="p ">
-                                <div class="col-md-6">No Container</div>
+                                <div class="col-md-8">Colly (Jumlah Barang)</div>
                                 <div>:</div>
-                                <div class="col-md-6"><input name="nocontainer" type='text'>
+                                <div class="col-md-2"><input name="colly" type='text'>
                                 </div>
                             </div>
                             <br>
-                            <center><button type="submit" class="btn btn-primary">Tambah</button></center>                            <br>
+                            <div class="p ">
+                                <div class="col-md-8">Volume</div>
+                                <div>:</div>
+                                <div class="col-md-2"><input name="volume" type='text'>
+                                </div>
+                            </div>
+                            <br>
+                            <div class="p ">
+                                <div class="col-md-8">Muatan Akhir</div>
+                                <div>:</div>
+                                <div class="col-md-6">
+                                    <input type="radio" name="final" id="" value="yes">  Yes
+                                    <input type="radio" name="final" id="" value="no" checked hidden>
+                                </div>
+                            </div>
+                            <br>
+                            <div class="p">
+                                <div class="col-md-8"></div>
+                                <div class="col-md-2">
+                                    <button type="submit" class="btn btn-primary">Tambah</button>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </form>
@@ -257,7 +277,7 @@
                                 <center>Tanggal</center>
                             </th>
                             <th scope="col">
-                                <center>No Transaksi</center>
+                                <center>No Resi</center>
                             </th>
                             <th scope="col">
                                 <center>Nama Penerima</center>
@@ -269,7 +289,10 @@
                                 <center>Jenis Barang</center>
                             </th>
                             <th scope="col">
-                                <center>No Resi</center>
+                                <center>Colly</center>
+                            </th>
+                            <th scope="col">
+                                <center>Volume</center>
                             </th>
                             <th scope="col">
                                 <center>No Container</center>
@@ -285,7 +308,7 @@
 
 
                                 <th scope="col">
-                                    <center>{{ $prm->tanggal_berangkat}}</center>
+                                    <center>{{ $prm->tanggal}}</center>
                                 </th>
                                 <th scope="col">
                                     <center>{{ $prm->nomor_resi }}</center>
@@ -300,7 +323,10 @@
                                     <center>{{ $prm->jenis_barang }}</center>
                                 </th>
                                 <th scope="col">
-                                    <center>{{ $prm->nomor_resi }}</center>
+                                    <center>{{ $prm->jumlah_barang }}</center>
+                                </th>
+                                <th scope="col">
+                                    <center>{{ $prm->volume }}</center>
                                 </th>
                                 <th scope="col">
                                     <center>{{ $prm->nomor_container }}</center>
