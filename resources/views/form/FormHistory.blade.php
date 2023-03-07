@@ -114,13 +114,6 @@
                         <div class="col-sm-12 col-md-6 form-group">
 
                             <div class="p ">
-                                <div class="col-md-6">No Manifest</div>
-                                <div>:</div>
-                                <div class="col-md-6"><input name="nmanifest" type='text' style="width: 180px;">
-                                </div>
-                            </div>
-                            <br>
-                            <div class="p ">
                                 <div class="col-md-6">Nama Kapal</div>
                                 <div>:</div>
                                 <div class="col-md-6"><input name="nkapal" type='text' style="width: 180px;">
@@ -150,16 +143,13 @@
                                 <center>No Container</center>
                             </th>
                             <th scope="col">
-                                <center>No Manifest</center>
-                            </th>
-                            <th scope="col">
                                 <center>No Segel</center>
                             </th>
                             <th scope="col">
                                 <center>Action</center>
                             </th>
                             <th scope="col">
-                                <center></center>
+                                <center>Pilih</center>
                             </th>
                         </tr>
                         <?php $ctr = 1; ?>
@@ -177,9 +167,7 @@
                                 <th scope="col">
                                     <center>{{ $prm->nama_kapal }}</center>
                                 </th>
-                                <th scope="col">
-                                    <center>{{ $prm->nomor_container }}</center>
-                                </th>
+
                                 <th scope="col">
                                     <center>{{ $prm->nomor_manifest }}</center>
                                 </th>
@@ -199,7 +187,7 @@
                                     </form>
                                 </th>
                                 <th >
-                                    <input type="checkbox"  value="{{$prm->nomor_resi}}" onclick="myFunction(this)">
+                                    <center><input type="checkbox"  value="{{$prm->nomor_resi}}" onclick="myFunction(this)"></center>
                                 </th>
 
                             </tr>

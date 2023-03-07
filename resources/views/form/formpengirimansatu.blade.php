@@ -144,13 +144,13 @@
                                 </th>
                                 <th scope="row">{{ $ctr }}</th>
                                 <th scope="col">
-                                    <center>{{ $prm->nomor_transaksi }}</center>
+                                    <center>{{ $prm->nomor_resi }}</center>
                                 </th>
                                 <th scope="col">
                                     <center>{{ $prm->tanggal }}</center>
                                 </th>
                                 <th scope="col">
-                                    <center>{{ $prm->no_container }}</center>
+                                    <center>{{ $prm->status_barang }}</center>
                                 </th>
                                 <th scope="col" style="display: flex">
                                     {{-- <a href="./delete/{{$prm->nomor_transaksi}}" class="btn btn-danger" style="">Delete</a> --}}

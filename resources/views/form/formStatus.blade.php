@@ -151,7 +151,7 @@
                                     <td>
                                         <center><input type="checkbox" name="checkb" id="cbsatu"> </center>
                                     </td>
-                                    <th scope="row">{{ $prm->nomor_transaksi }} </th>
+                                    <th scope="row">{{ $prm->nomor_resi }} </th>
                                     <td>{{ $prm->nama_pengirim }}</td>
                                     <td>{{ $prm->tanggal }}</td>
                                     <td>{{ $prm->nama_kapal }}</td>
