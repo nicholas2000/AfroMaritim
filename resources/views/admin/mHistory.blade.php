@@ -73,7 +73,7 @@
                                 Transaksi</a>
                             <a href="{{ url('/masterStatus') }}"class="dashboard-nav-dropdown-item">Status Barang</a>
                             <a href="{{ url('/masterTeam') }}"class="dashboard-nav-dropdown-item">Master Team Pengiriman</a>
-                            <a href="{{ url('/masterpengirimansatu') }}"class="dashboard-nav-dropdown-item">Pengiriman Kurir</a>
+                            <a href="{{ url('/masterpengirimansatu') }}"class="dashboard-nav-dropdown-item">Gudang</a>
                         </div>
                     </div>
                     <div class='dashboard-nav-dropdown'>

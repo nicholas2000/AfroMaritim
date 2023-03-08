@@ -185,12 +185,7 @@
                         <div class="col-sm-12 col-md-6 form-group"></div>
                         <div class="col-sm-12 col-md-6 form-group">
                             <div class="p ">
-                                <div class="col
-                                
-                                
-                                
-                                
-                                -md-8">No Resi</div>
+                                <div class="col-md-8">No Resi</div>
                                 <div>:</div>
                                 <div class="col-md-2"><input name="noresi" type='text' >
                                 </div>

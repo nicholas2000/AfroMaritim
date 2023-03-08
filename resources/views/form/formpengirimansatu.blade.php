@@ -37,26 +37,17 @@
 <section class="order-form m-4">
     <div class="container pt-4">
         <div class="container">
-            <h1> Pengiriman Kurir </h1>
+            <h1> Gudang </h1>
             <div class="row ">
                 <input type="hidden" name="data">
-                <div class="col-sm-8 col-md-6 form-group">
-                    <div class="input-group">
-                        <input type="search" class="form-control rounded p" placeholder=" Search" aria-label="Search"
-                            aria-describedby="search-addon" />
-                        <button type="button" class="btn btn-outline-primary" style="margin-left: 2px">Search</button>
-                    </div>
-                </div>
                 <div class="col-sm-10 col-md-12 form-group">
                     <div class="p">
-                        <div class="col-sm-1">Cari</div>
+                        <div class="col-sm-1">Container</div>
                         <div class="col-sm-2 pk" style="margin-right: 10%;">
-                            <select style="width: 100px;height: 35px;" class="form-control selectpicker">
-                                <option value="">Semua</option>
-                                <option>Andi</option>
-                                <option>Doni</option>
-                                <option>Tono</option>
-                                <option>Sisil</option>
+                            <select style="width: 100px;height: 35px; margin-left:30px;" class="form-control selectpicker">
+                                @foreach ($arrHistory as $prm)
+                                        <option value="{{ $prm->tipe }},{{ $prm->jenis_harga }},{{ $prm->nominal }}">{{ $prm->tipe }}</option>
+                                    @endforeach
                             </select>
                         </div>
                         <div class="form-group">
