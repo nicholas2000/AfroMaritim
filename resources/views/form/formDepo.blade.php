@@ -185,7 +185,12 @@
                         <div class="col-sm-12 col-md-6 form-group"></div>
                         <div class="col-sm-12 col-md-6 form-group">
                             <div class="p ">
-                                <div class="col-md-8">No Resi</div>
+                                <div class="col
+                                
+                                
+                                
+                                
+                                -md-8">No Resi</div>
                                 <div>:</div>
                                 <div class="col-md-2"><input name="noresi" type='text' >
                                 </div>
@@ -427,7 +432,6 @@
     var now = new Date(nowTemp.getFullYear(), nowTemp.getMonth(), nowTemp.getDate(), 0, 0, 0, 0);
 
     var checkin = $('#dp1').datepicker({
-
         beforeShowDay: function(date) {
             return date.valueOf() >= now.valueOf();
         },
