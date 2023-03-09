@@ -396,7 +396,6 @@
     var now = new Date(nowTemp.getFullYear(), nowTemp.getMonth(), nowTemp.getDate(), 0, 0, 0, 0);
 
     var checkin = $('#dp1').datepicker({
-
         beforeShowDay: function(date) {
             return date.valueOf() >= now.valueOf();
         },
