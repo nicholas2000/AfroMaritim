@@ -13,6 +13,7 @@ class KompetitorController extends Controller
         $arrKompetitor=Kompetitor::all();
         return view('admin.mKompetitor',compact('arrKompetitor'));
     }
+   
 
     public function doAdd(Request $req)
     {

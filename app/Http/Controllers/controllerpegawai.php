@@ -18,8 +18,8 @@ class controllerpegawai extends Controller
 
     public function vfmpegawai()
     {
-        $cabang = Cabang::all();
-        return view('admin.mTpegawai', compact('cabang'));
+        $arrCabang = Cabang::all();
+        return view('admin.mTpegawai', compact('arrCabang'));
     }
 
     public function dovmtpegawai(Request $request)

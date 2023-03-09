@@ -37,8 +37,8 @@
         }
     }
 </style>
-
 <body>
+
     <div id="wrapper">
         <div class="overlay"></div>
 
@@ -138,7 +138,7 @@
                             <center>Welcome Admin</center>
                         </div>
                         <div>
-                            @include('form.FormTransaksi')
+                            @include('form.formtcontainer')
                         </div>
                     </div>
                 </div>

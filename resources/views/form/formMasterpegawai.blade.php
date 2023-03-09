@@ -1,91 +1,76 @@
-<!DOCTYPE html>
-<html lang="en">
+<style>
+    .popup form {
+        width: 100%;
+    }
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    .popup form input,
+    .popup form select {
+        font-family: "Roboto";
+        font-weight: 300;
+        font-size: 16px;
+    }
 
-    <style>
-        .popup form {
-            width: 100%;
-        }
+    .popup form input,
+    .popup form select {
+        height: 38px;
+    }
 
-        .popup form input,
-        .popup form select {
-            font-family: "Roboto";
-            font-weight: 300;
-            font-size: 16px;
-        }
-
-        .popup form input,
-        .popup form select {
-            height: 38px;
-        }
-
-        .popup form input,
-        .popup form select {
-            border: 1px solid #d0d0d0;
-            display: block;
-            margin: 0 auto;
-            margin-bottom: 20px;
-            padding-left: 10px;
-            width: 83.55%;
-        }
+    .popup form input,
+    .popup form select {
+        border: 1px solid #d0d0d0;
+        display: block;
+        margin: 0 auto;
+        margin-bottom: 20px;
+        padding-left: 10px;
+        width: 83.55%;
+    }
 
 
 
-        ::-webkit-input-placeholder {
-            color: blue;
-            opacity: 1;
-        }
+    ::-webkit-input-placeholder {
+        color: blue;
+        opacity: 1;
+    }
 
-        ::-moz-placeholder {
-            color: blue;
-            opacity: 1;
-        }
+    ::-moz-placeholder {
+        color: blue;
+        opacity: 1;
+    }
 
-        :-moz-placeholder {
-            color: blue;
-            opacity: 1;
-        }
+    :-moz-placeholder {
+        color: blue;
+        opacity: 1;
+    }
 
-        :-ms-input-placeholder {
-            color: blue;
-            opacity: 1;
-        }
+    :-ms-input-placeholder {
+        color: blue;
+        opacity: 1;
+    }
 
-        .popup form select {
-            background-image: url("../image/arr-black.png");
-            background-position: right 10px center;
-            background-repeat: no-repeat;
-            -webkit-appearance: none;
-            -moz-appearance: none;
-            text-indent: 0.01px;
-            text-overflow: '';
-            -ms-appearance: none;
-            appearance: none !important;
-        }
+    .popup form select {
+        background-image: url("../image/arr-black.png");
+        background-position: right 10px center;
+        background-repeat: no-repeat;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        text-indent: 0.01px;
+        text-overflow: '';
+        -ms-appearance: none;
+        appearance: none !important;
+    }
 
 
-        .popup form input[type="submit"] {
-            border-radius: 3px;
-            width: 317px;
-            height: 40px;
-            margin-bottom: 0;
-            font-weight: 500;
-            font-size: 1em;
-            color: #ffffff;
-            line-height: 23px;
-        }
-    </style>
+    .popup form input[type="submit"] {
+        border-radius: 3px;
+        width: 317px;
+        height: 40px;
+        margin-bottom: 0;
+        font-weight: 500;
+        font-size: 1em;
+        color: #ffffff;
+        line-height: 23px;
+    }
+</style>
 
 </head>
 
@@ -142,19 +127,18 @@
                                 <th scope="col">
                                     <center>{{ $prm->role_pegawai }}</center>
                                 </th>
-                                <th scope="col">
-                                    <center style="display: flex;">
-                                        <button style="height: 29px; margin-left: 15%; " class="btn" id="btnedit"
-                                            data-toggle="modal" data-target="#myModal"
-                                            onclick="btnedit({{ $ctr - 1 }})"><i
-                                                class="fa fa-pencil-alt"></i></button>
+                                <th scope="col" style="text-align:center;display: flex;">
+
+                                        <button style="height: 29px;" class="btn" id="btnedit" data-toggle="modal"
+                                            data-target="#myModal" onclick="btnedit({{ $ctr - 1 }})"><i
+                                                class="fa fa-pencil"></i></button>
                                         <form method="post"
                                             action="{{ url('masterPegawai/delete/' . $prm->id_pegawai) }}">
                                             @csrf
-                                            <button style="margin-left: 25%;" type="submit" class="btn btn-danger"><i
+                                            <button style="margin-left: 15%;" type="submit" class="btn btn-danger"><i
                                                     class="fa fa-trash"></i></button>
                                         </form>
-                                    </center>
+
                                 </th>
                             </tr>
                             <?php $ctr++; ?>
@@ -179,8 +163,7 @@
                                     @csrf
                                     <label style="margin-left: 40px;">Kode</label>
 
-                                    <input name="kode" class="form-control" type="text"
-                                    placeholder="" readonly>
+                                    <input name="kode" class="form-control" type="text" placeholder="" readonly>
 
                                     <label style="margin-left: 40px;">Cabang</label>
                                     <select name="cabang" style="height:35px" class="form-control selectpicker">
@@ -260,8 +243,7 @@
 </html>
 
 <script>
-    function btnedit(id)
-    {
+    function btnedit(id) {
         var jArray = <?php echo json_encode($arrPegawai); ?>;
         $("[name='kode']").val(jArray[id]['id_pegawai']);
         $("[name='cabang']").val(jArray[id]['id_cabang']);
@@ -273,20 +255,13 @@
         $("[name='kodepos']").val(jArray[id]['kodepos_pegawai']);
         $("[name='telpon']").val(jArray[id]['telp_pegawai']);
         $("[name='email']").val(jArray[id]['email_pegawai']);
-        if (jArray[id]['role_pegawai'] == 1)
-        {
+        if (jArray[id]['role_pegawai'] == 1) {
             $("[name='role']").val("Super Admin");
-        }
-        else if (jArray[id]['role_pegawai'] == 2)
-        {
+        } else if (jArray[id]['role_pegawai'] == 2) {
             $("[name='role']").val("Admin");
-        }
-        else if (jArray[id]['role_pegawai'] == 3)
-        {
+        } else if (jArray[id]['role_pegawai'] == 3) {
             $("[name='role']").val("Accounting");
-        }
-        else
-        {
+        } else {
             $("[name='role']").val("Kurir");
         }
     }
