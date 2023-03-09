@@ -10,7 +10,7 @@ class pengirimancontroller extends Controller
 {
     public function vmpengirimansatu()
     {
-        $param['arrHistory']=Transaksi::get();
+        $param['arrHistory']=Transaksi::where('nomor_container', 'CO001');
         return view('admin.mOpsi2',$param);
     }
     public function vmpengirimandua()

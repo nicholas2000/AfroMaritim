@@ -34,7 +34,7 @@
         cursor: pointer;
     }
 </style>
-<section class="order-form m-4">
+<section class="ophp artisan route:clearrder-form m-4">
     <div class="container pt-4">
         <div class="container">
             <h1> Gudang </h1>
