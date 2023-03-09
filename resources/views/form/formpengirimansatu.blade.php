@@ -44,9 +44,9 @@
                     <div class="p">
                         <div class="col-sm-1">Container</div>
                         <div class="col-sm-2 pk" style="margin-right: 10%;">
-                            <select style="width: 100px;height: 35px; margin-left:30px;" class="form-control selectpicker">
-                                @foreach ($arrHistory as $prm)
-                                        <option value="{{ $prm->tipe }},{{ $prm->jenis_harga }},{{ $prm->nominal }}">{{ $prm->tipe }}</option>
+                            <select style="width: 100px;height: 35px; margin-left:30px;" class="form-control selectpicker" id="container" name="container" onchange="gantiContainer()">
+                                    @foreach ($arrContainer as $prm)
+                                        <option value="{{$prm->nomor_container}}">{{ $prm->nama_container }}</option>
                                     @endforeach
                             </select>
                         </div>
@@ -111,10 +111,10 @@
                 <div class="col-12">
                     <table id="datatables" class="table table-bordered">
 
-                        <tr style="background-color:  #023e94;color: white;">
+                        <thead style="background-color:  #023e94;color: white;">
                             <th scope="col"> <center><input type="checkbox" name="cball" id="cball"></center>  </th>
                             <th scope="col"><center> No </center></th>
-                            <th scope="col"><center> No Transaksi </center></th>
+                            <th scope="col"><center> No Resi </center></th>
                             <th scope="col">
                                 <center>Tanggal Pengiriman</center>
                             </th>
@@ -125,35 +125,10 @@
                                 <center>Link Foto</center>
                             </th>
 
-                        </tr>
-                        <?php $ctr = 1; ?>
+                        </thead>
+                        <tbody id="list_transaksi">
 
-                        @foreach ($arrHistory as $prm)
-                            <tr>
-                                <th >
-                                    <input type="checkbox"  value="{{$prm->nomor_transaksi}}" onclick="myFunction(this)">
-                                </th>
-                                <th scope="row">{{ $ctr }}</th>
-                                <th scope="col">
-                                    <center>{{ $prm->nomor_resi }}</center>
-                                </th>
-                                <th scope="col">
-                                    <center>{{ $prm->tanggal }}</center>
-                                </th>
-                                <th scope="col">
-                                    <center>{{ $prm->status_barang }}</center>
-                                </th>
-                                <th scope="col" style="display: flex">
-                                    {{-- <a href="./delete/{{$prm->nomor_transaksi}}" class="btn btn-danger" style="">Delete</a> --}}
-                                    <form action="" method="">
-                                        @csrf
-                                        <button name=""type="submit" class="btn btn"><i class="fa fa-pencil-alt"></i></button>
-                                    </form>
-                                </th>
-                            </tr>
-                            <?php $ctr++; ?>
-                        @endforeach
-
+                        </tbody>
 
 
                     </table>
@@ -164,7 +139,22 @@
     </div>
 </section>
 <script>
-var data2 = [];
+
+    function gantiContainer(){
+        var query = $('#container').val();
+        $.ajax({
+            url:"autocomplete.php",
+            method:"POST",
+            data:{query:query,ctr:"Flisttransaksi"},
+            success:function(data)
+            {
+                $('#list_transaksi').html("");
+                $('#list_transaksi').append(data);
+            }
+        });
+    }
+
+    var data2 = [];
     function myFunction(x) {
         if(x.checked==true)
         {
