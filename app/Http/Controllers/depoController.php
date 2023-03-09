@@ -36,6 +36,7 @@ class depoController extends Controller
         // $param['kodeTrans'] = $newTrans;
         // $param['total'] = $totalTrans;
         return view('admin.mDepo',compact('Transaksi'),$param);
+
     }
 
     public function doAddDepo(Request $req)

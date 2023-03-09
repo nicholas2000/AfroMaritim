@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
+{{-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
 <link rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/css/bootstrap-datetimepicker.css">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
@@ -11,26 +11,24 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/js/bootstrap-datepicker.min.js"></script>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"> --}}
 <style>
-    .userList {
+    .userList li{
         background-color: aliceblue;
         cursor: pointer;
-    }
-
-    li {
         padding: 12px;
     }
+
 </style>
 <script src="https://cdn.jsdelivr.net/npm/table2excel@1.0.4/dist/table2excel.min.js"></script>
 <style>
-    .p {
+    .ps {
         display: flex;
         width: 80%;
     }
 
     @media screen and (max-width:600px) {
-        .p {
+        .ps {
             width: 75%;
         }
 
@@ -49,7 +47,7 @@
             <div class="row ">
                 <div class="col-sm-5 form-group">
                     <div class="input-group">
-                        <input type="search" class="form-control rounded p" placeholder=" Transaksi"
+                        <input type="search" class="form-control rounded ps" placeholder=" Transaksi"
                             aria-label="Search" aria-describedby="search-addon" />
                     </div>
 
@@ -79,7 +77,7 @@
 
                     <div style="">
                         <a href="" class="btn btn-primary" style="color: white;height: 37px;margin-right: 5%;"
-                            class="p">Import</a>
+                            class="ps">Import</a>
                         <a href="" id="btn-excel" class="btn btn-success"
                             style="color: white;height: 37px;">Export</a>
                     </div>
@@ -93,7 +91,7 @@
                     <div class="row">
                         <div class="col-sm-12 col-md-6 form-group">
 
-                            <div class="p">
+                            <div class="ps">
                                 <div class="col-md-8">Tanggal Pengiriman</div>
                                 <div>:</div>
                                 <div class="col-md-2"><input name="ntanggal" type='text' style="width: 180px;"
@@ -101,7 +99,7 @@
                                 </div>
                             </div>
                             <br>
-                            <div class="p">
+                            <div class="ps">
                                 <div class="col-md-8">Nomor Segel</div>
                                 <div>:</div>
                                 <div class="col-md-2"><input name="nomor_segel" type='text' style="width: 180px;">
@@ -113,7 +111,7 @@
 
                         <div class="col-sm-12 col-md-6 form-group">
 
-                            <div class="p ">
+                            <div class="ps ">
                                 <div class="col-md-6">Nama Kapal</div>
                                 <div>:</div>
                                 <div class="col-md-6"><input name="nkapal" type='text' style="width: 180px;">

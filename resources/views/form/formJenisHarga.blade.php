@@ -1,13 +1,3 @@
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
-
-
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 <section class="order-form m-4">
     <div class="container">
@@ -25,7 +15,7 @@
                     <label class="col-md-1 control-label" style="margin-top: -10px;">Jenis Harga</label>
                     <div class="col-md-10 inputGroupContainer">
                         <div class="input-group">
-                            <span style="background-color: #023e94" class="input-group-addon"><i style="color: white"
+                            <span style="border-radius: 10%;text-align: center;background-color: #023e94;width: 5%;padding-top: 1%;" class="input-group-addon"><i style="color: white"
                                     class="fa fa-tags"></i></span>
                             <select name="jenisharga" id="jenisharga" class="form-control" style="height:35px;">
                                 <option value="Berat">Berat</option>
@@ -40,7 +30,7 @@
                     <label class="col-md-1 control-label">Type</label>
                     <div class="col-md-10 inputGroupContainer">
                         <div class="input-group">
-                            <span style="background-color: #023e94" class="input-group-addon"><i style="color: white"
+                            <span style="border-radius: 10%;text-align: center;background-color: #023e94;width: 5%;padding-top: 1%;" class="input-group-addon"><i style="color: white"
                                     class="fa fa-archive"></i></span>
                             <input name="tipe"
                                 placeholder="Masukkan Type" class="form-control" type="text">
@@ -53,7 +43,7 @@
                     <label class="col-md-1 control-label">Nominal</label>
                     <div class="col-md-10 inputGroupContainer">
                         <div class="input-group">
-                            <span style="background-color: #023e94" class="input-group-addon"><i style="color: white"
+                            <span style="border-radius: 10%;text-align: center;background-color: #023e94;width: 5%;padding-top: 1%;" class="input-group-addon"><i style="color: white"
                                     class="fa fa-money"></i></span>
                             <input onkeypress="" name="nominal"
                                 placeholder="Masukkan Nominal" class="form-control" type="text">
@@ -66,7 +56,7 @@
                 <!-- Button -->
                 <div class="form-group">
                     <label class="col-md-4 control-label"></label>
-                    <div class="col-md-4"><br>
+                    <div class="col-md-10" style="text-align: center"><br>
                        <button type="submit" class="btn btn-primary">Tambah</button>
                     </div>
                 </div>

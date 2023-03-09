@@ -1,26 +1,13 @@
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
-<link rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/css/bootstrap-datetimepicker.css">
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
 
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/js/bootstrap-datepicker.min.js"></script>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css">
 <style>
-    .list {
+    .list li {
         background-color: aliceblue;
         cursor: pointer;
-    }
-
-    li {
         padding: 12px;
     }
+
     .popup form {
         width: 100%;
     }
@@ -95,13 +82,13 @@
 </style>
 <script src="https://cdn.jsdelivr.net/npm/table2excel@1.0.4/dist/table2excel.min.js"></script>
 <style>
-    .p {
+    .ps {
         display: flex;
         width: 80%;
     }
 
     @media screen and (max-width:600px) {
-        .p {
+        .ps {
             width: 75%;
         }
 
@@ -113,66 +100,50 @@
     .clickable {
         cursor: pointer;
     }
-       /* .scrollbar
-{
-	float: left;
-	height: 120px;
-	width: 210px;
-	background: #F5F5F5;
-	overflow-y: scroll;
-}
 
-.force-overflow
-{
-	min-height: 200px;
-}
-
-#wrapper
-{
-	width: 500px;
-} */
 </style>
-<section class="order-form m-4">
-    <div class="container pt-4">
-        <div class="container">
-            <div class="row ">
-                <div class="col-sm-5 form-group">
+<body>
+    <section class="order-form m-4">
+        <div class="container pt-4">
+            <div class="container">
+                <div class="row ">
+                    <div class="col-sm-5 form-group">
 
-                </div>
-                <div class="col-sm">
-                </div>
-                <div class="col-sm-3">
-                </div>
-                <div class="col-sm-3">
-                    <div>Nama Pegawai :</div>
-                </div>
-
-            </div>
-            <br>
-            <div class="row">
-                <div class="col-sm-9">
-                    <div>
-                        <h3>Depo</h3>
                     </div>
+                    <div class="col-sm">
+                    </div>
+                    <div class="col-sm-3">
+                    </div>
+                    <div class="col-sm-3">
+                        <div>Nama Pegawai :</div>
+                    </div>
+
                 </div>
+                <br>
+                <div class="row">
+                    <div class="col-sm-9">
+                        <div>
+                            <h3>Depo</h3>
+                        </div>
+                    </div>
 
-                <div class="col-sm-3">
+                    <div class="col-sm-3">
 
-                    <div style="">
-                        <a href="" class="btn btn-primary" style="color: white;height: 37px;margin-right: 5%;"
-                            class="p">Import</a>
-                        <a href="" id="btn-excel" class="btn btn-success"
+                        <div>
+                            <a href="" class="btn btn-primary" style="color: white;height: 37px;margin-right: 5%;"
+                            class="ps">Import</a>
+                            <a href="" id="btn-excel" class="btn btn-success"
                             style="color: white;height: 37px;">Export</a>
+                        </div>
                     </div>
-                </div>
-                <br>
-                <br>
-                <br>
-                <form method="post" action="{{ url('/tambahDepo') }}">
-                    @csrf
-                    <input type="hidden" name="data">
-                    <div class="row">
-                        <div class="col-sm-12 col-md-6 form-group">
+                    <br>
+                    <br>
+                    <br>
+                    <form method="post" action="{{ url('/tambahDepo') }}">
+                        @csrf
+                        <input type="hidden" name="data">
+                        <div class="row">
+                            <div class="col-sm-12 col-md-6 form-group">
                             <div class="search-box">
                                 <input style="width: 210px;" type="text" name="contSearch" id="contSearch" class="form-control" placeholder="No Container" />
                                 <div id="wrapper_cont" onclick="hidden()">
@@ -181,31 +152,32 @@
                                     </div>
                                 </div>
                             </div>
+
                         </div>
                         <div class="col-sm-12 col-md-6 form-group"></div>
                         <div class="col-sm-12 col-md-6 form-group">
-                            <div class="p ">
+                            <div class="ps ">
                                 <div class="col-md-8">No Resi</div>
                                 <div>:</div>
                                 <div class="col-md-2"><input name="noresi" type='text' >
                                 </div>
                             </div>
                             <br>
-                            <div class="p">
+                            <div class="ps">
                                 <div class="col-md-8">Tanggal Masuk</div>
                                 <div>:</div>
                                 <div class="col-md-2" ><input style="width:185px;"  name="tglmasuk" type="date" data-date-format="DD/MON/YYYY" value="<?php echo date('Y-m-d'); ?>" readonly/>
                                 </div>
                             </div>
                             <br>
-                            <div class="p">
+                            <div class="ps">
                                 <div class="col-md-8">Nama Penerima</div>
                                 <div>:</div>
                                 <div class="col-md-2"><input name="namapenerima" type='text'>
                                 </div>
                             </div>
                             <br>
-                            <div class="p">
+                            <div class="ps">
                                 <div class="col-md-8">Nama Pengirim</div>
                                 <div>:</div>
                                 <div class="col-md-2">
@@ -225,8 +197,6 @@
                             <br>
                         </div>
 
-                        {{-- ----- --}}
-
                         <div class="col-sm-12 col-md-6 form-group">
 
 
@@ -237,21 +207,21 @@
                                 </div>
                             </div>
                             <br>
-                            <div class="p ">
+                            <div class="ps ">
                                 <div class="col-md-8">Colly (Jumlah Barang)</div>
                                 <div>:</div>
                                 <div class="col-md-2"><input name="colly" type='text'>
                                 </div>
                             </div>
                             <br>
-                            <div class="p ">
+                            <div class="ps ">
                                 <div class="col-md-8">Volume</div>
                                 <div>:</div>
                                 <div class="col-md-2"><input name="volume" type='text'>
                                 </div>
                             </div>
                             <br>
-                            <div class="p ">
+                            <div class="ps ">
                                 <div class="col-md-8">Muatan Akhir</div>
                                 <div>:</div>
                                 <div class="col-md-6">
@@ -260,7 +230,7 @@
                                 </div>
                             </div>
                             <br>
-                            <div class="p">
+                            <div class="ps">
                                 <div class="col-md-8"></div>
                                 <div class="col-md-2">
                                     <button type="submit" class="btn btn-primary">Tambah</button>
@@ -304,49 +274,49 @@
                         <?php $ctr = 1; ?>
 
                         @foreach ($Transaksi as $prm)
-                            <tr>
+                        <tr>
 
 
-                                <th scope="col">
-                                    <center>{{ $prm->tanggal}}</center>
-                                </th>
-                                <th scope="col">
-                                    <center>{{ $prm->nomor_resi }}</center>
-                                </th>
-                                <th scope="col">
-                                    <center>{{ $prm->nama_penerima }}</center>
-                                </th>
-                                <th scope="col">
-                                    <center>{{ $prm->nama_pengirim }}</center>
-                                </th>
-                                <th scope="col">
-                                    <center>{{ $prm->jenis_barang }}</center>
-                                </th>
-                                <th scope="col">
-                                    <center>{{ $prm->jumlah_barang }}</center>
-                                </th>
-                                <th scope="col">
-                                    <center>{{ $prm->volume }}</center>
-                                </th>
-                                <th scope="col">
-                                    <center>{{ $prm->nomor_container }}</center>
-                                </th>
-                                <th scope="col">
-                                    <center style="display: flex;">
-                                        <button style="height: 29px;" class="btn" id="btnedit" data-toggle="modal"
-                                            data-target="#myModal" onclick="btnedit({{ $ctr - 1 }})"><i
-                                                class="fa fa-pencil-alt"></i></button>
+                            <th scope="col">
+                                <center>{{ $prm->tanggal}}</center>
+                            </th>
+                            <th scope="col">
+                                <center>{{ $prm->nomor_resi }}</center>
+                            </th>
+                            <th scope="col">
+                                <center>{{ $prm->nama_penerima }}</center>
+                            </th>
+                            <th scope="col">
+                                <center>{{ $prm->nama_pengirim }}</center>
+                            </th>
+                            <th scope="col">
+                                <center>{{ $prm->jenis_barang }}</center>
+                            </th>
+                            <th scope="col">
+                                <center>{{ $prm->jumlah_barang }}</center>
+                            </th>
+                            <th scope="col">
+                                <center>{{ $prm->volume }}</center>
+                            </th>
+                            <th scope="col">
+                                <center>{{ $prm->nomor_container }}</center>
+                            </th>
+                            <th scope="col">
+                                <center style="display: flex;">
+                                    <button style="height: 29px;" class="btn" id="btnedit" data-toggle="modal"
+                                    data-target="#myModal" onclick="btnedit({{ $ctr - 1 }})"><i
+                                    class="fa fa-pencil-alt"></i></button>
 
-                                        <form method="post"
-                                            action="{{ url('/formDepo/delete/' . $prm->nomor_transaksi) }}">
-                                            @csrf
-                                            <button type="submit" class="btn btn-danger"><i
-                                                    class="fa fa-trash"></i></button>
-                                        </form>
-                                    </center>
-                                </th>
-                            </tr>
-                            <?php $ctr++; ?>
+                                    <form method="post"
+                                    action="{{ url('/formDepo/delete/' . $prm->nomor_transaksi) }}">
+                                    @csrf
+                                    <button type="submit" class="btn btn-danger"><i
+                                        class="fa fa-trash"></i></button>
+                                    </form>
+                                </center>
+                            </th>
+                        </tr>
+                        <?php $ctr++; ?>
                         @endforeach
                     </table>
 
@@ -364,23 +334,23 @@
 
                                             <label style="margin-left: 40px;">Nama Penerima</label>
                                             <input name="nama_penerima" placeholder="Masukkan Nama Penerima" class="form-control"
-                                                type="text">
+                                            type="text">
 
                                             <label style="margin-left: 40px;">Nama Pengirim</label>
                                             <input name="nama_pengirim" placeholder="Masukkan Nama Pengirim" class="form-control"
-                                                type="text">
+                                            type="text">
 
                                             <label style="margin-left: 40px;">Nama Barang</label>
                                             <input name="nama_barang" placeholder="Masukkan Nama Barang" class="form-control"
-                                                type="text">
+                                            type="text">
 
                                             <label style="margin-left: 40px;">Nomor Resi</label>
                                             <input name="nomor_resi" placeholder="Masukkan Nomor Resi" class="form-control"
-                                                type="text">
+                                            type="text">
 
                                             <label style="margin-left: 40px;">Nomor Container</label>
                                             <input name="nomor_container" placeholder="Masukkan Nomor Container" class="form-control"
-                                                    type="text">
+                                            type="text">
                                             <input type="hidden" name="nomor_transaksi" value="">
 
 
@@ -399,18 +369,17 @@
         </div>
     </div>
 </section>
+</body>
 <script>
-    var kode = $arrTransaksi.length;
-    document.getElementById("kode").value = kode;
     var data3 = [];
     function myFunction(x) {
-        if(x.checked==true)
-        {
-            data3.push(x.value);
+            if(x.checked==true)
+            {
+                    data3.push(x.value);
 
-        }else
-        {
-            data3.splice(data3.indexOf(x.value), 1);
+                }else
+                {
+                        data3.splice(data3.indexOf(x.value), 1);
         }
 
         $("[name='data']").val(JSON.stringify(data3));
@@ -513,6 +482,7 @@
                             $('#userList').fadeOut();
                             $('#userList').html("");
                             $("#wrapper").css("display", "none");
+
                         }
                     }
                 });
@@ -521,15 +491,19 @@
         $(document).on('click', '#package_nama li', function(){
             $('#user').val($(this).text());
             $('#userList').fadeOut();
-            $("#wrapper").css("display", "none");
+            // $("#wrapper").css("display", "none");
+            document.getElementById("#wrapper").css.display='none';
             const getID = $(this).text().split('-');
             document.getElementById("alamatpengirim").value = $('#'+getID[0]).data('alamat');
             document.getElementById("nohppengirim").value = $('#'+getID[0]).data('hp');
             document.getElementById("emailpengirim").value = $('#'+getID[0]).data('email');
         });
     });
-    $("#wrapper").css("display", "none");
-    $("#wrapper_cont").css("display", "none");
+    // $("#wrapper").css("display", "none");
+    // $("#wrapper_cont").css("display", "none");
+    document.getElementById("#wrapper").css.display = "none";
+    document.getElementById("#wrapper_cont").css.display = "none";
+
     // $("#wrapper_resi").css("display", "none");
 
     $("#user").on("input", function(){
@@ -556,7 +530,5 @@
         $("[name='nomor_resi']").val(jArray[id]['nomor_resi']);
         $("[name='nomor_container']").val(jArray[id]['nomor_container']);
         $("[name='nomor_transaksi']").val(jArray[id]['nomor_transaksi']);
-
-
     }
 </script>
