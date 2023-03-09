@@ -41,6 +41,7 @@ class CreateMigration extends Migration
             $table->string('kodepos_pegawai');
             $table->string('telp_pegawai');
             $table->string('email_pegawai');
+            $table->string('password_pegawai');
             $table->string('role_pegawai');
             $table->timestamps();
             $table->softDeletes();

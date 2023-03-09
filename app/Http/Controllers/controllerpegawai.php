@@ -5,7 +5,10 @@ namespace App\Http\Controllers;
 use App\Models\Cabang;
 use App\Models\modelpegawai;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Crypt;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
+use Symfony\Component\Console\Input\Input;
 
 class controllerpegawai extends Controller
 {
@@ -39,33 +42,14 @@ class controllerpegawai extends Controller
 
         $request->validate(
             [
-                "cabang" => 'required',
-                "nama" => 'required',
-                "npwp" => 'required',
-                "jalan" => 'required',
-                "kodepos" => 'required',
-                "provinsi" => 'required',
-                "kota" => 'required',
-                "kodepos" => 'required',
-                "hp" => 'required',
-                "telpon" => 'required',
-                "email" => 'required',
-                "role" => 'required'
+                'con_password' => 'same:password'
             ],
             [
-                "cabang.required" => "cabang harus di isi",
-                "nama.required" => "nama harus di isi",
-                "npwp.required" => "npwp harus di isi",
-                "jalan.required" => "jalan harus di isi",
-                "provinsi.required" => "Provinsi harus di pilih",
-                "kota.required" => "Kota harus di pilih",
-                "kodepos.required" => "kode pos harus di isi",
-                "hp.required" => "hp harus di isi",
-                "telpon.required" => "telpon harus di isi",
-                "email.required" => "email harus di isi",
-                "role.required" => "Role harus di pilih",
+                "con_password.same" => "Konfirmasi password harus sama dengan password",
             ]
         );
+        $password = Hash::make($request->password);
+
         modelpegawai::create([
             'id_pegawai' => $kode,
             'id_cabang' => $request->cabang,
@@ -75,9 +59,9 @@ class controllerpegawai extends Controller
             'provinsi_pegawai' => $request->provinsi,
             'kota_pegawai' => $request->kota,
             'kodepos_pegawai' => $request->kodepos,
-            'nohp_pegawai' => $request->hp,
             'telp_pegawai' => $request->telpon,
             'email_pegawai' => $request->email,
+            'password_pegawai' => $password,
             'role_pegawai' => $request->role
         ]);
         return redirect("/masterPegawai");

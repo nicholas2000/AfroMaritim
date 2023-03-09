@@ -25,6 +25,7 @@ class modelpegawai extends Model
         'nohp_pegawai',
         'telp_pegawai',
         'email_pegawai',
+        'password_pegawai',
         'role_pegawai'
     ];
     protected $keyType = 'string';

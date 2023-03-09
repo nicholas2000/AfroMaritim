@@ -149,7 +149,7 @@
                                         <form method="post"
                                             action="{{ url('masterCustomer/delete/' . $prm->id_customer) }}">
                                             @csrf
-                                            <button style="margin-left: 15%;" type="submit" class="btn btn-danger"><i
+                                            <button type="submit" class="btn btn-danger"><i
                                                     class="fa fa-trash"></i></button>
                                         </form>
                                     </div>
