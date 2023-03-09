@@ -28,7 +28,6 @@ class containercontroller extends Controller
 
     public function lock($id)
     {
-
         $container = Container::withTrashed()->find($id);
         $result = $container->update([
             'status' => "0"

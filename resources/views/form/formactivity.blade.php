@@ -238,11 +238,6 @@
 </body>
 <script type="text/javascript">
 
-$(document).ready(function() {
-  $(".notification-drop .item").on('click',function() {
-    $(this).find('ul').toggle();
-  });
-});
     var jArray = <?php echo json_encode($arrPermission); ?>;
     for (var i = 0; i < jArray.length; i++) {
         if (jArray[i]['admin'] == 1) {

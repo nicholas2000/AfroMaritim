@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+{{-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
     integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
@@ -10,38 +10,18 @@
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 
 <link href="https://netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
-<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.6.3/css/bootstrap-select.min.css" />
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.6.3/css/bootstrap-select.min.css" /> --}}
+{{-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script> --}}
+{{-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script> --}}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.6.3/js/bootstrap-select.min.js"></script>
 <style>
-    .list
+    .list li
     {
         background-color:aliceblue;
         cursor:pointer;
-    }
-    li
-    {
         padding:12px;
     }
-    .scrollbar
-{
-	float: left;
-	height: 120px;
-	width: 210px;
-	background: #F5F5F5;
-	overflow-y: scroll;
-}
 
-.force-overflow
-{
-	min-height: 200px;
-}
-
-#wrapper
-{
-	width: 500px;
-}
 </style>
 </html>
 @if ($errors->any())
@@ -337,9 +317,7 @@
             return false;
         return true;
     }
-</script>
 
-<script>
     $(document).ready(function(){
         //resi
         $('#resi').keyup(function(){
@@ -431,8 +409,11 @@
         document.getElementById("kode").value = kode;
     });
     //nama
-    $("#wrapper").css("display", "none");
-    $("#wrapper_resi").css("display", "none");
+    // $("#wrapper").css("display", "none");
+    // $("#wrapper_resi").css("display", "none");
+
+    document.getElementById("#wrapper").css.display = "none";
+    document.getElementById("#wrapper_resi").css.display = "none";
 
     $("#user").on("input", function(){
         if($("#user").val()==""){

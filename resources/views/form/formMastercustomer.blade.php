@@ -1,29 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-</head>
 
 <style>
-     @media screen and (max-width:600px) {
-        .p {
-            width: 75%;
-        }
 
-        .pk {
-            margin-right: 5%;
-        }
-    }
     .popup form {
         width: 100%;
     }
@@ -163,18 +141,18 @@
                                     <center>{{ $prm->email }}</center>
                                 </th>
                                 <th scope="col">
-                                    <center style="display: flex;">
+                                    <div style="display: flex;">
                                         <button style="height: 29px;" class="btn" id="btnedit" data-toggle="modal"
                                             data-target="#myModal" onclick="btnedit({{ $ctr - 1 }})"><i
-                                                class="fa fa-pencil-alt"></i></button>
+                                                class="fa fa-pencil"></i></button>
 
                                         <form method="post"
                                             action="{{ url('masterCustomer/delete/' . $prm->id_customer) }}">
                                             @csrf
-                                            <button type="submit" class="btn btn-danger"><i
+                                            <button style="margin-left: 15%;" type="submit" class="btn btn-danger"><i
                                                     class="fa fa-trash"></i></button>
                                         </form>
-                                    </center>
+                                    </div>
                                 </th>
                             </tr>
                             <?php $ctr++; ?>
@@ -199,7 +177,7 @@
                                         <label style="margin-left: 40px;">Cabang</label>
                                         <select name="cabang" style="height:35px" class="form-control selectpicker">
                                             <option value="">Pilih Cabang</option>
-                                            @foreach ($cabang as $prm)
+                                            @foreach ($arrCabang as $prm)
                                                 <option value="{{ $prm->id_cabang }}">{{ $prm->nama_cabang }}</option>
                                             @endforeach
                                         </select>

@@ -11,13 +11,13 @@ class CustomerController extends Controller
     Public function show()
     {
         $arrCustomer=Customer::all();
-        $cabang = Cabang::all();
-        return view('admin.mCustomer',compact('arrCustomer','cabang'));
+        $arrCabang = Cabang::all();
+        return view('admin.mCustomer',compact('arrCustomer','arrCabang'));
     }
     public function vfmcustomer()
     {
-        $cabang = Cabang::all();
-        return view('admin.mTcustomer',compact('cabang'));
+        $arrCabang = Cabang::all();
+        return view('admin.mTcustomer',compact('arrCabang'));
     }
 
     public function sd(Request $req){

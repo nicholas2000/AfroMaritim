@@ -16,12 +16,12 @@ class pengirimancontroller extends Controller
         $param['arrHistory']=Transaksi::get();
         return view('admin.mOpsi2',$param);
     }
-    public function filterGudang($nocont)
-    {
-        $param['arrContainer'] = Container::where('status', 1)->get();
-        $param['arrHistory']=Transaksi::where('nomor_container', $nocont)->get();
-        return view('admin.mOpsi2',$param);
-    }
+    // public function filterGudang($nocont)
+    // {
+    //     $param['arrContainer'] = Container::where('status', 1)->get();
+    //     $param['arrHistory']=Transaksi::where('nomor_container', $noc$nocontet();
+    //     return view('admin.mOpsi2',$param);
+    // }
     public function vmpengirimandua()
     {
         return view("admin.mOpsi2");

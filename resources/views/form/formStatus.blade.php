@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
+{{-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
 <link rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/css/bootstrap-datetimepicker.css">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
@@ -13,15 +13,15 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/js/bootstrap-datepicker.min.js"></script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css">
 
-<script src="https://cdn.jsdelivr.net/npm/table2excel@1.0.4/dist/table2excel.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/table2excel@1.0.4/dist/table2excel.min.js"></script> --}}
 <style>
-    .p {
+    .ps {
         display: flex;
-        width: 80%;
+        width: 100%;
     }
 
     @media screen and (max-width:600px) {
-        .p {
+        .ps {
             width: 75%;
         }
 
@@ -39,37 +39,39 @@
             <div class="container">
                 <h1> Status Barang </h1>
                 <div class="row ">
-                    <div class="col-sm-8 col-md-6 form-group">
-                    </div>
-                    <div class="col-sm-10 col-md-12 form-group">
-                        <div class="p">
-                            <form action="{{ url('/search_tanggal') }}" method="get">
 
-                                <div class="form-group" style="margin-right:10px;">
-                                    <div style="display: flex;">
-                                        <input type="date" class=" form-control"
+                    <div class="col-md-12 form-group">
+                        <div class="ps">
+
+                            <div class="col-md-10" >
+                                <form action="{{ url('/search_tanggal') }}" method="get">
+
+                                    <div class="form-group" style="margin-right:10px;">
+                                        <div style="display: flex;">
+                                            <input type="date" class=" form-control"
                                             style="margin-right: 10px;width: 150px;"
                                             placeholder="&#xf133;  Tgl Awal" id="currentDate" name="date_awal">
-                                        <input type="date" class=" form-control"
-                                             style="margin-right: 10px;width: 150px;"
+                                            <input type="date" class=" form-control"
+                                            style="margin-right: 10px;width: 150px;"
                                             placeholder="&#xf133;  Tgl Akhir" name="date_akhir">
                                             <button type="submit" class="btn btn-success">Cari</button>
-                                    </div>
+                                        </div>
 
-                            </form>
+                                    </form>
+                                </div>
 
                                 <script>
                                     var today = new Date();
                                     var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
                                     // document.getElementById("currentDate").value = date;
                                     console.log(date);
-                                  </script>
+                                    </script>
                             </div>
-                            <div style="display: flex;">
-                                <a href="" class="btn btn-primary"
-                                    style="color: white;height: 37px;margin-right: 5%;" class="p">Import</a>
+                            <div class="col-md-3">
+                                <a href="" class="btn btn-primary" style="color: white;height: 37px;margin-right: 5%;"
+                                class="ps">Import</a>
                                 <a href="" id="btn-excel" class="btn btn-success"
-                                    style="color: white;height: 37px;">Export</a>
+                                style="color: white;height: 37px;">Export</a>
                             </div>
                         </div>
                     </div>
@@ -78,7 +80,7 @@
                 <form action="{{ url('/showstatus') }}"method="get">
                 <div class="row">
                     <div class="col-sm-12 col-md-6 form-group">
-                        <div class="p">
+                        <div class="ps">
                             <div class="col-md-4">ID Kapal</div>
                             <div>:</div>
                             <div class="col-md-3"><input type='text' style="width: 180px;"
@@ -94,7 +96,7 @@
                     </div>
                     <div class="col-sm-12 col-md-6 form-group">
 
-                        <div class="p ">
+                        <div class="ps ">
                             <div class="col-sm-5">Status Barang</div>
                             <div>:</div>
                             <div class="col-sm-3">
@@ -109,7 +111,7 @@
                             </div>
                         </div>
                         <br>
-                        <div class="p">
+                        <div class="ps">
                             <div class="col-sm-5">Sisa Barang Terkirim</div>
                             <div>:</div>
                             <div class="col-sm-3"><input style="width: 180px;"type='text' disabled></div>
