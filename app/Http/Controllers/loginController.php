@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\Activity;
 use App\Models\modelpegawai;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
+use Symfony\Component\Console\Input\Input;
 
 class loginController extends Controller
 {
@@ -22,10 +24,10 @@ class loginController extends Controller
         if($user==null){
             return redirect("/")->with("error","Email anda salah! ");
         }else{
-            $role = $user->role_pegawai;
-            $role = Str::lower(str_replace(' ', '', $role));
+            $passwordUser = $user->password_pegawai;
+            // $role = Str::lower(str_replace(' ', '', $role));
 
-            if($role==$password){
+            if(Hash::check($password, $passwordUser)){
                 $req->session()->put('user_now', $user);
                     $data = json_decode($req->device);
                     $this->cekActivityLogin( $req->ip(),$data,$user->nama_pegawai);

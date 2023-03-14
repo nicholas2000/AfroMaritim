@@ -135,7 +135,7 @@
                                         <form method="post"
                                             action="{{ url('masterPegawai/delete/' . $prm->id_pegawai) }}">
                                             @csrf
-                                            <button style="margin-left: 15%;" type="submit" class="btn btn-danger"><i
+                                            <button  type="submit" class="btn btn-danger"><i
                                                     class="fa fa-trash"></i></button>
                                         </form>
 

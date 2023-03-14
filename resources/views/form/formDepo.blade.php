@@ -305,7 +305,7 @@
                                 <center style="display: flex;">
                                     <button style="height: 29px;" class="btn" id="btnedit" data-toggle="modal"
                                     data-target="#myModal" onclick="btnedit({{ $ctr - 1 }})"><i
-                                    class="fa fa-pencil-alt"></i></button>
+                                    class="fa fa-pencil"></i></button>
 
                                     <form method="post"
                                     action="{{ url('/formDepo/delete/' . $prm->nomor_transaksi) }}">

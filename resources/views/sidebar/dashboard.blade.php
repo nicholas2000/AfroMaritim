@@ -89,8 +89,7 @@
                         <li><a href="{{ url('/masterStatus') }}">Status Barang</a></li>
                         <li style="line-height:15px;"><a href="{{ url('/masterTeam') }}">Master Team Pengiriman</a>
                         </li>
-                        <li style="margin-bottom: 5px;"><a href="{{ url('/masterpengirimansatu') }}">Pengiriman
-                                Kurir</a></li>
+                        <li style="margin-bottom: 5px;"><a href="{{ url('/masterpengirimansatu') }}">Gudang</a></li>
                     </ul>
                 </li>
                 <li class="dropdown">
@@ -104,7 +103,7 @@
                 <li>
                     <form action="{{ url('/logout') }}">
                         <input type="hidden" name="device">
-                        <button style="background-color: transparent;border:none;color:white;margin-left:25px;"><i
+                        <button style="height:100%;width: 100%;background-color: transparent;border:none;color:white;margin-left:-38px;"><i
                                 class="fas fa-sign-out-alt"></i>Logout</button>
                     </form>
                 </li>
