@@ -76,6 +76,32 @@
             }
             echo $output;
         }
+    }else if($_REQUEST["ctr"]=="Flisttransaksi"){
+        if(isset($_POST["query"])){
+            $query = "SELECT * FROM transaksi WHERE nomor_container = 'CO001'";
+            $result = mysqli_query($connect, $query);
+            $ctr = 1;
+            $output = "";
+            foreach ($result as $res){
+                $output .= '
+                    <tr>
+                        <td><input type="checkbox" value="' . $res["nomor_resi"] . '" onclick="myFunction(tdis)"></td>
+                        <td scope="row">' . $ctr . '</td>
+                        <td scope="col"><center>' . $res["nomor_resi"] . '</center></td>
+                        <td scope="col"><center>' . $res["tanggal"] . '</center></td>
+                        <td scope="col"><center>' . $res["link_foto"] . '</center></td>
+                        <td scope="col" style="display: flex">
+                            <form action="" method="POST">
+                                <meta content="authenticity_token" name="csrf-param" />
+                                <button name="" type="submit" class="btn btn"><i class="fa fa-pencil-alt"></i></button>
+                            </form>
+                        </td>
+                    </tr>
+                ';
+                $ctr++;
+            }
+            echo $output;
+        }
     }
     // else if($_REQUEST["ctr"]=="Fhistory"){
     //     if(isset($_POST["query"])){

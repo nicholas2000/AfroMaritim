@@ -213,7 +213,7 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-sm-3">
-                            Nominal Ukuran :
+                            Volume :
                         </div>
                         <div class="col-sm">
                             <input name="nominal_ukuran" id="nominal_ukuran" class="form-control" type="number"style="width: 210px;" value="0">
