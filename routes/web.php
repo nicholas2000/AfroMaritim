@@ -30,7 +30,7 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('/', [loginController::class, "toLoginPage"]);
-Route::middleware(['login','superadmin'])->group(function () {
+Route::middleware(['login', 'superadmin'])->group(function () {
     Route::get('/formactivity', [activitycontroller::class, "formact"]);
 });
 
@@ -47,20 +47,16 @@ Route::get('/hutang', function () {
 });
 
 
-
-
-
-// Route::get('/masterContainer', function () {
-//     return view('form.formContainer');
-// });
-
 // ROUTE BARUU
-Route::get('/masterStatus', [statusController::class, "showStatus"]);
-Route::get('/search_tanggal', [statusController::class, "searchTanggal"]);
 
 Route::get('/login', [loginController::class, "login"]);
 
-Route::middleware(['login','mastercabang'])->group(function () {
+Route::middleware(['login', 'statusbarang'])->group(function () {
+    Route::get('/masterStatus', [statusController::class, "showStatus"]);
+    Route::get('/search_tanggal', [statusController::class, "searchTanggal"]);
+});
+
+Route::middleware(['login', 'mastercabang'])->group(function () {
     Route::post('/doAddcabang', [CabangController::class, "doAdd"]);
     Route::get('/masterCabang', [CabangController::class, "show"]);
     Route::post('/masterCabang/edit', [CabangController::class, "doEdit"]);
@@ -70,7 +66,7 @@ Route::middleware(['login','mastercabang'])->group(function () {
     });
 });
 
-Route::middleware(['login','mastercustomer'])->group(function () {
+Route::middleware(['login', 'mastercustomer'])->group(function () {
     Route::post('/doAddcustomer', [CustomerController::class, "doAdd"]);
     Route::get('/masterCustomer', [CustomerController::class, "show"]);
     Route::get('/tcustomer',  [CustomerController::class, "vfmcustomer"]);
@@ -78,7 +74,7 @@ Route::middleware(['login','mastercustomer'])->group(function () {
     Route::post('/masterCustomer/delete/{id}', [CustomerController::class, "delete"]);
 });
 
-Route::middleware(['login','masterkompetitor'])->group(function () {
+Route::middleware(['login', 'masterkompetitor'])->group(function () {
     Route::post('/doAddkompetitor', [KompetitorController::class, "doAdd"]);
     Route::get('/masterKompetitor', [KompetitorController::class, "show"]);
     Route::get('/tkompetitor', function () {
@@ -88,7 +84,7 @@ Route::middleware(['login','masterkompetitor'])->group(function () {
     Route::post('/masterKompetitor/update', [KompetitorController::class, "update"]);
 });
 
-Route::middleware(['login','masterpegawai'])->group(function () {
+Route::middleware(['login', 'masterpegawai'])->group(function () {
     Route::post('/dotmpegawai', [controllerpegawai::class, "dovmtpegawai"]);
     Route::get('/masterPegawai', [controllerpegawai::class, "vmpegawai"]);
     Route::get('/tpegawai',  [controllerpegawai::class, "vfmpegawai"]);
@@ -96,52 +92,54 @@ Route::middleware(['login','masterpegawai'])->group(function () {
     Route::post('/masterPegawai/update', [controllerpegawai::class, "updatepegawai"]);
 });
 
-Route::middleware(['login','masterjenisharga'])->group(function () {
+Route::middleware(['login', 'masterjenisharga'])->group(function () {
     Route::get('/masterJenisharga', [controllerJenisHarga::class, "show"]);
     Route::post('/domasterJenisharga', [controllerJenisHarga::class, "doAdd"]);
 });
 
-Route::get('/masterpengirimansatu', [pengirimancontroller::class, "vmpengirimansatu"]);
-Route::get('/masterpengirimandua', [pengirimancontroller::class, "vmpengirimandua"]);
-Route::get('/activity', [activitycontroller::class, "formact"]);
+Route::middleware(['login', 'gudang'])->group(function () {
+    Route::get('/masterpengirimansatu', [pengirimancontroller::class, "vmpengirimansatu"]);
+});
 
-Route::get('/depo', [depoController::class, "show"]);
-Route::post('/tambahDepo', [depoController::class, "doAddDepo"]);
-Route::post('/editDepo', [depoController::class, "doEdit"]);
-Route::post('/cekDepo/{id}', [depoController::class, "cek"]);
-Route::post('/formDepo/delete/{id}', [depoController::class, "delete"]);
+Route::middleware(['login', 'depo'])->group(function () {
+    Route::get('/depo', [depoController::class, "show"]);
+    Route::post('/tambahDepo', [depoController::class, "doAddDepo"]);
+    Route::post('/editDepo', [depoController::class, "doEdit"]);
+    Route::post('/cekDepo/{id}', [depoController::class, "cek"]);
+    Route::post('/formDepo/delete/{id}', [depoController::class, "delete"]);
+});
 
 // <-------------->
 
-Route::middleware(['login','transaksi'])->group(function () {
+Route::middleware(['login', 'transaksi'])->group(function () {
     Route::post('/doMasterTransaksi', [TransaksiController::class, "doAdd"]);
     Route::get('/masterTransaksi', [TransaksiController::class, "showtransaksi"]);
 });
 
-Route::middleware(['login','history'])->group(function () {
+Route::middleware(['login', 'history'])->group(function () {
     Route::post('/masterHistory/delete/{id}', [HistoryController::class, "deletehistory"]);
     Route::post('/masterHistory/update', [HistoryController::class, "updatehistory"]);
     Route::get('/masterHistory', [TransaksiController::class, "showHistory"]);
 });
 
-
-Route::get('/masterTeam', function () {
-    return view('admin.mTeampengiriman');
+Route::middleware(['login', 'masterteampengiriman'])->group(function () {
+    Route::get('/masterTeam', function () {
+        return view('admin.mTeampengiriman');
+    });
 });
 
-// Route::get('/masterStatus', function () {
-//     return view('admin.mStatus');
-// });
-
-Route::get('/masterPiutang', function () {
-    return view('admin.mPiutang');
+Route::middleware(['login', 'piutang'])->group(function () {
+    Route::get('/masterPiutang', function () {
+        return view('admin.mPiutang');
+    });
 });
 
-Route::get('/masterContainer', [containercontroller::class, "show"]);
-Route::post('/doaddcontainer', [containercontroller::class, "doAdd"]);
-Route::post('/masterContainer/lock/{id}', [containercontroller::class, "lock"]);
-Route::post('/masterContainer/unlock/{id}', [containercontroller::class, "unlock"]);
-// Route::get('/tcontainer',  [KompetitorController::class, "vfmkompetitor"]);
-Route::get('/tcontainer', function () {
-    return view('admin.mTContainer');
+Route::middleware(['login', 'mastercontainer'])->group(function () {
+    Route::get('/masterContainer', [containercontroller::class, "show"]);
+    Route::post('/doaddcontainer', [containercontroller::class, "doAdd"]);
+    Route::post('/masterContainer/lock/{id}', [containercontroller::class, "lock"]);
+    Route::post('/masterContainer/unlock/{id}', [containercontroller::class, "unlock"]);
+    Route::get('/tcontainer', function () {
+        return view('admin.mTContainer');
+    });
 });

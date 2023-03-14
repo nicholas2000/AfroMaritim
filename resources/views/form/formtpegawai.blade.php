@@ -1,4 +1,8 @@
-
+@if ($errors->any())
+        @foreach ($errors->all() as $err)
+            <div class="alert alert-danger">{{ $err }}</div>
+        @endforeach
+    @endif
 <div class="container">
     <form class="form-horizontal" action="{{ url('/dotmpegawai') }} " method="post" id="contact_form">
         @csrf
@@ -148,6 +152,28 @@
                         <span style="border-radius: 10%;text-align: center;background-color: #023e94;width: 5%;padding-top: 1%;" class="input-group-addon"><i style="color: white"
                                 class="fa fa-envelope"></i></span>
                         <input name="email" placeholder="Masukkan E-Mail" class="form-control" type="email">
+                    </div>
+                </div>
+            </div>
+            <!--input password-->
+            <div class="form-group">
+                <label class="col-md-1 control-label">Password</label>
+                <div class="col-md-10 inputGroupContainer">
+                    <div class="input-group">
+                        <span style="border-radius: 10%;text-align: center;background-color: #023e94;width: 5%;padding-top: 1%;" class="input-group-addon"><i style="color: white"
+                                class="fa fa-envelope"></i></span>
+                        <input name="password" placeholder="Masukkan Password" class="form-control" type="password">
+                    </div>
+                </div>
+            </div>
+            <!--input confirm password-->
+            <div class="form-group">
+                <label class="col-md-2 control-label">Confirm Password</label>
+                <div class="col-md-10 inputGroupContainer">
+                    <div class="input-group">
+                        <span style="border-radius: 10%;text-align: center;background-color: #023e94;width: 5%;padding-top: 1%;" class="input-group-addon"><i style="color: white"
+                                class="fa fa-envelope"></i></span>
+                        <input name="con_password" placeholder="Masukkan Konfirmasi Password" class="form-control" type="password">
                     </div>
                 </div>
             </div>

@@ -72,5 +72,11 @@ class Kernel extends HttpKernel
         'masterpegawai'=> \App\Http\Middleware\MasterPegawaiMiddleware::class,
         'history'=> \App\Http\Middleware\HistoryTransaksiMiddleware::class,
         'transaksi'=> \App\Http\Middleware\TransaksiMiddleware::class,
+        'mastercontainer'=> \App\Http\Middleware\MasterContainerMiddleware::class,
+        'depo'=> \App\Http\Middleware\DepoMiddleware::class,
+        'statusbarang'=> \App\Http\Middleware\StatusBarangMiddleware::class,
+        'masterteampengiriman'=> \App\Http\Middleware\MasterTeamPengirimanMiddleware::class,
+        'gudang'=> \App\Http\Middleware\Gudang::class,
+        'piutang'=> \App\Http\Middleware\PiutangMiddleware::class,
     ];
 }

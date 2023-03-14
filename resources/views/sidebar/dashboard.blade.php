@@ -104,7 +104,7 @@
                 <li>
                     <form action="{{ url('/logout') }}">
                         <input type="hidden" name="device">
-                        <button style="background-color: transparent;border:none;color:white;margin-left:25px;"><i
+                        <button style="height:100%;width: 100%;background-color: transparent;border:none;color:white;margin-left:-38px;"><i
                                 class="fas fa-sign-out-alt"></i>Logout</button>
                     </form>
                 </li>

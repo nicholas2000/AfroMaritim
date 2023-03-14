@@ -176,7 +176,7 @@
                                     {{-- <a href="./delete/{{$prm->nomor_transaksi}}" class="btn btn-danger" style="">Delete</a> --}}
                                     <form action="" method="">
                                         @csrf
-                                        <button name=""type="submit" class="btn btn"><i class="fa fa-pencil-alt"></i></button>
+                                        <button name=""type="submit" class="btn btn"><i class="fa fa-pencil"></i></button>
                                     </form>
                                     <form method="post"
                                         action="{{ url('masterHistory/delete/' . $prm->nomor_resi) }}">
