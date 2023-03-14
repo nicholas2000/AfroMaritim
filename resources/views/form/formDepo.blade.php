@@ -195,24 +195,6 @@
                                 <input type="hidden" name="emailpengirim" id="emailpengirim" value="">
                             </div>
                             <br>
-                            <div class="ps">
-                                <div class="col-md-8">Catatan</div>
-                                <div>:</div>
-                                <div class="col-md-2">
-                                    <div class="search-box">
-                                        <input style="" type="text" name="catatan" id="user" class="" placeholder="" />
-                                        <div id="wrapper" onclick="hidden()">
-                                            <div class="scrollbar">
-                                                <div class="list force-overflow" id="userList" style="width: 185px;"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <input type="hidden" name="alamatpengirim" id="alamatpengirim" value="">
-                                <input type="hidden" name="nohppengirim" id="nohppengirim" value="">
-                                <input type="hidden" name="emailpengirim" id="emailpengirim" value="">
-                            </div>
-                            <br>
                         </div>
 
                         <div class="col-sm-12 col-md-6 form-group">
@@ -238,15 +220,11 @@
                             </div>
                             <br>
                             <div class="ps ">
-                                <div class="col-md-8">Catatan </div>
+                                <div class="col-md-8">Muatan Akhir</div>
                                 <div>:</div>
-                                <div class="search-box col-md-2">
-                                    <input style="" type="text" name="catatan" id="user" class="" placeholder="" />
-                                    <div id="wrapper" onclick="hidden()">
-                                        <div class="scrollbar">
-                                            <div class="list force-overflow" id="userList" style="width: 185px;"></div>
-                                        </div>
-                                    </div>
+                                <div class="col-md-6">
+                                    <input type="radio" name="final" id="" value="yes">  Yes
+                                    <input type="radio" name="final" id="" value="no" checked hidden>
                                 </div>
                             </div>
                             <br>
