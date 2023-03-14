@@ -60,13 +60,13 @@ class depoController extends Controller
             'harga_potongan' => '0',
             'total_harga' => '0',
             'status_barang' => 'Depo',
+            'catatan' => $req->catatan,
         ]);
         if($req->final=="yes"){
             $close_container = Container::find($req->contSearch);
             $close_container->update(['status' => '0']);
         }
         return redirect('/depo');
-        // }
     }
     public function doEdit(Request $req){
         $depo = Transaksi::withTrashed()->find($req->nomor_resi);
