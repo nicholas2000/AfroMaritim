@@ -1,3 +1,10 @@
+<style>
+    .wrapper {
+        width: 200px;
+        padding: 20px;
+        height: 50px;
+    }
+</style>
 
 <body>
     <div class="container">
@@ -20,8 +27,9 @@
                     <label class="col-md-1 control-label">Kode</label>
                     <div class="col-md-10 inputGroupContainer">
                         <div class="input-group">
-                            <span style="border-radius: 10%;text-align: center;background-color: #023e94;width: 5%;padding-top: 1%;" class="input-group-addon"><i style="color: white"
-                                    class="fa fa-code"></i></span>
+                            <span
+                                style="border-radius: 10%;text-align: center;background-color: #023e94;width: 5%;padding-top: 1%;"
+                                class="input-group-addon"><i style="color: white" class="fa fa-code"></i></span>
                             <input name="kode" class="form-control" type="text" disabled>
                         </div>
                     </div>
@@ -31,8 +39,9 @@
                     <label class="col-md-1 control-label">Cabang</label>
                     <div class="col-md-10 selectContainer">
                         <div class="input-group">
-                            <span style="border-radius: 10%;text-align: center;background-color: #023e94;width: 5%;padding-top: 1%;" class="input-group-addon"><i style="color: white"
-                                    class="fa fa-map-marker"></i></span>
+                            <span
+                                style="border-radius: 10%;text-align: center;background-color: #023e94;width: 5%;padding-top: 1%;"
+                                class="input-group-addon"><i style="color: white" class="fa fa-map-marker"></i></span>
                             <select name="cabang" style="height:35px" class="form-control selectpicker">
                                 <option value="">Pilih Cabang</option>
                                 @foreach ($arrCabang as $prm)
@@ -49,8 +58,9 @@
                     <label class="col-md-1 control-label">Nama</label>
                     <div class="col-md-10 inputGroupContainer">
                         <div class="input-group">
-                            <span style="border-radius: 10%;text-align: center;background-color: #023e94;width: 5%;padding-top: 1%;" class="input-group-addon"><i style="color: white"
-                                    class="fa fa-user"></i></span>
+                            <span
+                                style="border-radius: 10%;text-align: center;background-color: #023e94;width: 5%;padding-top: 1%;"
+                                class="input-group-addon"><i style="color: white" class="fa fa-user"></i></span>
                             <input name="nama" placeholder="Masukkan Nama" class="form-control" type="text">
                         </div>
                     </div>
@@ -62,8 +72,9 @@
                     <label class="col-md-1 control-label">NPWP</label>
                     <div class="col-md-10 inputGroupContainer">
                         <div class="input-group">
-                            <span style="border-radius: 10%;text-align: center;background-color: #023e94;width: 5%;padding-top: 1%;" class="input-group-addon"><i style="color: white"
-                                    class="fa fa-id-card"></i></span>
+                            <span
+                                style="border-radius: 10%;text-align: center;background-color: #023e94;width: 5%;padding-top: 1%;"
+                                class="input-group-addon"><i style="color: white" class="fa fa-id-card"></i></span>
                             <input onkeypress="return onlyNumberKey(event)" name="npwp" placeholder="Masukkan NPWP"
                                 class="form-control" type="text">
                         </div>
@@ -76,8 +87,9 @@
                     <label class="col-md-1 control-label">Alamat</label>
                     <div class="col-md-10 inputGroupContainer">
                         <div class="input-group">
-                            <span style="border-radius: 10%;text-align: center;background-color: #023e94;width: 5%;padding-top: 1%;" class="input-group-addon"><i style="color: white"
-                                    class="fa fa-road"></i></span>
+                            <span
+                                style="border-radius: 10%;text-align: center;background-color: #023e94;width: 5%;padding-top: 1%;"
+                                class="input-group-addon"><i style="color: white" class="fa fa-road"></i></span>
                             <input name="jalan" placeholder="Masukkan Alamat" class="form-control" type="text">
                         </div>
                     </div>
@@ -88,14 +100,14 @@
                     <label class="col-md-1 control-label">Provinsi</label>
                     <div class="col-md-10 selectContainer">
                         <div class="input-group">
-                            <span style="border-radius: 10%;text-align: center;background-color: #023e94;width: 5%;padding-top: 1%;" class="input-group-addon"><i style="color: white"
-                                    class="fa fa-map-marker"></i></span>
-                            <select name="provinsi" style="height:35px" class="form-control selectpicker">
+                            <span
+                                style="border-radius: 10%;text-align: center;background-color: #023e94;width: 5%;padding-top: 1%;"
+                                class="input-group-addon"><i style="color: white" class="fa fa-map-marker"></i></span>
+                            <select name="provinsi" style="height:35px;" class="form-control selectpicker">
                                 <option value="">Pilih Provinsi</option>
-                                <option>Jawa Timur</option>
-                                <option>Jawa Barat</option>
-                                <option>Jawa Tengah</option>
-                                <option>Jakarta Pusat</option>
+                                @foreach ($arrProvinsi as $prm)
+                                    <option value="{{ $prm->id }}">{{ $prm->prov_nama }}</option>
+                                @endforeach
                             </select>
                         </div>
                     </div>
@@ -106,8 +118,9 @@
                     <label class="col-md-2 control-label">Kode Pos</label>
                     <div class="col-md-10 inputGroupContainer">
                         <div class="input-group">
-                            <span style="border-radius: 10%;text-align: center;background-color: #023e94;width: 5%;padding-top: 1%;" class="input-group-addon"><i style="color: white"
-                                    class="fa fa-envelope"></i></span>
+                            <span
+                                style="border-radius: 10%;text-align: center;background-color: #023e94;width: 5%;padding-top: 1%;"
+                                class="input-group-addon"><i style="color: white" class="fa fa-envelope"></i></span>
                             <input onkeypress="return onlyNumberKey(event)" name="kodepos"
                                 placeholder="Masukkan Kode Pos" class="form-control" type="telp">
                         </div>
@@ -119,7 +132,9 @@
                     <label class="col-md-1 control-label">Telpon</label>
                     <div class="col-md-10 inputGroupContainer">
                         <div class="input-group">
-                            <span style="border-radius: 10%;text-align: center;background-color: #023e94;width: 5%;padding-top: 1%;" class="input-group-addon"><i style="font-size: 100%;color: white"
+                            <span
+                                style="border-radius: 10%;text-align: center;background-color: #023e94;width: 5%;padding-top: 1%;"
+                                class="input-group-addon"><i style="font-size: 100%;color: white"
                                     class="fa fa-phone"></i></span>
                             <input onkeypress="return onlyNumberKey(event)" name="telpon"
                                 placeholder="Masukkan Nomer Telpon" class="form-control" type="text">
@@ -132,8 +147,9 @@
                     <label class="col-md-1 control-label">E-Mail</label>
                     <div class="col-md-10 inputGroupContainer">
                         <div class="input-group">
-                            <span style="border-radius: 10%;text-align: center;background-color: #023e94;width: 5%;padding-top: 1%;" class="input-group-addon"><i style="color: white"
-                                    class="fa fa-envelope"></i></span>
+                            <span
+                                style="border-radius: 10%;text-align: center;background-color: #023e94;width: 5%;padding-top: 1%;"
+                                class="input-group-addon"><i style="color: white" class="fa fa-envelope"></i></span>
                             <input name="email" placeholder="Masukkan E-Mail" class="form-control" type="email">
                         </div>
                     </div>
@@ -168,8 +184,9 @@
                         <label class="col-md-2 control-label" style="margin-top: -10px;">Total Hutang</label>
                         <div class="col-md-10 inputGroupContainer">
                             <div class="input-group">
-                                <span style="border-radius: 10%;text-align: center;background-color: #023e94;width: 5%;padding-top: 1%;" class="input-group-addon"><i
-                                        style="color: white" class="fa fa-usd"></i></span>
+                                <span
+                                    style="border-radius: 10%;text-align: center;background-color: #023e94;width: 5%;padding-top: 1%;"
+                                    class="input-group-addon"><i style="color: white" class="fa fa-usd"></i></span>
                                 <input name="batasanHutang" placeholder="Masukkan Total Hutang" class="form-control"
                                     type="text">
                             </div>
@@ -181,8 +198,10 @@
                         <label class="col-md-2 control-label" style="margin-top: -10px;">Batas Pembayaran</label>
                         <div class="col-md-10 inputGroupContainer">
                             <div class="input-group">
-                                <span style="border-radius: 10%;text-align: center;background-color: #023e94;width: 5%;padding-top: 1%;" class="input-group-addon"><i
-                                        style="color: white" class="fa fa-calendar"></i></span>
+                                <span
+                                    style="border-radius: 10%;text-align: center;background-color: #023e94;width: 5%;padding-top: 1%;"
+                                    class="input-group-addon"><i style="color: white"
+                                        class="fa fa-calendar"></i></span>
                                 <input name="batasPembayaran" onfocus="(this.type='date')"
                                     placeholder="Masukkan Batas Waktu Pembayaran" class="form-control"
                                     type="text">
@@ -195,8 +214,10 @@
                         <label class="col-md-2 control-label" style="margin-top: -10px;">No Rekening</label>
                         <div class="col-md-10 inputGroupContainer">
                             <div class="input-group">
-                                <span style="border-radius: 10%;text-align: center;background-color: #023e94;width: 5%;padding-top: 1%;" class="input-group-addon"><i
-                                        style="color: white" class="fa fa-credit-card"></i></span>
+                                <span
+                                    style="border-radius: 10%;text-align: center;background-color: #023e94;width: 5%;padding-top: 1%;"
+                                    class="input-group-addon"><i style="color: white"
+                                        class="fa fa-credit-card"></i></span>
                                 <input onkeypress="return onlyNumberKey(event)" name="noRekening"
                                     placeholder="Masukkan No Rekening" class="form-control" type="text">
                             </div>
@@ -208,8 +229,10 @@
                         <label class="col-md-2 control-label" style="margin-top: -10px;">Metode Pembayaran</label>
                         <div class="col-md-10 selectContainer">
                             <div class="input-group">
-                                <span style="border-radius: 10%;text-align: center;background-color: #023e94;width: 5%;padding-top: 1%;" class="input-group-addon"><i
-                                        style="color: white" class="fa fa-university"></i></span>
+                                <span
+                                    style="border-radius: 10%;text-align: center;background-color: #023e94;width: 5%;padding-top: 1%;"
+                                    class="input-group-addon"><i style="color: white"
+                                        class="fa fa-university"></i></span>
                                 <select name="metodePembayaran" style="height:35px"
                                     class="form-control selectpicker">
                                     <option value="">Pilih Metode Pembayaran</option>
@@ -248,6 +271,7 @@
     function show2() {
         document.getElementById('div1').style.display = 'none';
     }
+
 </script>
 
 </html>

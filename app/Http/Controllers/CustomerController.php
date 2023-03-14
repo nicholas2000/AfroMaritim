@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Cabang;
 use App\Models\Customer;
+use App\Models\Provinsi;
 use Illuminate\Http\Request;
 
 class CustomerController extends Controller
@@ -16,8 +17,9 @@ class CustomerController extends Controller
     }
     public function vfmcustomer()
     {
+        $arrProvinsi = Provinsi::all();
         $arrCabang = Cabang::all();
-        return view('admin.mTcustomer',compact('arrCabang'));
+        return view('admin.mTcustomer',compact('arrCabang','arrProvinsi'));
     }
 
     public function sd(Request $req){
