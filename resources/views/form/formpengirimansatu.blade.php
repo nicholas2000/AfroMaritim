@@ -145,7 +145,6 @@
 
                         </tbody>
 
-
                         </table>
                     </div>
 
@@ -154,6 +153,19 @@
         </div>
 </section>
 <script>
+    $(document).ready(function (){
+        var query = 'CO001';
+        $.ajax({
+            url:"autocomplete.php",
+            method:"POST",
+            data:{query:query, ctr:"Flisttransaksi"},
+            success:function(data)
+            {
+                $('#list_transaksi').html("");
+                $('#list_transaksi').append(data);
+            }
+        })
+    });
 
     function gantiContainer(){
         var query = $('#container').val();

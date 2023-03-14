@@ -78,7 +78,7 @@
         }
     }else if($_REQUEST["ctr"]=="Flisttransaksi"){
         if(isset($_POST["query"])){
-            $query = "SELECT * FROM transaksi WHERE nomor_container = 'CO001'";
+            $query = "SELECT * FROM transaksi WHERE nomor_container = '". $_POST["query"] ."'";
             $result = mysqli_query($connect, $query);
             $ctr = 1;
             $output = "";
