@@ -75,10 +75,8 @@
                                     class="fa fa-map-marker"></i></span>
                             <select name="provinsi" style="height:35px" class="form-control selectpicker">
                                 <option value="">Pilih Provinsi</option>
+                                <option>Sulawesi Selatan</option>
                                 <option>Jawa Timur</option>
-                                <option>Jawa Barat</option>
-                                <option>Jawa Tengah</option>
-                                <option>Jakarta Pusat</option>
                             </select>
                         </div>
                     </div>
@@ -94,9 +92,7 @@
                             <select name="kota" style="height:35px" class="form-control selectpicker">
                                 <option value="">Pilih Kota</option>
                                 <option>Surabaya</option>
-                                <option>Bandung</option>
-                                <option>Solo</option>
-                                <option>Batu</option>
+                                <option>Makassar</option>
                             </select>
                         </div>
                     </div>

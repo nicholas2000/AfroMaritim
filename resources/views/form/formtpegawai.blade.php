@@ -91,9 +91,7 @@
                         <select name="provinsi" style="height:35px" class="form-control selectpicker">
                             <option value="">Pilih Provinsi</option>
                             <option>Jawa Timur</option>
-                            <option>Jawa Barat</option>
-                            <option>Jawa Tengah</option>
-                            <option>Jakarta Pusat</option>
+                            <option>Sulawesi Selatan</option>
                         </select>
                     </div>
                 </div>
@@ -109,9 +107,7 @@
                         <select name="kota" style="height:35px" class="form-control selectpicker">
                             <option value="">Pilih Kota</option>
                             <option>Surabaya</option>
-                            <option>Bandung</option>
-                            <option>Solo</option>
-                            <option>Batu</option>
+                            <option>Makassar</option>
                         </select>
                     </div>
                 </div>
@@ -188,9 +184,9 @@
                         <select name="role" style="height:35px" class="form-control selectpicker">
                             <option value="">Pilih Role</option>
                             <option>Super Admin</option>
+                            <option>Admin Surabaya</option>
+                            <option>Admin Makassar</option>
                             <option>Accounting</option>
-                            <option>Admin</option>
-                            <option>Pegawai</option>
                             <option>Kurir</option>
                         </select>
                     </div>

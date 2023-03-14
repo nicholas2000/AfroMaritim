@@ -12,7 +12,8 @@ class Permission extends Model
     protected $primaryKey = "id";
     protected $fillable = [
         'daftar_berita',
-        'admim',
+        'adminSurabaya',
+        'adminMakassar',
         'accounting',
         'kurir'
     ];

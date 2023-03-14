@@ -23,7 +23,9 @@ class MasterPegawaiMiddleware
         $cek = Permission::where('daftar_berita',"Master Pegawai")->first();
         if($role=="superadmin"){
             return $next($request);
-        }else if($cek->admin==true){
+        }else if($cek->adminmakassar==true){
+            return $next($request);
+        }else if($cek->adminsurabaya==true){
             return $next($request);
         }else if($cek->accounting==true){
             return $next($request);

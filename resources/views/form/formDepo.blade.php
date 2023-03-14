@@ -216,6 +216,11 @@
                         </div>
 
                         <div class="col-sm-12 col-md-6 form-group">
+<<<<<<< Updated upstream
+=======
+
+
+>>>>>>> Stashed changes
                             <div class="ps ">
                                 <div class="col-md-8">Jenis Barang</div>
                                 <div>:</div>

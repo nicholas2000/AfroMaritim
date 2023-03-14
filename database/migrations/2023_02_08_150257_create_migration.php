@@ -34,11 +34,11 @@ class CreateMigration extends Migration
             $table->string('id_cabang');
             $table->foreign('id_cabang')->references('id_cabang')->on('master_tcabang');
             $table->string('nama_pegawai');
-            $table->string('npwp_pegawai');
+            $table->string('npwp_pegawai')->nullable();
             $table->string('alamat_pegawai');
-            $table->string('provinsi_pegawai');
-            $table->string('kota_pegawai');
-            $table->string('kodepos_pegawai');
+            $table->string('provinsi_pegawai')->nullable();
+            $table->string('kota_pegawai')->nullable();
+            $table->string('kodepos_pegawai')->nullable();
             $table->string('telp_pegawai');
             $table->string('email_pegawai');
             $table->string('password_pegawai');

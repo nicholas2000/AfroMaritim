@@ -72,7 +72,10 @@
                                 <tr>
                                     <th>Access </th>
                                     <th>
-                                        <center>Admin</center>
+                                        <center>Admin Surabaya</center>
+                                    </th>
+                                    <th>
+                                        <center>Admin Makassar</center>
                                     </th>
                                     <th>
                                         <center>Accouting</center>
@@ -89,8 +92,14 @@
                                         <td>{{ $prm->daftar_berita }}</td>
                                         <td>
                                             <center><input class="form-check-input" type="checkbox"
-                                                    value="admin,{{ $prm->daftar_berita }}" onclick="myFunction(this)"
-                                                    id="cekAdmin{{ $ctr2 - 1 }}">
+                                                    value="adminsurabaya,{{ $prm->daftar_berita }}" onclick="myFunction(this)"
+                                                    id="cekAdminsurabaya{{ $ctr2 - 1 }}">
+                                            </center>
+                                        </td>
+                                        <td>
+                                            <center><input class="form-check-input" type="checkbox"
+                                                    value="adminmakassar,{{ $prm->daftar_berita }}" onclick="myFunction(this)"
+                                                    id="cekAdminmakassar{{ $ctr2 - 1 }}">
                                             </center>
                                         </td>
                                         <td>
@@ -240,10 +249,14 @@
 
     var jArray = <?php echo json_encode($arrPermission); ?>;
     for (var i = 0; i < jArray.length; i++) {
-        if (jArray[i]['admin'] == 1) {
-            document.getElementById("cekAdmin" + i.toString()).checked = true;
-        } else if (jArray[i]['admin'] == 0) {
-            document.getElementById("cekAdmin" + i.toString()).checked = false;
+        if (jArray[i]['adminsurabaya'] == 1) {
+            document.getElementById("cekAdminsurabaya" + i.toString()).checked = true;
+        } else if (jArray[i]['adminsurabaya'] == 0){
+            document.getElementById("cekAdminsurabaya" + i.toString()).checked = false;
+        } else if (jArray[i]['adminmakassar'] == 1) {
+            document.getElementById("cekAdminmakassar" + i.toString()).checked = true;
+        } else if (jArray[i]['adminmakassar'] == 0) {
+            document.getElementById("cekAdminsurabaya" + i.toString()).checked = false;
         } else if (jArray[i]['accounting'] == 1) {
             document.getElementById("cekAccounting" + i.toString()).checked = true;
         } else if (jArray[i]['accounting'] == 0) {
