@@ -15,13 +15,13 @@
 
 <script src="https://cdn.jsdelivr.net/npm/table2excel@1.0.4/dist/table2excel.min.js"></script> --}}
 <style>
-    .ps {
+    .p {
         display: flex;
-        width: 100%;
+        width: 80%;
     }
 
     @media screen and (max-width:600px) {
-        .ps {
+        .p {
             width: 75%;
         }
 
@@ -44,92 +44,77 @@
                     <div class="p">
                         <div class="col-sm-1">Container</div>
                         <div class="col-sm-2 pk" style="margin-right: 10%;">
-                            <select style="width: 100px;height: 35px; margin-left:30px;" class="form-control selectpicker" id="container" name="container" onchange="gantiContainer()">
-                                    @foreach ($arrContainer as $prm)
-                                        <option value="{{$prm->nomor_container}}">{{ $prm->nama_container }}</option>
+                            <select style="width: 100px;height: 35px; margin-left:30px;" class="form-control selectpicker">
+                                @foreach ($arrHistory as $prm)
+                                        <option value="{{ $prm->tipe }},{{ $prm->jenis_harga }},{{ $prm->nominal }}">{{ $prm->tipe }}</option>
                                     @endforeach
-                                </select>
-                            </div>
-                            <div class="col-md-10">
-                                <form action="{{ url('/search_tanggal') }}" method="get">
-
-                                    <div class="form-group" style="margin-right:10px;">
-                                        <div style="display: flex;">
-                                            <input type="date" class=" form-control"
-                                                style="margin-right: 10px;width: 150px;"
-                                                placeholder="&#xf133;  Tgl Awal" id="currentDate" name="date_awal">
-                                            <input type="date" class=" form-control"
-                                                style="margin-right: 10px;width: 150px;"
-                                                placeholder="&#xf133;  Tgl Akhir" name="date_akhir">
-                                            <button type="submit" class="btn btn-success">Cari</button>
-                                        </div>
-
-                                </form>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <div style="display: flex;">
+                                <input id="dp1" type="text" class=" fa fa-calendar form-control clickable "
+                                    style="margin-right: 10px;width: 110px;" id="DtChkIn"
+                                    placeholder="&#xf133;  Tgl Awal">
+                                <input id="dp2" type="text" class=" fa fa-calendar form-control clickable"
+                                    id="DtChkOut" style="margin-right: 10px;width: 110px;"
+                                    placeholder="&#xf133;  Tgl Akhir">
                             </div>
                         </div>
-
-
-                        <script>
-                            var today = new Date();
-                            var date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
-                            // document.getElementById("currentDate").value = date;
-                            console.log(date);
-                        </script>
+                        <div style="display: flex;">
+                            <a href="" class="btn btn-primary"
+                                style="color: white;height: 37px;margin-right: 5%;" class="p">Import</a>
+                            <a href="" id="btn-excel" class="btn btn-success"
+                                style="color: white;height: 37px;">Export</a>
+                        </div>
                     </div>
                 </div>
-                <div class=" col-sm-12 col-md-6 form-group" style="display: flex">
-                    <div class="col-md-12"></div>
-                    <div class="col-md-11"></div>
-                    <div class="col-md-3" style="display:flex;">
-                        <a href="" class="btn btn-primary" style="color: white;height: 37px;margin-right: 5%;"
-                            class="ps">Import</a>
-                        <a href="" id="btn-excel" class="btn btn-success"
-                            style="color: white;height: 37px;">Export</a>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-sm-12 col-md-6 form-group">
+                    <div class="p">
+                        <div class="col-md-4">Nama Kurir</div>
+                        <div>:</div>
+                        <div class="col-md-3">
+                            <select name="namakurir" style="height:35px; width: 180px; "
+                                class="form-control selectpicker">
+                                <option value="">Pilih Kurir</option>
+                                <option>Kurir 1</option>
+                                <option>Kurir 2</option>
+                                <option>Kurir 3</option>
+                                <option>Kurir 4</option>
+                            </select>
+                        </div>
                     </div>
+                    <br>
+
+                    <br>
+
+                    {{-- ----- --}}
                 </div>
-                <br>
-                <div class="row">
-                    <div class="col-sm-12 col-md-6 form-group">
-                        <div class="ps">
-                            <div class="col-md-4">Nama Kurir</div>
-                            <div>:</div>
-                            <div class="col-md-3">
-                                <select name="namakurir" style="height:35px; width: 180px; "
-                                    class="form-control selectpicker">
-                                    <option value="">Pilih Kurir</option>
-                                    <option>Kurir 1</option>
-                                    <option>Kurir 2</option>
-                                    <option>Kurir 3</option>
-                                    <option>Kurir 4</option>
-                                </select>
-                            </div>
+                <div class="col-sm-12 col-md-6 form-group">
+
+                    <div class="p ">
+                        <div class="col-sm-5">Total Barang Diantar</div>
+                        <div>:</div>
+                        <div class="col-sm-3">
+                            <input style="width: 180px;"type='text' name="barang" disabled>
                         </div>
-                        <br>
-
-                        <br>
-
-                        {{-- ----- --}}
                     </div>
-                    <div class="col-sm-12 col-md-6 form-group">
+                    <br>
 
-                        <div class="ps ">
-                            <div class="col-sm-5">Total Barang Diantar</div>
-                            <div>:</div>
-                            <div class="col-sm-3">
-                                <input style="width: 180px;"type='text' name="barang" disabled>
-                            </div>
-                        </div>
-                        <br>
+                    <br>
+                    <a href=""class="btn btn-primary" style="float: right">Masukkan Barang</a>
+                    <br>
+                </div>
 
-                        <br>
-                        <a href=""class="btn btn-primary" style="float: right">Masukkan Barang</a>
-                        <br>
-                    </div>
+                <div class="col-12">
+                    <table id="datatables" class="table table-bordered">
 
-                        <thead style="background-color:  #023e94;color: white;">
+                        <tr style="background-color:  #023e94;color: white;">
                             <th scope="col"> <center><input type="checkbox" name="cball" id="cball"></center>  </th>
                             <th scope="col"><center> No </center></th>
-                            <th scope="col"><center> No Resi </center></th>
+                            <th scope="col"><center> No Transaksi </center></th>
                             <th scope="col">
                                 <center>Tanggal Pengiriman</center>
                             </th>
@@ -140,67 +125,53 @@
                                 <center>Link Foto</center>
                             </th>
 
-                        </thead>
-                        <tbody id="list_transaksi">
-                            <?php $ctr = 1; ?>
-                            @foreach ($arrHistory as $res)
-                                <td><input type="checkbox" value="' . $res["nomor_resi"] . '" onclick="myFunction(tdis)"></td>
-                                <td scope="row">' . $ctr . '</td>
-                                <td scope="col"><center>' . $res["nomor_resi"] . '</center></td>
-                                <td scope="col"><center>' . $res["tanggal"] . '</center></td>
-                                <td scope="col"><center>' . $res["link_foto"] . '</center></td>
-                                <td scope="col" style="display: flex">
-                                    <form action="" method="POST">
-                                        <meta content="authenticity_token" name="csrf-param" />
-                                        <button name="" type="submit" class="btn btn"><i class="fa fa-pencil-alt"></i></button>
+                        </tr>
+                        <?php $ctr = 1; ?>
+
+                        @foreach ($arrHistory as $prm)
+                            <tr>
+                                <th >
+                                    <input type="checkbox"  value="{{$prm->nomor_transaksi}}" onclick="myFunction(this)">
+                                </th>
+                                <th scope="row">{{ $ctr }}</th>
+                                <th scope="col">
+                                    <center>{{ $prm->nomor_resi }}</center>
+                                </th>
+                                <th scope="col">
+                                    <center>{{ $prm->tanggal }}</center>
+                                </th>
+                                <th scope="col">
+                                    <center>{{ $prm->status_barang }}</center>
+                                </th>
+                                <th scope="col" style="display: flex">
+                                    {{-- <a href="./delete/{{$prm->nomor_transaksi}}" class="btn btn-danger" style="">Delete</a> --}}
+                                    <form action="" method="">
+                                        @csrf
+                                        <button name=""type="submit" class="btn btn"><i class="fa fa-pencil-alt"></i></button>
                                     </form>
-                                </td>
-                                <?php $ctr++; ?>
-                            @endforeach
-                        </tbody>
+                                </th>
+                            </tr>
+                            <?php $ctr++; ?>
+                        @endforeach
 
-                        </table>
-                    </div>
 
+
+                    </table>
                 </div>
+
             </div>
         </div>
+    </div>
 </section>
 <script>
-    // $(document).ready(function (){
-    //     var query = 'CO001';
-    //     $.ajax({
-    //         url:"autocomplete.php",
-    //         method:"POST",
-    //         data:{query:query, ctr:"Flisttransaksi"},
-    //         success:function(data)
-    //         {
-    //             $('#list_transaksi').html("");
-    //             $('#list_transaksi').append(data);
-    //         }
-    //     })
-    // });
-
-    function gantiContainer(){
-        var query = $('#container').val();
-        $.ajax({
-            url:"autocomplete.php",
-            method:"POST",
-            data:{query:query,ctr:"Flisttransaksi"},
-            success:function(data)
-            {
-                $('#list_transaksi').html("");
-                $('#list_transaksi').append(data);
-            }
-        });
-    }
-
-    var data2 = [];
+var data2 = [];
     function myFunction(x) {
-        if (x.checked == true) {
+        if(x.checked==true)
+        {
             data2.push(x.value);
 
-        } else {
+        }else
+        {
             data2.splice(data2.indexOf(x.value), 1);
         }
 
