@@ -11,9 +11,9 @@ class pengirimancontroller extends Controller
 {
     public function vmpengirimansatu()
     {
-        // $param['arrContainer'] = Container::where('status', 1)->get();
-        $param['arrContainer'] = Container::get();
-        $param['arrHistory']=Transaksi::get();
+        $param['arrContainer'] = Container::where('status', 1)->get();
+        // $param['arrContainer'] = Container::get();
+        $param['arrHistory']=Transaksi::where('nomor_container', $param['arrContainer'])->get();
         return view('admin.mOpsi2',$param);
     }
     // public function filterGudang($nocont)

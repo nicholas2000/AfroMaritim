@@ -142,7 +142,21 @@
 
                         </thead>
                         <tbody id="list_transaksi">
-
+                            <?php $ctr = 1; ?>
+                            @foreach ($arrHistory as $res)
+                                <td><input type="checkbox" value="' . $res["nomor_resi"] . '" onclick="myFunction(tdis)"></td>
+                                <td scope="row">' . $ctr . '</td>
+                                <td scope="col"><center>' . $res["nomor_resi"] . '</center></td>
+                                <td scope="col"><center>' . $res["tanggal"] . '</center></td>
+                                <td scope="col"><center>' . $res["link_foto"] . '</center></td>
+                                <td scope="col" style="display: flex">
+                                    <form action="" method="POST">
+                                        <meta content="authenticity_token" name="csrf-param" />
+                                        <button name="" type="submit" class="btn btn"><i class="fa fa-pencil-alt"></i></button>
+                                    </form>
+                                </td>
+                                <?php $ctr++; ?>
+                            @endforeach
                         </tbody>
 
                         </table>
@@ -153,19 +167,19 @@
         </div>
 </section>
 <script>
-    $(document).ready(function (){
-        var query = 'CO001';
-        $.ajax({
-            url:"autocomplete.php",
-            method:"POST",
-            data:{query:query, ctr:"Flisttransaksi"},
-            success:function(data)
-            {
-                $('#list_transaksi').html("");
-                $('#list_transaksi').append(data);
-            }
-        })
-    });
+    // $(document).ready(function (){
+    //     var query = 'CO001';
+    //     $.ajax({
+    //         url:"autocomplete.php",
+    //         method:"POST",
+    //         data:{query:query, ctr:"Flisttransaksi"},
+    //         success:function(data)
+    //         {
+    //             $('#list_transaksi').html("");
+    //             $('#list_transaksi').append(data);
+    //         }
+    //     })
+    // });
 
     function gantiContainer(){
         var query = $('#container').val();
