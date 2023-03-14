@@ -81,8 +81,8 @@
                         <li><a href="{{ url('/masterTransaksi') }}">Transaksi</a></li>
                         <li><a href="{{ url('/masterHistory') }}">History Transaksi</a></li>
                         <li><a href="{{ url('/masterStatus') }}">Status Barang</a></li>
-                        <li style="line-height:15px;"><a href="{{ url('/masterTeam') }}">Master Team Pengiriman</a>
-                        </li>
+                       {{-- <li style="line-height:15px;"><a href="{{ url('/masterTeam') }}">Master Team Pengiriman</a>
+                        </li> --}}
                         <li style="margin-bottom: 5px;"><a href="{{ url('/masterpengirimansatu') }}">Pengiriman
                                 Kurir</a></li>
                     </ul>
