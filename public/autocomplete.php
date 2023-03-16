@@ -89,11 +89,11 @@
                         <td scope="row">' . $ctr . '</td>
                         <td scope="col"><center>' . $res["nomor_resi"] . '</center></td>
                         <td scope="col"><center>' . $res["tanggal"] . '</center></td>
-                        <td scope="col"><center>' . $res["link_foto"] . '</center></td>
-                        <td scope="col" style="display: flex">
+                        <td scope="col"><center>' . $res["status_barang"] . '</center></td>
+                        <td scope="col" style="text-align:center;">
                             <form action="" method="POST">
                                 <meta content="authenticity_token" name="csrf-param" />
-                                <button name="" type="submit" class="btn btn"><i class="fa fa-pencil-alt"></i></button>
+                                <button name="" type="submit" class="btn btn"><i class="fa fa-pencil"></i></button>
                             </form>
                         </td>
                     </tr>
