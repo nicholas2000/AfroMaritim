@@ -22,7 +22,6 @@ class modelpegawai extends Model
         'provinsi_pegawai',
         'kota_pegawai',
         'kodepos_pegawai',
-        'nohp_pegawai',
         'telp_pegawai',
         'email_pegawai',
         'password_pegawai',

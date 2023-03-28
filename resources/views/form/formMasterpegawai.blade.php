@@ -207,9 +207,6 @@
                                     <input onkeypress="return onlyNumberKey(event)" name="kodepos"
                                         placeholder="Masukkan Kode Pos" class="form-control" type="text">
 
-                                    <label style="margin-left: 40px;">HP</label>
-                                    <input onkeypress="return onlyNumberKey(event)" name="hp"
-                                        placeholder="Masukkan Nomer HP" class="form-control" type="telp">
 
                                     <label style="margin-left: 40px;">Telpon</label>
                                     <input onkeypress="return onlyNumberKey(event)" name="telpon"

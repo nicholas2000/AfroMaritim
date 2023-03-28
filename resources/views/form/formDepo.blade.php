@@ -306,7 +306,7 @@
                                     class="fa fa-pencil"></i></button>
 
                                     <form method="post"
-                                    action="{{ url('/formDepo/delete/' . $prm->nomor_transaksi) }}">
+                                    action="{{ url('/formDepo/delete/' . $prm->nomor_resi) }}">
                                     @csrf
                                     <button type="submit" class="btn btn-danger"><i
                                         class="fa fa-trash"></i></button>
@@ -338,8 +338,8 @@
                                             <input name="nama_pengirim" placeholder="Masukkan Nama Pengirim" class="form-control"
                                             type="text">
 
-                                            <label style="margin-left: 40px;">Nama Barang</label>
-                                            <input name="nama_barang" placeholder="Masukkan Nama Barang" class="form-control"
+                                            <label style="margin-left: 40px;">Jenis Barang</label>
+                                            <input name="jenis_barang" placeholder="Masukkan Nama Barang" class="form-control"
                                             type="text">
 
                                             <label style="margin-left: 40px;">Nomor Resi</label>
@@ -523,9 +523,9 @@
         var jArray = <?php echo json_encode($Transaksi); ?>;
         $("[name='nama_pengirim']").val(jArray[id]['nama_pengirim']);
         $("[name='nama_penerima']").val(jArray[id]['nama_penerima']);
-        $("[name='nama_barang']").val(jArray[id]['nama_barang']);
+        $("[name='jenis_barang']").val(jArray[id]['jenis_barang']);
         $("[name='nomor_resi']").val(jArray[id]['nomor_resi']);
-        $("[name='nomor_container']").val(jArray[id]['nomor_container']);
+        $("[name='nomor_container']").val(jArray[id]['nomor_container']); 
         $("[name='nomor_transaksi']").val(jArray[id]['nomor_transaksi']);
     }
 </script>
