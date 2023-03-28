@@ -10,8 +10,16 @@ use Carbon\Carbon;
 use DateTime;
 use Illuminate\Http\Request;
 
+use App\Exports\ExportTransaksi;
+use Maatwebsite\Excel\Facades\Excel;
+
 class TransaksiController extends Controller
 {
+    public function export()
+    {
+        return Excel::download(new ExportTransaksi, 'Transaksi.xlsx');
+    }
+
     public function showHistory()
     {
         $param['arrHistory']=Transaksi::get();

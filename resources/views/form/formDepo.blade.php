@@ -132,7 +132,7 @@
                         <div>
                             <a href="" class="btn btn-primary" style="color: white;height: 37px;margin-right: 5%;"
                             class="ps">Import</a>
-                            <a href="" id="btn-excel" class="btn btn-success"
+                            <a href="{{url('export')}}" id="btn-excel" class="btn btn-success"
                             style="color: white;height: 37px;">Export</a>
                         </div>
                     </div>
@@ -525,7 +525,7 @@
         $("[name='nama_penerima']").val(jArray[id]['nama_penerima']);
         $("[name='jenis_barang']").val(jArray[id]['jenis_barang']);
         $("[name='nomor_resi']").val(jArray[id]['nomor_resi']);
-        $("[name='nomor_container']").val(jArray[id]['nomor_container']); 
+        $("[name='nomor_container']").val(jArray[id]['nomor_container']);
         $("[name='nomor_transaksi']").val(jArray[id]['nomor_transaksi']);
     }
 </script>

@@ -143,3 +143,5 @@ Route::middleware(['login', 'mastercontainer'])->group(function () {
         return view('admin.mTContainer');
     });
 });
+
+Route::get('/export', [TransaksiController::class, "export"]);
