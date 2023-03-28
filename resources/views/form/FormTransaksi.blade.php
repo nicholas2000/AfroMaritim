@@ -141,13 +141,10 @@
                         <div class="col-sm-1">
                             Ukuran :
                         </div>
-<<<<<<< HEAD
                         <div class="col-sm">
                             <input name="ukuran" class="form-control" type="text"style="width: 210px;" >
-=======
                         <div class="col-sm-2">
                             <input type="checkbox" name="option-1" id="option-1" onclick="disable_option1()">
->>>>>>> f411128c848bf22a3d2956dc3164b912977943ea
                         </div>
                         <div class="col-sm-3">
                             <input name="ukuran" id="ukuran" class="form-control" type="text"style="width: 210px;" >
