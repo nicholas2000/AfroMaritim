@@ -132,7 +132,7 @@
                         <div>
                             <a href="" class="btn btn-primary" style="color: white;height: 37px;margin-right: 5%;"
                             class="ps">Import</a>
-                            <a href="" id="btn-excel" class="btn btn-success"
+                            <a href="{{url('export')}}" id="btn-excel" class="btn btn-success"
                             style="color: white;height: 37px;">Export</a>
                         </div>
                     </div>
