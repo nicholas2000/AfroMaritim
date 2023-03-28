@@ -368,6 +368,7 @@
     </div>
 </section>
 </body>
+<script></script>
 <script>
     var data3 = [];
     function myFunction(x) {
