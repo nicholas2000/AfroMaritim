@@ -525,7 +525,7 @@
         $("[name='nama_penerima']").val(jArray[id]['nama_penerima']);
         $("[name='jenis_barang']").val(jArray[id]['jenis_barang']);
         $("[name='nomor_resi']").val(jArray[id]['nomor_resi']);
-        $("[name='nomor_container']").val(jArray[id]['nomor_container']); 
+        $("[name='nomor_container']").val(jArray[id]['nomor_container']);
         $("[name='nomor_transaksi']").val(jArray[id]['nomor_transaksi']);
     }
 </script>
