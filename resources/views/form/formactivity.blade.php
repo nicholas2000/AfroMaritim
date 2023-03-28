@@ -245,6 +245,7 @@
     </section>
 
 </body>
+<script></script>
 <script type="text/javascript">
 
     var jArray = <?php echo json_encode($arrPermission); ?>;
