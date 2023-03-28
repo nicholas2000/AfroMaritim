@@ -5,68 +5,51 @@ namespace App\Http\Controllers;
 use App\Models\Cabang;
 use App\Models\modelpegawai;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Crypt;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
+use Symfony\Component\Console\Input\Input;
 
 class controllerpegawai extends Controller
 {
     public function vmpegawai()
     {
-        $param['arrPegawai']=modelpegawai::get();
-        return view('admin.mPegawai',$param);
+        $arrPegawai = modelpegawai::all();
+        $cabang = Cabang::all();
+        return view('admin.mPegawai', compact('arrPegawai', 'cabang'));
     }
 
     public function vfmpegawai()
     {
-        $cabang = Cabang::all();
-        return view('admin.mTpegawai',compact('cabang'));
+        $arrCabang = Cabang::all();
+        return view('admin.mTpegawai', compact('arrCabang'));
     }
 
     public function dovmtpegawai(Request $request)
     {
-        $temp = modelpegawai::count();
+        $pegawai = modelpegawai::withTrashed()->get();
         $ctr = 1;
-        for ($i = 0; $i < $temp; $i++) {
-            $ctr++;
+        foreach ($pegawai as $p) {
+            $ctr = intval(substr($p->id_pegawai, 2)) + 1;
         }
         if ($ctr < 10) {
             $kode = "P00{$ctr}";
-        } else {
+        } else if ($ctr < 100) {
             $kode = "P0{$ctr}";
+        } else {
+            $kode = "P{$ctr}";
         }
 
         $request->validate(
             [
-                "cabang" => 'required',
-                "nama" => 'required',
-                "npwp" => 'required',
-                "jalan" => 'required',
-                "kodepos" => 'required',
-                "provinsi"=>'required',
-                "kota"=>'required',
-                "kecamatan"=>'required',
-                "kelurahan"=>'required',
-                "kodepos"=>'required',
-                "hp" => 'required',
-                "telpon" => 'required',
-                "email" => 'required',
-                "role" => 'required'
+                'con_password' => 'same:password'
             ],
             [
-                "cabang.required" => "cabang harus di isi",
-                "nama.required" => "nama harus di isi",
-                "npwp.required" => "npwp harus di isi",
-                "jalan.required" => "jalan harus di isi",
-                "provinsi.required" => "Provinsi harus di pilih",
-                "kota.required" => "Kota harus di pilih",
-                "kecamatan.required" => "Kecamatan harus di pilih",
-                "kelurahan.required" => "Kelurahan harus di pilih",
-                "kodepos.required" => "kode pos harus di isi",
-                "hp.required" => "hp harus di isi",
-                "telpon.required" => "telpon harus di isi",
-                "email.required" => "email harus di isi",
-                "role.required" => "Role harus di pilih",
+                "con_password.same" => "Konfirmasi password harus sama dengan password",
             ]
         );
+        $password = Hash::make($request->password);
+
         modelpegawai::create([
             'id_pegawai' => $kode,
             'id_cabang' => $request->cabang,
@@ -75,14 +58,56 @@ class controllerpegawai extends Controller
             'alamat_pegawai' => $request->jalan,
             'provinsi_pegawai' => $request->provinsi,
             'kota_pegawai' => $request->kota,
-            'kecamatan_pegawai' => $request->kecamatan,
-            'kelurahan_pegawai' => $request->kelurahan,
+            'kodepos_pegawai' => $request->kodepos,
+            'telp_pegawai' => $request->telpon,
+            'email_pegawai' => $request->email,
+            'password_pegawai' => $password,
+            'role_pegawai' => $request->role
+        ]);
+        return redirect("/masterPegawai");
+    }
+
+    public function deletepegawai($id)
+    {
+        $pegawai = modelpegawai::withTrashed()->find($id);
+        if ($pegawai->trashed()) {
+            $result = $pegawai->restore();
+        } else {
+            $result = $pegawai->delete();
+        }
+
+        if ($result) {
+            return redirect('/masterPegawai');
+        } else {
+            return redirect('/masterPegawai');
+        }
+    }
+    public function updatepegawai(Request $request)
+    {
+        $status = 0;
+        if ($request->status == "Aktif") {
+            $status = 1;
+        } else {
+            $status = 0;
+        }
+        $idpegawaiterpilih = modelpegawai::withTrashed()->find($request->kode);
+        $result = $idpegawaiterpilih->update([
+            'id_cabang' => $request->cabang,
+            'nama_pegawai' => $request->nama,
+            'npwp_pegawai' => $request->npwp,
+            'alamat_pegawai' => $request->alamat,
+            'provinsi_pegawai' => $request->provinsi,
+            'kota_pegawai' => $request->kota,
             'kodepos_pegawai' => $request->kodepos,
             'nohp_pegawai' => $request->hp,
             'telp_pegawai' => $request->telpon,
             'email_pegawai' => $request->email,
             'role_pegawai' => $request->role
         ]);
-        return redirect("/masterPegawai");
+        if ($result) {
+            return redirect('/masterPegawai');
+        } else {
+            return redirect('/masterPegawai');
+        }
     }
 }

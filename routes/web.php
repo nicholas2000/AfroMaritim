@@ -1,13 +1,20 @@
 <?php
 
+use App\Http\Controllers\activitycontroller;
 use App\Http\Controllers\CabangController;
+use App\Http\Controllers\containercontroller;
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\controllerJenisHarga;
 use App\Http\Controllers\controllerpegawai;
 use App\Http\Controllers\CustomerController;
+use App\Http\Controllers\depoController;
 use App\Http\Controllers\HistoryController;
 use App\Http\Controllers\KompetitorController;
 use App\Http\Controllers\loginController;
+use App\Http\Controllers\pengirimancontroller;
+use App\Http\Controllers\statusController;
 use App\Http\Controllers\TransaksiController;
+use App\Models\Kompetitor;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,128 +28,120 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('login');
+
+Route::get('/', [loginController::class, "toLoginPage"]);
+Route::middleware(['login', 'superadmin'])->group(function () {
+    Route::get('/formactivity', [activitycontroller::class, "formact"]);
 });
 
-Route::get('/dashboard', function () {
-    return view('sidebar.dashboard');
+Route::get('/logout', [loginController::class, "logout"]);
+
+Route::middleware('login')->group(function () {
+    Route::get('/dashboard', function () {
+        return view('sidebar.dashboard');
+    });
 });
 
 Route::get('/hutang', function () {
     return view('form.formHutang');
 });
-Route::get('/tcabang', function () {
-    return view('admin.mTcabang');
-});
 
-Route::get('/tkompetitor', function () {
-    return view('admin.mTkompetitor');
-});
 
 // ROUTE BARUU
 
-
 Route::get('/login', [loginController::class, "login"]);
 
-Route::post('/doAddcustomer', [CustomerController::class, "doAdd"]);
-Route::get('/masterCustomer', [CustomerController::class, "show"]);
-Route::get('/tcustomer',  [CustomerController::class, "vfmcustomer"]);
+Route::middleware(['login', 'statusbarang'])->group(function () {
+    Route::get('/masterStatus', [statusController::class, "showStatus"]);
+    Route::get('/search_tanggal', [statusController::class, "searchTanggal"]);
+});
 
-Route::post('/doAddcabang', [CabangController::class, "doAdd"]);
-Route::get('/masterCabang', [CabangController::class, "show"]);
-Route::get('/editCabang/{id}',[CabangController::class, "edit"]);
+Route::middleware(['login', 'mastercabang'])->group(function () {
+    Route::post('/doAddcabang', [CabangController::class, "doAdd"]);
+    Route::get('/masterCabang', [CabangController::class, "show"]);
+    Route::post('/masterCabang/edit', [CabangController::class, "doEdit"]);
+    Route::post('/masterCabang/delete/{id}', [CabangController::class, "delete"]);
+    Route::get('/tcabang', function () {
+        return view('admin.mTcabang');
+    });
+});
 
-Route::post('/doAddkompetitor', [KompetitorController::class, "doAdd"]);
-Route::get('/masterKompetitor', [KompetitorController::class, "show"]);
+Route::middleware(['login', 'mastercustomer'])->group(function () {
+    Route::post('/doAddcustomer', [CustomerController::class, "doAdd"]);
+    Route::get('/masterCustomer', [CustomerController::class, "show"]);
+    Route::get('/tcustomer',  [CustomerController::class, "vfmcustomer"]);
+    Route::post('/masterCustomer/edit', [CustomerController::class, "doEdit"]);
+    Route::post('/masterCustomer/delete/{id}', [CustomerController::class, "delete"]);
+});
 
-Route::post('/dotmpegawai', [controllerpegawai::class, "dovmtpegawai"]);
-Route::get('/masterPegawai', [controllerpegawai::class, "vmpegawai"]);
-Route::get('/tpegawai',  [controllerpegawai::class, "vfmpegawai"]);
+Route::middleware(['login', 'masterkompetitor'])->group(function () {
+    Route::post('/doAddkompetitor', [KompetitorController::class, "doAdd"]);
+    Route::get('/masterKompetitor', [KompetitorController::class, "show"]);
+    Route::get('/tkompetitor', function () {
+        return view('admin.mTkompetitor');
+    });
+    Route::post('/masterKompetitor/delete/{id}', [KompetitorController::class, "delete"]);
+    Route::post('/masterKompetitor/update', [KompetitorController::class, "update"]);
+});
 
+Route::middleware(['login', 'masterpegawai'])->group(function () {
+    Route::post('/dotmpegawai', [controllerpegawai::class, "dovmtpegawai"]);
+    Route::get('/masterPegawai', [controllerpegawai::class, "vmpegawai"]);
+    Route::get('/tpegawai',  [controllerpegawai::class, "vfmpegawai"]);
+    Route::post('/masterPegawai/delete/{id}', [controllerpegawai::class, "deletepegawai"]);
+    Route::post('/masterPegawai/update', [controllerpegawai::class, "updatepegawai"]);
+});
 
+Route::middleware(['login', 'masterjenisharga'])->group(function () {
+    Route::get('/masterJenisharga', [controllerJenisHarga::class, "show"]);
+    Route::post('/domasterJenisharga', [controllerJenisHarga::class, "doAdd"]);
+});
 
+Route::middleware(['login', 'gudang'])->group(function () {
+    Route::get('/masterpengirimansatu', [pengirimancontroller::class, "vmpengirimansatu"]);
+});
+
+Route::middleware(['login', 'depo'])->group(function () {
+    Route::get('/depo', [depoController::class, "show"]);
+    Route::post('/tambahDepo', [depoController::class, "doAddDepo"]);
+    Route::post('/editDepo', [depoController::class, "doEdit"]);
+    Route::post('/cekDepo/{id}', [depoController::class, "cek"]);
+    Route::post('/formDepo/delete/{id}', [depoController::class, "delete"]);
+});
 
 // <-------------->
-Route::post('/doMasterTransaksi', [TransaksiController::class, "doAdd"]);
-Route::get('/masterTransaksi', [TransaksiController::class, "showtransaksi"]);
 
-
-Route::get('/masterTeam', function () {
-    return view('admin.mTeampengiriman');
+Route::middleware(['login', 'transaksi'])->group(function () {
+    Route::post('/doMasterTransaksi', [TransaksiController::class, "doAdd"]);
+    Route::get('/masterTransaksi', [TransaksiController::class, "showtransaksi"]);
 });
 
-// Route::post('/doMasterTransaksi', [TransaksiController::class, "doAdd"]);
-Route::get('/masterHistory', [TransaksiController::class, "showHistory"]);
-// Route::get('/masterHistory', function () {
-//     return view('admin.mHistory');
-// });
-
-Route::get('/masterStatus', function () {
-    return view('admin.mStatus');
+Route::middleware(['login', 'history'])->group(function () {
+    Route::post('/masterHistory/delete/{id}', [HistoryController::class, "deletehistory"]);
+    Route::post('/masterHistory/update', [HistoryController::class, "updatehistory"]);
+    Route::get('/masterHistory', [TransaksiController::class, "showHistory"]);
 });
 
-Route::get('/masterPiutang', function () {
-    return view('admin.mPiutang');
+Route::middleware(['login', 'masterteampengiriman'])->group(function () {
+    Route::get('/masterTeam', function () {
+        return view('admin.mTeampengiriman');
+    });
 });
 
-Route::get('/masterPenerimaanbarang', function () {
-    return view('admin.mPenerimaanbarang');
-});
-Route::get('/masterPenawaran', function () {
-    return view('admin.mPenawaran');
-});
-Route::get('/masterPo', function () {
-    return view('admin.mPo');
+Route::middleware(['login', 'piutang'])->group(function () {
+    Route::get('/masterPiutang', function () {
+        return view('admin.mPiutang');
+    });
 });
 
-Route::get('/masterBox', function () {
-    return view('admin.mBox');
+Route::middleware(['login', 'mastercontainer'])->group(function () {
+    Route::get('/masterContainer', [containercontroller::class, "show"]);
+    Route::post('/doaddcontainer', [containercontroller::class, "doAdd"]);
+    Route::post('/masterContainer/lock/{id}', [containercontroller::class, "lock"]);
+    Route::post('/masterContainer/unlock/{id}', [containercontroller::class, "unlock"]);
+    Route::get('/tcontainer', function () {
+        return view('admin.mTContainer');
+    });
 });
 
-Route::get('/tambahpenerimaanbarang', function () {
-    return view('admin.mTambahbarang');
-});
-
-Route::get('/tambahPo', function () {
-    return view('admin.mTambahPo');
-});
-Route::get('/historypenawaran', function () {
-    return view('admin.mHistoryPenawaran');
-});
-Route::get('/tambahformnopo', function () {
-    return view('admin.mTambahFormNoPo');
-});
-
-Route::get('/tambahsuratjalan', function () {
-    return view('admin.mSuratJalan');
-});
-Route::post('/masterHistory/delete/{id}', [HistoryController::class, "deletehistory"]);
-Route::post('/masterHistory/update', [HistoryController::class, "updatehistory"]);
-
-//ROUTE BARU
-
-
-// Route::group(['prefix' => 'dashboard'], function(){
-//     Route::get('/formpegawai', function () {
-//         return view('formMasterpegawai');
-//     })->name('masterpegawai');
-//     Route::get('/formcustomer', function () {
-//         return view('formMastercustomer');
-//     })->name('mastercustomer');
-//     Route::get('/formsupplier', function () {
-//         return view('formMastersupplier');
-//     })->name('mastersupplier');
-//     Route::get('/formbox', function () {
-//         return view('formMasterbox');
-//     })->name('masterbox');
-//     Route::get('/formpenerimaanbarang', function () {
-//         return view('formPenerimaanBarang');
-//     })->name('penerimaanbarang');
-//     Route::get('/formPenawaran', function () {
-//         return view('offerform');
-//     })->name('penawaranbarang');
-//     Route::get('/ormPo', function () {
-//         return view('FormPO');
-//     })->name('formPO)');
-// });
+Route::get('/export', [TransaksiController::class, "export"]);

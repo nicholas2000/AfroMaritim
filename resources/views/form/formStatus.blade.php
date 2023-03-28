@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
+{{-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
 <link rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/css/bootstrap-datetimepicker.css">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
@@ -13,19 +13,19 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/js/bootstrap-datepicker.min.js"></script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css">
 
-<script src="https://cdn.jsdelivr.net/npm/table2excel@1.0.4/dist/table2excel.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/table2excel@1.0.4/dist/table2excel.min.js"></script> --}}
 <style>
-    .p {
+    .ps {
         display: flex;
-        width: 80%;
+        width: 100%;
     }
 
     @media screen and (max-width:600px) {
-        .p {
+        .ps {
             width: 75%;
         }
 
-        .pk{
+        .pk {
             margin-right: 5%;
         }
     }
@@ -35,172 +35,152 @@
     }
 </style>
 <section class="order-form m-4">
-    <div class="container pt-4">
-        <div class="container">
-            <h1> Barang </h1>
-            <div class="row ">
-                <div class="col-sm-8 col-md-6 form-group">
-                    <div class="input-group">
-                        <input type="search"  class="form-control rounded p" placeholder=" Search"
-                            aria-label="Search" aria-describedby="search-addon" />
-                        <button type="button" class="btn btn-outline-primary" style="margin-left: 2px">Search</button>
-                    </div>
-                </div>
-                <div class="col-sm-10 col-md-12 form-group">
-                    <div class="p">
-                        <div class="col-sm-1">Cari</div>
-                        <div class="col-sm-2 pk" style="margin-right: 10%;">
-                            <select style="width: 100px;height: 35px;" class="form-control selectpicker">
-                                <option value="">Semua</option>
-                                <option>Andi</option>
-                                <option>Doni</option>
-                                <option>Tono</option>
-                                <option>Sisil</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <div style="display: flex;">
-                                <input id="dp1" type="text" class=" fa fa-calendar form-control clickable "
-                                    style="margin-right: 10px;width: 110px;" id="DtChkIn"
-                                    placeholder="&#xf133;  Tgl Awal">
-                                <input id="dp2" type="text" class=" fa fa-calendar form-control clickable"
-                                    id="DtChkOut" style="margin-right: 10px;width: 110px;"
-                                    placeholder="&#xf133;  Tgl Akhir">
+        <div class="container pt-4">
+            <div class="container">
+                <h1> Status Barang </h1>
+                <div class="row ">
+
+                    <div class="col-md-12 form-group">
+                        <div class="ps">
+
+                            <div class="col-md-10" >
+                                <form action="{{ url('/search_tanggal') }}" method="get">
+
+                                    <div class="form-group" style="margin-right:10px;">
+                                        <div style="display: flex;">
+                                            <input type="date" class=" form-control"
+                                            style="margin-right: 10px;width: 150px;"
+                                            placeholder="&#xf133;  Tgl Awal" id="currentDate" name="date_awal">
+                                            <input type="date" class=" form-control"
+                                            style="margin-right: 10px;width: 150px;"
+                                            placeholder="&#xf133;  Tgl Akhir" name="date_akhir">
+                                            <button type="submit" class="btn btn-success">Cari</button>
+                                        </div>
+
+                                    </form>
+                                </div>
+
+                                <script>
+                                    var today = new Date();
+                                    var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+                                    // document.getElementById("currentDate").value = date;
+                                    console.log(date);
+                                    </script>
+                            </div>
+                            <div class="col-md-3">
+                                <a href="" class="btn btn-primary" style="color: white;height: 37px;margin-right: 5%;"
+                                class="ps">Import</a>
+                                <a href="" id="btn-excel" class="btn btn-success"
+                                style="color: white;height: 37px;">Export</a>
                             </div>
                         </div>
-                        <div style="display: flex;">
-                            <a href="" class="btn btn-primary" style="color: white;height: 37px;margin-right: 5%;" class="p">Import</a>
-                            <a href="" id="btn-excel" class="btn btn-success"
-                                style="color: white;height: 37px;">Export</a>
-                        </div>
                     </div>
                 </div>
-            </div>
-            <br>
-            <div class="row">
-                <div class="col-sm-12 col-md-6 form-group">
-                    <div class="p">
-                        <div class="col-md-4">ID Kapal</div>
-                        <div>:</div>
-                        <div class="col-md-3"><input type='text' style="width: 180px;"
-                                placeholder="Masukkan ID Kapal">
+                <br>
+                <form action="{{ url('/showstatus') }}"method="get">
+                <div class="row">
+                    <div class="col-sm-12 col-md-6 form-group">
+                        <div class="ps">
+                            <div class="col-md-4">ID Kapal</div>
+                            <div>:</div>
+                            <div class="col-md-3"><input type='text' style="width: 180px;"
+                                    placeholder="Masukkan ID Kapal">
+                            </div>
                         </div>
-                    </div>
-                    <br>
-                    <div class="p">
-                        <div class="col-sm-4">Filter </div>
-                        <div>:</div>
-                        <div class="col-sm-3">
-                            <select style="width: 180px;height: 35px;" class="form-control selectpicker">
-                                <option value="">Pilih Filter</option>
-                                <option>Andi</option>
-                                <option>Doni</option>
-                                <option>Tono</option>
-                                <option>Sisil</option>
-                            </select>
-                        </div>
-                    </div>
-                    <br>
-                    <div class="p">
-                        <div class="col-sm-4">Bulk Action </div>
-                        <div>:</div>
-                        <div class="col-sm-3">
-                            <select style="width: 180px;height: 35px;" class="form-control selectpicker">
-                                <option value="">Pilih Bulk Action</option>
-                                <option>Andi</option>
-                                <option>Doni</option>
-                                <option>Tono</option>
-                                <option>Sisil</option>
-                            </select>
-                        </div>
-                    </div>
-                    <br>
+                        <br>
+                        <br>
 
-                    {{-- ----- --}}
+                        <br>
+
+                        {{-- ----- --}}
+                    </div>
+                    <div class="col-sm-12 col-md-6 form-group">
+
+                        <div class="ps ">
+                            <div class="col-sm-5">Status Barang</div>
+                            <div>:</div>
+                            <div class="col-sm-3">
+                                <select style="width: 180px;height: 35px;" class="form-control selectpicker">
+                                    <option value="">Pilih Status Barang</option>
+                                    <option>Depo SBY</option>
+                                    <option>Kantor SBY</option>
+                                    <option>Pelabuhan SBY</option>
+                                    <option>Pelabuhan MKS</option>
+                                    <option>Depo MKS</option>
+                                </select>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="ps">
+                            <div class="col-sm-5">Sisa Barang Terkirim</div>
+                            <div>:</div>
+                            <div class="col-sm-3"><input style="width: 180px;"type='text' disabled></div>
+                        </div>
+                        <br>
+                        <a href=""class="btn btn-primary" style="float: right">Update</a>
+                        <br>
+                    </div>
+
+                    <div class="col-12">
+                        <table id="datatables" class="table table-bordered">
+
+                            <tr style="background-color:  #023e94;color: white;">
+                                <td>
+                                    <center><input type="checkbox" onClick="toggle(this)" /> </center>
+                                </td>
+                                <th scope="col">No Transaksi</th>
+                                <th scope="col">
+                                    <center>Nama Customer</center>
+                                </th>
+                                <th scope="col">
+                                    <center>Tanggal Pengiriman</center>
+                                </th>
+                                <th scope="col">
+                                    <center>Nama Kapal</center>
+                                </th>
+                                <th scope="col">
+                                    <center>No Container</center>
+                                </th>
+                                <th scope="col">
+                                    <center>Status Barang</center>
+                                </th>
+                            </tr>
+
+                            <?php $ctr = 1; ?>
+
+                            @foreach ($arrTransaksi as $prm)
+                                <tr>
+                                    <td>
+                                        <center><input type="checkbox" name="checkb" id="cbsatu"> </center>
+                                    </td>
+                                    <th scope="row">{{ $prm->nomor_resi }} </th>
+                                    <td>{{ $prm->nama_pengirim }}</td>
+                                    <td>{{ $prm->tanggal }}</td>
+                                    <td>{{ $prm->nama_kapal }}</td>
+                                    <td>{{ $prm->nomor_container }}</td>
+                                    <td>{{ $prm->status_barang }}</td>
+                                </tr>
+                                <?php $ctr++; ?>
+                            @endforeach
+
+                        </table>
+                    </div>
+
                 </div>
-                <div class="col-sm-12 col-md-6 form-group">
-
-                    <div class="p ">
-                        <div class="col-sm-5">Status Barang</div>
-                        <div>:</div>
-                        <div class="col-sm-3">
-                            <select style="width: 180px;height: 35px;" class="form-control selectpicker">
-                                <option value="">Pilih Status Barang</option>
-                                <option>Andi</option>
-                                <option>Doni</option>
-                                <option>Tono</option>
-                                <option>Sisil</option>
-                            </select>
-                        </div>
-                    </div>
-                    <br>
-                    <div class="p">
-                        <div class="col-sm-5">Sisa Barang Terkirim</div>
-                        <div>:</div>
-                        <div class="col-sm-3"><input style="width: 180px;"type='text' disabled></div>
-                    </div>
-                    <br>
-                    <a href=""class="btn btn-primary" style="float: right">Update</a>
-                    <br>
-                </div>
-
-                <div class="col-12">
-                    <table id="datatables" class="table table-bordered">
-
-                        <tr style="background-color:  #023e94;color: white;">
-                            <th scope="col">No Transaksi</th>
-                            <th scope="col">
-                                <center>Nama Customer</center>
-                            </th>
-                            <th scope="col">
-                                <center>Tanggal Pengiriman</center>
-                            </th>
-                            <th scope="col">
-                                <center>No Kapal</center>
-                            </th>
-                            <th scope="col">
-                                <center>No Container</center>
-                            </th>
-                            <th scope="col">
-                                <center>Status Barang</center>
-                            </th>
-                        </tr>
-
-                        <tr>
-                            <th scope="row">1</th>
-                            <td>Andi</td>
-                            <td>1/9/2023</td>
-                            <td>1</td>
-                            <td>1</td>
-                            <td>Aktif</td>
-                        </tr>
-
-                        <tr>
-                            <th scope="row">2</th>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-
-                        <tr>
-                            <th scope="row">3</th>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-
-                    </table>
-                </div>
-
             </div>
         </div>
-    </div>
+    </form>
+
 </section>
+
 <script>
+    function toggle(source) {
+        checkboxes = document.getElementsByName('checkb');
+        for (var i = 0, n = checkboxes.length; i < n; i++) {
+            checkboxes[i].checked = source.checked;
+        }
+    }
+
     function onlyNumberKey(evt) {
         var ASCIICode = (evt.which) ? evt.which : evt.keyCode
         if (ASCIICode > 31 && (ASCIICode < 48 || ASCIICode > 57))

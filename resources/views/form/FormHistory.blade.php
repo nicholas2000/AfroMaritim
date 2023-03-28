@@ -1,5 +1,4 @@
-
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
+{{-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
 <link rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/css/bootstrap-datetimepicker.css">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
@@ -12,31 +11,28 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/js/bootstrap-datepicker.min.js"></script>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"> --}}
 <style>
-    .userList
-    {
-        background-color:aliceblue;
-        cursor:pointer;
+    .userList li{
+        background-color: aliceblue;
+        cursor: pointer;
+        padding: 12px;
     }
-    li
-    {
-        padding:12px;
-    }
+
 </style>
 <script src="https://cdn.jsdelivr.net/npm/table2excel@1.0.4/dist/table2excel.min.js"></script>
 <style>
-    .p {
+    .ps {
         display: flex;
         width: 80%;
     }
 
     @media screen and (max-width:600px) {
-        .p {
+        .ps {
             width: 75%;
         }
 
-        .pk{
+        .pk {
             margin-right: 5%;
         }
     }
@@ -51,18 +47,18 @@
             <div class="row ">
                 <div class="col-sm-5 form-group">
                     <div class="input-group">
-                        <input type="search"  class="form-control rounded p" placeholder=" Transaksi"
+                        <input type="search" class="form-control rounded ps" placeholder=" Transaksi"
                             aria-label="Search" aria-describedby="search-addon" />
-                     </div>
+                    </div>
 
                 </div>
                 <div class="col-sm">
-                    </div>
+                </div>
                 <div class="col-sm-3">
-                    </div>
+                </div>
                 <div class="col-sm-3">
                     <div>Nama Pegawai :</div>
-                    </div>
+                </div>
 
             </div>
 
@@ -71,102 +67,72 @@
 
             <br>
             <div class="row">
-                    <div class="col-sm-5">
-                    <div><h3> History Transaksi</h3></div>
+                <div class="col-sm-9">
+                    <div>
+                        <h3> History Transaksi</h3>
                     </div>
-                    <div class="col-sm-3">
-                        <input type='text' style="width: 180px;" placeholder="Search">
-                        </div>
-                    <div class="col-sm">
+                </div>
+
+                <div class="col-sm-3">
 
                     <div style="">
-                        <a href="" class="btn btn-primary" style="color: white;height: 37px;margin-right: 5%;" class="p">Import</a>
+                        <a href="" class="btn btn-primary" style="color: white;height: 37px;margin-right: 5%;"
+                            class="ps">Import</a>
                         <a href="" id="btn-excel" class="btn btn-success"
                             style="color: white;height: 37px;">Export</a>
                     </div>
                 </div>
-
-                <form method="post" action="{{url('masterHistory/update/')}}">
+                <br>
+                <br>
+                <br>
+                <form method="post" action="{{ url('masterHistory/update/') }}">
                     @csrf
+                    <input type="hidden" name="data">
                     <div class="row">
-                    <div class="col-sm-12 col-md-6 form-group">
+                        <div class="col-sm-12 col-md-6 form-group">
 
-                    <div class="p">
-                        <div class="col-md-6">No Transaksi</div>
-                        <div>:</div>
-                        <div class="col-md-3">
-                        <input style="width: 180px;" type="text" name="namacust" id="user" class="form-control" placeholder="Masukkan Transaksi" />
-                        <div class="userList"  id="userList" style="width: 210px;"></div>
-                    </div>
-                    </div>
+                            <div class="ps">
+                                <div class="col-md-8">Tanggal Pengiriman</div>
+                                <div>:</div>
+                                <div class="col-md-2"><input name="ntanggal" type='text' style="width: 180px;"
+                                        disabled>
+                                </div>
+                            </div>
+                            <br>
+                            <div class="ps">
+                                <div class="col-md-8">Nomor Segel</div>
+                                <div>:</div>
+                                <div class="col-md-2"><input name="nomor_segel" type='text' style="width: 180px;">
+                                </div>
+                            </div>
+                        </div>
 
-                    <br>
-                    <div class="p">
-                        <div class="col-md-6">Nama Customer</div>
-                        <div>:</div>
-                        <div class="col-md-3"><input name="ncustomer" type='text' style="width: 180px;"
-                            disabled  >
+                        {{-- ----- --}}
+
+                        <div class="col-sm-12 col-md-6 form-group">
+
+                            <div class="ps ">
+                                <div class="col-md-6">Nama Kapal</div>
+                                <div>:</div>
+                                <div class="col-md-6"><input name="nkapal" type='text' style="width: 180px;">
+                                </div>
+                            </div>
+                            <br>
+                            <button style="float: right" id="update" type="submit" class="btn btn-success">Update</button>
+                            <br>
                         </div>
                     </div>
-                    <br>
-                    <div class="p">
-                        <div class="col-md-6">Tanggal Pengiriman</div>
-                        <div>:</div>
-                        <div class="col-md-3"><input name="ntanggal" type='text' style="width: 180px;"
-                               disabled >
-                        </div>
-                    </div>
-                    <br>
-
-                    {{-- ----- --}}
-                </div>
-                <div class="col-sm-12 col-md-6 form-group">
-
-                    <div class="p ">
-                        <div class="col-sm-5">Nama Kapal</div>
-                        <div>:</div>
-                        <div class="col-md-3"><input name="nkapal" type='text' style="width: 180px;"
-                             >
-                     </div>
-                    </div>
-                    <br>
-                    <div class="p ">
-                        <div class="col-sm-5">No Container</div>
-                        <div>:</div>
-                        <div class="col-md-3"><input name="ncontainer" type='text' style="width: 180px;"
-                             >
-                     </div>
-                    </div>
-                    <br>
-                    <div class="p ">
-                        <div class="col-sm-5">Link Foto</div>
-                        <div>:</div>
-                        <div class="col-md-3"><input name="ncontainer" type='text' style="width: 180px;"
-                             >
-                     </div>
-                    </div>
-                    <br>
-                    <button style="float: right" type="submit" class="btn btn-success">Update</button>
-                    <br>
-                </div>
-                        </div>
-                    </form>
+                </form>
 
                 <div class="col-12">
                     <table class="table table-bordered">
                         <tr style="background-color:  #023e94;color: white;">
                             <th scope="col">No</th>
                             <th scope="col">
-                                <center>No Transaksi</center>
+                                <center>No Resi</center>
                             </th>
                             <th scope="col">
                                 <center>Nama Customer</center>
-                            </th>
-                            <th scope="col">
-                                <center>Harga</center>
-                            </th>
-                            <th scope="col">
-                                <center>Tanggal Pengiriman</center>
                             </th>
                             <th scope="col">
                                 <center>Nama Kapal</center>
@@ -175,7 +141,13 @@
                                 <center>No Container</center>
                             </th>
                             <th scope="col">
+                                <center>No Segel</center>
+                            </th>
+                            <th scope="col">
                                 <center>Action</center>
+                            </th>
+                            <th scope="col">
+                                <center>Pilih</center>
                             </th>
                         </tr>
                         <?php $ctr = 1; ?>
@@ -185,36 +157,40 @@
 
                                 <th scope="row">{{ $ctr }}</th>
                                 <th scope="col">
-                                    <center>{{ $prm->nomor_transaksi }}</center>
+                                    <center>{{ $prm->nomor_resi }}</center>
                                 </th>
                                 <th scope="col">
-                                    <center>{{ $prm->Customer->nama_customer }}</center>
-                                </th>
-                                <th scope="col">
-                                    <center>{{ $prm->harga }}</center>
-                                </th>
-                                <th scope="col">
-                                    <center>{{ $prm->tanggal_berangkat }}</center>
+                                    <center>{{ $prm->nama_pengirim }}</center>
                                 </th>
                                 <th scope="col">
                                     <center>{{ $prm->nama_kapal }}</center>
                                 </th>
+
                                 <th scope="col">
-                                    <center>{{ $prm->nomor_container }}</center>
+                                    <center>{{ $prm->nomor_manifest }}</center>
                                 </th>
                                 <th scope="col">
+                                    <center>{{ $prm->nomor_segel }}</center>
+                                </th>
+                                <th scope="col" style="display: flex">
                                     {{-- <a href="./delete/{{$prm->nomor_transaksi}}" class="btn btn-danger" style="">Delete</a> --}}
-                                    <form method="post" action="{{url('masterHistory/delete/'.$prm->nomor_transaksi)}}">
+                                    <form action="" method="">
                                         @csrf
-                                            <button type="submit" class="btn btn-danger">Delete</button>
-                                        </form>
+                                        <button name=""type="submit" class="btn btn"><i class="fa fa-pencil"></i></button>
+                                    </form>
+                                    <form method="post"
+                                        action="{{ url('masterHistory/delete/' . $prm->nomor_resi) }}">
+                                        @csrf
+                                        <button type="submit" class="btn btn-danger"><i class="fa fa-trash"></i></button>
+                                    </form>
+                                </th>
+                                <th >
+                                    <center><input type="checkbox"  value="{{$prm->nomor_resi}}" onclick="myFunction(this)"></center>
                                 </th>
 
                             </tr>
                             <?php $ctr++; ?>
                         @endforeach
-
-
                     </table>
                 </div>
 
@@ -223,6 +199,20 @@
     </div>
 </section>
 <script>
+    var data3 = [];
+    function myFunction(x) {
+        if(x.checked==true)
+        {
+            data3.push(x.value);
+
+        }else
+        {
+            data3.splice(data3.indexOf(x.value), 1);
+        }
+
+        $("[name='data']").val(JSON.stringify(data3));
+    }
+
     function onlyNumberKey(evt) {
         var ASCIICode = (evt.which) ? evt.which : evt.keyCode
         if (ASCIICode > 31 && (ASCIICode < 48 || ASCIICode > 57))
@@ -273,60 +263,69 @@
 
 
 <script>
-    $(document).ready(function(){
-        $('#user').keyup(function(){
+    $(document).ready(function() {
+        $('#user').keyup(function() {
             var query = $(this).val();
-            if(query != '')
-            {
+            if (query != '') {
                 $.ajax({
-                    url:"autocomplete.php",
-                    method:"POST",
-                    data:{query:query,ctr:"Fhistory"},
-                    success:function(data)
-                    {
+                    url: "autocomplete.php",
+                    method: "POST",
+                    data: {
+                        query: query,
+                        ctr: "Fhistory"
+                    },
+                    success: function(data) {
                         $('#userList').fadeIn();
                         $('#userList').html(data);
                     }
                 });
             }
         });
-        $(document).on('click', 'li', function(){
+        $(document).on('click', 'li', function() {
             $('#user').val($(this).text());
             $('#userList').fadeOut();
             $.ajax({
-                url:"autocomplete.php",
-                method:"POST",
-                data:{query:$(this).text(),ctr:"Fhistorynama"},
-                success:function(data)
-                {
+                url: "autocomplete.php",
+                method: "POST",
+                data: {
+                    query: $(this).text(),
+                    ctr: "Fhistorynama"
+                },
+                success: function(data) {
                     $("[name='ncustomer']").val(data);
                 }
 
             });
             $.ajax({
-                url:"autocomplete.php",
-                method:"POST",
-                data:{query:$(this).text(),ctr:"Fhistorytanggal"},
-                success:function(data)
-                {
+                url: "autocomplete.php",
+                method: "POST",
+                data: {
+                    query: $(this).text(),
+                    ctr: "Fhistorytanggal"
+                },
+                success: function(data) {
                     $("[name='ntanggal']").val(data);
                 }
             });
             $.ajax({
-                url:"autocomplete.php",
-                method:"POST",
-                data:{query:$(this).text(),ctr:"Fhistorynamakapal"},
-                success:function(data)
-                {
+                url: "autocomplete.php",
+                method: "POST",
+                data: {
+                    query: $(this).text(),
+                    ctr: "Fhistorynamakapal"
+                },
+                success: function(data) {
                     $("[name='nkapal']").val(data);
                 }
             });
             $.ajax({
-                url:"autocomplete.php",
-                method:"POST",
-                data:{query:$(this).text(),ctr:"Fhistorynocontainer"},
-                success:function(data)
-                {
+                url: "autocomplete.php",
+                method: "POST",
+                data: {
+                    query: $(this).text(),
+                    ctr: "Fhistorynocontainer"
+                },
+                success: function(data) {
                     $("[name='ncontainer']").val(data);
                 }
             });

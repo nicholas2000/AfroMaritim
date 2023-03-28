@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Cabang;
 use App\Models\Kompetitor;
 use Illuminate\Http\Request;
 
@@ -9,21 +10,24 @@ class KompetitorController extends Controller
 {
     public function show()
     {
-        $param['arrKompetitor']=Kompetitor::get();
-        return view('admin.mKompetitor',$param);
+        $arrKompetitor=Kompetitor::all();
+        return view('admin.mKompetitor',compact('arrKompetitor'));
     }
+   
 
     public function doAdd(Request $req)
     {
-        $temp = Kompetitor::count();
+        $kompetitor = Kompetitor::withTrashed()->get();
         $ctr = 1;
-        for($i = 0; $i<$temp; $i++){
-            $ctr++;
+        foreach($kompetitor as $k){
+            $ctr = intval(substr($k->id_kompetitor, 2)) + 1;
         }
         if($ctr<10){
             $kode = "K00{$ctr}";
-        }else{
+        }else if($ctr<100){
             $kode = "K0{$ctr}";
+        }else{
+            $kode = "K{$ctr}";
         }
 
         $req->validate(
@@ -32,11 +36,7 @@ class KompetitorController extends Controller
                 "npwp" => 'required',
                 "alamat" => 'required',
                 "provinsi" => 'required',
-                "kota" => 'required',
-                "kecamatan" => 'required',
-                "kelurahan" => 'required',
                 "kodepos" => 'required',
-                "hp" => 'required',
                 "telpon" => 'required',
                 "email" => 'required',
                 "rute" => 'required',
@@ -48,11 +48,7 @@ class KompetitorController extends Controller
                 "npwp.required" => "npwp harus di isi",
                 "alamat.required" => "alamat harus di isi",
                 "provinsi.required" => "provinsi harus di isi",
-                "kota.required" => "kota harus di isi",
-                "kecamatan.required" => "kecamatan harus di isi",
-                "kelurahan.required" => "kelurahan harus di isi",
                 "kodepos.required" => "kode pos harus di isi",
-                "hp.required" => "hp harus di isi",
                 "telpon.required" => "telpon harus di isi",
                 "email.required" => "email harus di isi",
                 "rute.required" => "rute harus di isi",
@@ -66,11 +62,7 @@ class KompetitorController extends Controller
             'npwp_kompetitor'=>$req->npwp,
             'alamat_kompetitor'=>$req->alamat,
             'provinsi_kompetitor'=>$req->provinsi,
-            'kota_kompetitor'=>$req->kota,
-            'kecamatan_kompetitor'=>$req->kecamatan,
-            'kelurahan_kompetitor'=>$req->kelurahan,
             'kodepos_kompetitor'=>$req->kodepos,
-            'nohp_kompetitor'=>$req->hp,
             'telp_kompetitor'=>$req->telpon,
             'email_kompetitor'=>$req->email,
             'rute_kompetitor'=>$req->rute,
@@ -79,5 +71,22 @@ class KompetitorController extends Controller
         ]);
 
         return redirect('/masterKompetitor');
+    }
+
+    public function delete($id)
+    {
+
+        $kompetitor = Kompetitor::withTrashed()->find($id);
+        if($kompetitor->trashed()){
+            $result = $kompetitor->restore();
+        }else{
+            $result = $kompetitor->delete();
+        }
+
+        if ($result) {
+            return redirect('/masterKompetitor');
+        } else {
+            return redirect('/masterKompetitor');
+        }
     }
 }

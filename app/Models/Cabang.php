@@ -4,13 +4,15 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Cabang extends Model
 {
     use HasFactory;
+    use SoftDeletes;
     protected $table = "master_tcabang";
     protected $primaryKey = "id_cabang";
-    public $timestamps = false;
+    public $timestamps = true;
     protected $fillable = [
         'id_cabang',
         'nama_cabang',
@@ -18,8 +20,6 @@ class Cabang extends Model
         'alamat_cabang',
         'provinsi_cabang',
         'kota_cabang',
-        'kecamatan_cabang',
-        'kelurahan_cabang',
         'kodepos_cabang',
         'telpon_cabang',
         'gmaps_cabang',
