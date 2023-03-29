@@ -479,7 +479,7 @@
                         }else{
                             $('#userList').fadeOut();
                             $('#userList').html("");
-                            $("#wrapper").css("display", "none");
+
 
                         }
                     }

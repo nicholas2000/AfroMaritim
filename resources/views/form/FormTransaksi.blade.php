@@ -167,6 +167,7 @@
                         <div class="col-sm">
                             <input name="nama_barang" id="nama_barang" class="form-control" type="text"style="width: 210px;" >
                         </div>
+
                         <div class="col-sm-3">
                             Jenis Harga :
                         </div>
@@ -231,10 +232,10 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-sm-3">
-                            Rute :
+                            Jumlah Barang:
                         </div>
                         <div class="col-sm">
-                            <input name="rute" id="rute" class="form-control" type="text"style="width: 210px;" >
+                            <input name="colly" id="rute" class="form-control" type="text"style="width: 210px;" >
                         </div>
                         <div class="col-sm-3">
                             Harga Tambahan:
@@ -372,15 +373,15 @@
         });
 
 
-        //user
-        $('#user').keyup(function(){
+         //user
+         $('#user').keyup(function(){
             var query = $(this).val();
             if(query != '')
             {
                 $.ajax({
                     url:"autocomplete.php",
                     method:"POST",
-                    data:{query:query,ctr:"Ftrans"},
+                    data:{query:query,ctr:"Ftransdepo"},
                     success:function(data)
                     {
                         if(data.length>1){
@@ -389,7 +390,8 @@
                         }else{
                             $('#userList').fadeOut();
                             $('#userList').html("");
-                            $("#wrapper").css("display", "none");
+
+
                         }
                     }
                 });
