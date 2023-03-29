@@ -30,7 +30,7 @@ CREATE TABLE `activity` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=62 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=67 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 /*Data for the table `activity` */
 
@@ -61,7 +61,12 @@ insert  into `activity`(`id`,`user`,`activity`,`ip_address`,`browser`,`os`,`crea
 (58,'Nicho','Login Berhasil','127.0.0.1','Chrome','Windows 10','2023-03-28 05:39:19','2023-03-28 05:39:19'),
 (59,'Nicho','Login Berhasil','127.0.0.1','Chrome','Windows 10','2023-03-28 07:02:28','2023-03-28 07:02:28'),
 (60,'Nicho','Login Berhasil','127.0.0.1','Chrome','Windows 10','2023-03-28 12:25:31','2023-03-28 12:25:31'),
-(61,'Nicho','Login Berhasil','127.0.0.1','Chrome','Windows 10','2023-03-28 16:32:00','2023-03-28 16:32:00');
+(61,'Nicho','Login Berhasil','127.0.0.1','Chrome','Windows 10','2023-03-28 16:32:00','2023-03-28 16:32:00'),
+(62,'Nicho','Login Berhasil','127.0.0.1','Chrome','Windows 10','2023-03-28 16:44:19','2023-03-28 16:44:19'),
+(63,'Nicho','Login Berhasil','127.0.0.1','Chrome','Windows 10','2023-03-28 16:51:08','2023-03-28 16:51:08'),
+(64,'Nicho','Login Berhasil','127.0.0.1','Chrome','Windows 10','2023-03-28 16:54:24','2023-03-28 16:54:24'),
+(65,'Nicho','Login Berhasil','127.0.0.1','Chrome','Windows 10','2023-03-29 02:00:55','2023-03-29 02:00:55'),
+(66,'Andi','Login Berhasil','127.0.0.1','Chrome','Windows 10','2023-03-29 12:39:26','2023-03-29 12:39:26');
 
 /*Table structure for table `depo` */
 
@@ -421,7 +426,7 @@ CREATE TABLE `transaksi` (
   `nohp_penerima` varchar(255) DEFAULT NULL,
   `email_penerima` varchar(255) DEFAULT NULL,
   `jenis_barang` varchar(255) DEFAULT NULL,
-  `jumlah_barang` varchar(255) NOT NULL,
+  `jumlah_barang` varchar(255) DEFAULT NULL,
   `jenis_volume` varchar(255) DEFAULT NULL,
   `volume` varchar(255) DEFAULT NULL,
   `jenis_harga` varchar(255) DEFAULT NULL,
@@ -449,8 +454,11 @@ CREATE TABLE `transaksi` (
 
 insert  into `transaksi`(`nomor_manifest`,`nomor_resi`,`nomor_segel`,`nama_pengirim`,`alamat_pengirim`,`nohp_pengirim`,`email_pengirim`,`nama_penerima`,`alamat_penerima`,`nohp_penerima`,`email_penerima`,`jenis_barang`,`jumlah_barang`,`jenis_volume`,`volume`,`jenis_harga`,`rute`,`nama_kapal`,`harga_kubik`,`harga`,`harga_tambahan`,`harga_potongan`,`total_harga`,`tanggal`,`nomor_container`,`link_foto`,`catatan`,`status_barang`,`created_at`,`updated_at`,`deleted_at`) values 
 (NULL,'1',NULL,'Kevin',NULL,NULL,NULL,'Jeffrey',NULL,NULL,NULL,'Daging','4',NULL,'10',NULL,NULL,NULL,'0','0','0','0','0','2023-03-07','CO001',NULL,NULL,'Depo','2023-03-07 16:20:31','2023-03-07 16:20:31',NULL),
-(NULL,'32323','44','Rudi','Surabaya','3434343','lala@gmail.com','Ayam','Surabaya','43434343','lala@gmail.com',NULL,'','Berat',NULL,'A,Berat,1000','Makassar','Poseidon','44444','16789743212','3434343','434343','16792743212','2023-03-15','CO002',NULL,NULL,'Kantor SBY','2023-03-02 08:29:23','2023-03-02 08:30:52',NULL),
-(NULL,'5',NULL,'Jeffrey',NULL,NULL,NULL,'Nicho',NULL,NULL,NULL,'Mie','4',NULL,'10',NULL,NULL,NULL,'0','0','0','0','0','2023-03-07','CO001',NULL,NULL,'Depo','2023-03-07 16:21:23','2023-03-07 16:21:23',NULL);
+(NULL,'27',NULL,'Nicholas','Makasar','2302001','lala@gmail.com','Hwe','Makasar','23','lala@gmail.com','Giutar','15',NULL,'10','-,-,0',NULL,'Boa','1999','0','500','1000','0','2023-03-24',NULL,NULL,NULL,'Kantor SBY','2023-03-29 02:37:13','2023-03-29 02:37:13',NULL),
+(NULL,'32323','44','Rudi','Surabaya','3434343','lala@gmail.com','Ayam','Surabaya','43434343','lala@gmail.com',NULL,'','Berat',NULL,'A,Berat,1000','Makassar','Poseidon','44444','16789743212','3434343','434343','16792743212','2023-03-15','CO001',NULL,NULL,'Depo SBY','2023-03-02 08:29:23','2023-03-29 02:17:50',NULL),
+(NULL,'5',NULL,'Jeffrey',NULL,NULL,NULL,'Nicho',NULL,NULL,NULL,'Mie','4',NULL,'10',NULL,NULL,NULL,'0','0','0','0','0','2023-03-07','CO001',NULL,NULL,'Depo','2023-03-07 16:21:23','2023-03-29 02:10:56','2023-03-29 02:10:56'),
+(NULL,'60',NULL,'rudi','Makasar','081321','lala@gmail.com','bambang','Makasar','0812312','lala@gmail.com','Kopu',NULL,NULL,'500','-,-,0','Makassar','Sunken Ship','500','0','2000','100','0','2023-03-29',NULL,NULL,NULL,'Kantor SBY','2023-03-29 02:25:38','2023-03-29 02:25:38',NULL),
+(NULL,'61',NULL,'rudi','Makasar','081321','lala@gmail.com','bambang','Makasar','0812312','lala@gmail.com','Kopu',NULL,NULL,'500','-,-,0','Makassar','Sunken Ship','500','0','2000','100','0','2023-03-29',NULL,NULL,NULL,'Kantor SBY','2023-03-29 02:26:36','2023-03-29 02:26:36',NULL);
 
 /*Table structure for table `users` */
 
