@@ -400,7 +400,6 @@
         $(document).on('click', '#package_nama li', function(){
             $('#user').val($(this).text());
             $('#userList').fadeOut();
-            $("#wrapper").css("display", "none");
             document.getElementById('livesearch').value = "yes";
             const getID = $(this).text().split('-');
             document.getElementById("alamat_pengirim").value = $('#'+getID[0]).data('alamat');

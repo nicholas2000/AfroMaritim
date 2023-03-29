@@ -254,15 +254,18 @@
             document.getElementById("cekAdminsurabaya" + i.toString()).checked = true;
         } else if (jArray[i]['adminsurabaya'] == 0){
             document.getElementById("cekAdminsurabaya" + i.toString()).checked = false;
-        } else if (jArray[i]['adminmakassar'] == 1) {
+        }
+        if (jArray[i]['adminmakassar'] == 1) {
             document.getElementById("cekAdminmakassar" + i.toString()).checked = true;
         } else if (jArray[i]['adminmakassar'] == 0) {
-            document.getElementById("cekAdminsurabaya" + i.toString()).checked = false;
-        } else if (jArray[i]['accounting'] == 1) {
+            document.getElementById("cekAdminmakassar" + i.toString()).checked = false;
+        }
+        if (jArray[i]['accounting'] == 1) {
             document.getElementById("cekAccounting" + i.toString()).checked = true;
         } else if (jArray[i]['accounting'] == 0) {
             document.getElementById("cekAccounting" + i.toString()).checked = false;
-        } else if (jArray[i]['kurir'] == 1) {
+        }
+        if (jArray[i]['kurir'] == 1) {
             document.getElementById("cekKurir" + i.toString()).checked = true;
         } else if (jArray[i]['kurir'] == 0) {
             document.getElementById("cekKurir" + i.toString()).checked = false;

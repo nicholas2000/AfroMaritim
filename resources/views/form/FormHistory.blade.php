@@ -167,7 +167,7 @@
                                 </th>
 
                                 <th scope="col">
-                                    <center>{{ $prm->nomor_manifest }}</center>
+                                    <center>{{ $prm->nomor_container }}</center>
                                 </th>
                                 <th scope="col">
                                     <center>{{ $prm->nomor_segel }}</center>
