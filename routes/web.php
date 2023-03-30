@@ -144,4 +144,5 @@ Route::middleware(['login', 'mastercontainer'])->group(function () {
     });
 });
 
-Route::get('/export', [TransaksiController::class, "export"]);
+Route::get('/exportTransaksi', [TransaksiController::class, "export"]);
+Route::get('/exportActivity', [activitycontroller::class, "export"]);

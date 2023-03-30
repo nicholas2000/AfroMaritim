@@ -126,7 +126,7 @@
                     <div class="container">
                         <div class="row">
                             <div class="col">
-                                <button type="button" class="btn btn-success">
+                                <a type="button" href="{{url('exportActivity')}}" class="btn btn-success">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="30" height="16"
                                         fill="currentColor" class="bi bi-file-excel" viewBox="0 0 16 16">
                                         <path
@@ -137,7 +137,7 @@
                                         </path>
                                     </svg>
                                     Excel
-                                </button>
+                                </a>
 
                                 <button type="button" class="btn btn-outline-danger" style="margin-left: 5%; ">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="30" height="16"
@@ -223,10 +223,10 @@
                                                 {{ $prm->ip_address }}
                                             </th>
                                             <th scope="col">
-                                                {{ $prm->browser }}
+                                                {{ $prm->os }}
                                             </th>
                                             <th scope="col">
-                                                {{ $prm->os }}
+                                                {{ $prm->browser }}
                                             </th>
                                             <th scope="col">
                                                 {{ $prm->created_at->format('d/M/Y H:i:s') }}
