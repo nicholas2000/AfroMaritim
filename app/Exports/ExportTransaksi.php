@@ -10,7 +10,7 @@ class ExportTransaksi implements FromCollection, WithHeadings
     */
     public function collection()
     {
-        return Transaksi::select("nomor_resi", "nomor_segel", "nama_pengirim")->get();
+        return Transaksi::select("tanggal", "nomor_resi", "nomor_segel", "nama_penerima", "nama_pengirim", "jenis_barang", "jumlah_barang", "volume", "nomor_container")->get()->sortBy("tanggal");
     }
     /**
      * Write code on Method
@@ -19,6 +19,6 @@ class ExportTransaksi implements FromCollection, WithHeadings
      */
     public function headings(): array
     {
-        return ["Nomor Resi", "Nomor Segel", "Nama Pengirim"];
+        return ["Tanggal", "Nomor Resi", "Nomor Segel", "Nama Penerima", "Nama Pengirim", "Jenis Barang", "Colly", "Volume", "Nomor Container"];
     }
 }
