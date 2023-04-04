@@ -11,7 +11,6 @@ use DateTime;
 use Illuminate\Http\Request;
 
 use App\Exports\ExportTransaksi;
-use App\Exports\ExportHistory;
 use Maatwebsite\Excel\Facades\Excel;
 
 class TransaksiController extends Controller
@@ -20,10 +19,7 @@ class TransaksiController extends Controller
     {
         return Excel::download(new ExportTransaksi, 'Transaksi.xlsx');
     }
-    public function exporthistory()
-    {
-        return Excel::download(new ExportHistory, 'History.xlsx');
-    }
+
 
     public function showHistory()
     {

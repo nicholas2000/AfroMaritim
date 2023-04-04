@@ -4,9 +4,16 @@ namespace App\Http\Controllers;
 
 use App\Models\Transaksi;
 use Illuminate\Http\Request;
+use App\Exports\ExportHistory;
+use Maatwebsite\Excel\Facades\Excel;
 
 class HistoryController extends Controller
 {
+    public function exporthistory()
+    {
+        return Excel::download(new ExportHistory, 'History.xlsx');
+    }
+
     public function show()
     {
         $param['arrHistory']=Transaksi::get();
@@ -32,6 +39,24 @@ class HistoryController extends Controller
         }
 
         return redirect('/masterHistory');
+    }
+    public function doEdit(Request $req){
+        $depo = Transaksi::withTrashed()->find($req->nomor_resi);
+        $result = $depo->update([
+            'nama_pengirim'=>$req->nama_pengirim,
+            'nama_penerima'=> $req->nama_penerima,
+            'jenis_barang'=>$req->jenis_barang,
+            'nomor_resi'=>$req->nomor_resi,
+            'nomor_container'=>$req->nomor_container,
+            'status_barang' => 'Depo SBY',
+
+            ]);
+
+        if($result){
+            return redirect('/masterHistory');
+        }else{
+            return redirect('/masterHistory');
+        }
     }
 
 }

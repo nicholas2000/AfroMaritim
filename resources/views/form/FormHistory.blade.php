@@ -13,6 +13,85 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/js/bootstrap-datepicker.min.js"></script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"> --}}
 <style>
+    .list li {
+        background-color: aliceblue;
+        cursor: pointer;
+        padding: 12px;
+    }
+
+    .popup form {
+        width: 100%;
+    }
+
+    .popup form input,
+    .popup form select {
+        font-family: "Roboto";
+        font-weight: 300;
+        font-size: 16px;
+    }
+
+    .popup form input,
+    .popup form select {
+        height: 38px;
+    }
+
+    .popup form input,
+    .popup form select {
+        border: 1px solid #d0d0d0;
+        display: block;
+        margin: 0 auto;
+        margin-bottom: 20px;
+        padding-left: 10px;
+        width: 83.55%;
+    }
+
+
+
+    ::-webkit-input-placeholder {
+        color: blue;
+        opacity: 1;
+    }
+
+    ::-moz-placeholder {
+        color: blue;
+        opacity: 1;
+    }
+
+    :-moz-placeholder {
+        color: blue;
+        opacity: 1;
+    }
+
+    :-ms-input-placeholder {
+        color: blue;
+        opacity: 1;
+    }
+
+    .popup form select {
+        background-image: url("../image/arr-black.png");
+        background-position: right 10px center;
+        background-repeat: no-repeat;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        text-indent: 0.01px;
+        text-overflow: '';
+        -ms-appearance: none;
+        appearance: none !important;
+    }
+
+
+    .popup form input[type="submit"] {
+        border-radius: 3px;
+        width: 317px;
+        height: 40px;
+        margin-bottom: 0;
+        font-weight: 500;
+        font-size: 1em;
+        color: #ffffff;
+        line-height: 23px;
+    }
+</style>
+<style>
     .userList li{
         background-color: aliceblue;
         cursor: pointer;
@@ -59,7 +138,6 @@
                 <div class="col-sm-3">
                     <div>Nama Pegawai :</div>
                 </div>
-
             </div>
 
             <br>
@@ -171,10 +249,10 @@
                                 </th>
                                 <th scope="col" style="display: flex">
                                     {{-- <a href="./delete/{{$prm->nomor_transaksi}}" class="btn btn-danger" style="">Delete</a> --}}
-                                    <form action="" method="">
-                                        @csrf
-                                        <button name=""type="submit" class="btn btn"><i class="fa fa-pencil"></i></button>
-                                    </form>
+                                        <button style="height: 29px;" class="btn" id="btnedit" data-toggle="modal"
+                                        data-target="#myModal" onclick="btnedit({{ $ctr - 1 }})"><i
+                                        class="fa fa-pencil"></i></button>
+
                                     <form method="post"
                                         action="{{ url('masterHistory/delete/' . $prm->nomor_resi) }}">
                                         @csrf
@@ -189,6 +267,44 @@
                             <?php $ctr++; ?>
                         @endforeach
                     </table>
+                </div>
+
+                <div id="myModal" class="modal fade">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h4>Edit Cabang</h4>
+                                <button class="close" type="button" data-dismiss="modal">×</button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="popup">
+                                    <form action="{{ url('/editDepo') }}" method="post">
+                                        @csrf
+
+                                        <label style="margin-left: 40px;">Nama Customer</label>
+                                        <input name="nama_pengirim" placeholder="Masukkan Nama Penerima" class="form-control"
+                                        type="text">
+
+                                        <label style="margin-left: 40px;">Nama Kapal</label>
+                                        <input name="nama_kapal" placeholder="Masukkan Nama Kapal" class="form-control"
+                                        type="text">
+
+                                        <label style="margin-left: 40px;">No Container</label>
+                                        <input name="nomor_container" placeholder="Masukkan Nama Barang" class="form-control"
+                                        type="text">
+
+                                        <label style="margin-left: 40px;">Nomor Segel</label>
+                                        <input name="nomor_segel" placeholder="Masukkan Nomor Segel" class="form-control"
+                                        type="text">
+
+
+                                        <input type="submit" value="Ubah" style="background-color: #023e94">
+                                    </form>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
             </div>
@@ -328,4 +444,11 @@
             });
         });
     });
+    function btnedit(id) {
+        var jArray = <?php echo json_encode($arrHistory); ?>;
+        $("[name='nama_pengirim']").val(jArray[id]['nama_pengirim']);
+        $("[name='nama_kapal']").val(jArray[id]['nama_kapal']);
+        $("[name='nomor_container']").val(jArray[id]['nomor_container']);
+        $("[name='nomor_segel']").val(jArray[id]['nomor_segel']);
+    }
 </script>
