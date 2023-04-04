@@ -62,9 +62,6 @@
 
             </div>
 
-
-
-
             <br>
             <div class="row">
                 <div class="col-sm-9">
@@ -78,7 +75,7 @@
                     <div style="">
                         <a href="" class="btn btn-primary" style="color: white;height: 37px;margin-right: 5%;"
                             class="ps">Import</a>
-                        <a href="" id="btn-excel" class="btn btn-success"
+                        <a href="{{url('exportHistory')}}" id="btn-excel" class="btn btn-success"
                             style="color: white;height: 37px;">Export</a>
                     </div>
                 </div>
