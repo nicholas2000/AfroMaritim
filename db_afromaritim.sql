@@ -441,6 +441,7 @@ CREATE TABLE `transaksi` (
   `nomor_container` varchar(255) DEFAULT NULL,
   `link_foto` varchar(255) DEFAULT NULL,
   `catatan` varchar(255) DEFAULT NULL,
+  `kurir` varchar(100) DEFAULT NULL,
   `status_barang` varchar(255) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
@@ -452,13 +453,13 @@ CREATE TABLE `transaksi` (
 
 /*Data for the table `transaksi` */
 
-insert  into `transaksi`(`nomor_manifest`,`nomor_resi`,`nomor_segel`,`nama_pengirim`,`alamat_pengirim`,`nohp_pengirim`,`email_pengirim`,`nama_penerima`,`alamat_penerima`,`nohp_penerima`,`email_penerima`,`jenis_barang`,`jumlah_barang`,`jenis_volume`,`volume`,`jenis_harga`,`rute`,`nama_kapal`,`harga_kubik`,`harga`,`harga_tambahan`,`harga_potongan`,`total_harga`,`tanggal`,`nomor_container`,`link_foto`,`catatan`,`status_barang`,`created_at`,`updated_at`,`deleted_at`) values 
-(NULL,'1',NULL,'Kevin',NULL,NULL,NULL,'Jeffrey',NULL,NULL,NULL,'Daging','4',NULL,'10',NULL,NULL,NULL,'0','0','0','0','0','2023-03-07','CO001',NULL,NULL,'Depo','2023-03-07 16:20:31','2023-03-07 16:20:31',NULL),
-(NULL,'27',NULL,'Nicholas','Makasar','2302001','lala@gmail.com','Hwe','Makasar','23','lala@gmail.com','Giutar','15',NULL,'10','-,-,0',NULL,'Boa','1999','0','500','1000','0','2023-03-24',NULL,NULL,NULL,'Kantor SBY','2023-03-29 02:37:13','2023-03-29 02:37:13',NULL),
-(NULL,'32323','44','Rudi','Surabaya','3434343','lala@gmail.com','Ayam','Surabaya','43434343','lala@gmail.com',NULL,'','Berat',NULL,'A,Berat,1000','Makassar','Poseidon','44444','16789743212','3434343','434343','16792743212','2023-03-15','CO001',NULL,NULL,'Depo SBY','2023-03-02 08:29:23','2023-03-29 02:17:50',NULL),
-(NULL,'5',NULL,'Jeffrey',NULL,NULL,NULL,'Nicho',NULL,NULL,NULL,'Mie','4',NULL,'10',NULL,NULL,NULL,'0','0','0','0','0','2023-03-07','CO001',NULL,NULL,'Depo','2023-03-07 16:21:23','2023-03-29 02:10:56','2023-03-29 02:10:56'),
-(NULL,'60',NULL,'rudi','Makasar','081321','lala@gmail.com','bambang','Makasar','0812312','lala@gmail.com','Kopu',NULL,NULL,'500','-,-,0','Makassar','Sunken Ship','500','0','2000','100','0','2023-03-29',NULL,NULL,NULL,'Kantor SBY','2023-03-29 02:25:38','2023-03-29 02:25:38',NULL),
-(NULL,'61',NULL,'rudi','Makasar','081321','lala@gmail.com','bambang','Makasar','0812312','lala@gmail.com','Kopu',NULL,NULL,'500','-,-,0','Makassar','Sunken Ship','500','0','2000','100','0','2023-03-29',NULL,NULL,NULL,'Kantor SBY','2023-03-29 02:26:36','2023-03-29 02:26:36',NULL);
+insert  into `transaksi`(`nomor_manifest`,`nomor_resi`,`nomor_segel`,`nama_pengirim`,`alamat_pengirim`,`nohp_pengirim`,`email_pengirim`,`nama_penerima`,`alamat_penerima`,`nohp_penerima`,`email_penerima`,`jenis_barang`,`jumlah_barang`,`jenis_volume`,`volume`,`jenis_harga`,`rute`,`nama_kapal`,`harga_kubik`,`harga`,`harga_tambahan`,`harga_potongan`,`total_harga`,`tanggal`,`nomor_container`,`link_foto`,`catatan`,`kurir`,`status_barang`,`created_at`,`updated_at`,`deleted_at`) values 
+(NULL,'1',NULL,'Kevin',NULL,NULL,NULL,'Jeffrey',NULL,NULL,NULL,'Daging','4',NULL,'10',NULL,NULL,NULL,'0','0','0','0','0','2023-03-07','CO001',NULL,NULL,NULL,'Depo','2023-03-07 16:20:31','2023-03-07 16:20:31',NULL),
+(NULL,'27',NULL,'Nicholas','Makasar','2302001','lala@gmail.com','Hwe','Makasar','23','lala@gmail.com','Giutar','15',NULL,'10','-,-,0',NULL,'Boa','1999','0','500','1000','0','2023-03-24',NULL,NULL,NULL,NULL,'Kantor SBY','2023-03-29 02:37:13','2023-03-29 02:37:13',NULL),
+(NULL,'32323','44','Rudi','Surabaya','3434343','lala@gmail.com','Ayam','Surabaya','43434343','lala@gmail.com',NULL,'','Berat',NULL,'A,Berat,1000','Makassar','Poseidon','44444','16789743212','3434343','434343','16792743212','2023-03-15','CO001',NULL,NULL,NULL,'Depo SBY','2023-03-02 08:29:23','2023-03-29 02:17:50',NULL),
+(NULL,'5',NULL,'Jeffrey',NULL,NULL,NULL,'Nicho',NULL,NULL,NULL,'Mie','4',NULL,'10',NULL,NULL,NULL,'0','0','0','0','0','2023-03-07','CO001',NULL,NULL,NULL,'Depo','2023-03-07 16:21:23','2023-03-29 02:10:56','2023-03-29 02:10:56'),
+(NULL,'60',NULL,'rudi','Makasar','081321','lala@gmail.com','bambang','Makasar','0812312','lala@gmail.com','Kopu',NULL,NULL,'500','-,-,0','Makassar','Sunken Ship','500','0','2000','100','0','2023-03-29',NULL,NULL,NULL,NULL,'Kantor SBY','2023-03-29 02:25:38','2023-03-29 02:25:38',NULL),
+(NULL,'61',NULL,'rudi','Makasar','081321','lala@gmail.com','bambang','Makasar','0812312','lala@gmail.com','Kopu',NULL,NULL,'500','-,-,0','Makassar','Sunken Ship','500','0','2000','100','0','2023-03-29',NULL,NULL,NULL,NULL,'Kantor SBY','2023-03-29 02:26:36','2023-03-29 02:26:36',NULL);
 
 /*Table structure for table `users` */
 
