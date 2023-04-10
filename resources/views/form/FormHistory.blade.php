@@ -297,7 +297,6 @@
                                         <input name="nomor_segel" placeholder="Masukkan Nomor Segel" class="form-control"
                                         type="text">
 
-
                                         <input type="submit" value="Ubah" style="background-color: #023e94">
                                     </form>
 

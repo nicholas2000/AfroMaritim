@@ -99,6 +99,7 @@ Route::middleware(['login', 'masterjenisharga'])->group(function () {
 
 Route::middleware(['login', 'gudang'])->group(function () {
     Route::get('/masterpengirimansatu', [pengirimancontroller::class, "vmpengirimansatu"]);
+    Route::post('/masterPengiriman', [pengirimancontroller::class, "updateKurir"]);
 });
 
 Route::middleware(['login', 'depo'])->group(function () {

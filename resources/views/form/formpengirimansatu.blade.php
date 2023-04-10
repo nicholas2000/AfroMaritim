@@ -93,38 +93,68 @@
                         </div>
                     </div>
                     <br>
+                    <form action="{{ url('/masterPengiriman') }}" method="post">
+                        @csrf
+                        <br>
+                        <button style="float: right" id="update" type="submit" class="btn btn-success">Masukkan Barang</button>
+                        <br>
+                    </form>
 
-                    <br>
-                    <a href=""class="btn btn-primary" style="float: right">Masukkan Barang</a>
-                    <br>
                 </div>
 
                 <div class="col-12">
-                    <table id="datatables" class="table table-bordered">
-
-                        <thead style="background-color:  #023e94;color: white;">
-                            <th scope="col"> <center><input type="checkbox" name="cball" id="cball"></center>  </th>
-                            <th scope="col"><center> No </center></th>
-                            <th scope="col"><center> No Transaksi </center></th>
+                    <table class="table table-bordered">
+                        <tr style="background-color:  #023e94;color: white;">
+                            <th scope="col">No</th>
                             <th scope="col">
-                                <center>Tanggal Pengiriman</center>
+                                <center>No Resi</center>
                             </th>
                             <th scope="col">
-                                <center>Status Barang</center>
+                                <center>Nama Customer</center>
                             </th>
                             <th scope="col">
-                                <center>Link Foto</center>
+                                <center>Nama Kapal</center>
                             </th>
+                            <th scope="col">
+                                <center>Alamat</center>
+                            </th>
+                            <th scope="col">
+                                <center>Nama Kurir</center>
+                            </th>
+                            <th scope="col">
+                                <center>Pilih</center>
+                            </th>
+                        </tr>
+                        <?php $ctr = 1; ?>
 
-                        </thead>
+                        @foreach ($arrHistory as $prm)
+                            <tr>
 
-                        <tbody id="list_transaksi">
+                                <th scope="row">{{ $ctr }}</th>
+                                <th scope="col">
+                                    <center>{{ $prm->nomor_resi }}</center>
+                                </th>
+                                <th scope="col">
+                                    <center>{{ $prm->nama_pengirim }}</center>
+                                </th>
+                                <th scope="col">
+                                    <center>{{ $prm->nama_kapal }}</center>
+                                </th>
 
-                        </tbody>
+                                <th scope="col">
+                                    <center>{{ $prm->alamat_penerima }}</center>
+                                </th>
+                                <th scope="col">
+                                    <center>{{ $prm->kurir}}</center>
+                                </th>
+                                <th >
+                                    <center><input type="checkbox"  value="{{$prm->nomor_resi}}" onclick="myFunction(this)"></center>
+                                </th>
 
-                        </table>
-                    </div>
-
+                            </tr>
+                            <?php $ctr++; ?>
+                        @endforeach
+                    </table>
                 </div>
             </div>
         </div>

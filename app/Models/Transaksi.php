@@ -41,6 +41,7 @@ class Transaksi extends Model
         'nomor_manifest',
         'link_foto',
         'catatan',
+        'kurir',
         'status_barang'
     ];
     protected $keyType = 'string';
