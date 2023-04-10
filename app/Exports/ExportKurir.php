@@ -11,7 +11,7 @@ class ExportKurir implements FromCollection, WithHeadings, ShouldAutoSize
     */
     public function collection()
     {
-        return Transaksi::select( "nomor_resi",  "nama_penerima", "jenis_barang", "alamat", "jumlah_barang", "volume",)->get();
+        return Transaksi::select( "nomor_resi",  "nama_penerima", "jenis_barang", "alamat_penerima", "jumlah_barang", "volume","kurir")->get();
     }
     /**
      * Write code on Method
@@ -20,6 +20,6 @@ class ExportKurir implements FromCollection, WithHeadings, ShouldAutoSize
      */
     public function headings(): array
     {
-        return ["Nomor Resi", "Nama Penerima", "Nama Pengirim", "Jenis Barang", "Alamat", "Colly", "Volume"];
+        return ["Nomor Resi", "Nama Penerima", "Jenis Barang", "Alamat Penerima", "Colly", "Volume","Nama Kurir"];
     }
 }

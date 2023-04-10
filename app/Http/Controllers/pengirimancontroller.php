@@ -7,7 +7,7 @@ use App\Models\modelpegawai;
 use App\Models\Pengiriman;
 use App\Models\Transaksi;
 use Illuminate\Http\Request;
-use App\Exports\ExportHistory;
+use App\Exports\ExportKurir;
 use Maatwebsite\Excel\Facades\Excel;
 
 class pengirimancontroller extends Controller
