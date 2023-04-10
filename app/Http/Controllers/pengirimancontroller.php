@@ -38,13 +38,12 @@ class pengirimancontroller extends Controller
     }
     public function updateKurir(Request $request)
     {
-        dd("halo");
         $data = json_decode($request->data);
         foreach ($data as $prm) {
             Transaksi::where('nomor_resi',$prm)->update([
                 // 'nomor_manifest' => $request->nmanifest,
                 // 'nomor_container'=> $request->ncontainer,
-                'kurir'=> $request->kurir,
+                'kurir'=> $request->namakurir,
             ]);
         }
 

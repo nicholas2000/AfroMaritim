@@ -45,10 +45,11 @@
                         <div class="col-sm-2">Container</div>
                         <div>:</div>
                         <div class="col-sm-2 pk" style="margin-right: 10%;">
-                            <select style="width: 180px;height: 35px; " class="form-control selectpicker" id="container" name="container" onchange="gantiContainer()">
+                            <select style="width: 180px;height: 35px; " class="form-control selectpicker" id="container"
+                                name="container" onchange="gantiContainer()">
                                 @foreach ($arrContainer as $prm)
-                                        <option value="{{$prm->nomor_container}}">{{ $prm->nama_container }}</option>
-                                    @endforeach
+                                    <option value="{{ $prm->nomor_container }}">{{ $prm->nama_container }}</option>
+                                @endforeach
                             </select>
                         </div>
                         <div class="col-sm-8"></div>
@@ -63,44 +64,48 @@
             </div>
             <br>
             <div class="row">
-                <div class="col-sm-12 col-md-6 form-group">
-                    <div class="ps">
-                        <div class="col-md-4">Nama Kurir</div>
-                        <div>:</div>
-                        <div class="col-md-3">
-                            <select name="namakurir" style="height:35px; width: 180px; "
-                                class="form-control selectpicker">
-                                <option value="">Pilih Kurir</option>
-                                @foreach ($arrKurir as $prm)
-                                    <option value="{{$prm->nama_pegawai}}">{{ $prm->nama_pegawai }}</option>
-                                @endforeach
-                            </select>
+                <div class="col-sm-8 col-md-6 form-group">
+                        <form action="{{ url('/masterPengiriman') }}" method="post">
+                            @csrf
+                        <div class="ps">
+                            <div class="col-md-4">Nama Kurir</div>
+                            <div>:</div>
+                            <div class="col-md-3">
+                                <select name="namakurir" style="height:35px; width: 180px; "
+                                    class="form-control selectpicker">
+                                    <option value="">Pilih Kurir</option>
+                                    @foreach ($arrKurir as $prm)
+                                        <option value="{{ $prm->nama_pegawai }}">{{ $prm->nama_pegawai }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
                         </div>
+                        <br>
+
+                        <br>
+
+                        {{-- ----- --}}
                     </div>
-                    <br>
+                    <div class="col-sm-12 col-md-6 form-group">
 
-                    <br>
-
-                    {{-- ----- --}}
-                </div>
-                <div class="col-sm-12 col-md-6 form-group">
-
-                    <div class="ps ">
-                        <div class="col-sm-5">Total Barang Diantar</div>
-                        <div>:</div>
-                        <div class="col-sm-3">
-                            <input style="width: 180px;"type='text' name="barang" disabled>
+                        <div class="ps ">
+                            <div class="col-md-5">Total Barang Diantar</div>
+                            <div>:</div>
+                            <div class="col-sm-3">
+                                <input style="width: 180px;"type='text' name="barang" disabled>
+                            </div>
                         </div>
-                    </div>
-                    <br>
-                    <form action="{{ url('/masterPengiriman') }}" method="post">
-                        @csrf
                         <br>
-                        <button style="float: right" id="update" type="submit" class="btn btn-success">Masukkan Barang</button>
                         <br>
-                    </form>
+                        <input type="hidden" name="data">
+                        <div class="col-md-12">
+                            <button style="float: right" id="update" type="submit" class="btn btn-success">Masukkan
+                                Barang</button>
+                        </div>
+                        <br>
 
-                </div>
+                    </div>
+                </form>
 
                 <div class="col-12">
                     <table class="table table-bordered">
@@ -145,10 +150,11 @@
                                     <center>{{ $prm->alamat_penerima }}</center>
                                 </th>
                                 <th scope="col">
-                                    <center>{{ $prm->kurir}}</center>
+                                    <center>{{ $prm->kurir }}</center>
                                 </th>
-                                <th >
-                                    <center><input type="checkbox"  value="{{$prm->nomor_resi}}" onclick="myFunction(this)"></center>
+                                <th>
+                                    <center><input type="checkbox" value="{{ $prm->nomor_resi }}"
+                                            onclick="myFunction(this)"></center>
                                 </th>
 
                             </tr>
@@ -160,28 +166,32 @@
         </div>
 </section>
 <script>
-    $(document).ready(function (){
+    $(document).ready(function() {
         var query = 'CO001';
         $.ajax({
-            url:"autocomplete.php",
-            method:"POST",
-            data:{query:query, ctr:"Flisttransaksi"},
-            success:function(data)
-            {
+            url: "autocomplete.php",
+            method: "POST",
+            data: {
+                query: query,
+                ctr: "Flisttransaksi"
+            },
+            success: function(data) {
                 $('#list_transaksi').html("");
                 $('#list_transaksi').append(data);
             }
         })
     });
 
-    function gantiContainer(){
+    function gantiContainer() {
         var query = $('#container').val();
         $.ajax({
-            url:"autocomplete.php",
-            method:"POST",
-            data:{query:query,ctr:"Flisttransaksi"},
-            success:function(data)
-            {
+            url: "autocomplete.php",
+            method: "POST",
+            data: {
+                query: query,
+                ctr: "Flisttransaksi"
+            },
+            success: function(data) {
                 $('#list_transaksi').html("");
                 $('#list_transaksi').append(data);
             }
@@ -189,6 +199,7 @@
     }
 
     var data2 = [];
+
     function myFunction(x) {
         if (x.checked == true) {
             data2.push(x.value);
@@ -198,6 +209,7 @@
         }
 
         $("[name='barang']").val(data2.length);
+        $("[name='data']").val(JSON.stringify(data2));
         console.log(data2);
     }
 
@@ -207,6 +219,4 @@
             return false;
         return true;
     }
-
-
 </script>
