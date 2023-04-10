@@ -7,6 +7,8 @@ use App\Models\modelpegawai;
 use App\Models\Pengiriman;
 use App\Models\Transaksi;
 use Illuminate\Http\Request;
+use App\Exports\ExportHistory;
+use Maatwebsite\Excel\Facades\Excel;
 
 class pengirimancontroller extends Controller
 {
@@ -18,6 +20,10 @@ class pengirimancontroller extends Controller
         // $param['arrContainer'] = Container::get();
         // $param['arrHistory']=Transaksi::where('nomor_container', $param['arrContainer'])->get();
         return view('admin.mOpsi2',compact('arrContainer','arrKurir','arrHistory'));
+    }
+    public function export()
+    {
+        return Excel::download(new ExportKurir, 'Kurir.xlsx');
     }
 
     // public function filterGudang($nocont)

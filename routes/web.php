@@ -148,3 +148,4 @@ Route::middleware(['login', 'mastercontainer'])->group(function () {
 Route::get('/exportTransaksi', [TransaksiController::class, "export"]);
 Route::get('/exportActivity', [activitycontroller::class, "export"]);
 Route::get('/exportHistory', [HistoryController::class, "exporthistory"]);
+Route::get('/exportKurir', [pengirimancontroller::class, "export"]);
