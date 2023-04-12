@@ -13,10 +13,8 @@ class LogUserModel extends Model
     public $timestamps = true;
     protected $fillable = [
         'id',
-        'id_pegawai',
-        'tablename',
-        'jenisproses',
-        'keterangan',
+        'berita',
+        'status',
         'created_at',
         'update_at'
     ];

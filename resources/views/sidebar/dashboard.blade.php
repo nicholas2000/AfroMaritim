@@ -24,7 +24,7 @@
     @media screen and (max-width:600px) {
 
         .t {
-            margin-left: 40%;
+            margin-left: 30%;
             font-size: 15px;
         }
 
@@ -36,6 +36,78 @@
             margin-right: -80%;
         }
     }
+    .top-text-block{
+  display: block;
+  padding: 3px 10px;
+  clear: both;
+  font-weight: 400;
+  line-height: 1.42857143;
+  color: #333;
+  white-space: inherit !important;
+  border-bottom:1px solid #f4f4f4;
+  position:relative;
+  &:hover {
+        &:before {
+        content: '';
+        width: 4px;
+        background: #f05a1a;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        position: absolute;
+    }
+  }
+  &.unread {
+    background:#ffc;
+
+    // &:hover {
+    //   background:#ffd;
+    // }
+  }
+
+  .top-text-light {
+    // color:#ccc;
+    color: #999;
+    font-size: 0.8em;
+  }
+}
+
+.top-head-dropdown {
+  .dropdown-menu {
+   width: 350px;
+    height:300px;
+    overflow:auto;
+  }
+
+  li:last-child{
+    .top-text-block {
+      border-bottom:0;
+    }
+  }
+}
+.topbar-align-center {
+  text-align: center;
+}
+.loader-topbar {
+  margin: 5px auto;
+  border: 3px solid #ddd;
+  border-radius: 50%;
+  border-top: 3px solid #666;
+  width: 22px;
+  height: 22px;
+  -webkit-animation: spin-topbar 1s linear infinite;
+  animation: spin-topbar 1s linear infinite;
+}
+
+@-webkit-keyframes spin-topbar {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin-topbar {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
 </style>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -113,26 +185,31 @@
         <header class='dashboard-toolbar'><a href="#!" class="menu-toggle"></a>
 
             <div class="t">
-                <div style="color: black;font-size: 80%;margin-left: 1%;padding-top: 25px;width: 100%;text-align:center"
-                    id="myDiv"></div>
-                <ul class="notification-drop right p t">
-                    <li class="item">
-                        <span class="btn__badge pulse-button " style="">4</span>
-                        <i class="fa fa-bell notification-bell dashboard-toolbar" style="text-align:right;"
-                            aria-hidden="true"></i>
-                        <ul>
-                            @foreach (session()->get('logouser') as $prm)
-                                <li>{{ $prm->id_user }} {{ $prm->jenisproses }} {{ $prm->keterangan }}</li>
-
-                                <li>First Item</li>
-                                <li>Second Item</li>
-                                <li>Third Item</li>
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                      <!-- Single button -->
+                      <div class="btn-group pull-right top-head-dropdown">
+                        <button type="button" style="margin-right:50px;margin-top:-30px" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          Notification <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-right">
+                            @foreach ($arrNotif as $prm)
+                            <li>
+                                <a href="#" class="top-text-block">
+                                  <div class="top-text-heading">{{ $prm->berita }}</div>
+                                  {{-- <div class="top-text-light">15 minutes ago</div> --}}
+                                </a>
+                              </li>
                             @endforeach
+                         <li>
+                          <div class="loader-topbar"></div>
+                         </li>
                         </ul>
-                    </li>
-                </ul>
-            </div>
+                      </div>
+                    </div>
+                  </div>
 
+            </div>
         </header>
         <!-- /#sidebar-wrapper -->
 
