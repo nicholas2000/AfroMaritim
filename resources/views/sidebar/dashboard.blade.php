@@ -1,4 +1,3 @@
-
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -104,7 +103,8 @@
                 <li>
                     <form action="{{ url('/logout') }}">
                         <input type="hidden" name="device">
-                        <button style="height:100%;width: 100%;background-color: transparent;border:none;color:white;margin-left:-38px;"><i
+                        <button
+                            style="height:100%;width: 100%;background-color: transparent;border:none;color:white;margin-left:-38px;"><i
                                 class="fas fa-sign-out-alt"></i>Logout</button>
                     </form>
                 </li>
@@ -121,9 +121,13 @@
                         <i class="fa fa-bell notification-bell dashboard-toolbar" style="text-align:right;"
                             aria-hidden="true"></i>
                         <ul>
-                            <li>First Item</li>
-                            <li>Second Item</li>
-                            <li>Third Item</li>
+                            @foreach (session()->get('logouser') as $prm)
+                                <li>{{ $prm->id_user }} {{ $prm->jenisproses }} {{ $prm->keterangan }}</li>
+
+                                <li>First Item</li>
+                                <li>Second Item</li>
+                                <li>Third Item</li>
+                            @endforeach
                         </ul>
                     </li>
                 </ul>
