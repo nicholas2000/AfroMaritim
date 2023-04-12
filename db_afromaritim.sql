@@ -30,7 +30,7 @@ CREATE TABLE `activity` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=67 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=94 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 /*Data for the table `activity` */
 
@@ -66,7 +66,34 @@ insert  into `activity`(`id`,`user`,`activity`,`ip_address`,`browser`,`os`,`crea
 (63,'Nicho','Login Berhasil','127.0.0.1','Chrome','Windows 10','2023-03-28 16:51:08','2023-03-28 16:51:08'),
 (64,'Nicho','Login Berhasil','127.0.0.1','Chrome','Windows 10','2023-03-28 16:54:24','2023-03-28 16:54:24'),
 (65,'Nicho','Login Berhasil','127.0.0.1','Chrome','Windows 10','2023-03-29 02:00:55','2023-03-29 02:00:55'),
-(66,'Andi','Login Berhasil','127.0.0.1','Chrome','Windows 10','2023-03-29 12:39:26','2023-03-29 12:39:26');
+(66,'Andi','Login Berhasil','127.0.0.1','Chrome','Windows 10','2023-03-29 12:39:26','2023-03-29 12:39:26'),
+(67,'Nicho','Login Berhasil','127.0.0.1','Chrome','Windows 10','2023-04-11 11:59:21','2023-04-11 11:59:21'),
+(68,'Nicho','Login Berhasil','127.0.0.1','Chrome','Windows 10','2023-04-11 11:59:22','2023-04-11 11:59:22'),
+(69,'Nicho','Logout Berhasil','127.0.0.1','Chrome','Windows 10','2023-04-11 11:59:42','2023-04-11 11:59:42'),
+(70,'Nicho','Login Berhasil','127.0.0.1','Chrome','Windows 10','2023-04-11 12:11:27','2023-04-11 12:11:27'),
+(71,'Nicho','Login Berhasil','127.0.0.1','Chrome','Windows 10','2023-04-12 02:39:08','2023-04-12 02:39:08'),
+(72,'Nicho','Login Berhasil','127.0.0.1','Chrome','Windows 10','2023-04-12 04:05:11','2023-04-12 04:05:11'),
+(73,'Nicho','Login Berhasil','127.0.0.1','Chrome','Windows 10','2023-04-12 04:05:11','2023-04-12 04:05:11'),
+(74,'Nicho','Login Berhasil','127.0.0.1','Chrome','Windows 10','2023-04-12 04:06:07','2023-04-12 04:06:07'),
+(75,'Nicho','Login Berhasil','127.0.0.1','Chrome','Windows 10','2023-04-12 04:06:08','2023-04-12 04:06:08'),
+(76,'Nicho','Login Berhasil','127.0.0.1','Chrome','Windows 10','2023-04-12 04:06:35','2023-04-12 04:06:35'),
+(77,'Nicho','Login Berhasil','127.0.0.1','Chrome','Windows 10','2023-04-12 04:06:36','2023-04-12 04:06:36'),
+(78,'Nicho','Login Berhasil','127.0.0.1','Chrome','Windows 10','2023-04-12 04:06:36','2023-04-12 04:06:36'),
+(79,'Nicho','Login Berhasil','127.0.0.1','Chrome','Windows 10','2023-04-12 04:06:37','2023-04-12 04:06:37'),
+(80,'Nicho','Login Berhasil','127.0.0.1','Chrome','Windows 10','2023-04-12 04:06:39','2023-04-12 04:06:39'),
+(81,'Nicho','Login Berhasil','127.0.0.1','Chrome','Windows 10','2023-04-12 04:06:40','2023-04-12 04:06:40'),
+(82,'Nicho','Login Berhasil','127.0.0.1','Chrome','Windows 10','2023-04-12 04:06:54','2023-04-12 04:06:54'),
+(83,'Nicho','Login Berhasil','127.0.0.1','Chrome','Windows 10','2023-04-12 04:18:37','2023-04-12 04:18:37'),
+(84,'Nicho','Login Berhasil','127.0.0.1','Chrome','Windows 10','2023-04-12 04:18:37','2023-04-12 04:18:37'),
+(85,'Nicho','Login Berhasil','127.0.0.1','Chrome','Windows 10','2023-04-12 04:24:02','2023-04-12 04:24:02'),
+(86,'Nicho','Login Berhasil','127.0.0.1','Chrome','Windows 10','2023-04-12 04:24:03','2023-04-12 04:24:03'),
+(87,'Nicho','Login Berhasil','127.0.0.1','Chrome','Windows 10','2023-04-12 04:24:03','2023-04-12 04:24:03'),
+(88,'Nicho','Login Berhasil','127.0.0.1','Chrome','Windows 10','2023-04-12 04:24:04','2023-04-12 04:24:04'),
+(89,'Nicho','Login Berhasil','127.0.0.1','Chrome','Windows 10','2023-04-12 04:40:52','2023-04-12 04:40:52'),
+(90,'Nicho','Login Berhasil','127.0.0.1','Chrome','Windows 10','2023-04-12 04:40:54','2023-04-12 04:40:54'),
+(91,'Nicho','Login Berhasil','127.0.0.1','Chrome','Windows 10','2023-04-12 04:40:54','2023-04-12 04:40:54'),
+(92,'Nicho','Login Berhasil','127.0.0.1','Chrome','Windows 10','2023-04-12 04:48:15','2023-04-12 04:48:15'),
+(93,'Nicho','Login Berhasil','127.0.0.1','Chrome','Windows 10','2023-04-12 04:48:17','2023-04-12 04:48:17');
 
 /*Table structure for table `depo` */
 
@@ -102,6 +129,26 @@ CREATE TABLE `failed_jobs` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 /*Data for the table `failed_jobs` */
+
+/*Table structure for table `loguser` */
+
+DROP TABLE IF EXISTS `loguser`;
+
+CREATE TABLE `loguser` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id_pegawai` varchar(255) DEFAULT NULL,
+  `tablename` varchar(255) DEFAULT NULL,
+  `jenisproses` varchar(255) DEFAULT NULL,
+  `keterangan` varchar(255) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+/*Data for the table `loguser` */
+
+insert  into `loguser`(`id`,`id_pegawai`,`tablename`,`jenisproses`,`keterangan`,`created_at`,`updated_at`) values 
+(2,'P001','pegawai','insert','[\"P006\",\"C002\"]','2023-04-12 02:44:28','2023-04-12 02:44:28');
 
 /*Table structure for table `master_tcabang` */
 
@@ -257,7 +304,9 @@ insert  into `master_tpegawai`(`id_pegawai`,`id_cabang`,`nama_pegawai`,`npwp_peg
 ('P001','C001','Nicho','23423','Kabupaten Cikalang no 5','Sulawesi Selatan','Makassar','3334534','08113190080','superadmin@gmail.com','$2y$10$Zp0lqCGIVRvCnG04gOfQjeNFOP7dYHcqXXSt2qx0Se4JvT58sek2S','Super Admin','2023-03-09 11:18:58','2023-03-09 11:18:58',NULL),
 ('P002','C001','Andi','231312','Jln. Ngagel Jaya no 4','Jawa Timur','Surabaya','231233','08113190080','admin2@gmail.com','$2y$10$u2kFoMtHRiPAjDip5XOS.OL80e4d6R2hFXUBS3rih2m5ft29gRGUm','Admin Surabaya','2023-03-09 11:26:09','2023-03-09 11:26:09',NULL),
 ('P003','C001','Budi',NULL,'Jln Makassar no  3','Sulawesi Selatan',NULL,NULL,'08113190080','admin3@gmail.com','$2y$10$4ePJhFYMr6HL/7S8MCuZ2OC9LKbJ2wRcz2cSspdep9v5yz.8cFrQ.','Admin Makassar','2023-03-14 03:54:39','2023-03-14 03:54:39',NULL),
-('P004','C001','Dodi','12312312','Jln Makassar no  10','Sulawesi Selatan','Makassar','34234234','08113190080','kurir1@gmail.com','$2y$10$L9snZUSYNy7IqswAyGZJve/ZWhkqqiHiiQJqBlM/ncdFBFWidHqWu','Kurir','2023-03-16 04:27:18','2023-03-16 04:27:18',NULL);
+('P004','C001','Dodi','12312312','Jln Makassar no  10','Sulawesi Selatan','Makassar','34234234','08113190080','kurir1@gmail.com','$2y$10$L9snZUSYNy7IqswAyGZJve/ZWhkqqiHiiQJqBlM/ncdFBFWidHqWu','Kurir','2023-03-16 04:27:18','2023-03-16 04:27:18',NULL),
+('P005','C001','admmakasar','12341241','arif rahmat hakim','Sulawesi Selatan','Makassar','2312341','1231234124','admadmMakasar@gmail.com','$2y$10$FsiNI54wb9KYmhaAO1YJg.Vp/PgNKoqM3tkhvZ2sHhkQxjfbCyppm','Admin Makassar','2023-04-12 02:40:16','2023-04-12 02:40:16',NULL),
+('P006','C002','admadmMksr','123123414123','CAKAKLANG MAKASAR','Sulawesi Selatan','Makassar','1234','31284789','admadmMksr@gmail.com','$2y$10$0PCUaYj.6VlNK/KTeo0U8eHhzvsqXAwphOiXG01I9Y6loyARtSD2G','Admin Makassar','2023-04-12 02:44:28','2023-04-12 02:44:28',NULL);
 
 /*Table structure for table `migrations` */
 
