@@ -1,4 +1,3 @@
-
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -104,7 +103,8 @@
                 <li>
                     <form action="{{ url('/logout') }}">
                         <input type="hidden" name="device">
-                        <button style="height:100%;width: 100%;background-color: transparent;border:none;color:white;margin-left:-38px;"><i
+                        <button
+                            style="height:100%;width: 100%;background-color: transparent;border:none;color:white;margin-left:-38px;"><i
                                 class="fas fa-sign-out-alt"></i>Logout</button>
                     </form>
                 </li>
@@ -113,20 +113,32 @@
         <header class='dashboard-toolbar'><a href="#!" class="menu-toggle"></a>
 
             <div class="t">
-                <div style="color: black;font-size: 80%;margin-left: 1%;padding-top: 25px;width: 100%;text-align:center"
-                    id="myDiv"></div>
-                <ul class="notification-drop right p t">
-                    <li class="item">
-                        <span class="btn__badge pulse-button " style="">4</span>
-                        <i class="fa fa-bell notification-bell dashboard-toolbar" style="text-align:right;"
-                            aria-hidden="true"></i>
-                        <ul>
-                            <li>First Item</li>
-                            <li>Second Item</li>
-                            <li>Third Item</li>
-                        </ul>
-                    </li>
-                </ul>
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <!-- Single button -->
+                        <div class="btn-group pull-right top-head-dropdown">
+                            <button type="button" style="margin-right:50px;margin-top:-30px"
+                                class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+                                aria-expanded="false">
+                                Notification <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu dropdown-menu-right">
+                                @foreach ($arrNotif as $prm)
+                                    <li>
+                                        <a href="#" class="top-text-block">
+                                            <div class="top-text-heading">{{ $prm->berita }}</div>
+                                            {{-- <div class="top-text-light">15 minutes ago</div> --}}
+                                        </a>
+                                    </li>
+                                @endforeach
+                                <li>
+                                    <div class="loader-topbar"></div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
             </div>
 
         </header>

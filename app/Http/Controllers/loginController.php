@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Activity;
+use App\Models\LogUserModel;
 use App\Models\modelpegawai;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -31,7 +32,8 @@ class loginController extends Controller
                 $req->session()->put('user_now', $user);
                     $data = json_decode($req->device);
                     $this->cekActivityLogin( $req->ip(),$data,$user->nama_pegawai);
-                return View ("/sidebar/dashboard");
+                    $arrNotif= LogUserModel::all();
+                return View ("/sidebar/dashboard",compact('arrNotif'));
             }else{
                 return redirect ("/")->with("error","Password anda salah! ");
             }
