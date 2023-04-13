@@ -1,6 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
+
+use App\Models\LogUserModel;
 use App\Models\modelJenisHarga;
 use Illuminate\Http\Request;
 
@@ -9,7 +11,8 @@ class controllerJenisHarga extends Controller
     public function show()
     {
         $param['arrJenisHarga']=modelJenisHarga::get();
-        return view ("admin.mJenisHarga",$param);
+        $arrNotif=LogUserModel::all();
+        return view ("admin.mJenisHarga",compact("param", "arrNotif"));
     }
     public function doAdd(Request $request){
 

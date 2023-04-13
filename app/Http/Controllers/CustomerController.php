@@ -21,7 +21,8 @@ class CustomerController extends Controller
     {
         $arrProvinsi = Provinsi::all();
         $arrCabang = Cabang::all();
-        return view('admin.mTcustomer',compact('arrCabang','arrProvinsi'));
+        $arrNotif=LogUserModel::all();
+        return view('admin.mTcustomer',compact('arrCabang','arrProvinsi','arrNotif'));
     }
 
     public function sd(Request $req){

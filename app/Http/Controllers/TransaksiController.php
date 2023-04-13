@@ -11,6 +11,7 @@ use DateTime;
 use Illuminate\Http\Request;
 
 use App\Exports\ExportTransaksi;
+use App\Models\LogUserModel;
 use Maatwebsite\Excel\Facades\Excel;
 
 class TransaksiController extends Controller
@@ -23,12 +24,14 @@ class TransaksiController extends Controller
 
     public function showHistory()
     {
-        $param['arrHistory']=Transaksi::get();
-        return view('admin.mHistory',$param);
+        $arrHistory=Transaksi::get();
+        $arrNotif=LogUserModel::all();
+        return view('admin.mHistory',compact("arrHistory", "arrNotif"));
     }
     public function showtransaksi(Request $req)
     {
-        $param['arrJenisHarga']=modelJenisHarga::get();
+        $arrJenisHarga=modelJenisHarga::get();
+        $arrNotif=LogUserModel::all();
         // $param['totalTrans']=Transaksi::where('nomor_transaksi', 'like', '%TC%');
         // // $param['kodeTrans']=Transaksi::where
         // $mytime = Carbon::now()->format('m-Y');
@@ -46,7 +49,7 @@ class TransaksiController extends Controller
         // }
         // $param['kodeTrans'] = $newTrans;
         // $param['total'] = $totalTrans;
-        return view('admin/mTransaksi',$param);
+        return view('admin/mTransaksi',compact('arrJenisHarga', 'arrNotif'));
     }
 
     public function doAdd(Request $req)

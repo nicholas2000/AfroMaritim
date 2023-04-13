@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Container;
 use Illuminate\Http\Request;
 use App\Models\Depo;
+use App\Models\LogUserModel;
 use App\Models\Transaksi;
 use App\Models\modelJenisHarga;
 
@@ -16,7 +17,8 @@ class depoController extends Controller
         $arrDepo=Depo::all();
 
         $Transaksi = Transaksi::all();
-        $param['arrJenisHarga']=modelJenisHarga::get();
+        $arrJenisHarga=modelJenisHarga::get();
+        $arrNotif=LogUserModel::all();
         // $param['totalTrans']=Transaksi::where('nomor_transaksi', 'like', '%TC%');
         // // $param['kodeTrans']=Transaksi::where
         // $mytime = Carbon::now()->format('m-Y');
@@ -35,7 +37,7 @@ class depoController extends Controller
         // }
         // $param['kodeTrans'] = $newTrans;
         // $param['total'] = $totalTrans;
-        return view('admin.mDepo',compact('Transaksi'),$param);
+        return view('admin.mDepo',compact('Transaksi', 'arrJenisHarga', 'arrNotif'));
 
     }
 

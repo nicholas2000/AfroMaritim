@@ -8,6 +8,7 @@ use App\Models\Pengiriman;
 use App\Models\Transaksi;
 use Illuminate\Http\Request;
 use App\Exports\ExportKurir;
+use App\Models\LogUserModel;
 use Maatwebsite\Excel\Facades\Excel;
 
 class pengirimancontroller extends Controller
@@ -17,9 +18,10 @@ class pengirimancontroller extends Controller
         $arrContainer = Container::where('status', 1)->get();
         $arrHistory = Transaksi::all();
         $arrKurir = modelpegawai::where('role_pegawai', 'Kurir')->get();
+        $arrNotif=LogUserModel::all();
         // $param['arrContainer'] = Container::get();
         // $param['arrHistory']=Transaksi::where('nomor_container', $param['arrContainer'])->get();
-        return view('admin.mOpsi2',compact('arrContainer','arrKurir','arrHistory'));
+        return view('admin.mOpsi2',compact('arrContainer','arrKurir','arrHistory', "arrNotif"));
     }
     public function export()
     {

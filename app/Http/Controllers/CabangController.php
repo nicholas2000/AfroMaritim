@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Cabang;
 use App\Models\Customer;
+use App\Models\LogUserModel;
 use App\Models\Transaksi;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -12,8 +13,9 @@ class CabangController extends Controller
 {
     public function show()
     {
-        $param['arrCabang']=Cabang::get();
-        return view('admin.mCabang',$param);
+        $arrCabang = Cabang::get();
+        $arrNotif=LogUserModel::all();
+        return view('admin.mCabang',compact("arrCabang", "arrNotif"));
     }
 
     public function doAdd(Request $req)
