@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Cabang;
+use App\Models\LogUserModel;
 use App\Models\modelpegawai;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Crypt;
@@ -14,15 +15,20 @@ class controllerpegawai extends Controller
 {
     public function vmpegawai()
     {
-        $arrPegawai = modelpegawai::all();
-        $cabang = Cabang::all();
-        return view('admin.mPegawai', compact('arrPegawai', 'cabang'));
+        
+        $param['arrLoguser'] = LogUserModel::all();
+        $param['arrCabang'] = Cabang::all();
+        $param['arrPegawai'] = modelpegawai::all();
+        session()->put('loguser',$param['arrLoguser']);
+        return view('admin.mPegawai',$param);
     }
 
     public function vfmpegawai()
     {
-        $arrCabang = Cabang::all();
-        return view('admin.mTpegawai', compact('arrCabang'));
+        $param['arrLoguser'] = LogUserModel::all();
+        $param['arrCabang'] = Cabang::all();
+        session()->put('loguser',$param['arrLoguser']);
+        return view('admin.mTpegawai', $param);
     }
 
     public function dovmtpegawai(Request $request)
@@ -64,6 +70,14 @@ class controllerpegawai extends Controller
             'password_pegawai' => $password,
             'role_pegawai' => $request->role
         ]);
+
+        LogUserModel::create([
+            'id_pegawai' => session()->get('user_now')->id_pegawai, 
+            'tablename' => "pegawai", 
+            'jenisproses' => "insert", 
+            'keterangan' => json_encode([$kode, $request->cabang, ])
+           ]);
+
         return redirect("/masterPegawai");
     }
 

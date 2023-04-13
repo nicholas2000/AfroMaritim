@@ -14,6 +14,7 @@ use App\Http\Controllers\loginController;
 use App\Http\Controllers\pengirimancontroller;
 use App\Http\Controllers\statusController;
 use App\Http\Controllers\TransaksiController;
+use App\Http\Controllers\notifikasiController;
 use App\Models\Kompetitor;
 use Illuminate\Support\Facades\Route;
 
@@ -37,9 +38,7 @@ Route::middleware(['login', 'superadmin'])->group(function () {
 Route::get('/logout', [loginController::class, "logout"]);
 
 Route::middleware('login')->group(function () {
-    Route::get('/dashboard', function () {
-        return view('sidebar.dashboard');
-    });
+    Route::get('/dashboard',[notifikasiController::class, "show"]);
 });
 
 Route::get('/hutang', function () {
