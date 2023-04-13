@@ -30,7 +30,7 @@ CREATE TABLE `activity` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=223 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=275 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 /*Data for the table `activity` */
 
@@ -222,7 +222,59 @@ insert  into `activity`(`id`,`user`,`activity`,`ip_address`,`browser`,`os`,`crea
 (219,'Nicho','Login Berhasil','127.0.0.1','Chrome','Windows 10','2023-04-12 13:28:53','2023-04-12 13:28:53'),
 (220,'Nicho','Login Berhasil','127.0.0.1','Chrome','Windows 10','2023-04-12 13:28:54','2023-04-12 13:28:54'),
 (221,'Nicho','Login Berhasil','127.0.0.1','Chrome','Windows 10','2023-04-12 13:29:50','2023-04-12 13:29:50'),
-(222,'Nicho','Login Berhasil','127.0.0.1','Chrome','Windows 10','2023-04-12 13:29:51','2023-04-12 13:29:51');
+(222,'Nicho','Login Berhasil','127.0.0.1','Chrome','Windows 10','2023-04-12 13:29:51','2023-04-12 13:29:51'),
+(223,'Nicho','Login Berhasil','127.0.0.1','Chrome','Windows 10','2023-04-13 03:08:13','2023-04-13 03:08:13'),
+(224,'Nicho','Login Berhasil','127.0.0.1','Chrome','Windows 10','2023-04-13 03:08:16','2023-04-13 03:08:16'),
+(225,'Nicho','Login Berhasil','127.0.0.1','Chrome','Windows 10','2023-04-13 03:09:55','2023-04-13 03:09:55'),
+(226,'Nicho','Login Berhasil','127.0.0.1','Chrome','Windows 10','2023-04-13 03:09:55','2023-04-13 03:09:55'),
+(227,'Nicho','Login Berhasil','127.0.0.1','Chrome','Windows 10','2023-04-13 03:12:15','2023-04-13 03:12:15'),
+(228,'Nicho','Login Berhasil','127.0.0.1','Chrome','Windows 10','2023-04-13 03:12:16','2023-04-13 03:12:16'),
+(229,'Nicho','Login Berhasil','127.0.0.1','Chrome','Windows 10','2023-04-13 03:13:37','2023-04-13 03:13:37'),
+(230,'Nicho','Login Berhasil','127.0.0.1','Chrome','Windows 10','2023-04-13 03:13:39','2023-04-13 03:13:39'),
+(231,'Nicho','Login Berhasil','127.0.0.1','Chrome','Windows 10','2023-04-13 03:13:49','2023-04-13 03:13:49'),
+(232,'Nicho','Login Berhasil','127.0.0.1','Chrome','Windows 10','2023-04-13 03:13:49','2023-04-13 03:13:49'),
+(233,'Nicho','Login Berhasil','127.0.0.1','Chrome','Windows 10','2023-04-13 03:14:49','2023-04-13 03:14:49'),
+(234,'Nicho','Login Berhasil','127.0.0.1','Chrome','Windows 10','2023-04-13 03:16:23','2023-04-13 03:16:23'),
+(235,'Nicho','Login Berhasil','127.0.0.1','Chrome','Windows 10','2023-04-13 03:18:34','2023-04-13 03:18:34'),
+(236,'Nicho','Login Berhasil','127.0.0.1','Chrome','Windows 10','2023-04-13 03:18:48','2023-04-13 03:18:48'),
+(237,'Nicho','Login Berhasil','127.0.0.1','Chrome','Windows 10','2023-04-13 03:18:48','2023-04-13 03:18:48'),
+(238,'Nicho','Login Berhasil','127.0.0.1','Chrome','Windows 10','2023-04-13 03:22:37','2023-04-13 03:22:37'),
+(239,'Nicho','Login Berhasil','127.0.0.1','Chrome','Windows 10','2023-04-13 03:22:39','2023-04-13 03:22:39'),
+(240,'Nicho','Login Berhasil','127.0.0.1','Chrome','Windows 10','2023-04-13 03:35:40','2023-04-13 03:35:40'),
+(241,'Nicho','Login Berhasil','127.0.0.1','Chrome','Windows 10','2023-04-13 03:38:38','2023-04-13 03:38:38'),
+(242,'Nicho','Login Berhasil','127.0.0.1','Chrome','Windows 10','2023-04-13 03:41:31','2023-04-13 03:41:31'),
+(243,'Nicho','Login Berhasil','127.0.0.1','Chrome','Windows 10','2023-04-13 03:41:52','2023-04-13 03:41:52'),
+(244,'Nicho','Login Berhasil','127.0.0.1','Chrome','Windows 10','2023-04-13 03:44:15','2023-04-13 03:44:15'),
+(245,'Nicho','Logout Berhasil','127.0.0.1','Chrome','Windows 10','2023-04-13 03:44:27','2023-04-13 03:44:27'),
+(246,'Nicho','Login Berhasil','127.0.0.1','Chrome','Windows 10','2023-04-13 03:44:30','2023-04-13 03:44:30'),
+(247,'Nicho','Login Berhasil','127.0.0.1','Chrome','Windows 10','2023-04-13 03:46:46','2023-04-13 03:46:46'),
+(248,'Nicho','Logout Berhasil','127.0.0.1','Chrome','Windows 10','2023-04-13 03:47:26','2023-04-13 03:47:26'),
+(249,'Nicho','Login Berhasil','127.0.0.1','Chrome','Windows 10','2023-04-13 03:47:28','2023-04-13 03:47:28'),
+(250,'Nicho','Login Berhasil','127.0.0.1','Chrome','Windows 10','2023-04-13 03:48:18','2023-04-13 03:48:18'),
+(251,'Nicho','Login Berhasil','127.0.0.1','Chrome','Windows 10','2023-04-13 03:48:28','2023-04-13 03:48:28'),
+(252,'Nicho','Login Berhasil','127.0.0.1','Chrome','Windows 10','2023-04-13 03:48:52','2023-04-13 03:48:52'),
+(253,'Nicho','Login Berhasil','127.0.0.1','Chrome','Windows 10','2023-04-13 03:49:08','2023-04-13 03:49:08'),
+(254,'Nicho','Login Berhasil','127.0.0.1','Chrome','Windows 10','2023-04-13 03:49:33','2023-04-13 03:49:33'),
+(255,'Nicho','Login Berhasil','127.0.0.1','Chrome','Windows 10','2023-04-13 03:49:40','2023-04-13 03:49:40'),
+(256,'Nicho','Login Berhasil','127.0.0.1','Chrome','Windows 10','2023-04-13 03:50:10','2023-04-13 03:50:10'),
+(257,'Nicho','Login Berhasil','127.0.0.1','Chrome','Windows 10','2023-04-13 03:51:23','2023-04-13 03:51:23'),
+(258,'Nicho','Login Berhasil','127.0.0.1','Chrome','Windows 10','2023-04-13 03:51:53','2023-04-13 03:51:53'),
+(259,'Nicho','Login Berhasil','127.0.0.1','Chrome','Windows 10','2023-04-13 03:54:04','2023-04-13 03:54:04'),
+(260,'Nicho','Login Berhasil','127.0.0.1','Chrome','Windows 10','2023-04-13 03:55:09','2023-04-13 03:55:09'),
+(261,'Nicho','Login Berhasil','127.0.0.1','Chrome','Windows 10','2023-04-13 03:55:17','2023-04-13 03:55:17'),
+(262,'Nicho','Login Berhasil','127.0.0.1','Chrome','Windows 10','2023-04-13 03:55:45','2023-04-13 03:55:45'),
+(263,'Nicho','Login Berhasil','127.0.0.1','Chrome','Windows 10','2023-04-13 03:55:52','2023-04-13 03:55:52'),
+(264,'Nicho','Login Berhasil','127.0.0.1','Chrome','Windows 10','2023-04-13 03:56:02','2023-04-13 03:56:02'),
+(265,'Nicho','Login Berhasil','127.0.0.1','Chrome','Windows 10','2023-04-13 03:57:23','2023-04-13 03:57:23'),
+(266,'Nicho','Login Berhasil','127.0.0.1','Chrome','Windows 10','2023-04-13 03:58:08','2023-04-13 03:58:08'),
+(267,'Nicho','Login Berhasil','127.0.0.1','Chrome','Windows 10','2023-04-13 03:59:15','2023-04-13 03:59:15'),
+(268,'Nicho','Login Berhasil','127.0.0.1','Chrome','Windows 10','2023-04-13 04:02:33','2023-04-13 04:02:33'),
+(269,'Nicho','Login Berhasil','127.0.0.1','Chrome','Windows 10','2023-04-13 04:19:55','2023-04-13 04:19:55'),
+(270,'Nicho','Login Berhasil','127.0.0.1','Chrome','Windows 10','2023-04-13 04:20:13','2023-04-13 04:20:13'),
+(271,'Nicho','Login Berhasil','127.0.0.1','Chrome','Windows 10','2023-04-13 04:20:39','2023-04-13 04:20:39'),
+(272,'Nicho','Login Berhasil','127.0.0.1','Chrome','Windows 10','2023-04-13 04:21:44','2023-04-13 04:21:44'),
+(273,'Nicho','Login Berhasil','127.0.0.1','Chrome','Windows 10','2023-04-13 05:05:46','2023-04-13 05:05:46'),
+(274,'Nicho','Login Berhasil','127.0.0.1','Chrome','Windows 10','2023-04-13 05:08:52','2023-04-13 05:08:52');
 
 /*Table structure for table `depo` */
 
@@ -270,13 +322,15 @@ CREATE TABLE `loguser` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 /*Data for the table `loguser` */
 
 insert  into `loguser`(`id`,`berita`,`status`,`created_at`,`updated_at`) values 
-(1,'Insert Barang','0','2023-04-12 20:19:42','2023-04-12 20:19:44'),
-(2,'Delete Barang','0','2023-04-12 20:19:46','2023-04-12 20:19:47');
+(1,'Super Admin Insert Barang','0','2023-04-12 20:19:42','2023-04-12 20:19:44'),
+(2,'Delete Barang','0','2023-04-12 20:19:46','2023-04-12 20:19:47'),
+(3,'Nicho Berhasil menambahkan landraa','0','2023-04-13 03:33:06','2023-04-13 03:33:06'),
+(4,'Nicho Berhasil menambahkan QWe','0','2023-04-13 04:21:33','2023-04-13 04:21:33');
 
 /*Table structure for table `master_tcabang` */
 

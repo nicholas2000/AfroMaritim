@@ -105,22 +105,32 @@
         <header class='dashboard-toolbar'><a href="#!" class="menu-toggle"></a>
 
             <div class="t">
-                <div style="color: black;font-size: 80%;margin-left: 1%;padding-top: 25px;width: 100%;text-align:center"
-                    id="myDiv"></div>
-                <ul class="notification-drop right p t">
-                    <li class="item">
-                        <span class="btn__badge pulse-button " style="">4</span>
-                        <i class="fa fa-bell notification-bell dashboard-toolbar" style="text-align:right;"
-                            aria-hidden="true"></i>
-                        <ul>
-                            <li>First Item</li>
-                            <li>Second Item</li>
-                            <li>Third Item</li>
-                        </ul>
-                    </li>
-                </ul>
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <!-- Single button -->
+                        <div class="btn-group pull-right top-head-dropdown">
+                            <button type="button" style="margin-right:50px;margin-top:-30px"
+                                class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+                                aria-expanded="false">
+                                Notification <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu dropdown-menu-right">
+                                @foreach ($arrNotif as $prm)
+                                    <li>
+                                        <a href="#" class="top-text-block">
+                                            <div class="top-text-heading">{{ $prm->berita }}</div>
+                                            {{-- <div class="top-text-light">15 minutes ago</div> --}}
+                                        </a>
+                                    </li>
+                                @endforeach
+                                <li>
+                                    <div class="loader-topbar"></div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
             </div>
-
         </header>
         <!-- /#sidebar-wrapper -->
 

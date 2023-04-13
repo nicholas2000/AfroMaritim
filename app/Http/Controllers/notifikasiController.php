@@ -12,7 +12,6 @@ class notifikasiController extends Controller
     public function show(Request $req)
     {
         $arrNotif=LogUserModel::all();
-        dd($arrNotif);
         return view('sidebar.dashboard',compact("arrNotif"));
     }
 }
