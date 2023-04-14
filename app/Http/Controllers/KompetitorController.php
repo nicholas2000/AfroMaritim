@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Cabang;
 use App\Models\Kompetitor;
 use Illuminate\Http\Request;
+use App\Models\LogUserModel;
 
 class KompetitorController extends Controller
 {

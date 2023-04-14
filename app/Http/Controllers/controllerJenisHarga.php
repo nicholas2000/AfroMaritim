@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Models\modelJenisHarga;
 use Illuminate\Http\Request;
+use App\Models\LogUserModel;
 
 class controllerJenisHarga extends Controller
 {

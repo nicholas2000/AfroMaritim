@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Depo;
 use App\Models\Transaksi;
 use App\Models\modelJenisHarga;
+use App\Models\LogUserModel;
 
 class depoController extends Controller
 {

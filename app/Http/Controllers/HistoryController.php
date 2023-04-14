@@ -6,6 +6,7 @@ use App\Models\Transaksi;
 use Illuminate\Http\Request;
 use App\Exports\ExportHistory;
 use Maatwebsite\Excel\Facades\Excel;
+use App\Models\LogUserModel;
 
 class HistoryController extends Controller
 {

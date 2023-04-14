@@ -8,6 +8,7 @@ use App\Models\modelpegawai;
 use App\Models\Permission;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
+use App\Models\LogUserModel;
 
 
 class statusController extends Controller

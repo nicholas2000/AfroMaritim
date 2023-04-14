@@ -12,6 +12,7 @@ use Illuminate\Http\Request;
 
 use App\Exports\ExportTransaksi;
 use Maatwebsite\Excel\Facades\Excel;
+use App\Models\LogUserModel;
 
 class TransaksiController extends Controller
 {

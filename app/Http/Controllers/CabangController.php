@@ -6,6 +6,7 @@ use App\Models\Cabang;
 use App\Models\Customer;
 use App\Models\Transaksi;
 use Illuminate\Http\Request;
+use App\Models\LogUserModel;
 use Illuminate\Support\Facades\DB;
 
 class CabangController extends Controller
