@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Container;
+use App\Models\LogUserModel;
 use Illuminate\Http\Request;
 use App\Models\Transaksi;
 use App\Models\LogUserModel;
@@ -14,7 +15,8 @@ class containercontroller extends Controller
         $id = $req->no_container;
         $arrTransaksi=Transaksi::all()->where('id_container' , $id);
         $arrCon=Container::all();
-        return view('admin.mContainer',compact("arrTransaksi","arrCon"));
+        $arrNotif=LogUserModel::all();
+        return view('admin.mContainer',compact("arrTransaksi","arrCon", "arrNotif"));
     }
     public function doAdd(Request $req)
     {

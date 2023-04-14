@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Cabang;
 use App\Models\Kompetitor;
+use App\Models\LogUserModel;
 use Illuminate\Http\Request;
 use App\Models\LogUserModel;
 
@@ -11,10 +12,11 @@ class KompetitorController extends Controller
 {
     public function show()
     {
+        $arrNotif=LogUserModel::all();
         $arrKompetitor=Kompetitor::all();
-        return view('admin.mKompetitor',compact('arrKompetitor'));
+        return view('admin.mKompetitor',compact('arrKompetitor', 'arrNotif'));
     }
-   
+
 
     public function doAdd(Request $req)
     {

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Models\Transaksi;
 
 use App\Models\Activity;
+use App\Models\LogUserModel;
 use App\Models\modelpegawai;
 use App\Models\Permission;
 use Illuminate\Http\Request;
@@ -17,7 +18,8 @@ class statusController extends Controller
     public function showStatus()
     {
         $arrTransaksi=Transaksi::all();
-        return view('admin.mStatus',compact('arrTransaksi'));
+        $arrNotif=LogUserModel::all();
+        return view('admin.mStatus',compact('arrTransaksi', "arrNotif"));
     }
     public function searchTanggal(Request $req)
     {

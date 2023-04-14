@@ -15,20 +15,22 @@ class controllerpegawai extends Controller
 {
     public function vmpegawai()
     {
-        
-        $param['arrLoguser'] = LogUserModel::all();
-        $param['arrCabang'] = Cabang::all();
-        $param['arrPegawai'] = modelpegawai::all();
-        session()->put('loguser',$param['arrLoguser']);
-        return view('admin.mPegawai',$param);
+
+        $arrLoguser = LogUserModel::all();
+        $arrCabang = Cabang::all();
+        $arrPegawai = modelpegawai::all();
+        session()->put('loguser',$arrLoguser);
+        $arrNotif=LogUserModel::all();
+        return view('admin.mPegawai', compact("arrLoguser", "arrCabang", "arrPegawai", "arrNotif"));
     }
 
     public function vfmpegawai()
     {
-        $param['arrLoguser'] = LogUserModel::all();
-        $param['arrCabang'] = Cabang::all();
-        session()->put('loguser',$param['arrLoguser']);
-        return view('admin.mTpegawai', $param);
+        $arrLoguser = LogUserModel::all();
+        $arrCabang = Cabang::all();
+        session()->put('loguser',$arrLoguser);
+        $arrNotif=LogUserModel::all();
+        return view('admin.mTpegawai', compact("arrLoguser", "arrCabang", "arrNotif"));
     }
 
     public function dovmtpegawai(Request $request)
@@ -72,9 +74,9 @@ class controllerpegawai extends Controller
         ]);
 
         LogUserModel::create([
-            'id_pegawai' => session()->get('user_now')->id_pegawai, 
-            'tablename' => "pegawai", 
-            'jenisproses' => "insert", 
+            'id_pegawai' => session()->get('user_now')->id_pegawai,
+            'tablename' => "pegawai",
+            'jenisproses' => "insert",
             'keterangan' => json_encode([$kode, $request->cabang, ])
            ]);
 

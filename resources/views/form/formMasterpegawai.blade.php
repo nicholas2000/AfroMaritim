@@ -168,7 +168,7 @@
                                     <label style="margin-left: 40px;">Cabang</label>
                                     <select name="cabang" style="height:35px" class="form-control selectpicker">
                                         <option value="">Pilih Cabang</option>
-                                        @foreach ($cabang as $prm)
+                                        @foreach ($arrCabang as $prm)
                                             <option value="{{ $prm->id_cabang }}">{{ $prm->nama_cabang }}</option>
                                         @endforeach
                                     </select>

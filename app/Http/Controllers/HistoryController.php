@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Transaksi;
 use Illuminate\Http\Request;
 use App\Exports\ExportHistory;
+use App\Models\LogUserModel;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Models\LogUserModel;
 
@@ -17,8 +18,9 @@ class HistoryController extends Controller
 
     public function show()
     {
-        $param['arrHistory']=Transaksi::get();
-        return view('admin.mHistory',$param);
+        $arrHistory = Transaksi::get();
+        $arrNotif = LogUserModel::all();
+        return view('admin.mHistory', compact('arrHistory', 'arrNotif'));
     }
     public function deletehistory($id)
     {
