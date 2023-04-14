@@ -13,7 +13,6 @@ use Illuminate\Http\Request;
 use App\Exports\ExportTransaksi;
 use App\Models\LogUserModel;
 use Maatwebsite\Excel\Facades\Excel;
-use App\Models\LogUserModel;
 
 class TransaksiController extends Controller
 {
@@ -127,6 +126,11 @@ class TransaksiController extends Controller
                 'total_harga' => $req->total,
                 'status_barang' => 'Kantor SBY',
             ]);
+        $data_user_login=$req->session()->get("user_now");
+        LogUserModel::create([
+            "berita"=>$data_user_login["nama_pegawai"]." Berhasil menambahkan transaksi dengan no resi ".$req->nomor_resi,
+            "status"=>"0",
+        ]);
         }else{
             $transaksi = Transaksi::withTrashed()->find($req->kode);
             $result = $transaksi->update([

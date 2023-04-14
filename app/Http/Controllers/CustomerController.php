@@ -136,7 +136,7 @@ class CustomerController extends Controller
         ]);
         $data_user_login=$req->session()->get("user_now");
         LogUserModel::create([
-            "berita"=>$data_user_login["nama_pegawai"]." Berhasil menambahkan ".$req->nama,
+            "berita"=>$data_user_login["nama_pegawai"]." Berhasil menambahkan customer ".$req->nama,
             "status"=>"0",
         ]);
         return redirect("/masterCustomer");
@@ -159,6 +159,11 @@ class CustomerController extends Controller
                 'no_rekening'=>$request->noRekening,
                 'metode_pembayaran'=>$request->metodePembayaran
 
+            ]);
+            $data_user_login=$req->session()->get("user_now");
+            LogUserModel::create([
+                "berita"=>$data_user_login["nama_pegawai"]." Berhasil Mengedit customer ".$request->nama,
+                "status"=>"0",
             ]);
 
         if($result){

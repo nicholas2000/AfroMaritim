@@ -37,7 +37,6 @@
 </head>
 
 <body>
-
     <link rel="stylesheet" href="style.css">
     <div class="container">
         <div class="info">

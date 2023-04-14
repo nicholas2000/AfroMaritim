@@ -6,7 +6,6 @@ use App\Models\Cabang;
 use App\Models\Kompetitor;
 use App\Models\LogUserModel;
 use Illuminate\Http\Request;
-use App\Models\LogUserModel;
 
 class KompetitorController extends Controller
 {
@@ -72,8 +71,17 @@ class KompetitorController extends Controller
             'namabank_kompetitor'=>$req->namaBank,
             'norek_kompetitor'=>$req->noRekening
         ]);
-
+        $data_user_login=$req->session()->get("user_now");
+        LogUserModel::create([
+            "berita"=>$data_user_login["nama_pegawai"]." Berhasil menambahkan kompetitor ".$req->nama,
+            "status"=>"0",
+        ]);
         return redirect('/masterKompetitor');
+    }
+    public function add(Request $request){
+        $arrNotif=LogUserModel::all();
+        return view('admin.mTkompetitor',compact("arrNotif"));
+
     }
 
     public function delete($id)

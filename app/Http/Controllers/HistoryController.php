@@ -7,7 +7,6 @@ use Illuminate\Http\Request;
 use App\Exports\ExportHistory;
 use App\Models\LogUserModel;
 use Maatwebsite\Excel\Facades\Excel;
-use App\Models\LogUserModel;
 
 class HistoryController extends Controller
 {

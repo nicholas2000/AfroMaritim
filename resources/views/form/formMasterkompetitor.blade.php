@@ -9,7 +9,7 @@
                 <br>
 
                 <div class="col-12">
-                    <a href="{{ url('/tkompetitor') }}"> <button style="float: right;" type="button"
+                    <a href="{{ url('/addKompetitor') }}"> <button style="float: right;" type="button"
                             class="btn btn-primary">Tambah</button></a>
                 </div>
                 <br><br>

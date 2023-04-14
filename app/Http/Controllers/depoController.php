@@ -8,8 +8,6 @@ use App\Models\Depo;
 use App\Models\LogUserModel;
 use App\Models\Transaksi;
 use App\Models\modelJenisHarga;
-use App\Models\LogUserModel;
-
 class depoController extends Controller
 {
 
@@ -65,6 +63,11 @@ class depoController extends Controller
             'status_barang' => 'Depo',
             'catatan' => $req->catatan,
         ]);
+        $data_user_login=$req->session()->get("user_now");
+        LogUserModel::create([
+            "berita"=>$data_user_login["nama_pegawai"]." Berhasil menambahkan barang ".$req->jenis_barang,
+            "status"=>"0",
+        ]);
         if($req->final=="yes"){
             $close_container = Container::find($req->contSearch);
             $close_container->update(['status' => '0']);
@@ -82,7 +85,11 @@ class depoController extends Controller
             'status_barang' => 'Depo SBY',
 
             ]);
-
+            $data_user_login=$req->session()->get("user_now");
+            LogUserModel::create([
+                "berita"=>$data_user_login["nama_pegawai"]." Berhasil mengedit barang ".$req->jenis_barang,
+                "status"=>"0",
+            ]);
         if($result){
             return redirect('/depo');
         }else{

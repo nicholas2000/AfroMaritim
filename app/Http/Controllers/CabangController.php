@@ -7,7 +7,6 @@ use App\Models\Customer;
 use App\Models\LogUserModel;
 use App\Models\Transaksi;
 use Illuminate\Http\Request;
-use App\Models\LogUserModel;
 use Illuminate\Support\Facades\DB;
 
 class CabangController extends Controller
@@ -21,7 +20,7 @@ class CabangController extends Controller
 
     public function doAdd(Request $req)
     {
-
+        $arrNotif=LogUserModel::get();
         $cabang = Cabang::withTrashed()->get();
         $ctr = 1;
         foreach($cabang as $c){
@@ -79,9 +78,19 @@ class CabangController extends Controller
             'email_cabang'=>$req->email,
             'status_cabang'=>$status
         ]);
+        $data_user_login=$req->session()->get("user_now");
+        LogUserModel::create([
+            "berita"=>$data_user_login["nama_pegawai"]." Berhasil menambahkan cabang ".$req->nama,
+            "status"=>"0",
+        ]);
         return redirect("/masterCabang");
     }
 
+    public function add(Request $request){
+        $arrNotif=LogUserModel::all();
+        return view('admin.mtcabang',compact("arrNotif"));
+
+    }
 
     public function doEdit(Request $request)
     {
@@ -103,6 +112,11 @@ class CabangController extends Controller
                 'gmaps_cabang' => $request->gmaps,
                 'email_cabang' => $request->email,
                 'status_cabang' => $status
+            ]);
+            $data_user_login=$request->session()->get("user_now");
+            LogUserModel::create([
+                "berita"=>$data_user_login["nama_pegawai"]." Berhasil Mengedit cabang ".$request->nama,
+                "status"=>"0",
             ]);
         if($result){
             return redirect('/masterCabang');

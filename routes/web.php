@@ -60,9 +60,7 @@ Route::middleware(['login', 'mastercabang'])->group(function () {
     Route::get('/masterCabang', [CabangController::class, "show"]);
     Route::post('/masterCabang/edit', [CabangController::class, "doEdit"]);
     Route::post('/masterCabang/delete/{id}', [CabangController::class, "delete"]);
-    Route::get('/tcabang', function () {
-        return view('admin.mTcabang');
-    });
+    Route::get('/addcabang',[CabangController::class, "add"]);
 });
 
 Route::middleware(['login', 'mastercustomer'])->group(function () {
@@ -76,9 +74,7 @@ Route::middleware(['login', 'mastercustomer'])->group(function () {
 Route::middleware(['login', 'masterkompetitor'])->group(function () {
     Route::post('/doAddkompetitor', [KompetitorController::class, "doAdd"]);
     Route::get('/masterKompetitor', [KompetitorController::class, "show"]);
-    Route::get('/tkompetitor', function () {
-        return view('admin.mTkompetitor');
-    });
+    Route::get('/addKompetitor', [KompetitorController::class, "add"] );
     Route::post('/masterKompetitor/delete/{id}', [KompetitorController::class, "delete"]);
     Route::post('/masterKompetitor/update', [KompetitorController::class, "update"]);
 });
@@ -139,9 +135,7 @@ Route::middleware(['login', 'mastercontainer'])->group(function () {
     Route::post('/doaddcontainer', [containercontroller::class, "doAdd"]);
     Route::post('/masterContainer/lock/{id}', [containercontroller::class, "lock"]);
     Route::post('/masterContainer/unlock/{id}', [containercontroller::class, "unlock"]);
-    Route::get('/tcontainer', function () {
-        return view('admin.mTContainer');
-    });
+    Route::get('/addContainer', [containercontroller::class, "add"]);
 });
 
 Route::get('/exportTransaksi', [TransaksiController::class, "export"]);

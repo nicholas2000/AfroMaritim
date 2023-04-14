@@ -98,7 +98,7 @@
 
 
                 <div class="col-12">
-                    <a href="{{ url('/tcabang') }}"><button style="float: right;" type="button"
+                    <a href="{{ url('/addcabang') }}"><button style="float: right;" type="button"
                             class="btn btn-primary">Tambah</button></a>
                 </div>
                 <br><br>

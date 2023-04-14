@@ -73,16 +73,13 @@ class controllerpegawai extends Controller
             'role_pegawai' => $request->role
         ]);
 
+        $data_user_login=$req->session()->get("user_now");
         LogUserModel::create([
-            'id_pegawai' => session()->get('user_now')->id_pegawai,
-            'tablename' => "pegawai",
-            'jenisproses' => "insert",
-            'keterangan' => json_encode([$kode, $request->cabang, ])
-           ]);
-
+            "berita"=>$data_user_login["nama_pegawai"]." Berhasil menambahkan pegawai ".$request->nama,
+            "status"=>"0",
+        ]);
         return redirect("/masterPegawai");
     }
-
     public function deletepegawai($id)
     {
         $pegawai = modelpegawai::withTrashed()->find($id);
@@ -119,6 +116,11 @@ class controllerpegawai extends Controller
             'telp_pegawai' => $request->telpon,
             'email_pegawai' => $request->email,
             'role_pegawai' => $request->role
+        ]);
+        $data_user_login=$request->session()->get("user_now");
+        LogUserModel::create([
+            "berita"=>$data_user_login["nama_pegawai"]." Berhasil Mengupdate pegawai ".$request->nama,
+            "status"=>"0",
         ]);
         if ($result) {
             return redirect('/masterPegawai');

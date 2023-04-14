@@ -10,7 +10,6 @@ use Illuminate\Http\Request;
 use App\Exports\ExportKurir;
 use App\Models\LogUserModel;
 use Maatwebsite\Excel\Facades\Excel;
-use App\Models\LogUserModel;
 
 class pengirimancontroller extends Controller
 {
