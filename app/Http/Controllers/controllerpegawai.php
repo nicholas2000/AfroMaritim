@@ -80,7 +80,7 @@ class controllerpegawai extends Controller
         ]);
         return redirect("/masterPegawai");
     }
-    public function deletepegawai($id)
+    public function deletepegawai(Request $request, $id)
     {
         $pegawai = modelpegawai::withTrashed()->find($id);
         if ($pegawai->trashed()) {
@@ -88,6 +88,11 @@ class controllerpegawai extends Controller
         } else {
             $result = $pegawai->delete();
         }
+        $data_user_login=$req->session()->get("user_now");
+        LogUserModel::create([
+            "berita"=>$data_user_login["nama_pegawai"]." Berhasil delete pegawai ".$id,
+            "status"=>"0",
+        ]);
 
         if ($result) {
             return redirect('/masterPegawai');

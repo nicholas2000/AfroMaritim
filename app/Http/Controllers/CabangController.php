@@ -125,16 +125,19 @@ class CabangController extends Controller
         }
     }
 
-    public function delete($id)
+    public function delete(Request $request , $id)
     {
-
         $cabang = Cabang::withTrashed()->find($id);
         if($cabang->trashed()){
             $result = $cabang->restore();
         }else{
             $result = $cabang->delete();
         }
-
+        $data_user_login=$request->session()->get("user_now");
+        LogUserModel::create([
+            "berita"=>$data_user_login["nama_pegawai"]." Berhasil delete cabang ".$id,
+            "status"=>"0",
+        ]);
         if ($result) {
             return redirect('/masterCabang');
         } else {

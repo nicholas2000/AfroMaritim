@@ -47,7 +47,13 @@ class pengirimancontroller extends Controller
                 // 'nomor_container'=> $request->ncontainer,
                 'kurir'=> $request->namakurir,
             ]);
+            $data_user_login=$request->session()->get("user_now");
+            LogUserModel::create([
+                "berita"=>$data_user_login["nama_pegawai"]." Berhasil Update kurir ".$request->namakurir,
+                "status"=>"0",
+            ]);
         }
+
 
         return redirect('/masterpengirimansatu');
     }

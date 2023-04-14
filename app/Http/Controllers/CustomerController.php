@@ -172,7 +172,7 @@ class CustomerController extends Controller
             return redirect('/masterCustomer');
         }
     }
-    public function delete($id)
+    public function delete(Request $request, $id)
     {
 
         $customer = Customer::withTrashed()->find($id);
@@ -181,6 +181,11 @@ class CustomerController extends Controller
         }else{
             $result = $customer->delete();
         }
+        $data_user_login=$req->session()->get("user_now");
+        LogUserModel::create([
+            "berita"=>$data_user_login["nama_pegawai"]." Berhasil delete customer ".$id,
+            "status"=>"0",
+        ]);
 
         if ($result) {
             return redirect('/masterCustomer');

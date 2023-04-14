@@ -97,7 +97,7 @@ class depoController extends Controller
         }
     }
 
-    public function delete($id)
+    public function delete(Request $request, $id)
     {
         $depo = Transaksi::withTrashed()->find($id);
         if($depo->trashed()){
@@ -105,7 +105,11 @@ class depoController extends Controller
         }else{
             $result = $depo->delete();
         }
-
+        $data_user_login=$req->session()->get("user_now");
+        LogUserModel::create([
+            "berita"=>$data_user_login["nama_pegawai"]." Berhasil delete barang ".$id,
+            "status"=>"0",
+        ]);
         if ($result) {
             return redirect('/depo');
         } else {

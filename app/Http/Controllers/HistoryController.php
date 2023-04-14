@@ -21,11 +21,15 @@ class HistoryController extends Controller
         $arrNotif = LogUserModel::all();
         return view('admin.mHistory', compact('arrHistory', 'arrNotif'));
     }
-    public function deletehistory($id)
+    public function deletehistory(Request $request, $id)
     {
 
         Transaksi::where('nomor_transaksi',$id)->delete();
-
+        $data_user_login=$request->session()->get("user_now");
+        LogUserModel::create([
+            "berita"=>$data_user_login["nama_pegawai"]." Berhasil delete history ".$id,
+            "status"=>"0",
+        ]);
         return redirect('/masterHistory');
     }
     public function updatehistory(Request $request)
@@ -37,6 +41,11 @@ class HistoryController extends Controller
                 // 'nomor_container'=> $request->ncontainer,
                 'nama_kapal'=> $request->nkapal,
                 'nomor_segel'=> $request->nomor_segel
+            ]);
+            $data_user_login=$request->session()->get("user_now");
+            LogUserModel::create([
+                "berita"=>$data_user_login["nama_pegawai"]." Berhasil update nomor kapal ".$request->nkapal,
+                "status"=>"0",
             ]);
         }
 
@@ -54,6 +63,11 @@ class HistoryController extends Controller
 
             ]);
 
+            $data_user_login=$request->session()->get("user_now");
+            LogUserModel::create([
+                "berita"=>$data_user_login["nama_pegawai"]." Berhasil edit history ".$req->jenis_barang,
+                "status"=>"0",
+            ]);
         if($result){
             return redirect('/masterHistory');
         }else{

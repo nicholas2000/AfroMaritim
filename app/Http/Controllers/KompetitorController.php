@@ -84,15 +84,19 @@ class KompetitorController extends Controller
 
     }
 
-    public function delete($id)
+    public function delete(Request $request, $id)
     {
-
         $kompetitor = Kompetitor::withTrashed()->find($id);
         if($kompetitor->trashed()){
             $result = $kompetitor->restore();
         }else{
             $result = $kompetitor->delete();
         }
+        $data_user_login=$request->session()->get("user_now");
+        LogUserModel::create([
+            "berita"=>$data_user_login["nama_pegawai"]." Berhasil delete kompetitor ".$id,
+            "status"=>"0",
+        ]);
 
         if ($result) {
             return redirect('/masterKompetitor');
