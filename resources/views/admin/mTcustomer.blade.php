@@ -111,9 +111,9 @@
                         <!-- Single button -->
                         <div class="btn-group pull-right top-head-dropdown">
                             <button type="button" style="margin-right:50px;margin-top:-30px"
-                                class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+                                class="btn btn-default dropdown-toggle fa fa-bell" data-toggle="dropdown" aria-haspopup="true"
                                 aria-expanded="false">
-                                Notification <span class="caret"></span>
+                                <span class="caret"></span>
                             </button>
                             <ul class="dropdown-menu dropdown-menu-right">
                                 @foreach ($arrNotif as $prm)
