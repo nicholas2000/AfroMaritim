@@ -63,7 +63,7 @@ class HistoryController extends Controller
 
             ]);
 
-            $data_user_login=$request->session()->get("user_now");
+            $data_user_login=$req->session()->get("user_now");
             LogUserModel::create([
                 "berita"=>$data_user_login["nama_pegawai"]." Berhasil edit history ".$req->jenis_barang,
                 "status"=>"0",
