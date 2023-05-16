@@ -1,10 +1,6 @@
 <body>
     <div class="container">
-        @if ($errors->any())
-            @foreach ($errors->all() as $err)
-                <div class="alert alert-danger">{{ $err }}</div>
-            @endforeach
-        @endif
+
         <form class="form-horizontal" action="{{ url('/doAddkompetitor') }}"id="contact_form" method="post">
             @csrf
             <fieldset>
@@ -16,6 +12,11 @@
 
                 <!--input code-->
                 <div class="form-group">
+                    @if ($errors->any())
+                    @foreach ($errors->all() as $err)
+                        <div class="alert alert-danger">{{ $err }}</div>
+                    @endforeach
+                @endif
                     <label class="col-md-1 control-label">Kode</label>
                     <div class="col-md-10 inputGroupContainer">
                         <div class="input-group">
