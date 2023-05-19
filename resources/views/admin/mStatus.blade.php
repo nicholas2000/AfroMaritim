@@ -116,7 +116,7 @@
                                 <span class="caret"></span>
                             </button>
                             <ul class="dropdown-menu dropdown-menu-right">
-                                @foreach ($arrNotif as $prm)
+                                @foreach ($arrTransaksi as $prm)
                                     <li>
                                         <a href="#" class="top-text-block">
                                             <div class="top-text-heading">{{ $prm->berita }}</div>

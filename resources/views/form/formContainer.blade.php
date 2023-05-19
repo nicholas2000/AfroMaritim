@@ -5,7 +5,7 @@
         <div class="container pt-4">
             <div class="container">
                 <div class="col-12 ">
-                    <h1> Form Master Container</h1>
+                    <h1> Rekap Kontainer</h1>
                     <hr class="mt" />
                 </div>
                 <br>
@@ -23,7 +23,7 @@
                                 <center>No Container</center>
                             </th>
                             <th scope="col" class="col-2">
-                                <center>Nama Container</center>
+                                <center>Tgl Closing</center>
                             </th>
                             <th scope="col"class="col-2">
                                 <center>Status</center>

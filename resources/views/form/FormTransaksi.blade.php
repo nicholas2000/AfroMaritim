@@ -37,7 +37,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-12 ">
-                        <h1> Master Transaksi</h1>
+                        <h1> Manifest Kontainer</h1>
                         <hr class="mt" />
                     </div>
                 </div>

@@ -132,7 +132,7 @@ class TransaksiController extends Controller
             "status"=>"0",
         ]);
         }else{
-            $transaksi = Transaksi::withTrashed()->find($req->kode);
+            $transaksi = Transaksi::withTrashed()->find($req->nomor_resi);
             $result = $transaksi->update([
                 'nomor_resi' => $req->nomor_resi,
                 'nama_pengirim' =>  $pengirim,

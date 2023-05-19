@@ -37,7 +37,7 @@
 <section class="order-form m-4">
         <div class="container pt-4">
             <div class="container">
-                <h1> Status Barang </h1>
+                <h1> Kapal Tiba </h1>
                 <div class="row ">
 
                     <div class="col-md-12 form-group">
@@ -128,7 +128,7 @@
                                 <td>
                                     <center><input type="checkbox" onClick="toggle(this)" /> </center>
                                 </td>
-                                <th scope="col">No Transaksi</th>
+                                <th scope="col"> <center> STT</center></th>
                                 <th scope="col">
                                     <center>Nama Customer</center>
                                 </th>

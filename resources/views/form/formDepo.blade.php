@@ -123,7 +123,7 @@
                 <div class="row">
                     <div class="col-sm-9">
                         <div>
-                            <h3>Depo</h3>
+                            <h3>Manifest Depo</h3>
                         </div>
                     </div>
 
@@ -330,23 +330,27 @@
                                         <form action="{{ url('/editDepo') }}" method="post">
                                             @csrf
 
-                                            <label style="margin-left: 40px;">Nama Penerima</label>
+                                            <label style="margin-left: 40px;">Tanggal</label>
                                             <input name="nama_penerima" placeholder="Masukkan Nama Penerima" class="form-control"
                                             type="text">
 
-                                            <label style="margin-left: 40px;">Nama Pengirim</label>
+                                            <label style="margin-left: 40px;">STT(Resi)</label>
                                             <input name="nama_pengirim" placeholder="Masukkan Nama Pengirim" class="form-control"
                                             type="text">
 
-                                            <label style="margin-left: 40px;">Jenis Barang</label>
+                                            <label style="margin-left: 40px;"> Nama Penerima</label>
                                             <input name="jenis_barang" placeholder="Masukkan Nama Barang" class="form-control"
                                             type="text">
 
-                                            <label style="margin-left: 40px;">Nomor Resi</label>
+                                            <label style="margin-left: 40px;">Nama Pengirim</label>
                                             <input name="nomor_resi" placeholder="Masukkan Nomor Resi" class="form-control"
                                             type="text">
 
-                                            <label style="margin-left: 40px;">Nomor Container</label>
+                                            <label style="margin-left: 40px;">Jenis Barang</label>
+                                            <input name="nomor_container" placeholder="Masukkan Nomor Container" class="form-control"
+                                            type="text">
+
+                                            <label style="margin-left: 40px;">Jumlah Colly</label>
                                             <input name="nomor_container" placeholder="Masukkan Nomor Container" class="form-control"
                                             type="text">
                                             <input type="hidden" name="nomor_transaksi" value="">

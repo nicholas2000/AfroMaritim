@@ -24,7 +24,7 @@ class HistoryController extends Controller
     public function deletehistory(Request $request, $id)
     {
 
-        Transaksi::where('nomor_transaksi',$id)->delete();
+        Transaksi::where('nomor_resi',$id)->delete();
         $data_user_login=$request->session()->get("user_now");
         LogUserModel::create([
             "berita"=>$data_user_login["nama_pegawai"]." Berhasil delete history ".$id,

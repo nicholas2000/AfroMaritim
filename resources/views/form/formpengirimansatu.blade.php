@@ -37,7 +37,7 @@
 <section class="ophp artisan route:clearrder-form m-4">
     <div class="container pt-4">
         <div class="container">
-            <h1> Gudang </h1>
+            <h1> Bongkar Kontainer </h1>
             <div class="row ">
                 <input type="hidden" name="data">
                 <div class="col-sm-10 col-md-12 form-group">

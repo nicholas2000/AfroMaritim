@@ -144,7 +144,7 @@
             <div class="row">
                 <div class="col-sm-9">
                     <div>
-                        <h3> History Transaksi</h3>
+                        <h3> Loading Kapal</h3>
                     </div>
                 </div>
 
