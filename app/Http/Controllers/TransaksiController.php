@@ -112,19 +112,18 @@ class TransaksiController extends Controller
                 'nohp_penerima' => $req->nohp_penerima,
                 'email_penerima' => $req->email_penerima,
                 'jenis_barang' => $req->nama_barang,
-                'jenis_ukuran' => $req->jenis_ukuran,
+                'jumlah_barang' => $req->colly,
+                'jenis_volume' => $req->jenis_ukuran,
                 'volume' => $req->nominal_ukuran,
-                'rute' => $req->rute,
                 'nama_kapal' => $req->nama_kapal,
                 'tanggal' =>$req->tglberangkat,
-                'jumlah_barang' => $req->colly,
                 'jenis_harga' => $req->jenisharga,
                 'harga_kubik' => $req->harga_kubik,
                 'harga' => $req->harga_jenis,
                 'harga_tambahan' => $req->harga_tambahan,
                 'harga_potongan' => $req->harga_potongan,
                 'total_harga' => $req->total,
-                'status_barang' => 'Kantor SBY',
+                'status_barang' => 'Depo SBY',
             ]);
         $data_user_login=$req->session()->get("user_now");
         LogUserModel::create([
@@ -144,10 +143,9 @@ class TransaksiController extends Controller
                 'nohp_penerima' => $req->nohp_penerima,
                 'email_penerima' => $req->email_penerima,
                 'jenis_barang' => $req->nama_barang,
-                'jenis_ukuran' => $req->jenis_ukuran,
-                'nominal_ukuran' => $req->nominal_ukuran,
-                'rute' => $req->rute,
                 'jumlah_barang' => $req->colly,
+                'jenis_volume' => $req->jenis_ukuran,
+                'volume' => $req->nominal_ukuran,
                 'nama_kapal' => $req->nama_kapal,
                 'tanggal' =>$req->tglberangkat,
                 'jenis_harga' => $req->jenisharga,
@@ -156,7 +154,7 @@ class TransaksiController extends Controller
                 'harga_tambahan' => $req->harga_tambahan,
                 'harga_potongan' => $req->harga_potongan,
                 'total_harga' => $req->total,
-                'status_barang' => 'Kantor SBY',
+                'status_barang' => 'Depo SBY',
             ]);
         }
         return redirect("/masterTransaksi");

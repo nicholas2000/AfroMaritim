@@ -53,7 +53,7 @@
                         '" data-alamatpengirim="' . $row['alamat_pengirim'] . '" data-nohppengirim="' . $row['nohp_pengirim'] . '" data-emailpengirim="' . $row['email_pengirim'] .
                         '" data-alamatpenerima="' . $row['alamat_penerima'] . '" data-nohppenerima="' . $row['nohp_penerima'] . '" data-emailpenerima="' . $row['email_penerima'] .
                         '" data-namabarang="' . $row['jenis_barang'] . '" data-jenisukuran="' . $row['jenis_volume'] . '" data-nominalukuran="' . $row['volume'] .
-                        '" data-rute="' . $row['rute'] . '" data-namakapal="' . $row['nama_kapal'] . '" data-tanggal="' . $row['tanggal']. '" data-jenisharga="' .
+                        '" data-jumlah="' . $row['jumlah_barang'] . '" data-namakapal="' . $row['nama_kapal'] . '" data-tanggal="' . $row['tanggal']. '" data-jenisharga="' .
                         $row['jenis_harga'] . '" data-hargakubik="' . $row['harga_kubik'] . '" data-harga="' . $row['harga'] . '" data-hargatambahan="' . $row['harga_tambahan'] .
                         '" data-hargapotongan="' . $row['harga_potongan'] . '" data-totalharga="' . $row['total_harga'] . '"';
                     $output .= '<li><div id="' . $row['nomor_resi'] . '" ' . $temp . '>'.$row['nomor_resi'].'</div></li>';

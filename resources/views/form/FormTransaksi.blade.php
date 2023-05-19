@@ -235,7 +235,7 @@
                             Jumlah Barang:
                         </div>
                         <div class="col-sm">
-                            <input name="colly" id="rute" class="form-control" type="text"style="width: 210px;" >
+                            <input name="colly" id="jumlah_barang" class="form-control" type="text"style="width: 210px;" >
                         </div>
                         <div class="col-sm-3">
                             Harga Tambahan:
@@ -361,7 +361,7 @@
             document.getElementById("nama_barang").value = $('#'+getID).data('namabarang');
             $('#jenis_ukuran').val($('#'+getID).data('jenisukuran'));
             document.getElementById("nominal_ukuran").value = $('#'+getID).data('nominalukuran');
-            document.getElementById("rute").value = $('#'+getID).data('rute');
+            document.getElementById("jumlah_barang").value = $('#'+getID).data('jumlah');
             document.getElementById("nama_kapal").value = $('#'+getID).data('namakapal');
             document.getElementById("tanggal").value = $('#'+getID).data('tanggal');
             $('#jenisharga').val($('#'+getID).data('jenisharga'));
