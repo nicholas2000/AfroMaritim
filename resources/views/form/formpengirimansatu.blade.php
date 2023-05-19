@@ -112,22 +112,22 @@
                         <tr style="background-color:  #023e94;color: white;">
                             <th scope="col">No</th>
                             <th scope="col">
-                                <center>No Resi</center>
+                                <center>STT</center>
                             </th>
                             <th scope="col">
-                                <center>Nama Customer</center>
+                                <center>Nama Penerima</center>
                             </th>
                             <th scope="col">
-                                <center>Nama Kapal</center>
+                                <center>Nama Pengirim</center>
                             </th>
                             <th scope="col">
-                                <center>Alamat</center>
+                                <center>Jumlah Colly</center>
                             </th>
                             <th scope="col">
                                 <center>Nama Kurir</center>
                             </th>
                             <th scope="col">
-                                <center>Pilih</center>
+                                <center>Sudah Kirim</center>
                             </th>
                         </tr>
                         <?php $ctr = 1; ?>
@@ -140,14 +140,13 @@
                                     <center>{{ $prm->nomor_resi }}</center>
                                 </th>
                                 <th scope="col">
-                                    <center>{{ $prm->nama_pengirim }}</center>
+                                    <center>{{ $prm->nama_penerima}}</center>
                                 </th>
                                 <th scope="col">
-                                    <center>{{ $prm->nama_kapal }}</center>
+                                    <center>{{ $prm->nama_pengirim}}</center>
                                 </th>
-
                                 <th scope="col">
-                                    <center>{{ $prm->alamat_penerima }}</center>
+                                    <center>{{ $prm->jumlah_barang }}</center>
                                 </th>
                                 <th scope="col">
                                     <center>{{ $prm->kurir }}</center>

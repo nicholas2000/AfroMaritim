@@ -166,7 +166,7 @@
                             <div class="ps">
                                 <div class="col-md-8">Tanggal Masuk</div>
                                 <div>:</div>
-                                <div class="col-md-2" ><input style="width:185px;"  name="tglmasuk" type="date" data-date-format="DD/MON/YYYY" value="<?php echo date('Y-m-d'); ?>" readonly/>
+                                <div class="col-md-2" ><input style="width:185px;"  name="tglmasuk" type="date" data-date-format="DD/MON/YYYY">
                                 </div>
                             </div>
                             <br>
@@ -331,30 +331,37 @@
                                             @csrf
 
                                             <label style="margin-left: 40px;">Tanggal</label>
-                                            <input name="nama_penerima" placeholder="Masukkan Nama Penerima" class="form-control"
+                                            <input name="tanggal" placeholder="Masukkan Tanggal" class="form-control"
                                             type="text">
 
                                             <label style="margin-left: 40px;">STT(Resi)</label>
-                                            <input name="nama_pengirim" placeholder="Masukkan Nama Pengirim" class="form-control"
+                                            <input name="nomor_resi" placeholder="Masukkan STT" class="form-control"
                                             type="text">
 
                                             <label style="margin-left: 40px;"> Nama Penerima</label>
-                                            <input name="jenis_barang" placeholder="Masukkan Nama Barang" class="form-control"
+                                            <input name="nama_penerima" placeholder="Masukkan Nama Penerima" class="form-control"
                                             type="text">
 
                                             <label style="margin-left: 40px;">Nama Pengirim</label>
-                                            <input name="nomor_resi" placeholder="Masukkan Nomor Resi" class="form-control"
+                                            <input name="nama_pengirim" placeholder="Masukkan Nama Pengirim" class="form-control"
                                             type="text">
 
                                             <label style="margin-left: 40px;">Jenis Barang</label>
-                                            <input name="nomor_container" placeholder="Masukkan Nomor Container" class="form-control"
+                                            <input name="jenis_barang" placeholder="Masukkan Jenis Barang" class="form-control"
                                             type="text">
 
                                             <label style="margin-left: 40px;">Jumlah Colly</label>
-                                            <input name="nomor_container" placeholder="Masukkan Nomor Container" class="form-control"
+                                            <input name="jumlah_barang" placeholder="Masukkan Jumlah Colly" class="form-control"
+                                            type="text">
+
+                                            <label style="margin-left: 40px;">Jumlah Volume</label>
+                                            <input name="volume" placeholder="Masukkan Jumlah Volume" class="form-control"
+                                            type="text">
+
+                                            <label style="margin-left: 40px;">Nomor Container</label>
+                                            <input name="nomor_container" placeholder="Masukkan No Container" class="form-control"
                                             type="text">
                                             <input type="hidden" name="nomor_transaksi" value="">
-
 
                                             <input type="submit" value="Ubah" style="background-color: #023e94">
                                         </form>
@@ -526,11 +533,15 @@
 
     function btnedit(id) {
         var jArray = <?php echo json_encode($Transaksi); ?>;
+        $("[name='tanggal']").val(jArray[id]['tanggal']);
         $("[name='nama_pengirim']").val(jArray[id]['nama_pengirim']);
         $("[name='nama_penerima']").val(jArray[id]['nama_penerima']);
         $("[name='jenis_barang']").val(jArray[id]['jenis_barang']);
         $("[name='nomor_resi']").val(jArray[id]['nomor_resi']);
         $("[name='nomor_container']").val(jArray[id]['nomor_container']);
         $("[name='nomor_transaksi']").val(jArray[id]['nomor_transaksi']);
+        $("[name='jumlah_barang']").val(jArray[id]['jumlah_barang']);
+        $("[name='volume']").val(jArray[id]['volume']);
+        $("[name='nomor_container']").val(jArray[id]['nomor_container']);
     }
 </script>

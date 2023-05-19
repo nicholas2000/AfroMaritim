@@ -102,20 +102,17 @@
                             <div class="col-sm-3">
                                 <select style="width: 180px;height: 35px;" class="form-control selectpicker">
                                     <option value="">Pilih Status Barang</option>
-                                    <option>Depo SBY</option>
-                                    <option>Kantor SBY</option>
-                                    <option>Pelabuhan SBY</option>
-                                    <option>Pelabuhan MKS</option>
-                                    <option>Depo MKS</option>
+                                    <option>Stuffing</option>
+                                    <option>Stacking</option>
+                                    <option>On Board</option>
+                                    <option>ATCY</option>
+                                    <option>At Consignee</option>
+                                    <option>Empty</option>
                                 </select>
                             </div>
                         </div>
                         <br>
-                        <div class="ps">
-                            <div class="col-sm-5">Sisa Barang Terkirim</div>
-                            <div>:</div>
-                            <div class="col-sm-3"><input style="width: 180px;"type='text' disabled></div>
-                        </div>
+
                         <br>
                         <a href=""class="btn btn-primary" style="float: right">Update</a>
                         <br>
@@ -128,21 +125,21 @@
                                 <td>
                                     <center><input type="checkbox" onClick="toggle(this)" /> </center>
                                 </td>
-                                <th scope="col"> <center> STT</center></th>
                                 <th scope="col">
-                                    <center>Nama Customer</center>
+                                    <center>No</center>
+                                </th>
+                                <th scope="col"> <center> No Kontainer</center></th>
+                                <th scope="col">
+                                    <center>Nomor Segel</center>
                                 </th>
                                 <th scope="col">
-                                    <center>Tanggal Pengiriman</center>
+                                    <center>Isi Kontainer</center>
                                 </th>
                                 <th scope="col">
                                     <center>Nama Kapal</center>
                                 </th>
                                 <th scope="col">
-                                    <center>No Container</center>
-                                </th>
-                                <th scope="col">
-                                    <center>Status Barang</center>
+                                    <center>Status</center>
                                 </th>
                             </tr>
 
@@ -150,14 +147,16 @@
 
                             @foreach ($arrTransaksi as $prm)
                                 <tr>
+
                                     <td>
                                         <center><input type="checkbox" name="checkb" id="cbsatu"> </center>
                                     </td>
-                                    <th scope="row">{{ $prm->nomor_resi }} </th>
-                                    <td>{{ $prm->nama_pengirim }}</td>
-                                    <td>{{ $prm->tanggal }}</td>
-                                    <td>{{ $prm->nama_kapal }}</td>
+                                    <th scope="row">{{ $ctr }}</th>
                                     <td>{{ $prm->nomor_container }}</td>
+                                    <td>{{ $prm->nomor_segel }}</td>
+                                    <td>{{ $prm->jenis_barang }}</td>
+                                    <td>{{ $prm->nama_kapal }}</td>
+
                                     <td>{{ $prm->status_barang }}</td>
                                 </tr>
                                 <?php $ctr++; ?>

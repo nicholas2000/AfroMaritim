@@ -135,9 +135,6 @@
                 </div>
                 <div class="col-sm-3">
                 </div>
-                <div class="col-sm-3">
-                    <div>Nama Pegawai :</div>
-                </div>
             </div>
 
             <br>
@@ -204,19 +201,16 @@
                         <tr style="background-color:  #023e94;color: white;">
                             <th scope="col">No</th>
                             <th scope="col">
-                                <center>No Resi</center>
-                            </th>
-                            <th scope="col">
-                                <center>Nama Customer</center>
-                            </th>
-                            <th scope="col">
-                                <center>Nama Kapal</center>
-                            </th>
-                            <th scope="col">
-                                <center>No Container</center>
+                                <center>No Kontainer</center>
                             </th>
                             <th scope="col">
                                 <center>No Segel</center>
+                            </th>
+                            <th scope="col">
+                                <center>Isi Kontainer</center>
+                            </th>
+                            <th scope="col">
+                                <center>Nama Kapal</center>
                             </th>
                             <th scope="col">
                                 <center>Action</center>
@@ -232,21 +226,20 @@
 
                                 <th scope="row">{{ $ctr }}</th>
                                 <th scope="col">
-                                    <center>{{ $prm->nomor_resi }}</center>
-                                </th>
-                                <th scope="col">
-                                    <center>{{ $prm->nama_pengirim }}</center>
-                                </th>
-                                <th scope="col">
-                                    <center>{{ $prm->nama_kapal }}</center>
-                                </th>
-
-                                <th scope="col">
                                     <center>{{ $prm->nomor_container }}</center>
                                 </th>
                                 <th scope="col">
                                     <center>{{ $prm->nomor_segel }}</center>
                                 </th>
+                                <th scope="col">
+                                    <center>{{ $prm->jenis_barang }}</center>
+                                </th>
+                                <th scope="col">
+                                    <center>{{ $prm->nama_kapal }}</center>
+                                </th>
+
+
+
                                 <th scope="col" style="display: flex">
                                     {{-- <a href="./delete/{{$prm->nomor_transaksi}}" class="btn btn-danger" style="">Delete</a> --}}
                                         <button style="height: 29px;" class="btn" id="btnedit" data-toggle="modal"
@@ -281,21 +274,27 @@
                                     <form action="{{ url('/editDepo') }}" method="post">
                                         @csrf
 
-                                        <label style="margin-left: 40px;">Nama Customer</label>
-                                        <input name="nama_pengirim" placeholder="Masukkan Nama Penerima" class="form-control"
+                                        <label style="margin-left: 40px;">No Kontainer</label>
+                                        <input name="nomor_kontainer" placeholder="Masukkan No Kontainer" class="form-control"
                                         type="text">
+
+                                        <label style="margin-left: 40px;">Segel</label>
+                                        <input name="nomor_segel" placeholder="Masukkan No Segel" class="form-control"
+                                        type="text">
+
+                                        <label style="margin-left: 40px;">Isi Kontainer</label>
+                                        <input name="jenis_barang" placeholder="Masukkan Isi Kontainer" class="form-control"
+                                        type="text">
+
+                                        <label style="margin-left: 40px;">Colly</label>
+                                        <input name="jumlah_barang" placeholder="Masukkan Jumlah Colly" class="form-control"
+                                        type="text">
+
 
                                         <label style="margin-left: 40px;">Nama Kapal</label>
                                         <input name="nama_kapal" placeholder="Masukkan Nama Kapal" class="form-control"
                                         type="text">
 
-                                        <label style="margin-left: 40px;">No Container</label>
-                                        <input name="nomor_container" placeholder="Masukkan Nama Barang" class="form-control"
-                                        type="text">
-
-                                        <label style="margin-left: 40px;">Nomor Segel</label>
-                                        <input name="nomor_segel" placeholder="Masukkan Nomor Segel" class="form-control"
-                                        type="text">
 
                                         <input type="submit" value="Ubah" style="background-color: #023e94">
                                     </form>
@@ -445,9 +444,9 @@
     });
     function btnedit(id) {
         var jArray = <?php echo json_encode($arrHistory); ?>;
-        $("[name='nama_pengirim']").val(jArray[id]['nama_pengirim']);
-        $("[name='nama_kapal']").val(jArray[id]['nama_kapal']);
-        $("[name='nomor_container']").val(jArray[id]['nomor_container']);
+        $("[name='nomor_kontainer']").val(jArray[id]['nomor_container']);
         $("[name='nomor_segel']").val(jArray[id]['nomor_segel']);
+        $("[name='jenis_barang']").val(jArray[id]['jenis_barang']);
+        $("[name='nama_kapal']").val(jArray[id]['nama_kapal']);
     }
 </script>

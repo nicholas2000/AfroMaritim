@@ -63,22 +63,20 @@
                     <li><a href="{{ url('/masterKompetitor') }}">Master Kompetitor</a></li>
                     <li><a href="{{ url('/masterJenisharga') }}">Master Jenis Harga</a></li>
                     <li style="margin-bottom: 5px;"><a
-                            href="{{ url('/masterContainer') }}"class="dashboard-nav-dropdown-item">Master
-                            Container</a></li>
+                            href="{{ url('/masterContainer') }}"class="dashboard-nav-dropdown-item">Rekap Kontainer</a></li>
                 </ul>
             </li>
             <li class="dropdown">
                 <a href="" class="dropdown-toggle" data-toggle="dropdown"><i
                         class="fas fa-exchange-alt"></i>Transaksi </a>
                 <ul class="dropdown-menu animated fadeInLeft" role="menu">
-                    <li style="margin-top:5px;"><a href="{{ url('/depo') }}">Depo</a></li>
-                    <li><a href="{{ url('/masterTransaksi') }}">Transaksi</a></li>
-                    <li><a href="{{ url('/masterHistory') }}">History Transaksi</a></li>
-                    <li><a href="{{ url('/masterStatus') }}">Status Barang</a></li>
+                    <li style="margin-top:5px;"><a href="{{ url('/depo') }}">Manifest Depo</a></li>
+                    <li><a href="{{ url('/masterTransaksi') }}">Manifest Kontainer</a></li>
+                    <li><a href="{{ url('/masterHistory') }}">Loading Kapal</a></li>
+                    <li><a href="{{ url('/masterStatus') }}">Kapal Tiba</a></li>
                     {{-- <li style="line-height:15px;"><a href="{{ url('/masterTeam') }}">Master Team Pengiriman</a>
-                        </li> --}}
-                    <li style="margin-bottom: 5px;"><a href="{{ url('/masterpengirimansatu') }}">Pengiriman
-                            Kurir</a></li>
+                    </li> --}}
+                    <li style="margin-bottom: 5px;"><a href="{{ url('/masterpengirimansatu') }}">Bongkar Kontainer</a></li>
                 </ul>
             </li>
             <li class="dropdown">
@@ -92,7 +90,8 @@
             <li>
                 <form action="{{ url('/logout') }}">
                     <input type="hidden" name="device">
-                    <button style="height:100%;width: 100%;background-color: transparent;border:none;color:white;margin-left:-38px;"><i
+                    <button
+                        style="height:100%;width: 100%;background-color: transparent;border:none;color:white;margin-left:-38px;"><i
                             class="fas fa-sign-out-alt"></i>Logout</button>
                 </form>
             </li>

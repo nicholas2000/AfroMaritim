@@ -81,8 +81,11 @@ class depoController extends Controller
             'nama_penerima'=> $req->nama_penerima,
             'jenis_barang'=>$req->jenis_barang,
             'nomor_resi'=>$req->nomor_resi,
+            'nomor'=>$req->nomor_resi,
             'nomor_container'=>$req->nomor_container,
-            'status_barang' => 'Depo SBY',
+            'jumlah_barang'=>$req->jumlah_barang,
+            'volume'=>$req->volume,
+            'status_barang' => ''
 
             ]);
             $data_user_login=$req->session()->get("user_now");
