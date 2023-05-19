@@ -54,18 +54,17 @@ class HistoryController extends Controller
     public function doEdit(Request $req){
         $depo = Transaksi::withTrashed()->find($req->nomor_resi);
         $result = $depo->update([
-            'nama_pengirim'=>$req->nama_pengirim,
-            'nama_penerima'=> $req->nama_penerima,
-            'jenis_barang'=>$req->jenis_barang,
-            'nomor_resi'=>$req->nomor_resi,
             'nomor_container'=>$req->nomor_container,
-            'status_barang' => 'Depo SBY',
-
+            'nomor_segel'=> $req->nomor_segel,
+            'jenis_barang'=>$req->jenis_barang,
+            'jumlah_barang'=>$req->jumlah_barang,
+            'nama_kapal'=>$req->nama_kapal,
+            'status'=>'Loading',
             ]);
 
             $data_user_login=$req->session()->get("user_now");
             LogUserModel::create([
-                "berita"=>$data_user_login["nama_pegawai"]." Berhasil edit history ".$req->jenis_barang,
+                "berita"=>$data_user_login["nama_pegawai"]." Berhasil edit history ".$req->nomor_resi,
                 "status"=>"0",
             ]);
         if($result){

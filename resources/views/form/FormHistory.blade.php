@@ -271,11 +271,11 @@
                             </div>
                             <div class="modal-body">
                                 <div class="popup">
-                                    <form action="{{ url('/editDepo') }}" method="post">
+                                    <form action="{{ url('/editHistory') }}" method="post">
                                         @csrf
 
                                         <label style="margin-left: 40px;">No Kontainer</label>
-                                        <input name="nomor_kontainer" placeholder="Masukkan No Kontainer" class="form-control"
+                                        <input name="nomor_container" placeholder="Masukkan No Kontainer" class="form-control"
                                         type="text">
 
                                         <label style="margin-left: 40px;">Segel</label>
@@ -295,7 +295,7 @@
                                         <input name="nama_kapal" placeholder="Masukkan Nama Kapal" class="form-control"
                                         type="text">
 
-
+                                        <input type="hidden" name="nomor_resi" value="">
                                         <input type="submit" value="Ubah" style="background-color: #023e94">
                                     </form>
 
@@ -444,9 +444,11 @@
     });
     function btnedit(id) {
         var jArray = <?php echo json_encode($arrHistory); ?>;
-        $("[name='nomor_kontainer']").val(jArray[id]['nomor_container']);
+        $("[name='nomor_container']").val(jArray[id]['nomor_container']);
         $("[name='nomor_segel']").val(jArray[id]['nomor_segel']);
         $("[name='jenis_barang']").val(jArray[id]['jenis_barang']);
+        $("[name='jumlah_barang']").val(jArray[id]['jumlah_barang']);
         $("[name='nama_kapal']").val(jArray[id]['nama_kapal']);
+        $("[name='nomor_resi']").val(jArray[id]['nomor_resi']);
     }
 </script>

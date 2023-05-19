@@ -115,6 +115,7 @@ Route::middleware(['login', 'transaksi'])->group(function () {
 Route::middleware(['login', 'history'])->group(function () {
     Route::post('/masterHistory/delete/{id}', [HistoryController::class, "deletehistory"]);
     Route::post('/masterHistory/update', [HistoryController::class, "updatehistory"]);
+    Route::post('/editHistory', [HistoryController::class, "doEdit"]);
     Route::get('/masterHistory', [TransaksiController::class, "showHistory"]);
 });
 
