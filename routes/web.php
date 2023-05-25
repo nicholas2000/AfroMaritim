@@ -53,6 +53,7 @@ Route::get('/login', [loginController::class, "login"]);
 Route::middleware(['login', 'statusbarang'])->group(function () {
     Route::get('/masterStatus', [statusController::class, "showStatus"]);
     Route::get('/search_tanggal', [statusController::class, "searchTanggal"]);
+    Route::post('/masterpengirimansatu',[statusController::class, "updateStatus"]);
 });
 
 Route::middleware(['login', 'mastercabang'])->group(function () {

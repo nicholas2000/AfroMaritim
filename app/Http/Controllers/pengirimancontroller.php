@@ -13,9 +13,11 @@ use Maatwebsite\Excel\Facades\Excel;
 
 class pengirimancontroller extends Controller
 {
-    public function vmpengirimansatu()
+    public function vmpengirimansatu(Request $request)
     {
+
         $arrContainer = Container::where('status', 1)->get();
+        $arrPilih = Container::where('status', 1)->get();
         $arrHistory = Transaksi::all();
         $arrKurir = modelpegawai::where('role_pegawai', 'Kurir')->get();
         $arrNotif=LogUserModel::all();
@@ -41,6 +43,7 @@ class pengirimancontroller extends Controller
     public function updateKurir(Request $request)
     {
         $data = json_decode($request->data);
+        
         foreach ($data as $prm) {
             Transaksi::where('nomor_resi',$prm)->update([
                 // 'nomor_manifest' => $request->nmanifest,

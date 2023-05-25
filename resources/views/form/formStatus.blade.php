@@ -78,45 +78,50 @@
                 </div>
                 <br>
                 <form action="{{ url('/showstatus') }}"method="get">
-                <div class="row">
-                    <div class="col-sm-12 col-md-6 form-group">
-                        <div class="ps">
-                            <div class="col-md-4">ID Kapal</div>
-                            <div>:</div>
-                            <div class="col-md-3"><input type='text' style="width: 180px;"
+                </form>
+                    <div class="row">
+                        <div class="col-sm-12 col-md-6 form-group">
+                            <div class="ps">
+                                <div class="col-md-4">ID Kapal</div>
+                                <div>:</div>
+                                <div class="col-md-3"><input type='text' style="width: 180px;"
                                     placeholder="Masukkan ID Kapal">
+                                </div>
                             </div>
+                            <br>
+                            <br>
+
+                            <br>
+
+                            {{-- ----- --}}
                         </div>
-                        <br>
-                        <br>
+                        <div class="col-sm-12 col-md-6 form-group">
 
-                        <br>
-
-                        {{-- ----- --}}
-                    </div>
-                    <div class="col-sm-12 col-md-6 form-group">
-
-                        <div class="ps ">
-                            <div class="col-sm-5">Status Barang</div>
-                            <div>:</div>
-                            <div class="col-sm-3">
-                                <select style="width: 180px;height: 35px;" class="form-control selectpicker">
-                                    <option value="">Pilih Status Barang</option>
-                                    <option>Stuffing</option>
-                                    <option>Stacking</option>
-                                    <option>On Board</option>
-                                    <option>ATCY</option>
-                                    <option>At Consignee</option>
-                                    <option>Empty</option>
-                                </select>
+                            <div class="ps ">
+                                <div class="col-sm-5">Status Barang</div>
+                                <div>:</div>
+                                <div class="col-sm-3">
+                                    <select style="width: 180px;height: 35px;" class="form-control selectpicker">
+                                        <option value="">Pilih Status Barang</option>
+                                        <option>Stuffing</option>
+                                        <option>Stacking</option>
+                                        <option>On Board</option>
+                                        <option>ATCY</option>
+                                        <option>At Consignee</option>
+                                        <option>Empty</option>
+                                    </select>
+                                </div>
                             </div>
-                        </div>
-                        <br>
+                            <br>
+                            <br>
+                            <form action="{{ url('/masterpengirimansatu') }}" method="POST">
+                                @csrf
+                                <button type="submit" class="btn btn-primary" style="float: right">Update</a>
+                                    <input type="hidden" name="data">
+                                </form>
 
-                        <br>
-                        <a href=""class="btn btn-primary" style="float: right">Update</a>
-                        <br>
-                    </div>
+                                <br>
+                            </div>
 
                     <div class="col-12">
                         <table id="datatables" class="table table-bordered">
@@ -149,7 +154,8 @@
                                 <tr>
 
                                     <td>
-                                        <center><input type="checkbox" name="checkb" id="cbsatu"> </center>
+                                        <center><input type="checkbox" value="{{ $prm->nomor_resi }}"
+                                            onclick="myFunction(this)"></center>
                                     </td>
                                     <th scope="row">{{ $ctr }}</th>
                                     <td>{{ $prm->nomor_container }}</td>
@@ -168,7 +174,6 @@
                 </div>
             </div>
         </div>
-    </form>
 
 </section>
 
@@ -226,4 +231,19 @@
         let table2excel = new Table2Excel();
         table2excel.export(document.querySelector("#datatables"));
     });
+
+    var data2 = [];
+
+    function myFunction(x) {
+        console.log("asd");
+        if (x.checked == true) {
+            data2.push(x.value);
+
+        } else {
+            data2.splice(data2.indexOf(x.value), 1);
+        }
+
+        $("[name='data']").val(JSON.stringify(data2));
+        console.log(data2);
+    }
 </script>

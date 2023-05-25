@@ -130,11 +130,10 @@
                                 <center>Sudah Kirim</center>
                             </th>
                         </tr>
-                        <?php $ctr = 1; ?>
-
-                        @foreach ($arrHistory as $prm)
+                        {{--
+                        <div class="list_transaksi">
+                            @foreach ($arrHistory as $prm)
                             <tr>
-
                                 <th scope="row">{{ $ctr }}</th>
                                 <th scope="col">
                                     <center>{{ $prm->nomor_resi }}</center>
@@ -157,8 +156,13 @@
                                 </th>
 
                             </tr>
-                            <?php $ctr++; ?>
+
                         @endforeach
+                        </div> --}}
+                        <tbody id="list_transaksi">
+
+                        </tbody>
+
                     </table>
                 </div>
             </div>
@@ -166,7 +170,7 @@
 </section>
 <script>
     $(document).ready(function() {
-        var query = 'CO001';
+        var query =  $('#container').val()  ;
         $.ajax({
             url: "autocomplete.php",
             method: "POST",
@@ -200,6 +204,7 @@
     var data2 = [];
 
     function myFunction(x) {
+        console.log("asd");
         if (x.checked == true) {
             data2.push(x.value);
 

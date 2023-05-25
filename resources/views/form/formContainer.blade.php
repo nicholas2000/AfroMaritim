@@ -9,7 +9,6 @@
                     <hr class="mt" />
                 </div>
                 <br>
-
                 <div class="col-12">
                     <a href="{{ url('/addContainer') }}"> <button style="float: right;" type="button"
                             class="btn btn-primary">Tambah</button></a>
@@ -39,7 +38,7 @@
                         @foreach ($arrCon as $prm)
                             <tr>
                                 <td>{{ $ctr }}</td>
-                                <td>{{ $prm->nomor_container }}</td>
+                                <td name="nomor_container">{{ $prm->nomor_container }}</td>
                                 <td>{{ $prm->nama_container }}</td>
                                 @if ($prm->status == '1')
                                     <td>Buka</td>
@@ -67,7 +66,7 @@
                                 @endif
                                 <td> <center style="text-align:center">
                                     <button style="height: 29px;" class="btn" id="btnedit" data-toggle="modal"
-                                        data-target="#myModal" onclick="btnedit({{ $ctr - 1 }})"><i
+                                        data-target="#myModal" onclick="btnedit('{{ $prm->nomor_container }}')"><i
                                             class="fa fa-eye"></i></button>
                                 </center></td>
                             </tr>
@@ -82,9 +81,10 @@
                     <div class="modal-dialog">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h4>Edit Cabang</h4>
+                                <h4>Isi Cabang</h4>
                                 <button class="close" type="button" data-dismiss="modal">×</button>
                             </div>
+                            <input type="hidden" id="data1" value="{{$arrTransaksi}}">
                             <div class="modal-body">
                                 <div class="popup table table-striped">
                                     <form action="{{ url('masterCustomer/edit/') }}" method="post">
@@ -93,53 +93,37 @@
                                             <thead>
                                               <tr>
                                                 <th scope="col">#</th>
-                                                <th scope="col">No Resi</th>
+                                                <th scope="col">Container</th>
+                                                <th scope="col">No STT</th>
                                                 <th scope="col">Nama Barang</th>
-                                                <th scope="col">Tanggel Pengiriman</th>
+                                                <th scope="col">Tanggal Pengiriman</th>
                                                 <th scope="col">Colly</th>
                                               </tr>
                                             </thead>
                                             <?php $ctr = 1; ?>
 
-                                            @foreach ($arrTransaksi as $prm)
+                                            {{-- @foreach ($arrTransaksi as $prm) --}}
                                                 <tr>
 
                                                     <th scope="row">{{ $ctr }}</th>
                                                     <th scope="col">
-                                                        <center>{{ $prm->id_customer }}</center>
+                                                        <center>{{ $prm->nomor_container }}</center>
                                                     </th>
                                                     <th scope="col">
-                                                        <center>{{ $prm->id_cabang }}</center>
+                                                        <center>{{ $prm->nomor_resi }}</center>
                                                     </th>
                                                     <th scope="col">
-                                                        <center>{{ $prm->nama_customer }}</center>
+                                                        <center>{{ $prm->jenis_barang }}</center>
                                                     </th>
                                                     <th scope="col">
-                                                        <center>{{ $prm->provinsi }}</center>
+                                                        <center>{{ $prm->tanggal }}</center>
                                                     </th>
                                                     <th scope="col">
-                                                        <center>{{ $prm->telpon }}</center>
-                                                    </th>
-                                                    <th scope="col">
-                                                        <center>{{ $prm->email }}</center>
-                                                    </th>
-                                                    <th scope="col">
-                                                        <center style="display: flex;">
-                                                            <button style="height: 29px;" class="btn" id="btnedit" data-toggle="modal"
-                                                                data-target="#myModal" onclick="btnedit({{ $ctr - 1 }})"><i
-                                                                    class="fa fa-pencil-alt"></i></button>
-
-                                                            <form method="post"
-                                                                action="{{ url('masterCustomer/delete/' . $prm->id_customer) }}">
-                                                                @csrf
-                                                                <button type="submit" class="btn btn-danger"><i
-                                                                        class="fa fa-trash"></i></button>
-                                                            </form>
-                                                        </center>
+                                                        <center>{{ $prm->jumlah_barang }}</center>
                                                     </th>
                                                 </tr>
                                                 <?php $ctr++; ?>
-                                            @endforeach
+                                            {{-- @endforeach --}}
                                           </table>
                                     </form>
 
@@ -156,10 +140,19 @@
             document.getElementById("btnopen" + $id).style.display = "block";
             document.getElementById("btnclose" + $id).style.display = "none";
         }
-
         function clickClose($id) {
             document.getElementById("btnclose" + $id).style.display = "block";
             document.getElementById("btnopen" + $id).style.display = "none";
+        }
+        function btnedit($id) {
+            let data=JSON.parse(document.getElementById("data1").value);
+            let temp=[];
+            for (let i = 0; i < data.length; i++) {
+                if (data[i].nomor_container==$id) {
+                    temp.push(data[i].nomor_container);
+                }
+            }
+            // document.getElementById.getElementById
         }
 
     </script>

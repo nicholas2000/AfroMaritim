@@ -78,24 +78,22 @@
         }
     }else if($_REQUEST["ctr"]=="Flisttransaksi"){
         if(isset($_POST["query"])){
-            $query = "SELECT * FROM transaksi WHERE nomor_container = '". $_POST["query"] ."'";
+            $query = "SELECT * FROM transaksi WHERE nomor_container = '". $_POST["query"] ."'and deleted_at IS NULL";
             $result = mysqli_query($connect, $query);
             $ctr = 1;
             $output = "";
+
             foreach ($result as $res){
                 $output .= '
                     <tr>
-                        <td><input type="checkbox" value="' . $res["nomor_resi"] . '" onclick="myFunction(tdis)"></td>
+
                         <td scope="row">' . $ctr . '</td>
                         <td scope="col"><center>' . $res["nomor_resi"] . '</center></td>
-                        <td scope="col"><center>' . $res["tanggal"] . '</center></td>
-                        <td scope="col"><center>' . $res["status_barang"] . '</center></td>
-                        <td scope="col" style="text-align:center;">
-                            <form action="" method="POST">
-                                <meta content="authenticity_token" name="csrf-param" />
-                                <button name="" type="submit" class="btn btn"><i class="fa fa-pencil"></i></button>
-                            </form>
-                        </td>
+                        <td scope="col"><center>' . $res["nama_penerima"] . '</center></td>
+                        <td scope="col"><center>' . $res["nama_pengirim"] . '</center></td>
+                        <td scope="col"><center>' . $res["jumlah_barang"] . '</center></td>
+                        <td scope="col"><center>' . $res["kurir"] . '</center></td>
+                        <td><input type="checkbox" value="' . $res["nomor_resi"] . '" onclick="myFunction(this)"></td>
                     </tr>
                 ';
                 $ctr++;

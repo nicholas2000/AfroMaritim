@@ -12,8 +12,8 @@ class containercontroller extends Controller
 {
     public function show(Request $req)
     {
-        $id = $req->no_container;
-        $arrTransaksi=Transaksi::all()->where('id_container' , $id);
+        $id = $req->nomor_container;
+        $arrTransaksi=Transaksi::all();
         $arrCon=Container::all();
         $arrNotif=LogUserModel::all();
         return view('admin.mContainer',compact("arrTransaksi","arrCon", "arrNotif"));
