@@ -15,14 +15,13 @@
 {{-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script> --}}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.6.3/js/bootstrap-select.min.js"></script>
 <style>
-    .list li
-    {
-        background-color:aliceblue;
-        cursor:pointer;
-        padding:12px;
+    .list li {
+        background-color: aliceblue;
+        cursor: pointer;
+        padding: 12px;
     }
-
 </style>
+
 </html>
 @if ($errors->any())
     @foreach ($errors->all() as $err)
@@ -52,7 +51,8 @@
                             Nomor Container :
                         </div>
                         <div class="col-sm">
-                            <input name="nocontainer" id="nocontainer" class="form-control" type="text" style="width: 210px;" value="" readonly>
+                            <input name="nocontainer" id="nocontainer" class="form-control" type="text"
+                                style="width: 210px;" value="" readonly>
                         </div>
 
                         <div class="col-sm-3">
@@ -60,7 +60,8 @@
                         </div>
                         <div class="col-sm-3">
                             <div class="search-box">
-                                <input style="width: 210px;" type="text" name="nomor_resi" id="resi" class="form-control" placeholder="Masukkan No Resi" />
+                                <input style="width: 210px;" type="text" name="nomor_resi" id="resi"
+                                    class="form-control" placeholder="Masukkan No Resi" />
                                 <div id="wrapper_resi" onclick="hidden()">
                                     <div class="scrollbar">
                                         <div class="list force-overflow" id="resiList" style="width: 210px;"></div>
@@ -84,7 +85,8 @@
                         </div>
                         <div class="col-sm-3">
                             <div class="search-box">
-                                <input style="width: 210px;" type="text" name="nama_pengirim" id="user" class="form-control" placeholder="Masukkan Nama" />
+                                <input style="width: 210px;" type="text" name="nama_pengirim" id="user"
+                                    class="form-control" placeholder="Masukkan Nama" />
                                 <div id="wrapper" onclick="hidden()">
                                     <div class="scrollbar">
                                         <div class="list force-overflow" id="userList" style="width: 210px;"></div>
@@ -98,7 +100,8 @@
                             Nama Penerima :
                         </div>
                         <div class="col-sm">
-                            <input name="nama_penerima" id="nama_penerima" class="form-control" type="text"style="width: 210px;" >
+                            <input name="nama_penerima" id="nama_penerima" class="form-control"
+                                type="text"style="width: 210px;">
                         </div>
 
                     </div>
@@ -111,17 +114,19 @@
                             Alamat Pengirim :
                         </div>
                         <div class="col-sm">
-                            <input name="alamat_pengirim" id="alamat_pengirim" class="form-control" type="text"style="width: 210px;" >
+                            <input name="alamat_pengirim" id="alamat_pengirim" class="form-control"
+                                type="text"style="width: 210px;">
                         </div>
                         <div class="col-sm-3">
                             Alamat Penerima :
                         </div>
                         <div class="col-sm">
-                            <input name="alamat_penerima" id="alamat_penerima" class="form-control" type="text"style="width: 210px;" >
+                            <input name="alamat_penerima" id="alamat_penerima" class="form-control"
+                                type="text"style="width: 210px;">
                         </div>
                     </div>
                 </div>
-{{--  --}}
+                {{--  --}}
                 <br>
                 <div class="container">
                     <div class="row">
@@ -129,13 +134,15 @@
                             No HP Pengirim :
                         </div>
                         <div class="col-sm">
-                            <input name="nohp_pengirim" id="nohp_pengirim" class="form-control" type="text"style="width: 210px;" >
+                            <input name="nohp_pengirim" id="nohp_pengirim" class="form-control"
+                                type="text"style="width: 210px;">
                         </div>
                         <div class="col-sm-3">
                             No HP Penerima :
                         </div>
                         <div class="col-sm">
-                            <input name="nohp_penerima" id="nohp_penerima" class="form-control" type="text"style="width: 210px;" >
+                            <input name="nohp_penerima" id="nohp_penerima" class="form-control"
+                                type="text"style="width: 210px;">
                         </div>
                     </div>
                 </div>
@@ -147,13 +154,15 @@
                             Email Pengirim :
                         </div>
                         <div class="col-sm">
-                            <input name="email_pengirim" id="email_pengirim" class="form-control" type="text"style="width: 210px;" >
+                            <input name="email_pengirim" id="email_pengirim" class="form-control"
+                                type="text"style="width: 210px;">
                         </div>
                         <div class="col-sm-3">
                             Email Penerima :
                         </div>
                         <div class="col-sm">
-                            <input name="email_penerima" id="email_penerima" class="form-control" type="text"style="width: 210px;" >
+                            <input name="email_penerima" id="email_penerima" class="form-control"
+                                type="text"style="width: 210px;">
                         </div>
                     </div>
                 </div>
@@ -165,7 +174,8 @@
                             Jenis Barang :
                         </div>
                         <div class="col-sm">
-                            <input name="nama_barang" id="nama_barang" class="form-control" type="text"style="width: 210px;" >
+                            <input name="nama_barang" id="nama_barang" class="form-control"
+                                type="text"style="width: 210px;">
                         </div>
 
                         <div class="col-sm-3">
@@ -173,11 +183,14 @@
                         </div>
                         <div class="col-sm-3">
                             <div class="col-auto">
-                                <select name="jenisharga" class="custom-select" style="font-size:15px;width: 210px;margin-left:-15px;height:40px;"
-                                    id="jenisharga" onchange="choose_harga()">
+                                <select name="jenisharga" class="custom-select"
+                                    style="font-size:15px;width: 210px;margin-left:-15px;height:40px;" id="jenisharga"
+                                    onchange="choose_harga()">
                                     <option value="-,-,0"></option>
                                     @foreach ($arrJenisHarga as $prm)
-                                        <option value="{{ $prm->tipe }},{{ $prm->jenis_harga }},{{ $prm->nominal }}">{{ $prm->tipe }}</option>
+                                        <option
+                                            value="{{ $prm->tipe }},{{ $prm->jenis_harga }},{{ $prm->nominal }}">
+                                            {{ $prm->tipe }}</option>
                                     @endforeach
                                 </select>
                             </div>
@@ -192,7 +205,8 @@
                         </div>
                         <div class="col-sm-3">
                             <div class="col-auto">
-                                <select name="jenis_ukuran" class="custom-select" style="font-size:15px;width: 210px;margin-left:-15px;height:40px;"
+                                <select name="jenis_ukuran" class="custom-select"
+                                    style="font-size:15px;width: 210px;margin-left:-15px;height:40px;"
                                     id="jenis_ukuran" onchange="choose_ukuran()">
                                     <option value="Berat">Berat</option>
                                     <option value="Volume">Volume</option>
@@ -205,7 +219,8 @@
                             Harga / Kubik :
                         </div>
                         <div class="col-sm-3">
-                            <input name="harga_kubik" id="harga_kubik" class="form-control" type="number"style="width: 210px;" value="0">
+                            <input name="harga_kubik" id="harga_kubik" class="form-control"
+                                type="number"style="width: 210px;" value="0">
                         </div>
                     </div>
                 </div>
@@ -213,17 +228,29 @@
                 {{--  --}}
                 <div class="container">
                     <div class="row">
-                        <div class="col-sm-3">
+                        <div class="col-sm">
                             Volume :
                         </div>
-                        <div class="col-sm">
-                            <input name="nominal_ukuran" id="nominal_ukuran" class="form-control" type="number"style="width: 210px;" value="0">
+                        <div class="col-sm-3">
+                            <input name="nominal_ukuran" id="nominal_ukuran" class="form-control"
+                                type="number"style="width: 210px;" value="0" disabled>
                         </div>
+                        <div class="col-sm">
+                            Berat :
+                        </div>
+                        <div class="col-sm-3">
+                            <input name="nominal_ukuran_berat" id="nominal_ukuran_berat" class="form-control"
+                                type="number"style="width: 210px;" value="0">
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row">
                         <div class="col-sm-3">
                             Harga by Jenis :
                         </div>
                         <div class="col-sm">
-                            <input name="harga_jenis" id="harga_jenis" class="form-control" type="number"style="width: 210px;" value="0" readonly>
+                            <input name="harga_jenis" id="harga_jenis" class="form-control"
+                                type="number"style="width: 210px;" value="0" readonly>
                         </div>
                     </div>
                 </div>
@@ -235,13 +262,15 @@
                             Jumlah Barang:
                         </div>
                         <div class="col-sm">
-                            <input name="colly" id="jumlah_barang" class="form-control" type="text"style="width: 210px;" >
+                            <input name="colly" id="jumlah_barang" class="form-control"
+                                type="text"style="width: 210px;">
                         </div>
                         <div class="col-sm-3">
                             Harga Tambahan:
                         </div>
                         <div class="col-sm">
-                            <input name="harga_tambahan" id="harga_tambahan" class="form-control" type="number" style="width: 210px;" value="0">
+                            <input name="harga_tambahan" id="harga_tambahan" class="form-control" type="number"
+                                style="width: 210px;" value="0">
                         </div>
                     </div>
                 </div>
@@ -253,13 +282,15 @@
                             Nama Kapal :
                         </div>
                         <div class="col-sm">
-                            <input name="nama_kapal" id="nama_kapal" class="form-control" type="text"style="width: 210px;">
+                            <input name="nama_kapal" id="nama_kapal" class="form-control"
+                                type="text"style="width: 210px;">
                         </div>
                         <div class="col-sm-3">
                             Harga Potongan :
                         </div>
                         <div class="col-sm">
-                            <input name="harga_potongan" id="harga_potongan" class="form-control" type="number" value="0" style="width: 210px;">
+                            <input name="harga_potongan" id="harga_potongan" class="form-control" type="number"
+                                value="0" style="width: 210px;">
                         </div>
                     </div>
                 </div>
@@ -271,14 +302,16 @@
                             Tanggal Berangkat :
                         </div>
                         <div class="col-sm">
-                            <input name="tglberangkat" id="tanggal" class="form-control" type="date"style="width: 210px;">
+                            <input name="tglberangkat" id="tanggal" class="form-control"
+                                type="date"style="width: 210px;">
                         </div>
 
                         <div class="col-sm-3">
                             Total Harga :
                         </div>
                         <div class="col-sm">
-                            <input name="total" id="total" class="form-control" type="number"style="width: 210px;" value="0" readonly>
+                            <input name="total" id="total" class="form-control"
+                                type="number"style="width: 210px;" value="0" readonly>
                         </div>
                     </div>
                 </div>
@@ -319,22 +352,23 @@
         return true;
     }
 
-    $(document).ready(function(){
+    $(document).ready(function() {
         //resi
-        $('#resi').keyup(function(){
+        $('#resi').keyup(function() {
             var query = $(this).val();
-            if(query != '')
-            {
+            if (query != '') {
                 $.ajax({
-                    url:"autocomplete.php",
-                    method:"POST",
-                    data:{query:query,ctr:"Fnoresi"},
-                    success:function(data)
-                    {
-                        if(data.length>1){
+                    url: "autocomplete.php",
+                    method: "POST",
+                    data: {
+                        query: query,
+                        ctr: "Fnoresi"
+                    },
+                    success: function(data) {
+                        if (data.length > 1) {
                             $('#resiList').fadeIn();
                             $('#resiList').html(data);
-                        }else{
+                        } else {
                             $('#resiList').fadeOut();
                             $('#resiList').html("");
                             $("#wrapper_resi").css("display", "none");
@@ -343,51 +377,53 @@
                 });
             }
         });
-        $(document).on('click', '#package_resi li', function(){
+        $(document).on('click', '#package_resi li', function() {
             $('#resi').val($(this).text());
             $('#resiList').fadeOut();
             $("#wrapper_resi").css("display", "none");
             document.getElementById('update').value = "yes";
             const getID = $(this).text();
-            document.getElementById("nocontainer").value = $('#'+getID).data('nomorcontainer');
-            document.getElementById("user").value = $('#'+getID).data('pengirim');
-            document.getElementById("alamat_pengirim").value = $('#'+getID).data('alamatpengirim');
-            document.getElementById("nohp_pengirim").value = $('#'+getID).data('nohppengirim');
-            document.getElementById("email_pengirim").value = $('#'+getID).data('emailpengirim');
-            document.getElementById("nama_penerima").value = $('#'+getID).data('penerima');
-            document.getElementById("alamat_penerima").value = $('#'+getID).data('alamatpenerima');
-            document.getElementById("nohp_penerima").value = $('#'+getID).data('nohppenerima');
-            document.getElementById("email_penerima").value = $('#'+getID).data('emailpenerima');
-            document.getElementById("nama_barang").value = $('#'+getID).data('namabarang');
-            $('#jenis_ukuran').val($('#'+getID).data('jenisukuran'));
-            document.getElementById("nominal_ukuran").value = $('#'+getID).data('nominalukuran');
-            document.getElementById("jumlah_barang").value = $('#'+getID).data('jumlah');
-            document.getElementById("nama_kapal").value = $('#'+getID).data('namakapal');
-            document.getElementById("tanggal").value = $('#'+getID).data('tanggal');
-            $('#jenisharga').val($('#'+getID).data('jenisharga'));
-            document.getElementById("harga_kubik").value = $('#'+getID).data('hargakubik');
-            document.getElementById("harga_jenis").value = $('#'+getID).data('harga');
-            document.getElementById("harga_tambahan").value = $('#'+getID).data('hargatambahan');
-            document.getElementById("harga_potongan").value = $('#'+getID).data('hargapotongan');
-            document.getElementById("total").value = $('#'+getID).data('totalharga');
+            document.getElementById("nocontainer").value = $('#' + getID).data('nomorcontainer');
+            document.getElementById("user").value = $('#' + getID).data('pengirim');
+            document.getElementById("alamat_pengirim").value = $('#' + getID).data('alamatpengirim');
+            document.getElementById("nohp_pengirim").value = $('#' + getID).data('nohppengirim');
+            document.getElementById("email_pengirim").value = $('#' + getID).data('emailpengirim');
+            document.getElementById("nama_penerima").value = $('#' + getID).data('penerima');
+            document.getElementById("alamat_penerima").value = $('#' + getID).data('alamatpenerima');
+            document.getElementById("nohp_penerima").value = $('#' + getID).data('nohppenerima');
+            document.getElementById("email_penerima").value = $('#' + getID).data('emailpenerima');
+            document.getElementById("nama_barang").value = $('#' + getID).data('namabarang');
+            $('#jenis_ukuran').val($('#' + getID).data('jenisukuran'));
+            document.getElementById("nominal_ukuran").value = $('#' + getID).data('nominalukuran');
+            document.getElementById("nominal_ukuran_berat").value = $('#' + getID).data('nominalukuranberat');
+            document.getElementById("jumlah_barang").value = $('#' + getID).data('jumlah');
+            document.getElementById("nama_kapal").value = $('#' + getID).data('namakapal');
+            document.getElementById("tanggal").value = $('#' + getID).data('tanggal');
+            $('#jenisharga').val($('#' + getID).data('jenisharga'));
+            document.getElementById("harga_kubik").value = $('#' + getID).data('hargakubik');
+            document.getElementById("harga_jenis").value = $('#' + getID).data('harga');
+            document.getElementById("harga_tambahan").value = $('#' + getID).data('hargatambahan');
+            document.getElementById("harga_potongan").value = $('#' + getID).data('hargapotongan');
+            document.getElementById("total").value = $('#' + getID).data('totalharga');
         });
 
 
-         //user
-         $('#user').keyup(function(){
+        //user
+        $('#user').keyup(function() {
             var query = $(this).val();
-            if(query != '')
-            {
+            if (query != '') {
                 $.ajax({
-                    url:"autocomplete.php",
-                    method:"POST",
-                    data:{query:query,ctr:"Ftransdepo"},
-                    success:function(data)
-                    {
-                        if(data.length>1){
+                    url: "autocomplete.php",
+                    method: "POST",
+                    data: {
+                        query: query,
+                        ctr: "Ftransdepo"
+                    },
+                    success: function(data) {
+                        if (data.length > 1) {
                             $('#userList').fadeIn();
                             $('#userList').html(data);
-                        }else{
+                        } else {
                             $('#userList').fadeOut();
                             $('#userList').html("");
 
@@ -397,14 +433,14 @@
                 });
             }
         });
-        $(document).on('click', '#package_nama li', function(){
+        $(document).on('click', '#package_nama li', function() {
             $('#user').val($(this).text());
             $('#userList').fadeOut();
             document.getElementById('livesearch').value = "yes";
             const getID = $(this).text().split('-');
-            document.getElementById("alamat_pengirim").value = $('#'+getID[0]).data('alamat');
-            document.getElementById("nohp_pengirim").value = $('#'+getID[0]).data('hp');
-            document.getElementById("email_pengirim").value = $('#'+getID[0]).data('email');
+            document.getElementById("alamat_pengirim").value = $('#' + getID[0]).data('alamat');
+            document.getElementById("nohp_pengirim").value = $('#' + getID[0]).data('hp');
+            document.getElementById("email_pengirim").value = $('#' + getID[0]).data('email');
         });
         var kode = $arrTransaksi.length;
         document.getElementById("kode").value = kode;
@@ -416,17 +452,17 @@
     document.getElementById("#wrapper").css.display = "none";
     document.getElementById("#wrapper_resi").css.display = "none";
 
-    $("#user").on("input", function(){
-        if($("#user").val()==""){
+    $("#user").on("input", function() {
+        if ($("#user").val() == "") {
             $("#wrapper").css("display", "none");
-        }else{
+        } else {
             $("#wrapper").css("display", "block");
         }
     });
-    $("#resi").on("input", function(){
-        if($("#resi").val()==""){
+    $("#resi").on("input", function() {
+        if ($("#resi").val() == "") {
             $("#wrapper_resi").css("display", "none");
-        }else{
+        } else {
             $("#wrapper_resi").css("display", "block");
         }
     });
@@ -435,17 +471,16 @@
     // function
 
     //jenis_harga
-    function choose_harga(){
+    function choose_harga() {
         var arrJenis = $("#jenisharga").val().split(",");
-        if(arrJenis[1]=="-"){
+        if (arrJenis[1] == "-") {
             document.getElementById("harga_jenis").value = Number($('#harga_kubik').val());
-        }else{
+        } else {
             var hargaKubik = Number($('#harga_kubik').val());
-            if(arrJenis[1]!=$("#jenis_ukuran").val()){
-                alert(arrJenis[1] + $("#jenis_ukuran").val());
+            if (arrJenis[1] != $("#jenis_ukuran").val()) {
                 $('#jenisharga').val("-,-,0");
                 document.getElementById("harga_jenis").value = hargaKubik;
-            }else{
+            } else {
                 ganti_harga_jenis();
             }
         }
@@ -453,56 +488,63 @@
         total_harga();
     }
 
-    function choose_ukuran(){
-        var arrJenis = $("#jenisharga").val().split(",");
-        var hargaKubik = Number($('#harga_kubik').val());
-        if(arrJenis[1]!=$("#jenis_ukuran").val()){
-            alert(arrJenis[1] + $("#jenis_ukuran").val());
-            $('#jenisharga').val("-,-,0");
-            document.getElementById("harga_jenis").value = hargaKubik;
+    function choose_ukuran() {
+        // var arrJenis = $("#jenisharga").val().split(",");
+        // var hargaKubik = Number($('#harga_kubik').val());
+        // if (arrJenis[1] != $("#jenis_ukuran").val()) {
+        //     $('#jenisharga').val("-,-,0");
+        //     document.getElementById("harga_jenis").value = hargaKubik;
+        // }
+        if ($("#jenis_ukuran").val() == "Volume") {
+            document.getElementById('nominal_ukuran_berat').disabled  = true;
+            document.getElementById('nominal_ukuran').disabled  = false;
+        } else {
+            document.getElementById('nominal_ukuran_berat').disabled  = false;
+            document.getElementById('nominal_ukuran').disabled  = true;
         }
     }
 
-    function ganti_harga_jenis(){
+    function ganti_harga_jenis() {
         var arrJenis = $("#jenisharga").val().split(",");
 
         var berat = Number($("#nominal_ukuran").val());
         var hargaKubik = Number($('#harga_kubik').val());
 
-        if(arrJenis[1] == "Berat"){
-            document.getElementById("harga_jenis").value = berat * (hargaKubik + hargaKubik * Number(arrJenis[2]) / 100);
-        }else if(arrJenis[1] == "Volume"){
+        if (arrJenis[1] == "Berat") {
+            document.getElementById("harga_jenis").value = berat * (hargaKubik + hargaKubik * Number(arrJenis[2]) /
+            100);
+        } else if (arrJenis[1] == "Volume") {
             document.getElementById("harga_jenis").value = berat * (hargaKubik + Number(arrJenis[2]));
         }
     }
 
     //auto_gen angka
-    $("#harga_tambahan").on("input", function(){
+    $("#harga_tambahan").on("input", function() {
         change_number("harga_tambahan");
         total_harga();
     });
-    $("#harga_kubik").on("input", function(){
+    $("#harga_kubik").on("input", function() {
         change_number("harga_kubik");
         ganti_harga_jenis();
         total_harga();
     });
-    $("#nominal_ukuran").on("input", function(){
+    $("#nominal_ukuran").on("input", function() {
         change_number("nominal_ukuran");
         ganti_harga_jenis();
         total_harga();
     })
-    $("#harga_potongan").on("input", function(){
+    $("#harga_potongan").on("input", function() {
         change_number("harga_potongan");
         total_harga();
     })
 
-    function change_number(direct){
-        var temp = $("#" +direct).val();
+    function change_number(direct) {
+        var temp = $("#" + direct).val();
         var changer = Number(temp);
         document.getElementById(direct).value = "" + changer;
     }
 
-    function total_harga(){
+    function total_harga() {
         var harga = Number(document.getElementById("harga_jenis").value);
         var tambahan = Number(document.getElementById("harga_tambahan").value);
         var potongan = Number(document.getElementById("harga_potongan").value);

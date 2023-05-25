@@ -30,21 +30,20 @@ class statusController extends Controller
     public function updateStatus(Request $request)
     {
         $data = json_decode($request->data);
-        dd($data);
         foreach ($data as $prm) {
-            Transaksi::where('nomor_resi',$prm)->update([
+            
+            Transaksi::where('nomor_manifest',$prm)->update([
                 // 'nomor_manifest' => $request->nmanifest,
                 // 'nomor_container'=> $request->ncontainer,
-                'kurir'=> $request->namakurir,
+                'status_barang'=> $request->status,
             ]);
             $data_user_login=$request->session()->get("user_now");
             LogUserModel::create([
-                "berita"=>$data_user_login["nama_pegawai"]." Berhasil Update kurir ".$request->namakurir,
+                "berita"=>$data_user_login["nama_pegawai"]." Berhasil Update status ".$request->status,
                 "status"=>"0",
             ]);
         }
 
-
-        return redirect('/masterpengirimansatu');
+        return redirect('/masterStatus');
     }
 }

@@ -15,6 +15,7 @@ class Container extends Model
     public $timestamps = true;
     protected $fillable = [
         'nomor_container',
+        'tanggal',
         'nama_container',
         'status'
     ];

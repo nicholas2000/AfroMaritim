@@ -91,13 +91,13 @@
                 {{-- ----- --}}
             </div>
             <div class="col-sm-12 col-md-6 form-group">
-                <form action="{{ url('/masterpengirimansatu') }}" method="POST">
+                <form action="{{ url('/updateStatus') }}" method="POST">
                     @csrf
                     <div class="ps ">
                         <div class="col-sm-5">Status Barang</div>
                         <div>:</div>
                         <div class="col-sm-3">
-                            <select style="width: 180px;height: 35px;" class="form-control selectpicker">
+                            <select style="width: 180px;height: 35px;" class="form-control selectpicker" name="status">
                                 <option value="">Pilih Status Barang</option>
                                 <option>Stuffing</option>
                                 <option>Stacking</option>
@@ -123,7 +123,7 @@
 
                     <tr style="background-color:  #023e94;color: white;">
                         <td>
-                            <center><input type="checkbox" onClick="toggle(this)" /> </center>
+                            <center><input type="checkbox"> </center>
                         </td>
                         <th scope="col">
                             <center>No</center>
@@ -151,7 +151,7 @@
                     <tr>
 
                         <td>
-                            <center><input type="checkbox" value="{{ $prm->nomor_resi }}" onclick="myFunction(this)"></center>
+                            <center><input type="checkbox" value="{{ $prm->nomor_manifest }}" onclick="myFunction(this)"></center>
                         </td>
                         <th scope="row">{{ $prm->nomor_manifest }}</th>
                         <td>{{ $prm->nomor_container }}</td>
@@ -174,12 +174,23 @@
 </section>
 
 <script>
-    function toggle(source) {
-        checkboxes = document.getElementsByName('checkb');
-        for (var i = 0, n = checkboxes.length; i < n; i++) {
-            checkboxes[i].checked = source.checked;
+    var data2 = [];
+    function myFunction(x) {
+        console.log("asd");
+        if (x.checked == true) {
+            data2.push(x.value);
+        } else {
+            data2.splice(data2.indexOf(x.value), 1);
         }
+        $("[name='data']").val(JSON.stringify(data2));
     }
+
+    // function toggle(source) {
+    //     checkboxes = document.getElementsByName('checkb');
+    //     for (var i = 0, n = checkboxes.length; i < n; i++) {
+    //         checkboxes[i].checked = source.checked;
+    //     }
+    // }
 
     function onlyNumberKey(evt) {
         var ASCIICode = (evt.which) ? evt.which : evt.keyCode
@@ -228,19 +239,7 @@
         table2excel.export(document.querySelector("#datatables"));
     });
 
-    var data2 = [];
 
-    function myFunction(x) {
-        console.log("asd");
-        if (x.checked == true) {
-            data2.push(x.value);
 
-        } else {
-            data2.splice(data2.indexOf(x.value), 1);
-        }
-
-        $("[name='data']").val(JSON.stringify(data2));
-        console.log(data2);
-    }
 
 </script>

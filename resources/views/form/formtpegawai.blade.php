@@ -26,7 +26,7 @@
 
             <!-- input cabang-->
             <div class="form-group">
-                <label class="col-md-1 control-label">Cabang</label>
+                <label class="col-md-1 control-label">Cabang*</label>
                 <div class="col-md-10 selectContainer">
                     <div class="input-group">
                         <span style="border-radius: 10%;text-align: center;background-color: #023e94;width: 5%;padding-top: 1%;" class="input-group-addon"><i style="color: white"
@@ -44,7 +44,7 @@
             <!-- input name-->
 
             <div class="form-group ">
-                <label class="col-md-1 control-label">Nama</label>
+                <label class="col-md-1 control-label">Nama*</label>
                 <div class="col-md-10 inputGroupContainer">
                     <div class="input-group">
                         <span style="border-radius: 10%;text-align: center;background-color: #023e94;width: 5%;padding-top: 1%;" class="input-group-addon"><i style="color: white"
@@ -71,7 +71,7 @@
             <!-- input street-->
 
             <div class="form-group">
-                <label class="col-md-1 control-label">Alamat</label>
+                <label class="col-md-1 control-label">Alamat*</label>
                 <div class="col-md-10 inputGroupContainer">
                     <div class="input-group">
                         <span style="border-radius: 10%;text-align: center;background-color: #023e94;width: 5%;padding-top: 1%;" class="input-group-addon"><i style="color: white"
@@ -129,7 +129,7 @@
 
             <!--input fax-->
             <div class="form-group">
-                <label class="col-md-1 control-label">Telpon</label>
+                <label class="col-md-1 control-label">Telpon*</label>
                 <div class="col-md-10 inputGroupContainer">
                     <div class="input-group">
                         <span style="border-radius: 10%;text-align: center;background-color: #023e94;width: 5%;padding-top: 1%;" class="input-group-addon"><i style="color: white"
@@ -142,7 +142,7 @@
 
             <!--input email-->
             <div class="form-group">
-                <label class="col-md-1 control-label">E-Mail</label>
+                <label class="col-md-1 control-label">E-Mail*</label>
                 <div class="col-md-10 inputGroupContainer">
                     <div class="input-group">
                         <span style="border-radius: 10%;text-align: center;background-color: #023e94;width: 5%;padding-top: 1%;" class="input-group-addon"><i style="color: white"
@@ -153,7 +153,7 @@
             </div>
             <!--input password-->
             <div class="form-group">
-                <label class="col-md-1 control-label">Password</label>
+                <label class="col-md-1 control-label">Password*</label>
                 <div class="col-md-10 inputGroupContainer">
                     <div class="input-group">
                         <span style="border-radius: 10%;text-align: center;background-color: #023e94;width: 5%;padding-top: 1%;" class="input-group-addon"><i style="color: white"
@@ -164,7 +164,7 @@
             </div>
             <!--input confirm password-->
             <div class="form-group">
-                <label class="col-md-2 control-label">Confirm Password</label>
+                <label class="col-md-2 control-label">Confirm Password*</label>
                 <div class="col-md-10 inputGroupContainer">
                     <div class="input-group">
                         <span style="border-radius: 10%;text-align: center;background-color: #023e94;width: 5%;padding-top: 1%;" class="input-group-addon"><i style="color: white"
@@ -176,7 +176,7 @@
 
             <!-- input role-->
             <div class="form-group">
-                <label class="col-md-1 control-label">Role</label>
+                <label class="col-md-1 control-label">Role*</label>
                 <div class="col-md-10 selectContainer">
                     <div class="input-group">
                         <span style="border-radius: 10%;text-align: center;background-color: #023e94;width: 5%;padding-top: 1%;" class="input-group-addon"><i style="color: white"

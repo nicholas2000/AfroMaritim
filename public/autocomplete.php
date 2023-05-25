@@ -52,7 +52,7 @@
                     $temp = ' data-nomorcontainer="'.$row['nomor_container'].'" data-noresi="'.$row['nomor_resi'].'" data-pengirim="' . $row['nama_pengirim'] . '" data-penerima="' . $row['nama_penerima'] .
                         '" data-alamatpengirim="' . $row['alamat_pengirim'] . '" data-nohppengirim="' . $row['nohp_pengirim'] . '" data-emailpengirim="' . $row['email_pengirim'] .
                         '" data-alamatpenerima="' . $row['alamat_penerima'] . '" data-nohppenerima="' . $row['nohp_penerima'] . '" data-emailpenerima="' . $row['email_penerima'] .
-                        '" data-namabarang="' . $row['jenis_barang'] . '" data-jenisukuran="' . $row['jenis_volume'] . '" data-nominalukuran="' . $row['volume'] .
+                        '" data-namabarang="' . $row['jenis_barang'] . '" data-jenisukuran="' . $row['jenis_volume'] . '" data-nominalukuran="' . $row['volume'] . '" data-nominalukuranberat="' . $row['berat'] .
                         '" data-jumlah="' . $row['jumlah_barang'] . '" data-namakapal="' . $row['nama_kapal'] . '" data-tanggal="' . $row['tanggal']. '" data-jenisharga="' .
                         $row['jenis_harga'] . '" data-hargakubik="' . $row['harga_kubik'] . '" data-harga="' . $row['harga'] . '" data-hargatambahan="' . $row['harga_tambahan'] .
                         '" data-hargapotongan="' . $row['harga_potongan'] . '" data-totalharga="' . $row['total_harga'] . '"';
@@ -94,6 +94,29 @@
                         <td scope="col"><center>' . $res["jumlah_barang"] . '</center></td>
                         <td scope="col"><center>' . $res["kurir"] . '</center></td>
                         <td><input type="checkbox" value="' . $res["nomor_resi"] . '" onclick="myFunction(this)"></td>
+                        <td><input type="checkbox" value="' . $res["nomor_resi"] . '" onclick="myFunction(this)"></td>
+                    </tr>
+                ';
+                $ctr++;
+            }
+            echo $output;
+        }
+    }else if($_REQUEST["ctr"]=="LihatContainer"){
+        if(isset($_POST["query"])){
+            $query = "SELECT * FROM transaksi WHERE nomor_container = '". $_POST["query"] ."'";
+            $result = mysqli_query($connect, $query);
+            $ctr = 1;
+            $output = "";
+
+            foreach ($result as $res){
+                $output .= '
+                    <tr>
+                        <td scope="row">' . $ctr . '</td>
+                        <td scope="col"><center>' . $res["nomor_container"] . '</center></td>
+                        <td scope="col"><center>' . $res["nomor_resi"] . '</center></td>
+                        <td scope="col"><center>' . $res["jenis_barang"] . '</center></td>
+                        <td scope="col"><center>' . $res["tanggal"] . '</center></td>
+                        <td scope="col"><center>' . $res["jumlah_barang"] . '</center></td>
                     </tr>
                 ';
                 $ctr++;

@@ -12,8 +12,7 @@ class containercontroller extends Controller
 {
     public function show(Request $req)
     {
-        $id = $req->nomor_container;
-        $arrTransaksi=Transaksi::all();
+        $arrTransaksi=Transaksi::where('nomor_container','CO001')->get();
         $arrCon=Container::all();
         $arrNotif=LogUserModel::all();
         return view('admin.mContainer',compact("arrTransaksi","arrCon", "arrNotif"));
@@ -41,8 +40,10 @@ class containercontroller extends Controller
 
     public function lock($id)
     {
+        $todayDate = date("d-m-Y");
         $container = Container::withTrashed()->find($id);
         $result = $container->update([
+            'tanggal' => $todayDate,
             'status' => "0"
         ]);
         if($result){
@@ -53,9 +54,10 @@ class containercontroller extends Controller
     }
     public function unlock($id)
     {
-
+        $todayDate = date("d-m-Y");
         $container = Container::withTrashed()->find($id);
         $result = $container->update([
+            'tanggal' => $todayDate,
             'status' => "1"
         ]);
         if($result){

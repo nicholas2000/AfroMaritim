@@ -14,8 +14,9 @@ class Transaksi extends Model
     protected $primaryKey = "nomor_resi";
     public $timestamps = true;
     protected $fillable = [
-        'nomor_container',
+        'nomor_manifest',
         'nomor_resi',
+        'nomor_container',
         'nomor_segel',
         'nama_pengirim',
         'alamat_pengirim',
@@ -28,6 +29,7 @@ class Transaksi extends Model
         'jenis_barang',
         'jumlah_barang',
         'jenis_volume',
+        'berat',
         'volume',
         'rute',
         'nama_kapal',
@@ -38,7 +40,6 @@ class Transaksi extends Model
         'harga_potongan',
         'total_harga',
         'tanggal',
-        'nomor_manifest',
         'link_foto',
         'catatan',
         'kurir',

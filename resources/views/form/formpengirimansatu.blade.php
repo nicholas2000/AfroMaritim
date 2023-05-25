@@ -127,6 +127,9 @@
                                 <center>Nama Kurir</center>
                             </th>
                             <th scope="col">
+                                <center>Action</center>
+                            </th>
+                            <th scope="col">
                                 <center>Sudah Kirim</center>
                             </th>
                         </tr>

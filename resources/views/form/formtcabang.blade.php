@@ -29,7 +29,7 @@
                 <!-- input name-->
 
                 <div class="form-group ">
-                    <label class="col-md-1 control-label">Nama</label>
+                    <label class="col-md-1 control-label">Nama*</label>
                     <div class="col-md-10 inputGroupContainer">
                         <div class="input-group">
                             <span style="border-radius: 10%;text-align: center;background-color: #023e94;width: 5%;padding-top: 1%;" class="input-group-addon"><i style="color: white"
@@ -42,7 +42,7 @@
                 <!-- input jumlah-->
 
                 <div class="form-group">
-                    <label class="col-md-2 control-label" style="margin-top: -10px">Jumlah Pegawai</label>
+                    <label class="col-md-2 control-label" style="margin-top: -10px">Jumlah Pegawai*</label>
                     <div class="col-md-10 inputGroupContainer">
                         <div class="input-group">
                             <span style="border-radius: 10%;text-align: center;background-color: #023e94;width: 5%;padding-top: 1%;" class="input-group-addon"><i style="color: white"
@@ -56,7 +56,7 @@
                 <!-- input alamat-->
 
                 <div class="form-group">
-                    <label class="col-md-1 control-label">Alamat</label>
+                    <label class="col-md-1 control-label">Alamat*</label>
                     <div class="col-md-10 inputGroupContainer">
                         <div class="input-group">
                             <span style="border-radius: 10%;text-align: center;background-color: #023e94;width: 5%;padding-top: 1%;" class="input-group-addon"><i style="color: white"
@@ -68,7 +68,7 @@
 
                 <!-- input province-->
                 <div class="form-group">
-                    <label class="col-md-1 control-label">Provinsi</label>
+                    <label class="col-md-1 control-label">Provinsi*</label>
                     <div class="col-md-10 selectContainer">
                         <div class="input-group">
                             <span style="border-radius: 10%;text-align: center;background-color: #023e94;width: 5%;padding-top: 1%;" class="input-group-addon"><i style="color: white"
@@ -84,7 +84,7 @@
 
                 <!-- input city-->
                 <div class="form-group">
-                    <label class="col-md-1 control-label">Kota</label>
+                    <label class="col-md-1 control-label">Kota*</label>
                     <div class="col-md-10 selectContainer">
                         <div class="input-group">
                             <span style="border-radius: 10%;text-align: center;background-color: #023e94;width: 5%;padding-top: 1%;" class="input-group-addon"><i style="color: white"
@@ -100,7 +100,7 @@
 
                 <!--input zipcode-->
                 <div class="form-group">
-                    <label class="col-md-2 control-label">Kode Pos</label>
+                    <label class="col-md-2 control-label">Kode Pos*</label>
                     <div class="col-md-10 inputGroupContainer">
                         <div class="input-group">
                             <span style="border-radius: 10%;text-align: center;background-color: #023e94;width: 5%;padding-top: 1%;" class="input-group-addon"><i style="color: white"
@@ -113,7 +113,7 @@
 
                 <!--input phone-->
                 <div class="form-group">
-                    <label class="col-md-1 control-label">Telpon</label>
+                    <label class="col-md-1 control-label">Telpon*</label>
                     <div class="col-md-10 inputGroupContainer">
                         <div class="input-group">
                             <span style="border-radius: 10%;text-align: center;background-color: #023e94;width: 5%;padding-top: 1%;" class="input-group-addon"><i style="font-size: 100%;color: white"
@@ -126,7 +126,7 @@
 
                 <!--input google maps-->
                 <div class="form-group">
-                    <label class="col-md-2 control-label" style="margin-top: -10px">Google Maps</label>
+                    <label class="col-md-2 control-label" style="margin-top: -10px">Google Maps*</label>
                     <div class="col-md-10 inputGroupContainer">
                         <div class="input-group">
                             <span style="border-radius: 10%;text-align: center;background-color: #023e94;width: 5%;padding-top: 1%;" class="input-group-addon"><i style="color: white"
@@ -138,7 +138,7 @@
 
                 <!--input email-->
                 <div class="form-group">
-                    <label class="col-md-1 control-label">E-Mail</label>
+                    <label class="col-md-1 control-label">E-Mail*</label>
                     <div class="col-md-10 inputGroupContainer">
                         <div class="input-group">
                             <span style="border-radius: 10%;text-align: center;background-color: #023e94;width: 5%;padding-top: 1%;" class="input-group-addon"><i style="color: white"
@@ -150,7 +150,7 @@
 
                 <!-- input status-->
                 <div class="form-group">
-                    <label class="col-md-1 control-label">Status</label>
+                    <label class="col-md-1 control-label">Status*</label>
                     <div class="col-md-10 selectContainer">
                         <div class="input-group">
                             <span style="border-radius: 10%;text-align: center;background-color: #023e94;width: 5%;padding-top: 1%;" class="input-group-addon"><i style="color: white"

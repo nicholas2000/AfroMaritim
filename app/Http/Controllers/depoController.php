@@ -60,7 +60,6 @@ class depoController extends Controller
             'harga_tambahan' => '0',
             'harga_potongan' => '0',
             'total_harga' => '0',
-            'status_barang' => 'Depo',
             'catatan' => $req->catatan,
         ]);
         $data_user_login=$req->session()->get("user_now");

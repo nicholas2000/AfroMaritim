@@ -99,7 +99,15 @@ class TransaksiController extends Controller
         //     $pengirim = $Customer[0]->id_customer;
         // }
         // dd($req->livesearch);
-
+        $volume = "";
+        $berat = "";
+        if($req->jenis_ukuran == "Volume"){
+            $volume = $req->nominal_ukuran;
+            $berat = "0";
+        }else{
+            $volume = "0";
+            $berat = $req->nominal_ukuran_berat;
+        }
         if($req->update=="no"){
             Transaksi::create([
                 'nomor_manifest' =>$req->nomor_manifest,
@@ -115,7 +123,8 @@ class TransaksiController extends Controller
                 'jenis_barang' => $req->nama_barang,
                 'jumlah_barang' => $req->colly,
                 'jenis_volume' => $req->jenis_ukuran,
-                'volume' => $req->nominal_ukuran,
+                'volume' => $volume,
+                'berat' => $berat,
                 'nama_kapal' => $req->nama_kapal,
                 'tanggal' =>$req->tglberangkat,
                 'jenis_harga' => $req->jenisharga,
@@ -134,7 +143,6 @@ class TransaksiController extends Controller
         }else{
             $transaksi = Transaksi::withTrashed()->find($req->nomor_resi);
             $result = $transaksi->update([
-                'nomor_manifest' =>$req->nomor_manifest,
                 'nomor_resi' => $req->nomor_resi,
                 'nama_pengirim' =>  $pengirim,
                 'alamat_pengirim' => $req->alamat_pengirim,
@@ -147,7 +155,8 @@ class TransaksiController extends Controller
                 'jenis_barang' => $req->nama_barang,
                 'jumlah_barang' => $req->colly,
                 'jenis_volume' => $req->jenis_ukuran,
-                'volume' => $req->nominal_ukuran,
+                'volume' => $volume,
+                'berat' => $berat,
                 'nama_kapal' => $req->nama_kapal,
                 'tanggal' =>$req->tglberangkat,
                 'jenis_harga' => $req->jenisharga,
