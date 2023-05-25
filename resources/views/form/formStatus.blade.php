@@ -33,147 +33,143 @@
     .clickable {
         cursor: pointer;
     }
+
 </style>
 <section class="order-form m-4">
-        <div class="container pt-4">
-            <div class="container">
-                <h1> Kapal Tiba </h1>
-                <div class="row ">
+    <div class="container pt-4">
+        <div class="container">
+            <h1> Kapal Tiba </h1>
+            <div class="row ">
 
-                    <div class="col-md-12 form-group">
-                        <div class="ps">
+                <div class="col-md-12 form-group">
+                    <div class="ps">
 
-                            <div class="col-md-10" >
-                                <form action="{{ url('/search_tanggal') }}" method="get">
+                        <div class="col-md-10">
+                            <form action="{{ url('/search_tanggal') }}" method="get">
 
-                                    <div class="form-group" style="margin-right:10px;">
-                                        <div style="display: flex;">
-                                            <input type="date" class=" form-control"
-                                            style="margin-right: 10px;width: 150px;"
-                                            placeholder="&#xf133;  Tgl Awal" id="currentDate" name="date_awal">
-                                            <input type="date" class=" form-control"
-                                            style="margin-right: 10px;width: 150px;"
-                                            placeholder="&#xf133;  Tgl Akhir" name="date_akhir">
-                                            <button type="submit" class="btn btn-success">Cari</button>
-                                        </div>
+                                <div class="form-group" style="margin-right:10px;">
+                                    <div style="display: flex;">
+                                        <input type="date" class=" form-control" style="margin-right: 10px;width: 150px;" placeholder="&#xf133;  Tgl Awal" id="currentDate" name="date_awal">
+                                        <input type="date" class=" form-control" style="margin-right: 10px;width: 150px;" placeholder="&#xf133;  Tgl Akhir" name="date_akhir">
+                                        <button type="submit" class="btn btn-success">Cari</button>
+                                    </div>
 
-                                    </form>
-                                </div>
-
-                                <script>
-                                    var today = new Date();
-                                    var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
-                                    // document.getElementById("currentDate").value = date;
-                                    console.log(date);
-                                    </script>
-                            </div>
-                            <div class="col-md-3">
-                                <a href="" class="btn btn-primary" style="color: white;height: 37px;margin-right: 5%;"
-                                class="ps">Import</a>
-                                <a href="" id="btn-excel" class="btn btn-success"
-                                style="color: white;height: 37px;">Export</a>
-                            </div>
+                            </form>
                         </div>
+
+                        <script>
+                            var today = new Date();
+                            var date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
+                            // document.getElementById("currentDate").value = date;
+                            console.log(date);
+
+                        </script>
                     </div>
-                </div>
-                <br>
-                <form action="{{ url('/showstatus') }}"method="get">
-                </form>
-                    <div class="row">
-                        <div class="col-sm-12 col-md-6 form-group">
-                            <div class="ps">
-                                <div class="col-md-4">ID Kapal</div>
-                                <div>:</div>
-                                <div class="col-md-3"><input type='text' style="width: 180px;"
-                                    placeholder="Masukkan ID Kapal">
-                                </div>
-                            </div>
-                            <br>
-                            <br>
-
-                            <br>
-
-                            {{-- ----- --}}
-                        </div>
-                        <div class="col-sm-12 col-md-6 form-group">
-
-                            <div class="ps ">
-                                <div class="col-sm-5">Status Barang</div>
-                                <div>:</div>
-                                <div class="col-sm-3">
-                                    <select style="width: 180px;height: 35px;" class="form-control selectpicker">
-                                        <option value="">Pilih Status Barang</option>
-                                        <option>Stuffing</option>
-                                        <option>Stacking</option>
-                                        <option>On Board</option>
-                                        <option>ATCY</option>
-                                        <option>At Consignee</option>
-                                        <option>Empty</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <br>
-                            <br>
-                            <form action="{{ url('/masterpengirimansatu') }}" method="POST">
-                                @csrf
-                                <button type="submit" class="btn btn-primary" style="float: right">Update</a>
-                                    <input type="hidden" name="data">
-                                </form>
-
-                                <br>
-                            </div>
-
-                    <div class="col-12">
-                        <table id="datatables" class="table table-bordered">
-
-                            <tr style="background-color:  #023e94;color: white;">
-                                <td>
-                                    <center><input type="checkbox" onClick="toggle(this)" /> </center>
-                                </td>
-                                <th scope="col">
-                                    <center>No</center>
-                                </th>
-                                <th scope="col"> <center> No Kontainer</center></th>
-                                <th scope="col">
-                                    <center>Nomor Segel</center>
-                                </th>
-                                <th scope="col">
-                                    <center>Isi Kontainer</center>
-                                </th>
-                                <th scope="col">
-                                    <center>Nama Kapal</center>
-                                </th>
-                                <th scope="col">
-                                    <center>Status</center>
-                                </th>
-                            </tr>
-
-                            <?php $ctr = 1; ?>
-
-                            @foreach ($arrTransaksi as $prm)
-                                <tr>
-
-                                    <td>
-                                        <center><input type="checkbox" value="{{ $prm->nomor_resi }}"
-                                            onclick="myFunction(this)"></center>
-                                    </td>
-                                    <th scope="row">{{ $ctr }}</th>
-                                    <td>{{ $prm->nomor_container }}</td>
-                                    <td>{{ $prm->nomor_segel }}</td>
-                                    <td>{{ $prm->jenis_barang }}</td>
-                                    <td>{{ $prm->nama_kapal }}</td>
-
-                                    <td>{{ $prm->status_barang }}</td>
-                                </tr>
-                                <?php $ctr++; ?>
-                            @endforeach
-
-                        </table>
+                    <div class="col-md-3">
+                        <a href="" class="btn btn-primary" style="color: white;height: 37px;margin-right: 5%;" class="ps">Import</a>
+                        <a href="" id="btn-excel" class="btn btn-success" style="color: white;height: 37px;">Export</a>
                     </div>
-
                 </div>
             </div>
         </div>
+        <br>
+        <form action="{{ url('/showstatus') }}" method="get">
+        </form>
+        <div class="row">
+            <div class="col-sm-12 col-md-6 form-group">
+                <div class="ps">
+                    <div class="col-md-4">ID Kapal</div>
+                    <div>:</div>
+                    <div class="col-md-3"><input type='text' style="width: 180px;" placeholder="Masukkan ID Kapal">
+                    </div>
+                </div>
+                <br>
+                <br>
+
+                <br>
+
+                {{-- ----- --}}
+            </div>
+            <div class="col-sm-12 col-md-6 form-group">
+                <form action="{{ url('/masterpengirimansatu') }}" method="POST">
+                    @csrf
+                    <div class="ps ">
+                        <div class="col-sm-5">Status Barang</div>
+                        <div>:</div>
+                        <div class="col-sm-3">
+                            <select style="width: 180px;height: 35px;" class="form-control selectpicker">
+                                <option value="">Pilih Status Barang</option>
+                                <option>Stuffing</option>
+                                <option>Stacking</option>
+                                <option>On Board</option>
+                                <option>ATCY</option>
+                                <option>At Consignee</option>
+                                <option>Empty</option>
+                            </select>
+                        </div>
+                    </div>
+                    <br>
+                    <br>
+                    <input type="hidden" name="data">
+                    <button type="submit" class="btn btn-primary" style="float: right">Update</a>
+
+                </form>
+
+                <br>
+            </div>
+
+            <div class="col-12">
+                <table id="datatables" class="table table-bordered">
+
+                    <tr style="background-color:  #023e94;color: white;">
+                        <td>
+                            <center><input type="checkbox" onClick="toggle(this)" /> </center>
+                        </td>
+                        <th scope="col">
+                            <center>No</center>
+                        </th>
+                        <th scope="col">
+                            <center> No Kontainer</center>
+                        </th>
+                        <th scope="col">
+                            <center>Nomor Segel</center>
+                        </th>
+                        <th scope="col">
+                            <center>Isi Kontainer</center>
+                        </th>
+                        <th scope="col">
+                            <center>Nama Kapal</center>
+                        </th>
+                        <th scope="col">
+                            <center>Status</center>
+                        </th>
+                    </tr>
+
+                    <?php $ctr = 1; ?>
+
+                    @foreach ($arrTransaksi as $prm)
+                    <tr>
+
+                        <td>
+                            <center><input type="checkbox" value="{{ $prm->nomor_resi }}" onclick="myFunction(this)"></center>
+                        </td>
+                        <th scope="row">{{ $prm->nomor_manifest }}</th>
+                        <td>{{ $prm->nomor_container }}</td>
+                        <td>{{ $prm->nomor_segel }}</td>
+                        <td>{{ $prm->jenis_barang }}</td>
+                        <td>{{ $prm->nama_kapal }}</td>
+
+                        <td>{{ $prm->status_barang }}</td>
+                    </tr>
+                    <?php $ctr++; ?>
+                    @endforeach
+
+                </table>
+            </div>
+
+        </div>
+    </div>
+    </div>
 
 </section>
 
@@ -199,8 +195,8 @@
 
         beforeShowDay: function(date) {
             return date.valueOf() >= now.valueOf();
-        },
-        autoclose: true
+        }
+        , autoclose: true
 
     }).on('changeDate', function(ev) {
         if (ev.date.valueOf() > checkout.datepicker("getDate").valueOf() || !checkout.datepicker("getDate")
@@ -222,8 +218,8 @@
             } else {
                 return date.valueOf() > checkin.datepicker("getDate").valueOf();
             }
-        },
-        autoclose: true
+        }
+        , autoclose: true
 
     }).on('changeDate', function(ev) {});
 
@@ -246,4 +242,5 @@
         $("[name='data']").val(JSON.stringify(data2));
         console.log(data2);
     }
+
 </script>

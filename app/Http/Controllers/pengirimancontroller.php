@@ -43,7 +43,6 @@ class pengirimancontroller extends Controller
     public function updateKurir(Request $request)
     {
         $data = json_decode($request->data);
-        
         foreach ($data as $prm) {
             Transaksi::where('nomor_resi',$prm)->update([
                 // 'nomor_manifest' => $request->nmanifest,

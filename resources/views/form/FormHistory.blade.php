@@ -224,7 +224,7 @@
                         @foreach ($arrHistory as $prm)
                             <tr>
 
-                                <th scope="row">{{ $ctr }}</th>
+                                <th scope="row">{{ $prm->nomor_manifest }}</th>
                                 <th scope="col">
                                     <center>{{ $prm->nomor_container }}</center>
                                 </th>

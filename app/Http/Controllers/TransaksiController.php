@@ -24,7 +24,7 @@ class TransaksiController extends Controller
 
     public function showHistory()
     {
-        $arrHistory=Transaksi::get();
+        $arrHistory=Transaksi::get()->sortBy("nomor_manifest");
         $arrNotif=LogUserModel::all();
         return view('admin.mHistory',compact("arrHistory", "arrNotif"));
     }
@@ -102,6 +102,7 @@ class TransaksiController extends Controller
 
         if($req->update=="no"){
             Transaksi::create([
+                'nomor_manifest' =>$req->nomor_manifest,
                 'nomor_resi' => $req->nomor_resi,
                 'nama_pengirim' =>  $pengirim,
                 'alamat_pengirim' => $req->alamat_pengirim,
@@ -133,6 +134,7 @@ class TransaksiController extends Controller
         }else{
             $transaksi = Transaksi::withTrashed()->find($req->nomor_resi);
             $result = $transaksi->update([
+                'nomor_manifest' =>$req->nomor_manifest,
                 'nomor_resi' => $req->nomor_resi,
                 'nama_pengirim' =>  $pengirim,
                 'alamat_pengirim' => $req->alamat_pengirim,

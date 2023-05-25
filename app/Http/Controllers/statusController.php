@@ -16,7 +16,7 @@ class statusController extends Controller
     //
     public function showStatus()
     {
-        $arrTransaksi=Transaksi::all();
+        $arrTransaksi=Transaksi::all()->sortBy("nomor_manifest");
         $arrNotif=LogUserModel::all();
         return view('admin.mStatus',compact('arrTransaksi', "arrNotif"));
     }
@@ -31,18 +31,18 @@ class statusController extends Controller
     {
         $data = json_decode($request->data);
         dd($data);
-        // foreach ($data as $prm) {
-        //     Transaksi::where('nomor_resi',$prm)->update([
-        //         // 'nomor_manifest' => $request->nmanifest,
-        //         // 'nomor_container'=> $request->ncontainer,
-        //         'kurir'=> $request->namakurir,
-        //     ]);
-        //     $data_user_login=$request->session()->get("user_now");
-        //     LogUserModel::create([
-        //         "berita"=>$data_user_login["nama_pegawai"]." Berhasil Update kurir ".$request->namakurir,
-        //         "status"=>"0",
-        //     ]);
-        // }
+        foreach ($data as $prm) {
+            Transaksi::where('nomor_resi',$prm)->update([
+                // 'nomor_manifest' => $request->nmanifest,
+                // 'nomor_container'=> $request->ncontainer,
+                'kurir'=> $request->namakurir,
+            ]);
+            $data_user_login=$request->session()->get("user_now");
+            LogUserModel::create([
+                "berita"=>$data_user_login["nama_pegawai"]." Berhasil Update kurir ".$request->namakurir,
+                "status"=>"0",
+            ]);
+        }
 
 
         return redirect('/masterpengirimansatu');
