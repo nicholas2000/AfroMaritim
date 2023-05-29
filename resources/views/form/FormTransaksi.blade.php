@@ -449,8 +449,33 @@
     // $("#wrapper").css("display", "none");
     // $("#wrapper_resi").css("display", "none");
 
-    document.getElementById("#wrapper").css.display = "none";
-    document.getElementById("#wrapper_resi").css.display = "none";
+//auto_gen angka
+$("#harga_tambahan").on("input", function() {
+        change_number("harga_tambahan");
+        total_harga();
+    });
+    $("#harga_kubik").on("input", function() {
+        change_number("harga_kubik");
+        ganti_harga_jenis();
+        total_harga();
+    });
+    $("#nominal_ukuran").on("input", function() {
+        change_number("nominal_ukuran");
+        ganti_harga_jenis();
+        total_harga();
+    });
+    $("#nominal_ukuran_berat").on("input", function() {
+        change_number("nominal_ukuran_berat");
+        ganti_harga_jenis();
+        total_harga();
+    });
+    $("#harga_potongan").on("input", function() {
+        change_number("harga_potongan");
+        total_harga();
+    });
+
+    document.getElementById("wrapper").css.display = "none";
+    document.getElementById("wrapper_resi").css.display = "none";
 
     $("#user").on("input", function() {
         if ($("#user").val() == "") {
@@ -502,46 +527,34 @@
             document.getElementById('nominal_ukuran_berat').disabled  = false;
             document.getElementById('nominal_ukuran').disabled  = true;
         }
+        document.getElementById('nominal_ukuran_berat').value  = "0";
+        document.getElementById('nominal_ukuran').value  = "0";
     }
 
     function ganti_harga_jenis() {
         var arrJenis = $("#jenisharga").val().split(",");
 
-        var berat = Number($("#nominal_ukuran").val());
+        var berat;
+        if($("#jenis_ukuran").val() == "Volume"){
+            berat = Number($("#nominal_ukuran").val());
+        }else {
+            berat = Number($("#nominal_ukuran_berat").val());
+        }
         var hargaKubik = Number($('#harga_kubik').val());
 
         if (arrJenis[1] == "Berat") {
-            document.getElementById("harga_jenis").value = berat * (hargaKubik + hargaKubik * Number(arrJenis[2]) /
-            100);
+            document.getElementById("harga_jenis").value = berat * (hargaKubik + hargaKubik * Number(arrJenis[2]) / 100);
         } else if (arrJenis[1] == "Volume") {
             document.getElementById("harga_jenis").value = berat * (hargaKubik + Number(arrJenis[2]));
         }
-    }
 
-    //auto_gen angka
-    $("#harga_tambahan").on("input", function() {
-        change_number("harga_tambahan");
-        total_harga();
-    });
-    $("#harga_kubik").on("input", function() {
-        change_number("harga_kubik");
-        ganti_harga_jenis();
-        total_harga();
-    });
-    $("#nominal_ukuran").on("input", function() {
-        change_number("nominal_ukuran");
-        ganti_harga_jenis();
-        total_harga();
-    })
-    $("#harga_potongan").on("input", function() {
-        change_number("harga_potongan");
-        total_harga();
-    })
+    }
 
     function change_number(direct) {
         var temp = $("#" + direct).val();
         var changer = Number(temp);
         document.getElementById(direct).value = "" + changer;
+
     }
 
     function total_harga() {
