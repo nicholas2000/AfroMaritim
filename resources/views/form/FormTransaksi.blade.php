@@ -56,7 +56,7 @@
                         </div>
 
                         <div class="col-sm-3">
-                            Nomor Resi :
+                            Nomor Resi* :
                         </div>
                         <div class="col-sm-3">
                             <div class="search-box">
@@ -179,7 +179,7 @@
                         </div>
 
                         <div class="col-sm-3">
-                            Jenis Harga :
+                            Jenis Harga* :
                         </div>
                         <div class="col-sm-3">
                             <div class="col-auto">
@@ -201,7 +201,7 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-sm-3">
-                            Jenis Ukuran :
+                            Jenis Ukuran* :
                         </div>
                         <div class="col-sm-3">
                             <div class="col-auto">
@@ -216,7 +216,7 @@
                             <input type="radio" name="jenis_ukuran" id="jenis_ukuran" value="Volume">Volume --}}
                         </div>
                         <div class="col-sm-3">
-                            Harga / Kubik :
+                            Harga / Kubik* :
                         </div>
                         <div class="col-sm-3">
                             <input name="harga_kubik" id="harga_kubik" class="form-control"

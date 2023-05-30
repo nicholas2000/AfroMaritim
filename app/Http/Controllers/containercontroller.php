@@ -6,6 +6,7 @@ use App\Models\Container;
 use App\Models\LogUserModel;
 use Illuminate\Http\Request;
 use App\Models\Transaksi;
+use Carbon\Carbon;
 
 
 class containercontroller extends Controller
@@ -40,10 +41,11 @@ class containercontroller extends Controller
 
     public function lock($id)
     {
-        $todayDate = date("d-m-Y");
+        $today = Carbon::today();
+        $todayDate = date("dd-mm-YYYY");
         $container = Container::withTrashed()->find($id);
         $result = $container->update([
-            'tanggal' => $todayDate,
+            'tanggal' => $today,
             'status' => "0"
         ]);
         if($result){
@@ -54,10 +56,11 @@ class containercontroller extends Controller
     }
     public function unlock($id)
     {
-        $todayDate = date("d-m-Y");
+        $today = Carbon::today();
+        $todayDate = date("dd-mm-YYYY");
         $container = Container::withTrashed()->find($id);
         $result = $container->update([
-            'tanggal' => $todayDate,
+            'tanggal' => $today,
             'status' => "1"
         ]);
         if($result){

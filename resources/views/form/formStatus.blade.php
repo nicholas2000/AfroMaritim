@@ -76,25 +76,11 @@
         <form action="{{ url('/showstatus') }}" method="get">
         </form>
         <div class="row">
-            <div class="col-sm-12 col-md-6 form-group">
-                <div class="ps">
-                    <div class="col-md-4">ID Kapal</div>
-                    <div>:</div>
-                    <div class="col-md-3"><input type='text' style="width: 180px;" placeholder="Masukkan ID Kapal">
-                    </div>
-                </div>
-                <br>
-                <br>
-
-                <br>
-
-                {{-- ----- --}}
-            </div>
-            <div class="col-sm-12 col-md-6 form-group">
+            <div class="col-sm-12 col-md-12 form-group">
                 <form action="{{ url('/updateStatus') }}" method="POST">
                     @csrf
                     <div class="ps ">
-                        <div class="col-sm-5">Status Barang</div>
+                        <div class="col-sm-2">Status Barang</div>
                         <div>:</div>
                         <div class="col-sm-3">
                             <select style="width: 180px;height: 35px;" class="form-control selectpicker" name="status">
@@ -111,7 +97,9 @@
                     <br>
                     <br>
                     <input type="hidden" name="data">
-                    <button type="submit" class="btn btn-primary" style="float: right">Update</a>
+                    <div class="col-xl-10">
+                        <button type="submit" class="btn btn-primary" style="float: right">Update</a>
+                    </div>
 
                 </form>
 

@@ -30,7 +30,7 @@
                 <!-- input name-->
 
                 <div class="form-group ">
-                    <label class="col-md-1 control-label">Nama</label>
+                    <label class="col-md-1 control-label">Nama*</label>
                     <div class="col-md-10 inputGroupContainer">
                         <div class="input-group">
                             <span style="border-radius: 10%;text-align: center;background-color: #023e94;width: 5%;padding-top: 1%;" class="input-group-addon"><i style="color: white"
@@ -57,7 +57,7 @@
                 <!-- input Alamat-->
 
                 <div class="form-group">
-                    <label class="col-md-1 control-label">Alamat</label>
+                    <label class="col-md-1 control-label">Alamat*</label>
                     <div class="col-md-10 inputGroupContainer">
                         <div class="input-group">
                             <span style="border-radius: 10%;text-align: center;background-color: #023e94;width: 5%;padding-top: 1%;" class="input-group-addon"><i style="color: white"

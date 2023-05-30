@@ -12,7 +12,7 @@
 
                 <!-- input wilayah-->
                 <div class="form-group">
-                    <label class="col-md-2 control-label" style="margin-top: -10px;">Jenis Harga</label>
+                    <label class="col-md-2 control-label" style="margin-top: -10px;">Jenis Harga*</label>
                     <div class="col-md-10 inputGroupContainer">
                         <div class="input-group">
                             <span style="border-radius: 10%;text-align: center;background-color: #023e94;width: 5%;padding-top: 1%;" class="input-group-addon"><i style="color: white"
@@ -27,7 +27,7 @@
 
                 <!-- input nama team-->
                 <div class="form-group">
-                    <label class="col-md-1 control-label">Type</label>
+                    <label class="col-md-1 control-label">Type*</label>
                     <div class="col-md-10 inputGroupContainer">
                         <div class="input-group">
                             <span style="border-radius: 10%;text-align: center;background-color: #023e94;width: 5%;padding-top: 1%;" class="input-group-addon"><i style="color: white"
@@ -37,11 +37,11 @@
                         </div>
                     </div>
                 </div>
-                
+
 
                 <!--input no container-->
                 <div class="form-group">
-                    <label class="col-md-1 control-label">Nominal</label>
+                    <label class="col-md-1 control-label">Nominal*</label>
                     <div class="col-md-10 inputGroupContainer">
                         <div class="input-group">
                             <span style="border-radius: 10%;text-align: center;background-color: #023e94;width: 5%;padding-top: 1%;" class="input-group-addon"><i style="color: white"

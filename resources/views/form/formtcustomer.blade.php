@@ -36,14 +36,14 @@
                 </div>
 
                 <div class="form-group">
-                    <label class="col-md-1 control-label">Cabang</label>
+                    <label class="col-md-1 control-label">Cabang*</label>
                     <div class="col-md-10 selectContainer">
                         <div class="input-group">
                             <span
                                 style="border-radius: 10%;text-align: center;background-color: #023e94;width: 5%;padding-top: 1%;"
                                 class="input-group-addon"><i style="color: white" class="fa fa-map-marker"></i></span>
                             <select name="cabang" style="height:35px" class="form-control selectpicker">
-                                <option value="">Pilih Cabang</option>
+                                <option value="">Pilih Cabang*</option>
                                 @foreach ($arrCabang as $prm)
                                     <option value="{{ $prm->id_cabang }}">{{ $prm->nama_cabang }}</option>
                                 @endforeach
@@ -55,7 +55,7 @@
                 <!-- input name-->
 
                 <div class="form-group ">
-                    <label class="col-md-1 control-label">Nama</label>
+                    <label class="col-md-1 control-label">Nama*</label>
                     <div class="col-md-10 inputGroupContainer">
                         <div class="input-group">
                             <span
@@ -84,7 +84,7 @@
                 <!-- input street-->
 
                 <div class="form-group">
-                    <label class="col-md-1 control-label">Alamat</label>
+                    <label class="col-md-1 control-label">Alamat*</label>
                     <div class="col-md-10 inputGroupContainer">
                         <div class="input-group">
                             <span
@@ -129,7 +129,7 @@
 
                 <!--input fax-->
                 <div class="form-group">
-                    <label class="col-md-1 control-label">Telpon</label>
+                    <label class="col-md-1 control-label">Telpon*</label>
                     <div class="col-md-10 inputGroupContainer">
                         <div class="input-group">
                             <span
@@ -155,7 +155,7 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-md-1 control-label">Pajak</label>
+                    <label class="col-md-1 control-label">Pajak*</label>
                     <div class="col-md-10 inputGroupContainer">
                         <div class="input-group" style="margin-top: 10px;">
                             <input type="radio" name="pajak" value="pph23" />
@@ -167,7 +167,7 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-md-2 control-label">Status Hutang</label>
+                    <label class="col-md-2 control-label">Status Hutang*</label>
                     <div class="col-md-10 inputGroupContainer">
                         <div class="input-group" style="margin-top: 12px;">
                             <input type="radio" name="status" value="On" onclick="show1();" />
