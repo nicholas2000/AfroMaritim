@@ -42,9 +42,15 @@ class depoController extends Controller
 
     public function doAddDepo(Request $req)
     {
+        $trans = Transaksi::withTrashed()->get();
+        $ctr = 1;
+        foreach($trans as $c){
+            $ctr = intval($c->nomor_manifest) + 1;
+        }
         Transaksi::create([
             'tanggal' => $req->tglmasuk,
             // 'nomor_segel' => $req->nomor_segel,
+            'nomor_manifest'=>$ctr,
             'nama_pengirim'=>$req->namapengirim,
             'alamat_pengirim'=>$req->alamatpengirim,
             'nohp_pengirim'=>$req->nohppengirim,

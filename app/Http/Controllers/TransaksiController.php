@@ -101,6 +101,7 @@ class TransaksiController extends Controller
         // dd($req->livesearch);
         $volume = "";
         $berat = "";
+
         if($req->jenis_ukuran == "Volume"){
             $volume = $req->nominal_ukuran;
             $berat = "0";

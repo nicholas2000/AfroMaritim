@@ -11,7 +11,7 @@ class ExportTransaksi implements FromCollection, WithHeadings, ShouldAutoSize
     */
     public function collection()
     {
-        return Transaksi::select("tanggal", "nomor_resi", "nomor_segel", "nama_penerima", "nama_pengirim", "jenis_barang", "jumlah_barang", "volume", "nomor_container")->get()->sortBy("tanggal");
+        return Transaksi::select("tanggal",'nomor_manifest', "nomor_resi", "nomor_segel", "nama_penerima", "nama_pengirim", "jenis_barang", "jumlah_barang", "volume", "nomor_container")->get()->sortBy("tanggal");
     }
     /**
      * Write code on Method
@@ -20,6 +20,6 @@ class ExportTransaksi implements FromCollection, WithHeadings, ShouldAutoSize
      */
     public function headings(): array
     {
-        return ["Tanggal", "Nomor Resi", "Nomor Segel", "Nama Penerima", "Nama Pengirim", "Jenis Barang", "Colly", "Volume", "Nomor Container"];
+        return ["Tanggal","Nomor Manifest" ,"Nomor Resi", "Nomor Segel", "Nama Penerima", "Nama Pengirim", "Jenis Barang", "Colly", "Volume", "Nomor Container"];
     }
 }
