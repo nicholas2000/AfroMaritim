@@ -42,6 +42,14 @@ class depoController extends Controller
 
     public function doAddDepo(Request $req)
     {
+        $req->validate(
+            [
+                "noresi" => 'required',
+            ],
+            [
+                "noresi.required" => "Nomor Resi harus di isi",
+            ]
+            );
         $trans = Transaksi::withTrashed()->get();
         $ctr = 1;
         foreach($trans as $c){

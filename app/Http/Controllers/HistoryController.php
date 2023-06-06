@@ -34,6 +34,16 @@ class HistoryController extends Controller
     }
     public function updatehistory(Request $request)
     {
+        $request->validate(
+            [
+                "nama_kapal" => 'required',
+                "nomor_segel" => 'required',
+            ],
+            [
+                "nama_kapal.required" => "Nama Kapal harus di isi",
+                "nomor_segel.required" => "Nomor Segel harus di isi",
+            ]
+            );
         $data = json_decode($request->data);
         foreach ($data as $prm) {
             Transaksi::where('nomor_resi',$prm)->update([

@@ -56,6 +56,7 @@ class TransaksiController extends Controller
     {
         $req->validate(
             [
+                "nomor_resi" => 'required',
                 "nama_pengirim" => 'required',
                 "alamat_pengirim" => 'required',
                 "nohp_pengirim" => 'required',
@@ -73,6 +74,7 @@ class TransaksiController extends Controller
                 "tglberangkat" => 'required',
             ],
             [
+                "nomor_resi.required" => 'Nama Pengirim Harus diisi',
                 "nama_pengirim.required" => 'Nama Pengirim Harus diisi',
                 "alamat_pengirim.required" => 'Alamat Pengirim Harus diisi',
                 "nohp_pengirim.required" => 'No HP Pengirim Harus diisi',

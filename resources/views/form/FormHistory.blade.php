@@ -123,6 +123,11 @@
 <section class="order-form m-4">
     <div class="container pt-4">
         <div class="container">
+            @if ($errors->any())
+    @foreach ($errors->all() as $err)
+        <div class="alert alert-danger">{{ $err }}</div>
+    @endforeach
+@endif
             <div class="row ">
                 <div class="col-sm-5 form-group">
                     <div class="input-group">
