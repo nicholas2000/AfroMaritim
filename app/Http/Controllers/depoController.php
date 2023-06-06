@@ -45,9 +45,11 @@ class depoController extends Controller
         $req->validate(
             [
                 "noresi" => 'required',
+                'tglmasuk' => 'required',
             ],
             [
                 "noresi.required" => "Nomor Resi harus di isi",
+                "tglmasuk.required" => "Tanggal Masuk harus di isi",
             ]
             );
         $trans = Transaksi::withTrashed()->get();

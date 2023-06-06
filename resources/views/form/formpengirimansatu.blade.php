@@ -37,6 +37,11 @@
 <section class="ophp artisan route:clearrder-form m-4">
     <div class="container pt-4">
         <div class="container">
+            @if (session('alert'))
+    <div class="alert alert-danger">
+        {{ session('alert') }}
+    </div>
+@endif
             <h1> Bongkar Kontainer </h1>
             <div class="row ">
                 <input type="hidden" name="data">
@@ -131,6 +136,9 @@
                             </th>
                             <th scope="col">
                                 <center>Sudah Kirim</center>
+                            </th>
+                            <th scope="col">
+                                <center>Status</center>
                             </th>
                         </tr>
                         {{--

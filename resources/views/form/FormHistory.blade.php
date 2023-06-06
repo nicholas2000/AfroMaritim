@@ -128,6 +128,11 @@
         <div class="alert alert-danger">{{ $err }}</div>
     @endforeach
 @endif
+@if (session('alert'))
+    <div class="alert alert-danger">
+        {{ session('alert') }}
+    </div>
+@endif
             <div class="row ">
                 <div class="col-sm-5 form-group">
                     <div class="input-group">

@@ -93,8 +93,8 @@
                         <td scope="col"><center>' . $res["nama_pengirim"] . '</center></td>
                         <td scope="col"><center>' . $res["jumlah_barang"] . '</center></td>
                         <td scope="col"><center>' . $res["kurir"] . '</center></td>
-                        <td><input type="checkbox" value="' . $res["nomor_resi"] . '" onclick="myFunction(this)"></td>
-                        <td><input type="checkbox" value="' . $res["nomor_resi"] . '" onclick="myFunction(this)"></td>
+                        <td><center><input type="checkbox" value="' . $res["nomor_resi"] . '" onclick="myFunction(this)"></center></td>
+                        <td><center><input type="checkbox" value="' . $res["nomor_resi"] . '" onclick="myFunction(this)"></center></td>
                     </tr>
                 ';
                 $ctr++;

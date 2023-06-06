@@ -38,9 +38,13 @@
 <section class="order-form m-4">
     <div class="container pt-4">
         <div class="container">
+            @if (session('alert'))
+    <div class="alert alert-danger">
+        {{ session('alert') }}
+    </div>
+@endif
             <h1> Kapal Tiba </h1>
             <div class="row ">
-
                 <div class="col-md-12 form-group">
                     <div class="ps">
 

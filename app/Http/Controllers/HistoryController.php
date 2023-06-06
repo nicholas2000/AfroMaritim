@@ -36,30 +36,35 @@ class HistoryController extends Controller
     {
         $request->validate(
             [
-                "nama_kapal" => 'required',
+                "nkapal" => 'required',
                 "nomor_segel" => 'required',
             ],
             [
-                "nama_kapal.required" => "Nama Kapal harus di isi",
+                "nkapal.required" => "Nama Kapal harus di isi",
                 "nomor_segel.required" => "Nomor Segel harus di isi",
             ]
             );
         $data = json_decode($request->data);
-        foreach ($data as $prm) {
-            Transaksi::where('nomor_resi',$prm)->update([
-                // 'nomor_manifest' => $request->nmanifest,
-                // 'nomor_container'=> $request->ncontainer,
-                'nama_kapal'=> $request->nkapal,
-                'nomor_segel'=> $request->nomor_segel
-            ]);
-            $data_user_login=$request->session()->get("user_now");
-            LogUserModel::create([
-                "berita"=>$data_user_login["nama_pegawai"]." Berhasil update nomor kapal ".$request->nkapal,
-                "status"=>"0",
-            ]);
+        if($data===null){
+            return redirect('/masterHistory')->with('alert', 'Belom ada data yang dipilih!');
+        }else{
+            foreach ($data as $prm) {
+                Transaksi::where('nomor_resi',$prm)->update([
+                    // 'nomor_manifest' => $request->nmanifest,
+                    // 'nomor_container'=> $request->ncontainer,
+                    'nama_kapal'=> $request->nkapal,
+                    'nomor_segel'=> $request->nomor_segel
+                ]);
+                $data_user_login=$request->session()->get("user_now");
+                LogUserModel::create([
+                    "berita"=>$data_user_login["nama_pegawai"]." Berhasil update nomor kapal ".$request->nkapal,
+                    "status"=>"0",
+                ]);
+            }
+
+            return redirect('/masterHistory');
         }
 
-        return redirect('/masterHistory');
     }
     public function doEdit(Request $req){
         $depo = Transaksi::withTrashed()->find($req->nomor_resi);

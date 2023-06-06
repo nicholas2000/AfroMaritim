@@ -162,14 +162,14 @@
                         <div class="col-sm-12 col-md-6 form-group"></div>
                         <div class="col-sm-12 col-md-6 form-group">
                             <div class="ps ">
-                                <div class="col-md-8">No Resi</div>
+                                <div class="col-md-8">No Resi*</div>
                                 <div>:</div>
                                 <div class="col-md-2"><input name="noresi" type='text' >
                                 </div>
                             </div>
                             <br>
                             <div class="ps">
-                                <div class="col-md-8">Tanggal Masuk</div>
+                                <div class="col-md-8">Tanggal Masuk*</div>
                                 <div>:</div>
                                 <div class="col-md-2" ><input style="width:185px;"  name="tglmasuk" type="date" data-date-format="DD/MON/YYYY">
                                 </div>
