@@ -165,9 +165,7 @@
                                     <center><input type="checkbox" value="{{ $prm->nomor_resi }}"
                                             onclick="myFunction(this)"></center>
                                 </th>
-
                             </tr>
-
                         @endforeach
                         </div> --}}
                         <tbody id="list_transaksi">
@@ -192,6 +190,14 @@
             success: function(data) {
                 $('#list_transaksi').html("");
                 $('#list_transaksi').append(data);
+                var jArray = <?php echo json_encode($arrHistory); ?>;
+                for (var i = 0; i < jArray.length; i++) {
+                    if (jArray[i]['status_barang'] == "1") {
+                        document.getElementById("ctr" + (i+1).toString()).checked = true;
+                    } else if (jArray[i]['status_barang'] == "0"){
+                        document.getElementById("ctr" + (i+1).toString()).checked = false;
+                    }
+                }
             }
         })
     });
@@ -215,7 +221,6 @@
     var data2 = [];
 
     function myFunction(x) {
-        console.log("asd");
         if (x.checked == true) {
             data2.push(x.value);
 
@@ -226,6 +231,36 @@
         $("[name='barang']").val(data2.length);
         $("[name='data']").val(JSON.stringify(data2));
         console.log(data2);
+    }
+
+    function myFunction2(x) {
+        if (x.checked == true) {
+            console.log("Sudah terkirim",x.value);
+            $.ajax({
+                url: "autocomplete.php",
+                method: "POST",
+                data: {
+                    query: x.value,
+                    ctr: "AccStatusPengiriman"
+                },
+                success: function(data) {
+
+                }
+            });
+        } else {
+            console.log("Belum terkirim");
+            $.ajax({
+                url: "autocomplete.php",
+                method: "POST",
+                data: {
+                    query: x.value,
+                    ctr: "DeclineStatusPengiriman"
+                },
+                success: function(data) {
+
+                }
+            });
+        }
     }
 
     function onlyNumberKey(evt) {

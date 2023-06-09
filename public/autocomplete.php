@@ -94,8 +94,13 @@
                         <td scope="col"><center>' . $res["jumlah_barang"] . '</center></td>
                         <td scope="col"><center>' . $res["kurir"] . '</center></td>
                         <td><center><input type="checkbox" value="' . $res["nomor_resi"] . '" onclick="myFunction(this)"></center></td>
-                        <td><center><input type="checkbox" value="' . $res["nomor_resi"] . '" onclick="myFunction(this)"></center></td>
-                    </tr>
+                        <td><center><input id="ctr'.$ctr.'" type="checkbox" value="' . $res["nomor_resi"] . '" onclick="myFunction2(this); window.location.reload();"></center></td>
+                        ';
+                        if ( $res["status_barang"]  == "1")
+                            $output .= '<td>Diterima</td>';
+                        else
+                            $output .= '<td>Ditolak</td>';
+                    $output.='</tr>
                 ';
                 $ctr++;
             }
@@ -122,6 +127,18 @@
                 $ctr++;
             }
             echo $output;
+        }
+    }
+    else if ($_REQUEST["ctr"] == "AccStatusPengiriman") {
+        if (isset($_POST["query"])) {
+            $query = "UPDATE transaksi SET status_barang = 1 WHERE nomor_resi='".$_POST["query"]."'";
+            $result = mysqli_query($connect, $query);
+        }
+    }
+    else if ($_REQUEST["ctr"] == "DeclineStatusPengiriman") {
+        if (isset($_POST["query"])) {
+            $query = "UPDATE transaksi SET status_barang = 0 WHERE nomor_resi='".$_POST["query"]."'";
+            $result = mysqli_query($connect, $query);
         }
     }
     // else if($_REQUEST["ctr"]=="Fhistory"){
