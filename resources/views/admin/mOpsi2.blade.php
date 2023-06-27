@@ -66,16 +66,16 @@
                         <li><a href="{{ url('/masterPegawai') }}">Master Pegawai</a></li>
                         <li><a href="{{ url('/masterCustomer') }}">Master Customer</a></li>
                         <li><a href="{{ url('/masterKompetitor') }}">Master Kompetitor</a></li>
-                        <li><a href="{{ url('/masterJenisharga') }}">Master Jenis Harga</a></li>
-                        <li style="margin-bottom: 5px;"><a
-                                href="{{ url('/masterContainer') }}"class="dashboard-nav-dropdown-item">Rekap Kontainer</a></li>
+                        <li style="margin-bottom: 5px"><a href="{{ url('/masterJenisharga') }}">Master Jenis Harga</a></li>
+
                     </ul>
                 </li>
                 <li class="dropdown">
                     <a href="" class="dropdown-toggle" data-toggle="dropdown"><i
                             class="fas fa-exchange-alt"></i>Transaksi </a>
                     <ul class="dropdown-menu animated fadeInLeft" role="menu">
-                        <li style="margin-top:5px;"><a href="{{ url('/depo') }}">Manifest Depo</a></li>
+                        <li style="margin-top:5px;"><a href="{{ url('/masterContainer') }}">Rekap Container</a></li>
+                        <li style=""><a href="{{ url('/depo') }}"class="dashboard-nav-dropdown-item">Manifest Depo</a></li>
                         <li><a href="{{ url('/masterTransaksi') }}">Manifest Kontainer</a></li>
                         <li><a href="{{ url('/masterHistory') }}">Loading Kapal</a></li>
                         <li><a href="{{ url('/masterStatus') }}">Kapal Tiba</a></li>

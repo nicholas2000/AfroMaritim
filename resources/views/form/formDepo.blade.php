@@ -225,7 +225,7 @@
                             </div>
                             <br>
                             <div class="ps ">
-                                <div class="col-md-8">Muatan Akhir</div>
+                                <div class="col-md-8">Closing</div>
                                 <div>:</div>
                                 <div class="col-md-6">
                                     <input type="radio" name="final" id="" value="yes">  Yes
@@ -278,7 +278,6 @@
 
                         @foreach ($Transaksi as $prm)
                         <tr>
-
 
                             <th scope="col">
                                 <center>{{ $prm->tanggal}}</center>

@@ -29,9 +29,13 @@
                     <div class="col-md-10 inputGroupContainer">
                         <div class="input-group">
                             <span style="border-radius: 10%;text-align: center;background-color: #023e94;width: 5%;padding-top: 1%;" class="input-group-addon"><i style="color: white"
-                                    class="fa fa-money"></i></span>
-                            <input name="namacon"
-                                placeholder="Masukkan Nama Container" class="form-control" type="text">
+                                    class="fa fa-cog"></i></span>
+                            <select name="namacon" style="height:35px" class="form-control selectpicker">
+                                <option value="">Pilih Container</option>
+                                <option>Tb</option>
+                                <option>Dms</option>
+
+                            </select>
                         </div>
                     </div>
                 </div>
